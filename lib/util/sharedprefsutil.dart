@@ -136,7 +136,7 @@ class SharedPrefsUtil {
   ThemeSetting getTheme() {
     return ThemeSetting(ThemeOptions.values.byName(get(
       cur_theme,
-      defaultValue: ThemeOptions.KASPIUM_DARK.name,
+      defaultValue: ThemeOptions.KARLSIUM_DARK.name,
     )));
   }
 

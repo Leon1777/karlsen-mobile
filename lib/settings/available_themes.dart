@@ -5,8 +5,8 @@ import '../themes/themes.dart';
 import 'setting_item.dart';
 
 enum ThemeOptions {
-  KASPIUM_DARK,
-  KASPIUM_LIGHT,
+  KARLSIUM_DARK,
+  KARLSIUM_LIGHT,
 }
 
 class ThemeSetting extends SettingSelectionItem {
@@ -18,18 +18,18 @@ class ThemeSetting extends SettingSelectionItem {
     final l10n = l10nOf(context);
 
     switch (theme) {
-      case ThemeOptions.KASPIUM_LIGHT:
+      case ThemeOptions.KARLSIUM_LIGHT:
         return l10n.themeLight;
-      case ThemeOptions.KASPIUM_DARK:
+      case ThemeOptions.KARLSIUM_DARK:
         return l10n.themeDark;
     }
   }
 
   BaseTheme getTheme() {
     switch (theme) {
-      case ThemeOptions.KASPIUM_LIGHT:
+      case ThemeOptions.KARLSIUM_LIGHT:
         return KarlsiumLightTheme();
-      case ThemeOptions.KASPIUM_DARK:
+      case ThemeOptions.KARLSIUM_DARK:
         return KarlsiumDarkTheme();
     }
   }
