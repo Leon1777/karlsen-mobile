@@ -1,12 +1,12 @@
 import 'contact.dart';
 
 const kKaspaDevFundAddress =
-    'kaspa:precqv0krj3r6uyyfa36ga7s0u9jct0v4wg8ctsfde2gkrsgwgw8jgxfzfc98';
+    'karlsen:qqe3p64wpjf5y27kxppxrgks298ge6lhu6ws7ndx4tswzj7c84qkjlrspcuxw';
 
 final labeledAddresses = Map.fromEntries(
   const [
     Contact(
-      name: '#KaspaDevFund',
+      name: '#KarlsenDevelopers',
       address: kKaspaDevFundAddress,
     ),
   ].map((e) => MapEntry(e.address, e)),
