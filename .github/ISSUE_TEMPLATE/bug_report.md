@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report to help improve kaspium_wallet
+about: Create a report to help improve Karlsium
 title: ''
 labels: ''
 assignees: ''
@@ -26,7 +26,7 @@ If applicable, add screenshots to help explain your problem.
 **Desktop (please complete the following information):**
  - OS and version: [e.g. Android 13]
  - Device: [e.g. Galaxy S20]
- - kaspium_wallet version: [e.g. 0.2.0]
+ - Karlsium version: [e.g. 0.2.0]
 
 **Additional context**
 Add any other context about the problem here.
