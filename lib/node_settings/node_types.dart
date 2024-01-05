@@ -9,7 +9,7 @@ part 'node_types.freezed.dart';
 part 'node_types.g.dart';
 
 const mainnetNodeConfig = NodeConfig(
-  id: '467af0cb-055c-4d32-8d29-123506c7ed6e',
+  id: '667bba70-95bb-4f6d-a21a-c62fc5a4d54f',
   name: 'Karlsium Official',
   urls: ['node.karlsennetwork.com'],
   isSecure: true,
