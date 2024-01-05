@@ -1,4 +1,4 @@
-package io.kaspium.kaspiumwallet
+package io.karlsium.karlsiumwallet
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 

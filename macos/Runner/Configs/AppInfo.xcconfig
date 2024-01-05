@@ -5,10 +5,10 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = kaspium_wallet
+PRODUCT_NAME = karlsium
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = io.kaspium.kaspiumWallet
+PRODUCT_BUNDLE_IDENTIFIER = io.karlsium.karlsiumWallet
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2023 io.kaspium. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2024 Karlsen Network. All rights reserved.

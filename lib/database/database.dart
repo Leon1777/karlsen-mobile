@@ -72,7 +72,7 @@ class Database {
 
   static bool _isInitialized = false;
   static Future<void> _initHive() async {
-    await Hive.initFlutter('kaspium_wallet');
+    await Hive.initFlutter('karlsium');
 
     Hive.registerAdapter(walletAddressAdapter);
     Hive.registerAdapter(addressBalanceAdapter);
@@ -114,7 +114,7 @@ class Database {
   }
 
   Future<void> _init() async {
-    await Hive.initFlutter('kaspium_wallet');
+    await Hive.initFlutter('karlsium');
 
     const kContactsBoxId = '_contactsBox';
     const kSettingsBoxId = '_settingsBox';
