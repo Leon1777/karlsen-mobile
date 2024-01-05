@@ -88,7 +88,7 @@
 			<string>io.karlsium.karlsiumwallet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kaspa</string>
+				<string>karlsen</string>
 			</array>
 		</dict>
 		<dict>
@@ -98,7 +98,7 @@
 			<string>io.karlsium.karlsiumwallet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kaspatest</string>
+				<string>karlsentest</string>
 			</array>
 		</dict>
 		<dict>
@@ -108,7 +108,7 @@
 			<string>io.karlsium.karlsiumwallet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kaspadev</string>
+				<string>karlsendev</string>
 			</array>
 		</dict>
 		<dict>
@@ -118,7 +118,7 @@
 			<string>io.karlsium.karlsiumwallet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kaspasim</string>
+				<string>karlsensim</string>
 			</array>
 		</dict>
 	</array>

@@ -53,19 +53,19 @@ KaspaNetwork networkForKpub(String kpub) {
 NetworkType networkTypeForNetwork(KaspaNetwork network) {
   switch (network) {
     case KaspaNetwork.mainnet:
-      return kaspaMainnet;
+      return karlsenMainnet;
     case KaspaNetwork.testnet:
-      return kaspaTestnet;
+      return karlsenTestnet;
     case KaspaNetwork.devnet:
-      return kaspaDevnet;
+      return karlsenDevnet;
     case KaspaNetwork.simnet:
-      return kaspaSimnet;
+      return karlsenSimnet;
   }
 }
 
 final kaspaMainnet = NetworkType(
   messagePrefix: 'Kaspa Signed Message:\n',
-  bech32: 'kaspa',
+  bech32: 'karlsen',
   bip32: Bip32Type(
     public: 0x038f332e,
     private: 0x038f2ef4,
@@ -78,7 +78,7 @@ final kaspaMainnet = NetworkType(
 
 final kaspaTestnet = NetworkType(
   messagePrefix: 'Kaspa Signed Message:\n',
-  bech32: 'kaspatest',
+  bech32: 'karlsentest',
   wif: 0xef,
   bip32: Bip32Type(
     public: 0x0390a241,
@@ -91,7 +91,7 @@ final kaspaTestnet = NetworkType(
 
 final kaspaSimnet = NetworkType(
   messagePrefix: 'Kaspa Signed Message:\n',
-  bech32: 'kaspasim',
+  bech32: 'karlsensim',
   wif: 0x64,
   bip32: Bip32Type(
     public: 0x0390467d,
@@ -104,7 +104,7 @@ final kaspaSimnet = NetworkType(
 
 final kaspaDevnet = NetworkType(
   messagePrefix: 'Kaspa Signed Message:\n',
-  bech32: 'kaspadev',
+  bech32: 'karlsendev',
   wif: 0xef,
   bip32: Bip32Type(
     public: 0x038b41ba,
