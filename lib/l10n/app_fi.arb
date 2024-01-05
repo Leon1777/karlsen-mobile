@@ -114,7 +114,7 @@
   "invalidDestinationAddress": "Vastaanottajan osoite on virheellinen",
   "invalidPassword": "Virheellinen salasana",
   "kaspaDevFund": "Kaspan kehitysvarat",
-  "kaspiumWallet": "Kaspium-lompakko",
+  "karlsiumWallet": "Kaspium-lompakko",
   "language": "Kieli",
   "loadingTransactions": "Ladataan tapahtumia...",
   "lockAppSetting": "Tunnistaudu käynnistettäessä",
