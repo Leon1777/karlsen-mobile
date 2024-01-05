@@ -23,7 +23,7 @@ class VoidKaspaClient extends KaspaClient {
       : super(
           channel: ClientChannel(
             'localhost',
-            port: 16210,
+            port: 42210,
             options: ChannelOptions(
               credentials: ChannelCredentials.insecure(),
             ),
