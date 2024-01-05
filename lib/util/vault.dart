@@ -3,8 +3,8 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../util/random_util.dart';
 
 class Vault {
-  static const _pinKey = 'fkaspium_pin';
-  static const _sessionKey = 'fkaspium_session';
+  static const _pinKey = 'fkarlsium_pin';
+  static const _sessionKey = 'fkarlsium_session';
   static const _dbKey = 'aa721440b4f52bca';
 
   final _secureStorage = const FlutterSecureStorage();

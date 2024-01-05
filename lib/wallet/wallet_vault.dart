@@ -1,8 +1,8 @@
 import '../util/kaspa_util.dart';
 import '../util/vault.dart';
 
-const _kMnemonicKey = 'kaspium_mnemonic_key';
-const _kSeedKey = 'kaspium_seed_key';
+const _kMnemonicKey = 'karlsium_mnemonic_key';
+const _kSeedKey = 'karlsium_seed_key';
 
 class WalletVault {
   final Vault vault;

@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 import 'base_theme.dart';
 
-class KaspiumLightTheme extends BaseTheme {
+class KarlsiumLightTheme extends BaseTheme {
   //static const deepBlue = Color(0xFF009688);
   static const deepBlue = Color(0xFF6FC0B3);
 

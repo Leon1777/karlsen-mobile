@@ -10,7 +10,7 @@ part 'node_types.g.dart';
 
 const mainnetNodeConfig = NodeConfig(
   id: '467af0cb-055c-4d32-8d29-123506c7ed6e',
-  name: 'Kaspium Official',
+  name: 'Karlsium Official',
   urls: ['node.karlsennetwork.com'],
   isSecure: true,
   network: KaspaNetwork.mainnet,

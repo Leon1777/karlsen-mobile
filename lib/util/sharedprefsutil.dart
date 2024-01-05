@@ -17,15 +17,15 @@ class SharedPrefsUtil {
   SharedPrefsUtil(this.sharedPrefs);
 
   // Keys
-  static const String first_launch_key = 'fkaspium_first_launch';
-  static const String auth_method = 'fkaspium_auth_method';
-  static const String cur_currency = 'fkaspium_currency_pref';
-  static const String cur_language = 'fkaspium_language_pref';
-  static const String cur_theme = 'fkaspium_theme_pref';
-  static const String firstcontact_added = 'fkaspium_first_contact_added';
+  static const String first_launch_key = 'fkarlsium_first_launch';
+  static const String auth_method = 'fkarlsium_auth_method';
+  static const String cur_currency = 'fkarlsium_currency_pref';
+  static const String cur_language = 'fkarlsium_language_pref';
+  static const String cur_theme = 'fkarlsium_theme_pref';
+  static const String firstcontact_added = 'fkarlsium_first_contact_added';
   // If user has seen the root/jailbreak warning yet
-  static const String has_shown_root_warning = 'fkaspium_root_warn';
-  static const String notice_shown = 'fkaspium_notice_shown';
+  static const String has_shown_root_warning = 'fkarlsium_root_warn';
+  static const String notice_shown = 'fkarlsium_notice_shown';
 
   // For plain-text data
   Future<bool> set<T>(String key, T value) async {
