@@ -152,11 +152,11 @@ class _AppTransferConfirmSheetState extends State<AppTransferConfirmSheet> {
   //   String? seed;
   //   if (encryptedSecret != null) {
   //     final sessionKey = await vault.getSessionKey();
-  //     seed = ViteUtil.decryptHex(encryptedSecret, sessionKey);
+  //     seed = KarlsenUtil.decryptHex(encryptedSecret, sessionKey);
   //   } else {
   //     seed = await vault.getSeed();
   //   }
-  //   return ViteUtil.seedToPrivate(seed!, index);
+  //   return KarlsenUtil.seedToPrivate(seed!, index);
   // }
 
   Future<void> processWallets() async {

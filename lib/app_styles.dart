@@ -343,7 +343,7 @@ class AppStyles {
   late final textStyleTransactionAmountMedium =
       textStyleTransactionAmount.copyWith(fontSize: AppFontSizes.medium);
 
-  // Unit (e.g. VITE)
+  // Unit (e.g. KLS)
   TextStyle get textStyleTransactionUnit {
     return TextStyle(
       fontFamily: kDefaultFontFamily,

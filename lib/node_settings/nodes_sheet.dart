@@ -33,8 +33,8 @@ class ListViewEndItem extends ConsumerWidget {
   }
 }
 
-class ViteNodesSheet extends ConsumerWidget {
-  const ViteNodesSheet({Key? key}) : super(key: key);
+class KarlsenNodesSheet extends ConsumerWidget {
+  const KarlsenNodesSheet({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

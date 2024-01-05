@@ -70,7 +70,7 @@ class TxWelcomeCard extends ConsumerWidget {
         style: styles.textStyleTransactionWelcome,
       );
     }
-    // Colorize Vite
+    // Colorize Karlsen
     List<String> splitStr = workingStr.split('KASPA');
     if (splitStr.length != 2) {
       return TextSpan(
