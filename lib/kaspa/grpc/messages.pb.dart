@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: messages.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,7 +16,7 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import 'p2p.pb.dart' as $1;
 import 'rpc.pb.dart' as $2;
 
-enum KaspadMessage_Payload {
+enum KarlsendMessage_Payload {
   addresses, 
   block, 
   transaction, 
@@ -146,277 +150,8 @@ enum KaspadMessage_Payload {
   notSet
 }
 
-class KaspadMessage extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, KaspadMessage_Payload> _KaspadMessage_PayloadByTag = {
-    1 : KaspadMessage_Payload.addresses,
-    2 : KaspadMessage_Payload.block,
-    3 : KaspadMessage_Payload.transaction,
-    5 : KaspadMessage_Payload.blockLocator,
-    6 : KaspadMessage_Payload.requestAddresses,
-    10 : KaspadMessage_Payload.requestRelayBlocks,
-    12 : KaspadMessage_Payload.requestTransactions,
-    13 : KaspadMessage_Payload.ibdBlock,
-    14 : KaspadMessage_Payload.invRelayBlock,
-    15 : KaspadMessage_Payload.invTransactions,
-    16 : KaspadMessage_Payload.ping,
-    17 : KaspadMessage_Payload.pong,
-    19 : KaspadMessage_Payload.verack,
-    20 : KaspadMessage_Payload.version,
-    21 : KaspadMessage_Payload.transactionNotFound,
-    22 : KaspadMessage_Payload.reject,
-    25 : KaspadMessage_Payload.pruningPointUtxoSetChunk,
-    26 : KaspadMessage_Payload.requestIBDBlocks,
-    27 : KaspadMessage_Payload.unexpectedPruningPoint,
-    30 : KaspadMessage_Payload.ibdBlockLocator,
-    31 : KaspadMessage_Payload.ibdBlockLocatorHighestHash,
-    33 : KaspadMessage_Payload.requestNextPruningPointUtxoSetChunk,
-    34 : KaspadMessage_Payload.donePruningPointUtxoSetChunks,
-    35 : KaspadMessage_Payload.ibdBlockLocatorHighestHashNotFound,
-    36 : KaspadMessage_Payload.blockWithTrustedData,
-    37 : KaspadMessage_Payload.doneBlocksWithTrustedData,
-    40 : KaspadMessage_Payload.requestPruningPointAndItsAnticone,
-    41 : KaspadMessage_Payload.blockHeaders,
-    42 : KaspadMessage_Payload.requestNextHeaders,
-    43 : KaspadMessage_Payload.doneHeaders,
-    44 : KaspadMessage_Payload.requestPruningPointUTXOSet,
-    45 : KaspadMessage_Payload.requestHeaders,
-    46 : KaspadMessage_Payload.requestBlockLocator,
-    47 : KaspadMessage_Payload.pruningPoints,
-    48 : KaspadMessage_Payload.requestPruningPointProof,
-    49 : KaspadMessage_Payload.pruningPointProof,
-    50 : KaspadMessage_Payload.ready,
-    51 : KaspadMessage_Payload.blockWithTrustedDataV4,
-    52 : KaspadMessage_Payload.trustedData,
-    53 : KaspadMessage_Payload.requestIBDChainBlockLocator,
-    54 : KaspadMessage_Payload.ibdChainBlockLocator,
-    55 : KaspadMessage_Payload.requestAnticone,
-    56 : KaspadMessage_Payload.requestNextPruningPointAndItsAnticoneBlocks,
-    1001 : KaspadMessage_Payload.getCurrentNetworkRequest,
-    1002 : KaspadMessage_Payload.getCurrentNetworkResponse,
-    1003 : KaspadMessage_Payload.submitBlockRequest,
-    1004 : KaspadMessage_Payload.submitBlockResponse,
-    1005 : KaspadMessage_Payload.getBlockTemplateRequest,
-    1006 : KaspadMessage_Payload.getBlockTemplateResponse,
-    1007 : KaspadMessage_Payload.notifyBlockAddedRequest,
-    1008 : KaspadMessage_Payload.notifyBlockAddedResponse,
-    1009 : KaspadMessage_Payload.blockAddedNotification,
-    1010 : KaspadMessage_Payload.getPeerAddressesRequest,
-    1011 : KaspadMessage_Payload.getPeerAddressesResponse,
-    1012 : KaspadMessage_Payload.getSelectedTipHashRequest,
-    1013 : KaspadMessage_Payload.getSelectedTipHashResponse,
-    1014 : KaspadMessage_Payload.getMempoolEntryRequest,
-    1015 : KaspadMessage_Payload.getMempoolEntryResponse,
-    1016 : KaspadMessage_Payload.getConnectedPeerInfoRequest,
-    1017 : KaspadMessage_Payload.getConnectedPeerInfoResponse,
-    1018 : KaspadMessage_Payload.addPeerRequest,
-    1019 : KaspadMessage_Payload.addPeerResponse,
-    1020 : KaspadMessage_Payload.submitTransactionRequest,
-    1021 : KaspadMessage_Payload.submitTransactionResponse,
-    1022 : KaspadMessage_Payload.notifyVirtualSelectedParentChainChangedRequest,
-    1023 : KaspadMessage_Payload.notifyVirtualSelectedParentChainChangedResponse,
-    1024 : KaspadMessage_Payload.virtualSelectedParentChainChangedNotification,
-    1025 : KaspadMessage_Payload.getBlockRequest,
-    1026 : KaspadMessage_Payload.getBlockResponse,
-    1027 : KaspadMessage_Payload.getSubnetworkRequest,
-    1028 : KaspadMessage_Payload.getSubnetworkResponse,
-    1029 : KaspadMessage_Payload.getVirtualSelectedParentChainFromBlockRequest,
-    1030 : KaspadMessage_Payload.getVirtualSelectedParentChainFromBlockResponse,
-    1031 : KaspadMessage_Payload.getBlocksRequest,
-    1032 : KaspadMessage_Payload.getBlocksResponse,
-    1033 : KaspadMessage_Payload.getBlockCountRequest,
-    1034 : KaspadMessage_Payload.getBlockCountResponse,
-    1035 : KaspadMessage_Payload.getBlockDagInfoRequest,
-    1036 : KaspadMessage_Payload.getBlockDagInfoResponse,
-    1037 : KaspadMessage_Payload.resolveFinalityConflictRequest,
-    1038 : KaspadMessage_Payload.resolveFinalityConflictResponse,
-    1039 : KaspadMessage_Payload.notifyFinalityConflictsRequest,
-    1040 : KaspadMessage_Payload.notifyFinalityConflictsResponse,
-    1041 : KaspadMessage_Payload.finalityConflictNotification,
-    1042 : KaspadMessage_Payload.finalityConflictResolvedNotification,
-    1043 : KaspadMessage_Payload.getMempoolEntriesRequest,
-    1044 : KaspadMessage_Payload.getMempoolEntriesResponse,
-    1045 : KaspadMessage_Payload.shutDownRequest,
-    1046 : KaspadMessage_Payload.shutDownResponse,
-    1047 : KaspadMessage_Payload.getHeadersRequest,
-    1048 : KaspadMessage_Payload.getHeadersResponse,
-    1049 : KaspadMessage_Payload.notifyUtxosChangedRequest,
-    1050 : KaspadMessage_Payload.notifyUtxosChangedResponse,
-    1051 : KaspadMessage_Payload.utxosChangedNotification,
-    1052 : KaspadMessage_Payload.getUtxosByAddressesRequest,
-    1053 : KaspadMessage_Payload.getUtxosByAddressesResponse,
-    1054 : KaspadMessage_Payload.getVirtualSelectedParentBlueScoreRequest,
-    1055 : KaspadMessage_Payload.getVirtualSelectedParentBlueScoreResponse,
-    1056 : KaspadMessage_Payload.notifyVirtualSelectedParentBlueScoreChangedRequest,
-    1057 : KaspadMessage_Payload.notifyVirtualSelectedParentBlueScoreChangedResponse,
-    1058 : KaspadMessage_Payload.virtualSelectedParentBlueScoreChangedNotification,
-    1059 : KaspadMessage_Payload.banRequest,
-    1060 : KaspadMessage_Payload.banResponse,
-    1061 : KaspadMessage_Payload.unbanRequest,
-    1062 : KaspadMessage_Payload.unbanResponse,
-    1063 : KaspadMessage_Payload.getInfoRequest,
-    1064 : KaspadMessage_Payload.getInfoResponse,
-    1065 : KaspadMessage_Payload.stopNotifyingUtxosChangedRequest,
-    1066 : KaspadMessage_Payload.stopNotifyingUtxosChangedResponse,
-    1067 : KaspadMessage_Payload.notifyPruningPointUTXOSetOverrideRequest,
-    1068 : KaspadMessage_Payload.notifyPruningPointUTXOSetOverrideResponse,
-    1069 : KaspadMessage_Payload.pruningPointUTXOSetOverrideNotification,
-    1070 : KaspadMessage_Payload.stopNotifyingPruningPointUTXOSetOverrideRequest,
-    1071 : KaspadMessage_Payload.stopNotifyingPruningPointUTXOSetOverrideResponse,
-    1072 : KaspadMessage_Payload.estimateNetworkHashesPerSecondRequest,
-    1073 : KaspadMessage_Payload.estimateNetworkHashesPerSecondResponse,
-    1074 : KaspadMessage_Payload.notifyVirtualDaaScoreChangedRequest,
-    1075 : KaspadMessage_Payload.notifyVirtualDaaScoreChangedResponse,
-    1076 : KaspadMessage_Payload.virtualDaaScoreChangedNotification,
-    1077 : KaspadMessage_Payload.getBalanceByAddressRequest,
-    1078 : KaspadMessage_Payload.getBalanceByAddressResponse,
-    1079 : KaspadMessage_Payload.getBalancesByAddressesRequest,
-    1080 : KaspadMessage_Payload.getBalancesByAddressesResponse,
-    1081 : KaspadMessage_Payload.notifyNewBlockTemplateRequest,
-    1082 : KaspadMessage_Payload.notifyNewBlockTemplateResponse,
-    1083 : KaspadMessage_Payload.newBlockTemplateNotification,
-    1084 : KaspadMessage_Payload.getMempoolEntriesByAddressesRequest,
-    1085 : KaspadMessage_Payload.getMempoolEntriesByAddressesResponse,
-    1086 : KaspadMessage_Payload.getCoinSupplyRequest,
-    1087 : KaspadMessage_Payload.getCoinSupplyResponse,
-    0 : KaspadMessage_Payload.notSet
-  };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KaspadMessage', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protowire'), createEmptyInstance: create)
-    ..oo(0, [1, 2, 3, 5, 6, 10, 12, 13, 14, 15, 16, 17, 19, 20, 21, 22, 25, 26, 27, 30, 31, 33, 34, 35, 36, 37, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 1030, 1031, 1032, 1033, 1034, 1035, 1036, 1037, 1038, 1039, 1040, 1041, 1042, 1043, 1044, 1045, 1046, 1047, 1048, 1049, 1050, 1051, 1052, 1053, 1054, 1055, 1056, 1057, 1058, 1059, 1060, 1061, 1062, 1063, 1064, 1065, 1066, 1067, 1068, 1069, 1070, 1071, 1072, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1086, 1087])
-    ..aOM<$1.AddressesMessage>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'addresses', subBuilder: $1.AddressesMessage.create)
-    ..aOM<$1.BlockMessage>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'block', subBuilder: $1.BlockMessage.create)
-    ..aOM<$1.TransactionMessage>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'transaction', subBuilder: $1.TransactionMessage.create)
-    ..aOM<$1.BlockLocatorMessage>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'blockLocator', protoName: 'blockLocator', subBuilder: $1.BlockLocatorMessage.create)
-    ..aOM<$1.RequestAddressesMessage>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requestAddresses', protoName: 'requestAddresses', subBuilder: $1.RequestAddressesMessage.create)
-    ..aOM<$1.RequestRelayBlocksMessage>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requestRelayBlocks', protoName: 'requestRelayBlocks', subBuilder: $1.RequestRelayBlocksMessage.create)
-    ..aOM<$1.RequestTransactionsMessage>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requestTransactions', protoName: 'requestTransactions', subBuilder: $1.RequestTransactionsMessage.create)
-    ..aOM<$1.BlockMessage>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ibdBlock', protoName: 'ibdBlock', subBuilder: $1.BlockMessage.create)
-    ..aOM<$1.InvRelayBlockMessage>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'invRelayBlock', protoName: 'invRelayBlock', subBuilder: $1.InvRelayBlockMessage.create)
-    ..aOM<$1.InvTransactionsMessage>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'invTransactions', protoName: 'invTransactions', subBuilder: $1.InvTransactionsMessage.create)
-    ..aOM<$1.PingMessage>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ping', subBuilder: $1.PingMessage.create)
-    ..aOM<$1.PongMessage>(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pong', subBuilder: $1.PongMessage.create)
-    ..aOM<$1.VerackMessage>(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'verack', subBuilder: $1.VerackMessage.create)
-    ..aOM<$1.VersionMessage>(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'version', subBuilder: $1.VersionMessage.create)
-    ..aOM<$1.TransactionNotFoundMessage>(21, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'transactionNotFound', protoName: 'transactionNotFound', subBuilder: $1.TransactionNotFoundMessage.create)
-    ..aOM<$1.RejectMessage>(22, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'reject', subBuilder: $1.RejectMessage.create)
-    ..aOM<$1.PruningPointUtxoSetChunkMessage>(25, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pruningPointUtxoSetChunk', protoName: 'pruningPointUtxoSetChunk', subBuilder: $1.PruningPointUtxoSetChunkMessage.create)
-    ..aOM<$1.RequestIBDBlocksMessage>(26, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requestIBDBlocks', protoName: 'requestIBDBlocks', subBuilder: $1.RequestIBDBlocksMessage.create)
-    ..aOM<$1.UnexpectedPruningPointMessage>(27, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unexpectedPruningPoint', protoName: 'unexpectedPruningPoint', subBuilder: $1.UnexpectedPruningPointMessage.create)
-    ..aOM<$1.IbdBlockLocatorMessage>(30, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ibdBlockLocator', protoName: 'ibdBlockLocator', subBuilder: $1.IbdBlockLocatorMessage.create)
-    ..aOM<$1.IbdBlockLocatorHighestHashMessage>(31, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ibdBlockLocatorHighestHash', protoName: 'ibdBlockLocatorHighestHash', subBuilder: $1.IbdBlockLocatorHighestHashMessage.create)
-    ..aOM<$1.RequestNextPruningPointUtxoSetChunkMessage>(33, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requestNextPruningPointUtxoSetChunk', protoName: 'requestNextPruningPointUtxoSetChunk', subBuilder: $1.RequestNextPruningPointUtxoSetChunkMessage.create)
-    ..aOM<$1.DonePruningPointUtxoSetChunksMessage>(34, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'donePruningPointUtxoSetChunks', protoName: 'donePruningPointUtxoSetChunks', subBuilder: $1.DonePruningPointUtxoSetChunksMessage.create)
-    ..aOM<$1.IbdBlockLocatorHighestHashNotFoundMessage>(35, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ibdBlockLocatorHighestHashNotFound', protoName: 'ibdBlockLocatorHighestHashNotFound', subBuilder: $1.IbdBlockLocatorHighestHashNotFoundMessage.create)
-    ..aOM<$1.BlockWithTrustedDataMessage>(36, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'blockWithTrustedData', protoName: 'blockWithTrustedData', subBuilder: $1.BlockWithTrustedDataMessage.create)
-    ..aOM<$1.DoneBlocksWithTrustedDataMessage>(37, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'doneBlocksWithTrustedData', protoName: 'doneBlocksWithTrustedData', subBuilder: $1.DoneBlocksWithTrustedDataMessage.create)
-    ..aOM<$1.RequestPruningPointAndItsAnticoneMessage>(40, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requestPruningPointAndItsAnticone', protoName: 'requestPruningPointAndItsAnticone', subBuilder: $1.RequestPruningPointAndItsAnticoneMessage.create)
-    ..aOM<$1.BlockHeadersMessage>(41, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'blockHeaders', protoName: 'blockHeaders', subBuilder: $1.BlockHeadersMessage.create)
-    ..aOM<$1.RequestNextHeadersMessage>(42, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requestNextHeaders', protoName: 'requestNextHeaders', subBuilder: $1.RequestNextHeadersMessage.create)
-    ..aOM<$1.DoneHeadersMessage>(43, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'DoneHeaders', protoName: 'DoneHeaders', subBuilder: $1.DoneHeadersMessage.create)
-    ..aOM<$1.RequestPruningPointUTXOSetMessage>(44, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requestPruningPointUTXOSet', protoName: 'requestPruningPointUTXOSet', subBuilder: $1.RequestPruningPointUTXOSetMessage.create)
-    ..aOM<$1.RequestHeadersMessage>(45, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requestHeaders', protoName: 'requestHeaders', subBuilder: $1.RequestHeadersMessage.create)
-    ..aOM<$1.RequestBlockLocatorMessage>(46, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requestBlockLocator', protoName: 'requestBlockLocator', subBuilder: $1.RequestBlockLocatorMessage.create)
-    ..aOM<$1.PruningPointsMessage>(47, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pruningPoints', protoName: 'pruningPoints', subBuilder: $1.PruningPointsMessage.create)
-    ..aOM<$1.RequestPruningPointProofMessage>(48, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requestPruningPointProof', protoName: 'requestPruningPointProof', subBuilder: $1.RequestPruningPointProofMessage.create)
-    ..aOM<$1.PruningPointProofMessage>(49, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pruningPointProof', protoName: 'pruningPointProof', subBuilder: $1.PruningPointProofMessage.create)
-    ..aOM<$1.ReadyMessage>(50, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ready', subBuilder: $1.ReadyMessage.create)
-    ..aOM<$1.BlockWithTrustedDataV4Message>(51, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'blockWithTrustedDataV4', protoName: 'blockWithTrustedDataV4', subBuilder: $1.BlockWithTrustedDataV4Message.create)
-    ..aOM<$1.TrustedDataMessage>(52, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'trustedData', protoName: 'trustedData', subBuilder: $1.TrustedDataMessage.create)
-    ..aOM<$1.RequestIBDChainBlockLocatorMessage>(53, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requestIBDChainBlockLocator', protoName: 'requestIBDChainBlockLocator', subBuilder: $1.RequestIBDChainBlockLocatorMessage.create)
-    ..aOM<$1.IbdChainBlockLocatorMessage>(54, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ibdChainBlockLocator', protoName: 'ibdChainBlockLocator', subBuilder: $1.IbdChainBlockLocatorMessage.create)
-    ..aOM<$1.RequestAnticoneMessage>(55, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requestAnticone', protoName: 'requestAnticone', subBuilder: $1.RequestAnticoneMessage.create)
-    ..aOM<$1.RequestNextPruningPointAndItsAnticoneBlocksMessage>(56, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'requestNextPruningPointAndItsAnticoneBlocks', protoName: 'requestNextPruningPointAndItsAnticoneBlocks', subBuilder: $1.RequestNextPruningPointAndItsAnticoneBlocksMessage.create)
-    ..aOM<$2.GetCurrentNetworkRequestMessage>(1001, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getCurrentNetworkRequest', protoName: 'getCurrentNetworkRequest', subBuilder: $2.GetCurrentNetworkRequestMessage.create)
-    ..aOM<$2.GetCurrentNetworkResponseMessage>(1002, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getCurrentNetworkResponse', protoName: 'getCurrentNetworkResponse', subBuilder: $2.GetCurrentNetworkResponseMessage.create)
-    ..aOM<$2.SubmitBlockRequestMessage>(1003, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'submitBlockRequest', protoName: 'submitBlockRequest', subBuilder: $2.SubmitBlockRequestMessage.create)
-    ..aOM<$2.SubmitBlockResponseMessage>(1004, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'submitBlockResponse', protoName: 'submitBlockResponse', subBuilder: $2.SubmitBlockResponseMessage.create)
-    ..aOM<$2.GetBlockTemplateRequestMessage>(1005, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getBlockTemplateRequest', protoName: 'getBlockTemplateRequest', subBuilder: $2.GetBlockTemplateRequestMessage.create)
-    ..aOM<$2.GetBlockTemplateResponseMessage>(1006, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getBlockTemplateResponse', protoName: 'getBlockTemplateResponse', subBuilder: $2.GetBlockTemplateResponseMessage.create)
-    ..aOM<$2.NotifyBlockAddedRequestMessage>(1007, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notifyBlockAddedRequest', protoName: 'notifyBlockAddedRequest', subBuilder: $2.NotifyBlockAddedRequestMessage.create)
-    ..aOM<$2.NotifyBlockAddedResponseMessage>(1008, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notifyBlockAddedResponse', protoName: 'notifyBlockAddedResponse', subBuilder: $2.NotifyBlockAddedResponseMessage.create)
-    ..aOM<$2.BlockAddedNotificationMessage>(1009, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'blockAddedNotification', protoName: 'blockAddedNotification', subBuilder: $2.BlockAddedNotificationMessage.create)
-    ..aOM<$2.GetPeerAddressesRequestMessage>(1010, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getPeerAddressesRequest', protoName: 'getPeerAddressesRequest', subBuilder: $2.GetPeerAddressesRequestMessage.create)
-    ..aOM<$2.GetPeerAddressesResponseMessage>(1011, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getPeerAddressesResponse', protoName: 'getPeerAddressesResponse', subBuilder: $2.GetPeerAddressesResponseMessage.create)
-    ..aOM<$2.GetSelectedTipHashRequestMessage>(1012, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getSelectedTipHashRequest', protoName: 'getSelectedTipHashRequest', subBuilder: $2.GetSelectedTipHashRequestMessage.create)
-    ..aOM<$2.GetSelectedTipHashResponseMessage>(1013, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getSelectedTipHashResponse', protoName: 'getSelectedTipHashResponse', subBuilder: $2.GetSelectedTipHashResponseMessage.create)
-    ..aOM<$2.GetMempoolEntryRequestMessage>(1014, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getMempoolEntryRequest', protoName: 'getMempoolEntryRequest', subBuilder: $2.GetMempoolEntryRequestMessage.create)
-    ..aOM<$2.GetMempoolEntryResponseMessage>(1015, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getMempoolEntryResponse', protoName: 'getMempoolEntryResponse', subBuilder: $2.GetMempoolEntryResponseMessage.create)
-    ..aOM<$2.GetConnectedPeerInfoRequestMessage>(1016, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getConnectedPeerInfoRequest', protoName: 'getConnectedPeerInfoRequest', subBuilder: $2.GetConnectedPeerInfoRequestMessage.create)
-    ..aOM<$2.GetConnectedPeerInfoResponseMessage>(1017, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getConnectedPeerInfoResponse', protoName: 'getConnectedPeerInfoResponse', subBuilder: $2.GetConnectedPeerInfoResponseMessage.create)
-    ..aOM<$2.AddPeerRequestMessage>(1018, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'addPeerRequest', protoName: 'addPeerRequest', subBuilder: $2.AddPeerRequestMessage.create)
-    ..aOM<$2.AddPeerResponseMessage>(1019, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'addPeerResponse', protoName: 'addPeerResponse', subBuilder: $2.AddPeerResponseMessage.create)
-    ..aOM<$2.SubmitTransactionRequestMessage>(1020, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'submitTransactionRequest', protoName: 'submitTransactionRequest', subBuilder: $2.SubmitTransactionRequestMessage.create)
-    ..aOM<$2.SubmitTransactionResponseMessage>(1021, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'submitTransactionResponse', protoName: 'submitTransactionResponse', subBuilder: $2.SubmitTransactionResponseMessage.create)
-    ..aOM<$2.NotifyVirtualSelectedParentChainChangedRequestMessage>(1022, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notifyVirtualSelectedParentChainChangedRequest', protoName: 'notifyVirtualSelectedParentChainChangedRequest', subBuilder: $2.NotifyVirtualSelectedParentChainChangedRequestMessage.create)
-    ..aOM<$2.NotifyVirtualSelectedParentChainChangedResponseMessage>(1023, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notifyVirtualSelectedParentChainChangedResponse', protoName: 'notifyVirtualSelectedParentChainChangedResponse', subBuilder: $2.NotifyVirtualSelectedParentChainChangedResponseMessage.create)
-    ..aOM<$2.VirtualSelectedParentChainChangedNotificationMessage>(1024, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'virtualSelectedParentChainChangedNotification', protoName: 'virtualSelectedParentChainChangedNotification', subBuilder: $2.VirtualSelectedParentChainChangedNotificationMessage.create)
-    ..aOM<$2.GetBlockRequestMessage>(1025, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getBlockRequest', protoName: 'getBlockRequest', subBuilder: $2.GetBlockRequestMessage.create)
-    ..aOM<$2.GetBlockResponseMessage>(1026, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getBlockResponse', protoName: 'getBlockResponse', subBuilder: $2.GetBlockResponseMessage.create)
-    ..aOM<$2.GetSubnetworkRequestMessage>(1027, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getSubnetworkRequest', protoName: 'getSubnetworkRequest', subBuilder: $2.GetSubnetworkRequestMessage.create)
-    ..aOM<$2.GetSubnetworkResponseMessage>(1028, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getSubnetworkResponse', protoName: 'getSubnetworkResponse', subBuilder: $2.GetSubnetworkResponseMessage.create)
-    ..aOM<$2.GetVirtualSelectedParentChainFromBlockRequestMessage>(1029, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getVirtualSelectedParentChainFromBlockRequest', protoName: 'getVirtualSelectedParentChainFromBlockRequest', subBuilder: $2.GetVirtualSelectedParentChainFromBlockRequestMessage.create)
-    ..aOM<$2.GetVirtualSelectedParentChainFromBlockResponseMessage>(1030, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getVirtualSelectedParentChainFromBlockResponse', protoName: 'getVirtualSelectedParentChainFromBlockResponse', subBuilder: $2.GetVirtualSelectedParentChainFromBlockResponseMessage.create)
-    ..aOM<$2.GetBlocksRequestMessage>(1031, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getBlocksRequest', protoName: 'getBlocksRequest', subBuilder: $2.GetBlocksRequestMessage.create)
-    ..aOM<$2.GetBlocksResponseMessage>(1032, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getBlocksResponse', protoName: 'getBlocksResponse', subBuilder: $2.GetBlocksResponseMessage.create)
-    ..aOM<$2.GetBlockCountRequestMessage>(1033, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getBlockCountRequest', protoName: 'getBlockCountRequest', subBuilder: $2.GetBlockCountRequestMessage.create)
-    ..aOM<$2.GetBlockCountResponseMessage>(1034, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getBlockCountResponse', protoName: 'getBlockCountResponse', subBuilder: $2.GetBlockCountResponseMessage.create)
-    ..aOM<$2.GetBlockDagInfoRequestMessage>(1035, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getBlockDagInfoRequest', protoName: 'getBlockDagInfoRequest', subBuilder: $2.GetBlockDagInfoRequestMessage.create)
-    ..aOM<$2.GetBlockDagInfoResponseMessage>(1036, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getBlockDagInfoResponse', protoName: 'getBlockDagInfoResponse', subBuilder: $2.GetBlockDagInfoResponseMessage.create)
-    ..aOM<$2.ResolveFinalityConflictRequestMessage>(1037, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'resolveFinalityConflictRequest', protoName: 'resolveFinalityConflictRequest', subBuilder: $2.ResolveFinalityConflictRequestMessage.create)
-    ..aOM<$2.ResolveFinalityConflictResponseMessage>(1038, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'resolveFinalityConflictResponse', protoName: 'resolveFinalityConflictResponse', subBuilder: $2.ResolveFinalityConflictResponseMessage.create)
-    ..aOM<$2.NotifyFinalityConflictsRequestMessage>(1039, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notifyFinalityConflictsRequest', protoName: 'notifyFinalityConflictsRequest', subBuilder: $2.NotifyFinalityConflictsRequestMessage.create)
-    ..aOM<$2.NotifyFinalityConflictsResponseMessage>(1040, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notifyFinalityConflictsResponse', protoName: 'notifyFinalityConflictsResponse', subBuilder: $2.NotifyFinalityConflictsResponseMessage.create)
-    ..aOM<$2.FinalityConflictNotificationMessage>(1041, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'finalityConflictNotification', protoName: 'finalityConflictNotification', subBuilder: $2.FinalityConflictNotificationMessage.create)
-    ..aOM<$2.FinalityConflictResolvedNotificationMessage>(1042, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'finalityConflictResolvedNotification', protoName: 'finalityConflictResolvedNotification', subBuilder: $2.FinalityConflictResolvedNotificationMessage.create)
-    ..aOM<$2.GetMempoolEntriesRequestMessage>(1043, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getMempoolEntriesRequest', protoName: 'getMempoolEntriesRequest', subBuilder: $2.GetMempoolEntriesRequestMessage.create)
-    ..aOM<$2.GetMempoolEntriesResponseMessage>(1044, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getMempoolEntriesResponse', protoName: 'getMempoolEntriesResponse', subBuilder: $2.GetMempoolEntriesResponseMessage.create)
-    ..aOM<$2.ShutDownRequestMessage>(1045, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shutDownRequest', protoName: 'shutDownRequest', subBuilder: $2.ShutDownRequestMessage.create)
-    ..aOM<$2.ShutDownResponseMessage>(1046, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shutDownResponse', protoName: 'shutDownResponse', subBuilder: $2.ShutDownResponseMessage.create)
-    ..aOM<$2.GetHeadersRequestMessage>(1047, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getHeadersRequest', protoName: 'getHeadersRequest', subBuilder: $2.GetHeadersRequestMessage.create)
-    ..aOM<$2.GetHeadersResponseMessage>(1048, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getHeadersResponse', protoName: 'getHeadersResponse', subBuilder: $2.GetHeadersResponseMessage.create)
-    ..aOM<$2.NotifyUtxosChangedRequestMessage>(1049, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notifyUtxosChangedRequest', protoName: 'notifyUtxosChangedRequest', subBuilder: $2.NotifyUtxosChangedRequestMessage.create)
-    ..aOM<$2.NotifyUtxosChangedResponseMessage>(1050, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notifyUtxosChangedResponse', protoName: 'notifyUtxosChangedResponse', subBuilder: $2.NotifyUtxosChangedResponseMessage.create)
-    ..aOM<$2.UtxosChangedNotificationMessage>(1051, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'utxosChangedNotification', protoName: 'utxosChangedNotification', subBuilder: $2.UtxosChangedNotificationMessage.create)
-    ..aOM<$2.GetUtxosByAddressesRequestMessage>(1052, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getUtxosByAddressesRequest', protoName: 'getUtxosByAddressesRequest', subBuilder: $2.GetUtxosByAddressesRequestMessage.create)
-    ..aOM<$2.GetUtxosByAddressesResponseMessage>(1053, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getUtxosByAddressesResponse', protoName: 'getUtxosByAddressesResponse', subBuilder: $2.GetUtxosByAddressesResponseMessage.create)
-    ..aOM<$2.GetVirtualSelectedParentBlueScoreRequestMessage>(1054, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getVirtualSelectedParentBlueScoreRequest', protoName: 'getVirtualSelectedParentBlueScoreRequest', subBuilder: $2.GetVirtualSelectedParentBlueScoreRequestMessage.create)
-    ..aOM<$2.GetVirtualSelectedParentBlueScoreResponseMessage>(1055, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getVirtualSelectedParentBlueScoreResponse', protoName: 'getVirtualSelectedParentBlueScoreResponse', subBuilder: $2.GetVirtualSelectedParentBlueScoreResponseMessage.create)
-    ..aOM<$2.NotifyVirtualSelectedParentBlueScoreChangedRequestMessage>(1056, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notifyVirtualSelectedParentBlueScoreChangedRequest', protoName: 'notifyVirtualSelectedParentBlueScoreChangedRequest', subBuilder: $2.NotifyVirtualSelectedParentBlueScoreChangedRequestMessage.create)
-    ..aOM<$2.NotifyVirtualSelectedParentBlueScoreChangedResponseMessage>(1057, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notifyVirtualSelectedParentBlueScoreChangedResponse', protoName: 'notifyVirtualSelectedParentBlueScoreChangedResponse', subBuilder: $2.NotifyVirtualSelectedParentBlueScoreChangedResponseMessage.create)
-    ..aOM<$2.VirtualSelectedParentBlueScoreChangedNotificationMessage>(1058, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'virtualSelectedParentBlueScoreChangedNotification', protoName: 'virtualSelectedParentBlueScoreChangedNotification', subBuilder: $2.VirtualSelectedParentBlueScoreChangedNotificationMessage.create)
-    ..aOM<$2.BanRequestMessage>(1059, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'banRequest', protoName: 'banRequest', subBuilder: $2.BanRequestMessage.create)
-    ..aOM<$2.BanResponseMessage>(1060, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'banResponse', protoName: 'banResponse', subBuilder: $2.BanResponseMessage.create)
-    ..aOM<$2.UnbanRequestMessage>(1061, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unbanRequest', protoName: 'unbanRequest', subBuilder: $2.UnbanRequestMessage.create)
-    ..aOM<$2.UnbanResponseMessage>(1062, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unbanResponse', protoName: 'unbanResponse', subBuilder: $2.UnbanResponseMessage.create)
-    ..aOM<$2.GetInfoRequestMessage>(1063, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getInfoRequest', protoName: 'getInfoRequest', subBuilder: $2.GetInfoRequestMessage.create)
-    ..aOM<$2.GetInfoResponseMessage>(1064, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getInfoResponse', protoName: 'getInfoResponse', subBuilder: $2.GetInfoResponseMessage.create)
-    ..aOM<$2.StopNotifyingUtxosChangedRequestMessage>(1065, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'stopNotifyingUtxosChangedRequest', protoName: 'stopNotifyingUtxosChangedRequest', subBuilder: $2.StopNotifyingUtxosChangedRequestMessage.create)
-    ..aOM<$2.StopNotifyingUtxosChangedResponseMessage>(1066, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'stopNotifyingUtxosChangedResponse', protoName: 'stopNotifyingUtxosChangedResponse', subBuilder: $2.StopNotifyingUtxosChangedResponseMessage.create)
-    ..aOM<$2.NotifyPruningPointUTXOSetOverrideRequestMessage>(1067, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notifyPruningPointUTXOSetOverrideRequest', protoName: 'notifyPruningPointUTXOSetOverrideRequest', subBuilder: $2.NotifyPruningPointUTXOSetOverrideRequestMessage.create)
-    ..aOM<$2.NotifyPruningPointUTXOSetOverrideResponseMessage>(1068, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notifyPruningPointUTXOSetOverrideResponse', protoName: 'notifyPruningPointUTXOSetOverrideResponse', subBuilder: $2.NotifyPruningPointUTXOSetOverrideResponseMessage.create)
-    ..aOM<$2.PruningPointUTXOSetOverrideNotificationMessage>(1069, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pruningPointUTXOSetOverrideNotification', protoName: 'pruningPointUTXOSetOverrideNotification', subBuilder: $2.PruningPointUTXOSetOverrideNotificationMessage.create)
-    ..aOM<$2.StopNotifyingPruningPointUTXOSetOverrideRequestMessage>(1070, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'stopNotifyingPruningPointUTXOSetOverrideRequest', protoName: 'stopNotifyingPruningPointUTXOSetOverrideRequest', subBuilder: $2.StopNotifyingPruningPointUTXOSetOverrideRequestMessage.create)
-    ..aOM<$2.StopNotifyingPruningPointUTXOSetOverrideResponseMessage>(1071, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'stopNotifyingPruningPointUTXOSetOverrideResponse', protoName: 'stopNotifyingPruningPointUTXOSetOverrideResponse', subBuilder: $2.StopNotifyingPruningPointUTXOSetOverrideResponseMessage.create)
-    ..aOM<$2.EstimateNetworkHashesPerSecondRequestMessage>(1072, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'estimateNetworkHashesPerSecondRequest', protoName: 'estimateNetworkHashesPerSecondRequest', subBuilder: $2.EstimateNetworkHashesPerSecondRequestMessage.create)
-    ..aOM<$2.EstimateNetworkHashesPerSecondResponseMessage>(1073, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'estimateNetworkHashesPerSecondResponse', protoName: 'estimateNetworkHashesPerSecondResponse', subBuilder: $2.EstimateNetworkHashesPerSecondResponseMessage.create)
-    ..aOM<$2.NotifyVirtualDaaScoreChangedRequestMessage>(1074, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notifyVirtualDaaScoreChangedRequest', protoName: 'notifyVirtualDaaScoreChangedRequest', subBuilder: $2.NotifyVirtualDaaScoreChangedRequestMessage.create)
-    ..aOM<$2.NotifyVirtualDaaScoreChangedResponseMessage>(1075, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notifyVirtualDaaScoreChangedResponse', protoName: 'notifyVirtualDaaScoreChangedResponse', subBuilder: $2.NotifyVirtualDaaScoreChangedResponseMessage.create)
-    ..aOM<$2.VirtualDaaScoreChangedNotificationMessage>(1076, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'virtualDaaScoreChangedNotification', protoName: 'virtualDaaScoreChangedNotification', subBuilder: $2.VirtualDaaScoreChangedNotificationMessage.create)
-    ..aOM<$2.GetBalanceByAddressRequestMessage>(1077, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getBalanceByAddressRequest', protoName: 'getBalanceByAddressRequest', subBuilder: $2.GetBalanceByAddressRequestMessage.create)
-    ..aOM<$2.GetBalanceByAddressResponseMessage>(1078, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getBalanceByAddressResponse', protoName: 'getBalanceByAddressResponse', subBuilder: $2.GetBalanceByAddressResponseMessage.create)
-    ..aOM<$2.GetBalancesByAddressesRequestMessage>(1079, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getBalancesByAddressesRequest', protoName: 'getBalancesByAddressesRequest', subBuilder: $2.GetBalancesByAddressesRequestMessage.create)
-    ..aOM<$2.GetBalancesByAddressesResponseMessage>(1080, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getBalancesByAddressesResponse', protoName: 'getBalancesByAddressesResponse', subBuilder: $2.GetBalancesByAddressesResponseMessage.create)
-    ..aOM<$2.NotifyNewBlockTemplateRequestMessage>(1081, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notifyNewBlockTemplateRequest', protoName: 'notifyNewBlockTemplateRequest', subBuilder: $2.NotifyNewBlockTemplateRequestMessage.create)
-    ..aOM<$2.NotifyNewBlockTemplateResponseMessage>(1082, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notifyNewBlockTemplateResponse', protoName: 'notifyNewBlockTemplateResponse', subBuilder: $2.NotifyNewBlockTemplateResponseMessage.create)
-    ..aOM<$2.NewBlockTemplateNotificationMessage>(1083, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'newBlockTemplateNotification', protoName: 'newBlockTemplateNotification', subBuilder: $2.NewBlockTemplateNotificationMessage.create)
-    ..aOM<$2.GetMempoolEntriesByAddressesRequestMessage>(1084, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getMempoolEntriesByAddressesRequest', protoName: 'getMempoolEntriesByAddressesRequest', subBuilder: $2.GetMempoolEntriesByAddressesRequestMessage.create)
-    ..aOM<$2.GetMempoolEntriesByAddressesResponseMessage>(1085, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getMempoolEntriesByAddressesResponse', protoName: 'getMempoolEntriesByAddressesResponse', subBuilder: $2.GetMempoolEntriesByAddressesResponseMessage.create)
-    ..aOM<$2.GetCoinSupplyRequestMessage>(1086, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getCoinSupplyRequest', protoName: 'getCoinSupplyRequest', subBuilder: $2.GetCoinSupplyRequestMessage.create)
-    ..aOM<$2.GetCoinSupplyResponseMessage>(1087, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'getCoinSupplyResponse', protoName: 'getCoinSupplyResponse', subBuilder: $2.GetCoinSupplyResponseMessage.create)
-    ..hasRequiredFields = false
-  ;
-
-  KaspadMessage._() : super();
-  factory KaspadMessage({
+class KarlsendMessage extends $pb.GeneratedMessage {
+  factory KarlsendMessage({
     $1.AddressesMessage? addresses,
     $1.BlockMessage? block,
     $1.TransactionMessage? transaction,
@@ -548,421 +283,693 @@ class KaspadMessage extends $pb.GeneratedMessage {
     $2.GetCoinSupplyRequestMessage? getCoinSupplyRequest,
     $2.GetCoinSupplyResponseMessage? getCoinSupplyResponse,
   }) {
-    final _result = create();
+    final $result = create();
     if (addresses != null) {
-      _result.addresses = addresses;
+      $result.addresses = addresses;
     }
     if (block != null) {
-      _result.block = block;
+      $result.block = block;
     }
     if (transaction != null) {
-      _result.transaction = transaction;
+      $result.transaction = transaction;
     }
     if (blockLocator != null) {
-      _result.blockLocator = blockLocator;
+      $result.blockLocator = blockLocator;
     }
     if (requestAddresses != null) {
-      _result.requestAddresses = requestAddresses;
+      $result.requestAddresses = requestAddresses;
     }
     if (requestRelayBlocks != null) {
-      _result.requestRelayBlocks = requestRelayBlocks;
+      $result.requestRelayBlocks = requestRelayBlocks;
     }
     if (requestTransactions != null) {
-      _result.requestTransactions = requestTransactions;
+      $result.requestTransactions = requestTransactions;
     }
     if (ibdBlock != null) {
-      _result.ibdBlock = ibdBlock;
+      $result.ibdBlock = ibdBlock;
     }
     if (invRelayBlock != null) {
-      _result.invRelayBlock = invRelayBlock;
+      $result.invRelayBlock = invRelayBlock;
     }
     if (invTransactions != null) {
-      _result.invTransactions = invTransactions;
+      $result.invTransactions = invTransactions;
     }
     if (ping != null) {
-      _result.ping = ping;
+      $result.ping = ping;
     }
     if (pong != null) {
-      _result.pong = pong;
+      $result.pong = pong;
     }
     if (verack != null) {
-      _result.verack = verack;
+      $result.verack = verack;
     }
     if (version != null) {
-      _result.version = version;
+      $result.version = version;
     }
     if (transactionNotFound != null) {
-      _result.transactionNotFound = transactionNotFound;
+      $result.transactionNotFound = transactionNotFound;
     }
     if (reject != null) {
-      _result.reject = reject;
+      $result.reject = reject;
     }
     if (pruningPointUtxoSetChunk != null) {
-      _result.pruningPointUtxoSetChunk = pruningPointUtxoSetChunk;
+      $result.pruningPointUtxoSetChunk = pruningPointUtxoSetChunk;
     }
     if (requestIBDBlocks != null) {
-      _result.requestIBDBlocks = requestIBDBlocks;
+      $result.requestIBDBlocks = requestIBDBlocks;
     }
     if (unexpectedPruningPoint != null) {
-      _result.unexpectedPruningPoint = unexpectedPruningPoint;
+      $result.unexpectedPruningPoint = unexpectedPruningPoint;
     }
     if (ibdBlockLocator != null) {
-      _result.ibdBlockLocator = ibdBlockLocator;
+      $result.ibdBlockLocator = ibdBlockLocator;
     }
     if (ibdBlockLocatorHighestHash != null) {
-      _result.ibdBlockLocatorHighestHash = ibdBlockLocatorHighestHash;
+      $result.ibdBlockLocatorHighestHash = ibdBlockLocatorHighestHash;
     }
     if (requestNextPruningPointUtxoSetChunk != null) {
-      _result.requestNextPruningPointUtxoSetChunk = requestNextPruningPointUtxoSetChunk;
+      $result.requestNextPruningPointUtxoSetChunk = requestNextPruningPointUtxoSetChunk;
     }
     if (donePruningPointUtxoSetChunks != null) {
-      _result.donePruningPointUtxoSetChunks = donePruningPointUtxoSetChunks;
+      $result.donePruningPointUtxoSetChunks = donePruningPointUtxoSetChunks;
     }
     if (ibdBlockLocatorHighestHashNotFound != null) {
-      _result.ibdBlockLocatorHighestHashNotFound = ibdBlockLocatorHighestHashNotFound;
+      $result.ibdBlockLocatorHighestHashNotFound = ibdBlockLocatorHighestHashNotFound;
     }
     if (blockWithTrustedData != null) {
-      _result.blockWithTrustedData = blockWithTrustedData;
+      $result.blockWithTrustedData = blockWithTrustedData;
     }
     if (doneBlocksWithTrustedData != null) {
-      _result.doneBlocksWithTrustedData = doneBlocksWithTrustedData;
+      $result.doneBlocksWithTrustedData = doneBlocksWithTrustedData;
     }
     if (requestPruningPointAndItsAnticone != null) {
-      _result.requestPruningPointAndItsAnticone = requestPruningPointAndItsAnticone;
+      $result.requestPruningPointAndItsAnticone = requestPruningPointAndItsAnticone;
     }
     if (blockHeaders != null) {
-      _result.blockHeaders = blockHeaders;
+      $result.blockHeaders = blockHeaders;
     }
     if (requestNextHeaders != null) {
-      _result.requestNextHeaders = requestNextHeaders;
+      $result.requestNextHeaders = requestNextHeaders;
     }
     if (doneHeaders != null) {
-      _result.doneHeaders = doneHeaders;
+      $result.doneHeaders = doneHeaders;
     }
     if (requestPruningPointUTXOSet != null) {
-      _result.requestPruningPointUTXOSet = requestPruningPointUTXOSet;
+      $result.requestPruningPointUTXOSet = requestPruningPointUTXOSet;
     }
     if (requestHeaders != null) {
-      _result.requestHeaders = requestHeaders;
+      $result.requestHeaders = requestHeaders;
     }
     if (requestBlockLocator != null) {
-      _result.requestBlockLocator = requestBlockLocator;
+      $result.requestBlockLocator = requestBlockLocator;
     }
     if (pruningPoints != null) {
-      _result.pruningPoints = pruningPoints;
+      $result.pruningPoints = pruningPoints;
     }
     if (requestPruningPointProof != null) {
-      _result.requestPruningPointProof = requestPruningPointProof;
+      $result.requestPruningPointProof = requestPruningPointProof;
     }
     if (pruningPointProof != null) {
-      _result.pruningPointProof = pruningPointProof;
+      $result.pruningPointProof = pruningPointProof;
     }
     if (ready != null) {
-      _result.ready = ready;
+      $result.ready = ready;
     }
     if (blockWithTrustedDataV4 != null) {
-      _result.blockWithTrustedDataV4 = blockWithTrustedDataV4;
+      $result.blockWithTrustedDataV4 = blockWithTrustedDataV4;
     }
     if (trustedData != null) {
-      _result.trustedData = trustedData;
+      $result.trustedData = trustedData;
     }
     if (requestIBDChainBlockLocator != null) {
-      _result.requestIBDChainBlockLocator = requestIBDChainBlockLocator;
+      $result.requestIBDChainBlockLocator = requestIBDChainBlockLocator;
     }
     if (ibdChainBlockLocator != null) {
-      _result.ibdChainBlockLocator = ibdChainBlockLocator;
+      $result.ibdChainBlockLocator = ibdChainBlockLocator;
     }
     if (requestAnticone != null) {
-      _result.requestAnticone = requestAnticone;
+      $result.requestAnticone = requestAnticone;
     }
     if (requestNextPruningPointAndItsAnticoneBlocks != null) {
-      _result.requestNextPruningPointAndItsAnticoneBlocks = requestNextPruningPointAndItsAnticoneBlocks;
+      $result.requestNextPruningPointAndItsAnticoneBlocks = requestNextPruningPointAndItsAnticoneBlocks;
     }
     if (getCurrentNetworkRequest != null) {
-      _result.getCurrentNetworkRequest = getCurrentNetworkRequest;
+      $result.getCurrentNetworkRequest = getCurrentNetworkRequest;
     }
     if (getCurrentNetworkResponse != null) {
-      _result.getCurrentNetworkResponse = getCurrentNetworkResponse;
+      $result.getCurrentNetworkResponse = getCurrentNetworkResponse;
     }
     if (submitBlockRequest != null) {
-      _result.submitBlockRequest = submitBlockRequest;
+      $result.submitBlockRequest = submitBlockRequest;
     }
     if (submitBlockResponse != null) {
-      _result.submitBlockResponse = submitBlockResponse;
+      $result.submitBlockResponse = submitBlockResponse;
     }
     if (getBlockTemplateRequest != null) {
-      _result.getBlockTemplateRequest = getBlockTemplateRequest;
+      $result.getBlockTemplateRequest = getBlockTemplateRequest;
     }
     if (getBlockTemplateResponse != null) {
-      _result.getBlockTemplateResponse = getBlockTemplateResponse;
+      $result.getBlockTemplateResponse = getBlockTemplateResponse;
     }
     if (notifyBlockAddedRequest != null) {
-      _result.notifyBlockAddedRequest = notifyBlockAddedRequest;
+      $result.notifyBlockAddedRequest = notifyBlockAddedRequest;
     }
     if (notifyBlockAddedResponse != null) {
-      _result.notifyBlockAddedResponse = notifyBlockAddedResponse;
+      $result.notifyBlockAddedResponse = notifyBlockAddedResponse;
     }
     if (blockAddedNotification != null) {
-      _result.blockAddedNotification = blockAddedNotification;
+      $result.blockAddedNotification = blockAddedNotification;
     }
     if (getPeerAddressesRequest != null) {
-      _result.getPeerAddressesRequest = getPeerAddressesRequest;
+      $result.getPeerAddressesRequest = getPeerAddressesRequest;
     }
     if (getPeerAddressesResponse != null) {
-      _result.getPeerAddressesResponse = getPeerAddressesResponse;
+      $result.getPeerAddressesResponse = getPeerAddressesResponse;
     }
     if (getSelectedTipHashRequest != null) {
-      _result.getSelectedTipHashRequest = getSelectedTipHashRequest;
+      $result.getSelectedTipHashRequest = getSelectedTipHashRequest;
     }
     if (getSelectedTipHashResponse != null) {
-      _result.getSelectedTipHashResponse = getSelectedTipHashResponse;
+      $result.getSelectedTipHashResponse = getSelectedTipHashResponse;
     }
     if (getMempoolEntryRequest != null) {
-      _result.getMempoolEntryRequest = getMempoolEntryRequest;
+      $result.getMempoolEntryRequest = getMempoolEntryRequest;
     }
     if (getMempoolEntryResponse != null) {
-      _result.getMempoolEntryResponse = getMempoolEntryResponse;
+      $result.getMempoolEntryResponse = getMempoolEntryResponse;
     }
     if (getConnectedPeerInfoRequest != null) {
-      _result.getConnectedPeerInfoRequest = getConnectedPeerInfoRequest;
+      $result.getConnectedPeerInfoRequest = getConnectedPeerInfoRequest;
     }
     if (getConnectedPeerInfoResponse != null) {
-      _result.getConnectedPeerInfoResponse = getConnectedPeerInfoResponse;
+      $result.getConnectedPeerInfoResponse = getConnectedPeerInfoResponse;
     }
     if (addPeerRequest != null) {
-      _result.addPeerRequest = addPeerRequest;
+      $result.addPeerRequest = addPeerRequest;
     }
     if (addPeerResponse != null) {
-      _result.addPeerResponse = addPeerResponse;
+      $result.addPeerResponse = addPeerResponse;
     }
     if (submitTransactionRequest != null) {
-      _result.submitTransactionRequest = submitTransactionRequest;
+      $result.submitTransactionRequest = submitTransactionRequest;
     }
     if (submitTransactionResponse != null) {
-      _result.submitTransactionResponse = submitTransactionResponse;
+      $result.submitTransactionResponse = submitTransactionResponse;
     }
     if (notifyVirtualSelectedParentChainChangedRequest != null) {
-      _result.notifyVirtualSelectedParentChainChangedRequest = notifyVirtualSelectedParentChainChangedRequest;
+      $result.notifyVirtualSelectedParentChainChangedRequest = notifyVirtualSelectedParentChainChangedRequest;
     }
     if (notifyVirtualSelectedParentChainChangedResponse != null) {
-      _result.notifyVirtualSelectedParentChainChangedResponse = notifyVirtualSelectedParentChainChangedResponse;
+      $result.notifyVirtualSelectedParentChainChangedResponse = notifyVirtualSelectedParentChainChangedResponse;
     }
     if (virtualSelectedParentChainChangedNotification != null) {
-      _result.virtualSelectedParentChainChangedNotification = virtualSelectedParentChainChangedNotification;
+      $result.virtualSelectedParentChainChangedNotification = virtualSelectedParentChainChangedNotification;
     }
     if (getBlockRequest != null) {
-      _result.getBlockRequest = getBlockRequest;
+      $result.getBlockRequest = getBlockRequest;
     }
     if (getBlockResponse != null) {
-      _result.getBlockResponse = getBlockResponse;
+      $result.getBlockResponse = getBlockResponse;
     }
     if (getSubnetworkRequest != null) {
-      _result.getSubnetworkRequest = getSubnetworkRequest;
+      $result.getSubnetworkRequest = getSubnetworkRequest;
     }
     if (getSubnetworkResponse != null) {
-      _result.getSubnetworkResponse = getSubnetworkResponse;
+      $result.getSubnetworkResponse = getSubnetworkResponse;
     }
     if (getVirtualSelectedParentChainFromBlockRequest != null) {
-      _result.getVirtualSelectedParentChainFromBlockRequest = getVirtualSelectedParentChainFromBlockRequest;
+      $result.getVirtualSelectedParentChainFromBlockRequest = getVirtualSelectedParentChainFromBlockRequest;
     }
     if (getVirtualSelectedParentChainFromBlockResponse != null) {
-      _result.getVirtualSelectedParentChainFromBlockResponse = getVirtualSelectedParentChainFromBlockResponse;
+      $result.getVirtualSelectedParentChainFromBlockResponse = getVirtualSelectedParentChainFromBlockResponse;
     }
     if (getBlocksRequest != null) {
-      _result.getBlocksRequest = getBlocksRequest;
+      $result.getBlocksRequest = getBlocksRequest;
     }
     if (getBlocksResponse != null) {
-      _result.getBlocksResponse = getBlocksResponse;
+      $result.getBlocksResponse = getBlocksResponse;
     }
     if (getBlockCountRequest != null) {
-      _result.getBlockCountRequest = getBlockCountRequest;
+      $result.getBlockCountRequest = getBlockCountRequest;
     }
     if (getBlockCountResponse != null) {
-      _result.getBlockCountResponse = getBlockCountResponse;
+      $result.getBlockCountResponse = getBlockCountResponse;
     }
     if (getBlockDagInfoRequest != null) {
-      _result.getBlockDagInfoRequest = getBlockDagInfoRequest;
+      $result.getBlockDagInfoRequest = getBlockDagInfoRequest;
     }
     if (getBlockDagInfoResponse != null) {
-      _result.getBlockDagInfoResponse = getBlockDagInfoResponse;
+      $result.getBlockDagInfoResponse = getBlockDagInfoResponse;
     }
     if (resolveFinalityConflictRequest != null) {
-      _result.resolveFinalityConflictRequest = resolveFinalityConflictRequest;
+      $result.resolveFinalityConflictRequest = resolveFinalityConflictRequest;
     }
     if (resolveFinalityConflictResponse != null) {
-      _result.resolveFinalityConflictResponse = resolveFinalityConflictResponse;
+      $result.resolveFinalityConflictResponse = resolveFinalityConflictResponse;
     }
     if (notifyFinalityConflictsRequest != null) {
-      _result.notifyFinalityConflictsRequest = notifyFinalityConflictsRequest;
+      $result.notifyFinalityConflictsRequest = notifyFinalityConflictsRequest;
     }
     if (notifyFinalityConflictsResponse != null) {
-      _result.notifyFinalityConflictsResponse = notifyFinalityConflictsResponse;
+      $result.notifyFinalityConflictsResponse = notifyFinalityConflictsResponse;
     }
     if (finalityConflictNotification != null) {
-      _result.finalityConflictNotification = finalityConflictNotification;
+      $result.finalityConflictNotification = finalityConflictNotification;
     }
     if (finalityConflictResolvedNotification != null) {
-      _result.finalityConflictResolvedNotification = finalityConflictResolvedNotification;
+      $result.finalityConflictResolvedNotification = finalityConflictResolvedNotification;
     }
     if (getMempoolEntriesRequest != null) {
-      _result.getMempoolEntriesRequest = getMempoolEntriesRequest;
+      $result.getMempoolEntriesRequest = getMempoolEntriesRequest;
     }
     if (getMempoolEntriesResponse != null) {
-      _result.getMempoolEntriesResponse = getMempoolEntriesResponse;
+      $result.getMempoolEntriesResponse = getMempoolEntriesResponse;
     }
     if (shutDownRequest != null) {
-      _result.shutDownRequest = shutDownRequest;
+      $result.shutDownRequest = shutDownRequest;
     }
     if (shutDownResponse != null) {
-      _result.shutDownResponse = shutDownResponse;
+      $result.shutDownResponse = shutDownResponse;
     }
     if (getHeadersRequest != null) {
-      _result.getHeadersRequest = getHeadersRequest;
+      $result.getHeadersRequest = getHeadersRequest;
     }
     if (getHeadersResponse != null) {
-      _result.getHeadersResponse = getHeadersResponse;
+      $result.getHeadersResponse = getHeadersResponse;
     }
     if (notifyUtxosChangedRequest != null) {
-      _result.notifyUtxosChangedRequest = notifyUtxosChangedRequest;
+      $result.notifyUtxosChangedRequest = notifyUtxosChangedRequest;
     }
     if (notifyUtxosChangedResponse != null) {
-      _result.notifyUtxosChangedResponse = notifyUtxosChangedResponse;
+      $result.notifyUtxosChangedResponse = notifyUtxosChangedResponse;
     }
     if (utxosChangedNotification != null) {
-      _result.utxosChangedNotification = utxosChangedNotification;
+      $result.utxosChangedNotification = utxosChangedNotification;
     }
     if (getUtxosByAddressesRequest != null) {
-      _result.getUtxosByAddressesRequest = getUtxosByAddressesRequest;
+      $result.getUtxosByAddressesRequest = getUtxosByAddressesRequest;
     }
     if (getUtxosByAddressesResponse != null) {
-      _result.getUtxosByAddressesResponse = getUtxosByAddressesResponse;
+      $result.getUtxosByAddressesResponse = getUtxosByAddressesResponse;
     }
     if (getVirtualSelectedParentBlueScoreRequest != null) {
-      _result.getVirtualSelectedParentBlueScoreRequest = getVirtualSelectedParentBlueScoreRequest;
+      $result.getVirtualSelectedParentBlueScoreRequest = getVirtualSelectedParentBlueScoreRequest;
     }
     if (getVirtualSelectedParentBlueScoreResponse != null) {
-      _result.getVirtualSelectedParentBlueScoreResponse = getVirtualSelectedParentBlueScoreResponse;
+      $result.getVirtualSelectedParentBlueScoreResponse = getVirtualSelectedParentBlueScoreResponse;
     }
     if (notifyVirtualSelectedParentBlueScoreChangedRequest != null) {
-      _result.notifyVirtualSelectedParentBlueScoreChangedRequest = notifyVirtualSelectedParentBlueScoreChangedRequest;
+      $result.notifyVirtualSelectedParentBlueScoreChangedRequest = notifyVirtualSelectedParentBlueScoreChangedRequest;
     }
     if (notifyVirtualSelectedParentBlueScoreChangedResponse != null) {
-      _result.notifyVirtualSelectedParentBlueScoreChangedResponse = notifyVirtualSelectedParentBlueScoreChangedResponse;
+      $result.notifyVirtualSelectedParentBlueScoreChangedResponse = notifyVirtualSelectedParentBlueScoreChangedResponse;
     }
     if (virtualSelectedParentBlueScoreChangedNotification != null) {
-      _result.virtualSelectedParentBlueScoreChangedNotification = virtualSelectedParentBlueScoreChangedNotification;
+      $result.virtualSelectedParentBlueScoreChangedNotification = virtualSelectedParentBlueScoreChangedNotification;
     }
     if (banRequest != null) {
-      _result.banRequest = banRequest;
+      $result.banRequest = banRequest;
     }
     if (banResponse != null) {
-      _result.banResponse = banResponse;
+      $result.banResponse = banResponse;
     }
     if (unbanRequest != null) {
-      _result.unbanRequest = unbanRequest;
+      $result.unbanRequest = unbanRequest;
     }
     if (unbanResponse != null) {
-      _result.unbanResponse = unbanResponse;
+      $result.unbanResponse = unbanResponse;
     }
     if (getInfoRequest != null) {
-      _result.getInfoRequest = getInfoRequest;
+      $result.getInfoRequest = getInfoRequest;
     }
     if (getInfoResponse != null) {
-      _result.getInfoResponse = getInfoResponse;
+      $result.getInfoResponse = getInfoResponse;
     }
     if (stopNotifyingUtxosChangedRequest != null) {
-      _result.stopNotifyingUtxosChangedRequest = stopNotifyingUtxosChangedRequest;
+      $result.stopNotifyingUtxosChangedRequest = stopNotifyingUtxosChangedRequest;
     }
     if (stopNotifyingUtxosChangedResponse != null) {
-      _result.stopNotifyingUtxosChangedResponse = stopNotifyingUtxosChangedResponse;
+      $result.stopNotifyingUtxosChangedResponse = stopNotifyingUtxosChangedResponse;
     }
     if (notifyPruningPointUTXOSetOverrideRequest != null) {
-      _result.notifyPruningPointUTXOSetOverrideRequest = notifyPruningPointUTXOSetOverrideRequest;
+      $result.notifyPruningPointUTXOSetOverrideRequest = notifyPruningPointUTXOSetOverrideRequest;
     }
     if (notifyPruningPointUTXOSetOverrideResponse != null) {
-      _result.notifyPruningPointUTXOSetOverrideResponse = notifyPruningPointUTXOSetOverrideResponse;
+      $result.notifyPruningPointUTXOSetOverrideResponse = notifyPruningPointUTXOSetOverrideResponse;
     }
     if (pruningPointUTXOSetOverrideNotification != null) {
-      _result.pruningPointUTXOSetOverrideNotification = pruningPointUTXOSetOverrideNotification;
+      $result.pruningPointUTXOSetOverrideNotification = pruningPointUTXOSetOverrideNotification;
     }
     if (stopNotifyingPruningPointUTXOSetOverrideRequest != null) {
-      _result.stopNotifyingPruningPointUTXOSetOverrideRequest = stopNotifyingPruningPointUTXOSetOverrideRequest;
+      $result.stopNotifyingPruningPointUTXOSetOverrideRequest = stopNotifyingPruningPointUTXOSetOverrideRequest;
     }
     if (stopNotifyingPruningPointUTXOSetOverrideResponse != null) {
-      _result.stopNotifyingPruningPointUTXOSetOverrideResponse = stopNotifyingPruningPointUTXOSetOverrideResponse;
+      $result.stopNotifyingPruningPointUTXOSetOverrideResponse = stopNotifyingPruningPointUTXOSetOverrideResponse;
     }
     if (estimateNetworkHashesPerSecondRequest != null) {
-      _result.estimateNetworkHashesPerSecondRequest = estimateNetworkHashesPerSecondRequest;
+      $result.estimateNetworkHashesPerSecondRequest = estimateNetworkHashesPerSecondRequest;
     }
     if (estimateNetworkHashesPerSecondResponse != null) {
-      _result.estimateNetworkHashesPerSecondResponse = estimateNetworkHashesPerSecondResponse;
+      $result.estimateNetworkHashesPerSecondResponse = estimateNetworkHashesPerSecondResponse;
     }
     if (notifyVirtualDaaScoreChangedRequest != null) {
-      _result.notifyVirtualDaaScoreChangedRequest = notifyVirtualDaaScoreChangedRequest;
+      $result.notifyVirtualDaaScoreChangedRequest = notifyVirtualDaaScoreChangedRequest;
     }
     if (notifyVirtualDaaScoreChangedResponse != null) {
-      _result.notifyVirtualDaaScoreChangedResponse = notifyVirtualDaaScoreChangedResponse;
+      $result.notifyVirtualDaaScoreChangedResponse = notifyVirtualDaaScoreChangedResponse;
     }
     if (virtualDaaScoreChangedNotification != null) {
-      _result.virtualDaaScoreChangedNotification = virtualDaaScoreChangedNotification;
+      $result.virtualDaaScoreChangedNotification = virtualDaaScoreChangedNotification;
     }
     if (getBalanceByAddressRequest != null) {
-      _result.getBalanceByAddressRequest = getBalanceByAddressRequest;
+      $result.getBalanceByAddressRequest = getBalanceByAddressRequest;
     }
     if (getBalanceByAddressResponse != null) {
-      _result.getBalanceByAddressResponse = getBalanceByAddressResponse;
+      $result.getBalanceByAddressResponse = getBalanceByAddressResponse;
     }
     if (getBalancesByAddressesRequest != null) {
-      _result.getBalancesByAddressesRequest = getBalancesByAddressesRequest;
+      $result.getBalancesByAddressesRequest = getBalancesByAddressesRequest;
     }
     if (getBalancesByAddressesResponse != null) {
-      _result.getBalancesByAddressesResponse = getBalancesByAddressesResponse;
+      $result.getBalancesByAddressesResponse = getBalancesByAddressesResponse;
     }
     if (notifyNewBlockTemplateRequest != null) {
-      _result.notifyNewBlockTemplateRequest = notifyNewBlockTemplateRequest;
+      $result.notifyNewBlockTemplateRequest = notifyNewBlockTemplateRequest;
     }
     if (notifyNewBlockTemplateResponse != null) {
-      _result.notifyNewBlockTemplateResponse = notifyNewBlockTemplateResponse;
+      $result.notifyNewBlockTemplateResponse = notifyNewBlockTemplateResponse;
     }
     if (newBlockTemplateNotification != null) {
-      _result.newBlockTemplateNotification = newBlockTemplateNotification;
+      $result.newBlockTemplateNotification = newBlockTemplateNotification;
     }
     if (getMempoolEntriesByAddressesRequest != null) {
-      _result.getMempoolEntriesByAddressesRequest = getMempoolEntriesByAddressesRequest;
+      $result.getMempoolEntriesByAddressesRequest = getMempoolEntriesByAddressesRequest;
     }
     if (getMempoolEntriesByAddressesResponse != null) {
-      _result.getMempoolEntriesByAddressesResponse = getMempoolEntriesByAddressesResponse;
+      $result.getMempoolEntriesByAddressesResponse = getMempoolEntriesByAddressesResponse;
     }
     if (getCoinSupplyRequest != null) {
-      _result.getCoinSupplyRequest = getCoinSupplyRequest;
+      $result.getCoinSupplyRequest = getCoinSupplyRequest;
     }
     if (getCoinSupplyResponse != null) {
-      _result.getCoinSupplyResponse = getCoinSupplyResponse;
+      $result.getCoinSupplyResponse = getCoinSupplyResponse;
     }
-    return _result;
+    return $result;
   }
-  factory KaspadMessage.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory KaspadMessage.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  KarlsendMessage._() : super();
+  factory KarlsendMessage.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory KarlsendMessage.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static const $core.Map<$core.int, KarlsendMessage_Payload> _KarlsendMessage_PayloadByTag = {
+    1 : KarlsendMessage_Payload.addresses,
+    2 : KarlsendMessage_Payload.block,
+    3 : KarlsendMessage_Payload.transaction,
+    5 : KarlsendMessage_Payload.blockLocator,
+    6 : KarlsendMessage_Payload.requestAddresses,
+    10 : KarlsendMessage_Payload.requestRelayBlocks,
+    12 : KarlsendMessage_Payload.requestTransactions,
+    13 : KarlsendMessage_Payload.ibdBlock,
+    14 : KarlsendMessage_Payload.invRelayBlock,
+    15 : KarlsendMessage_Payload.invTransactions,
+    16 : KarlsendMessage_Payload.ping,
+    17 : KarlsendMessage_Payload.pong,
+    19 : KarlsendMessage_Payload.verack,
+    20 : KarlsendMessage_Payload.version,
+    21 : KarlsendMessage_Payload.transactionNotFound,
+    22 : KarlsendMessage_Payload.reject,
+    25 : KarlsendMessage_Payload.pruningPointUtxoSetChunk,
+    26 : KarlsendMessage_Payload.requestIBDBlocks,
+    27 : KarlsendMessage_Payload.unexpectedPruningPoint,
+    30 : KarlsendMessage_Payload.ibdBlockLocator,
+    31 : KarlsendMessage_Payload.ibdBlockLocatorHighestHash,
+    33 : KarlsendMessage_Payload.requestNextPruningPointUtxoSetChunk,
+    34 : KarlsendMessage_Payload.donePruningPointUtxoSetChunks,
+    35 : KarlsendMessage_Payload.ibdBlockLocatorHighestHashNotFound,
+    36 : KarlsendMessage_Payload.blockWithTrustedData,
+    37 : KarlsendMessage_Payload.doneBlocksWithTrustedData,
+    40 : KarlsendMessage_Payload.requestPruningPointAndItsAnticone,
+    41 : KarlsendMessage_Payload.blockHeaders,
+    42 : KarlsendMessage_Payload.requestNextHeaders,
+    43 : KarlsendMessage_Payload.doneHeaders,
+    44 : KarlsendMessage_Payload.requestPruningPointUTXOSet,
+    45 : KarlsendMessage_Payload.requestHeaders,
+    46 : KarlsendMessage_Payload.requestBlockLocator,
+    47 : KarlsendMessage_Payload.pruningPoints,
+    48 : KarlsendMessage_Payload.requestPruningPointProof,
+    49 : KarlsendMessage_Payload.pruningPointProof,
+    50 : KarlsendMessage_Payload.ready,
+    51 : KarlsendMessage_Payload.blockWithTrustedDataV4,
+    52 : KarlsendMessage_Payload.trustedData,
+    53 : KarlsendMessage_Payload.requestIBDChainBlockLocator,
+    54 : KarlsendMessage_Payload.ibdChainBlockLocator,
+    55 : KarlsendMessage_Payload.requestAnticone,
+    56 : KarlsendMessage_Payload.requestNextPruningPointAndItsAnticoneBlocks,
+    1001 : KarlsendMessage_Payload.getCurrentNetworkRequest,
+    1002 : KarlsendMessage_Payload.getCurrentNetworkResponse,
+    1003 : KarlsendMessage_Payload.submitBlockRequest,
+    1004 : KarlsendMessage_Payload.submitBlockResponse,
+    1005 : KarlsendMessage_Payload.getBlockTemplateRequest,
+    1006 : KarlsendMessage_Payload.getBlockTemplateResponse,
+    1007 : KarlsendMessage_Payload.notifyBlockAddedRequest,
+    1008 : KarlsendMessage_Payload.notifyBlockAddedResponse,
+    1009 : KarlsendMessage_Payload.blockAddedNotification,
+    1010 : KarlsendMessage_Payload.getPeerAddressesRequest,
+    1011 : KarlsendMessage_Payload.getPeerAddressesResponse,
+    1012 : KarlsendMessage_Payload.getSelectedTipHashRequest,
+    1013 : KarlsendMessage_Payload.getSelectedTipHashResponse,
+    1014 : KarlsendMessage_Payload.getMempoolEntryRequest,
+    1015 : KarlsendMessage_Payload.getMempoolEntryResponse,
+    1016 : KarlsendMessage_Payload.getConnectedPeerInfoRequest,
+    1017 : KarlsendMessage_Payload.getConnectedPeerInfoResponse,
+    1018 : KarlsendMessage_Payload.addPeerRequest,
+    1019 : KarlsendMessage_Payload.addPeerResponse,
+    1020 : KarlsendMessage_Payload.submitTransactionRequest,
+    1021 : KarlsendMessage_Payload.submitTransactionResponse,
+    1022 : KarlsendMessage_Payload.notifyVirtualSelectedParentChainChangedRequest,
+    1023 : KarlsendMessage_Payload.notifyVirtualSelectedParentChainChangedResponse,
+    1024 : KarlsendMessage_Payload.virtualSelectedParentChainChangedNotification,
+    1025 : KarlsendMessage_Payload.getBlockRequest,
+    1026 : KarlsendMessage_Payload.getBlockResponse,
+    1027 : KarlsendMessage_Payload.getSubnetworkRequest,
+    1028 : KarlsendMessage_Payload.getSubnetworkResponse,
+    1029 : KarlsendMessage_Payload.getVirtualSelectedParentChainFromBlockRequest,
+    1030 : KarlsendMessage_Payload.getVirtualSelectedParentChainFromBlockResponse,
+    1031 : KarlsendMessage_Payload.getBlocksRequest,
+    1032 : KarlsendMessage_Payload.getBlocksResponse,
+    1033 : KarlsendMessage_Payload.getBlockCountRequest,
+    1034 : KarlsendMessage_Payload.getBlockCountResponse,
+    1035 : KarlsendMessage_Payload.getBlockDagInfoRequest,
+    1036 : KarlsendMessage_Payload.getBlockDagInfoResponse,
+    1037 : KarlsendMessage_Payload.resolveFinalityConflictRequest,
+    1038 : KarlsendMessage_Payload.resolveFinalityConflictResponse,
+    1039 : KarlsendMessage_Payload.notifyFinalityConflictsRequest,
+    1040 : KarlsendMessage_Payload.notifyFinalityConflictsResponse,
+    1041 : KarlsendMessage_Payload.finalityConflictNotification,
+    1042 : KarlsendMessage_Payload.finalityConflictResolvedNotification,
+    1043 : KarlsendMessage_Payload.getMempoolEntriesRequest,
+    1044 : KarlsendMessage_Payload.getMempoolEntriesResponse,
+    1045 : KarlsendMessage_Payload.shutDownRequest,
+    1046 : KarlsendMessage_Payload.shutDownResponse,
+    1047 : KarlsendMessage_Payload.getHeadersRequest,
+    1048 : KarlsendMessage_Payload.getHeadersResponse,
+    1049 : KarlsendMessage_Payload.notifyUtxosChangedRequest,
+    1050 : KarlsendMessage_Payload.notifyUtxosChangedResponse,
+    1051 : KarlsendMessage_Payload.utxosChangedNotification,
+    1052 : KarlsendMessage_Payload.getUtxosByAddressesRequest,
+    1053 : KarlsendMessage_Payload.getUtxosByAddressesResponse,
+    1054 : KarlsendMessage_Payload.getVirtualSelectedParentBlueScoreRequest,
+    1055 : KarlsendMessage_Payload.getVirtualSelectedParentBlueScoreResponse,
+    1056 : KarlsendMessage_Payload.notifyVirtualSelectedParentBlueScoreChangedRequest,
+    1057 : KarlsendMessage_Payload.notifyVirtualSelectedParentBlueScoreChangedResponse,
+    1058 : KarlsendMessage_Payload.virtualSelectedParentBlueScoreChangedNotification,
+    1059 : KarlsendMessage_Payload.banRequest,
+    1060 : KarlsendMessage_Payload.banResponse,
+    1061 : KarlsendMessage_Payload.unbanRequest,
+    1062 : KarlsendMessage_Payload.unbanResponse,
+    1063 : KarlsendMessage_Payload.getInfoRequest,
+    1064 : KarlsendMessage_Payload.getInfoResponse,
+    1065 : KarlsendMessage_Payload.stopNotifyingUtxosChangedRequest,
+    1066 : KarlsendMessage_Payload.stopNotifyingUtxosChangedResponse,
+    1067 : KarlsendMessage_Payload.notifyPruningPointUTXOSetOverrideRequest,
+    1068 : KarlsendMessage_Payload.notifyPruningPointUTXOSetOverrideResponse,
+    1069 : KarlsendMessage_Payload.pruningPointUTXOSetOverrideNotification,
+    1070 : KarlsendMessage_Payload.stopNotifyingPruningPointUTXOSetOverrideRequest,
+    1071 : KarlsendMessage_Payload.stopNotifyingPruningPointUTXOSetOverrideResponse,
+    1072 : KarlsendMessage_Payload.estimateNetworkHashesPerSecondRequest,
+    1073 : KarlsendMessage_Payload.estimateNetworkHashesPerSecondResponse,
+    1074 : KarlsendMessage_Payload.notifyVirtualDaaScoreChangedRequest,
+    1075 : KarlsendMessage_Payload.notifyVirtualDaaScoreChangedResponse,
+    1076 : KarlsendMessage_Payload.virtualDaaScoreChangedNotification,
+    1077 : KarlsendMessage_Payload.getBalanceByAddressRequest,
+    1078 : KarlsendMessage_Payload.getBalanceByAddressResponse,
+    1079 : KarlsendMessage_Payload.getBalancesByAddressesRequest,
+    1080 : KarlsendMessage_Payload.getBalancesByAddressesResponse,
+    1081 : KarlsendMessage_Payload.notifyNewBlockTemplateRequest,
+    1082 : KarlsendMessage_Payload.notifyNewBlockTemplateResponse,
+    1083 : KarlsendMessage_Payload.newBlockTemplateNotification,
+    1084 : KarlsendMessage_Payload.getMempoolEntriesByAddressesRequest,
+    1085 : KarlsendMessage_Payload.getMempoolEntriesByAddressesResponse,
+    1086 : KarlsendMessage_Payload.getCoinSupplyRequest,
+    1087 : KarlsendMessage_Payload.getCoinSupplyResponse,
+    0 : KarlsendMessage_Payload.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'KarlsendMessage', package: const $pb.PackageName(_omitMessageNames ? '' : 'protowire'), createEmptyInstance: create)
+    ..oo(0, [1, 2, 3, 5, 6, 10, 12, 13, 14, 15, 16, 17, 19, 20, 21, 22, 25, 26, 27, 30, 31, 33, 34, 35, 36, 37, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 1030, 1031, 1032, 1033, 1034, 1035, 1036, 1037, 1038, 1039, 1040, 1041, 1042, 1043, 1044, 1045, 1046, 1047, 1048, 1049, 1050, 1051, 1052, 1053, 1054, 1055, 1056, 1057, 1058, 1059, 1060, 1061, 1062, 1063, 1064, 1065, 1066, 1067, 1068, 1069, 1070, 1071, 1072, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1086, 1087])
+    ..aOM<$1.AddressesMessage>(1, _omitFieldNames ? '' : 'addresses', subBuilder: $1.AddressesMessage.create)
+    ..aOM<$1.BlockMessage>(2, _omitFieldNames ? '' : 'block', subBuilder: $1.BlockMessage.create)
+    ..aOM<$1.TransactionMessage>(3, _omitFieldNames ? '' : 'transaction', subBuilder: $1.TransactionMessage.create)
+    ..aOM<$1.BlockLocatorMessage>(5, _omitFieldNames ? '' : 'blockLocator', protoName: 'blockLocator', subBuilder: $1.BlockLocatorMessage.create)
+    ..aOM<$1.RequestAddressesMessage>(6, _omitFieldNames ? '' : 'requestAddresses', protoName: 'requestAddresses', subBuilder: $1.RequestAddressesMessage.create)
+    ..aOM<$1.RequestRelayBlocksMessage>(10, _omitFieldNames ? '' : 'requestRelayBlocks', protoName: 'requestRelayBlocks', subBuilder: $1.RequestRelayBlocksMessage.create)
+    ..aOM<$1.RequestTransactionsMessage>(12, _omitFieldNames ? '' : 'requestTransactions', protoName: 'requestTransactions', subBuilder: $1.RequestTransactionsMessage.create)
+    ..aOM<$1.BlockMessage>(13, _omitFieldNames ? '' : 'ibdBlock', protoName: 'ibdBlock', subBuilder: $1.BlockMessage.create)
+    ..aOM<$1.InvRelayBlockMessage>(14, _omitFieldNames ? '' : 'invRelayBlock', protoName: 'invRelayBlock', subBuilder: $1.InvRelayBlockMessage.create)
+    ..aOM<$1.InvTransactionsMessage>(15, _omitFieldNames ? '' : 'invTransactions', protoName: 'invTransactions', subBuilder: $1.InvTransactionsMessage.create)
+    ..aOM<$1.PingMessage>(16, _omitFieldNames ? '' : 'ping', subBuilder: $1.PingMessage.create)
+    ..aOM<$1.PongMessage>(17, _omitFieldNames ? '' : 'pong', subBuilder: $1.PongMessage.create)
+    ..aOM<$1.VerackMessage>(19, _omitFieldNames ? '' : 'verack', subBuilder: $1.VerackMessage.create)
+    ..aOM<$1.VersionMessage>(20, _omitFieldNames ? '' : 'version', subBuilder: $1.VersionMessage.create)
+    ..aOM<$1.TransactionNotFoundMessage>(21, _omitFieldNames ? '' : 'transactionNotFound', protoName: 'transactionNotFound', subBuilder: $1.TransactionNotFoundMessage.create)
+    ..aOM<$1.RejectMessage>(22, _omitFieldNames ? '' : 'reject', subBuilder: $1.RejectMessage.create)
+    ..aOM<$1.PruningPointUtxoSetChunkMessage>(25, _omitFieldNames ? '' : 'pruningPointUtxoSetChunk', protoName: 'pruningPointUtxoSetChunk', subBuilder: $1.PruningPointUtxoSetChunkMessage.create)
+    ..aOM<$1.RequestIBDBlocksMessage>(26, _omitFieldNames ? '' : 'requestIBDBlocks', protoName: 'requestIBDBlocks', subBuilder: $1.RequestIBDBlocksMessage.create)
+    ..aOM<$1.UnexpectedPruningPointMessage>(27, _omitFieldNames ? '' : 'unexpectedPruningPoint', protoName: 'unexpectedPruningPoint', subBuilder: $1.UnexpectedPruningPointMessage.create)
+    ..aOM<$1.IbdBlockLocatorMessage>(30, _omitFieldNames ? '' : 'ibdBlockLocator', protoName: 'ibdBlockLocator', subBuilder: $1.IbdBlockLocatorMessage.create)
+    ..aOM<$1.IbdBlockLocatorHighestHashMessage>(31, _omitFieldNames ? '' : 'ibdBlockLocatorHighestHash', protoName: 'ibdBlockLocatorHighestHash', subBuilder: $1.IbdBlockLocatorHighestHashMessage.create)
+    ..aOM<$1.RequestNextPruningPointUtxoSetChunkMessage>(33, _omitFieldNames ? '' : 'requestNextPruningPointUtxoSetChunk', protoName: 'requestNextPruningPointUtxoSetChunk', subBuilder: $1.RequestNextPruningPointUtxoSetChunkMessage.create)
+    ..aOM<$1.DonePruningPointUtxoSetChunksMessage>(34, _omitFieldNames ? '' : 'donePruningPointUtxoSetChunks', protoName: 'donePruningPointUtxoSetChunks', subBuilder: $1.DonePruningPointUtxoSetChunksMessage.create)
+    ..aOM<$1.IbdBlockLocatorHighestHashNotFoundMessage>(35, _omitFieldNames ? '' : 'ibdBlockLocatorHighestHashNotFound', protoName: 'ibdBlockLocatorHighestHashNotFound', subBuilder: $1.IbdBlockLocatorHighestHashNotFoundMessage.create)
+    ..aOM<$1.BlockWithTrustedDataMessage>(36, _omitFieldNames ? '' : 'blockWithTrustedData', protoName: 'blockWithTrustedData', subBuilder: $1.BlockWithTrustedDataMessage.create)
+    ..aOM<$1.DoneBlocksWithTrustedDataMessage>(37, _omitFieldNames ? '' : 'doneBlocksWithTrustedData', protoName: 'doneBlocksWithTrustedData', subBuilder: $1.DoneBlocksWithTrustedDataMessage.create)
+    ..aOM<$1.RequestPruningPointAndItsAnticoneMessage>(40, _omitFieldNames ? '' : 'requestPruningPointAndItsAnticone', protoName: 'requestPruningPointAndItsAnticone', subBuilder: $1.RequestPruningPointAndItsAnticoneMessage.create)
+    ..aOM<$1.BlockHeadersMessage>(41, _omitFieldNames ? '' : 'blockHeaders', protoName: 'blockHeaders', subBuilder: $1.BlockHeadersMessage.create)
+    ..aOM<$1.RequestNextHeadersMessage>(42, _omitFieldNames ? '' : 'requestNextHeaders', protoName: 'requestNextHeaders', subBuilder: $1.RequestNextHeadersMessage.create)
+    ..aOM<$1.DoneHeadersMessage>(43, _omitFieldNames ? '' : 'DoneHeaders', protoName: 'DoneHeaders', subBuilder: $1.DoneHeadersMessage.create)
+    ..aOM<$1.RequestPruningPointUTXOSetMessage>(44, _omitFieldNames ? '' : 'requestPruningPointUTXOSet', protoName: 'requestPruningPointUTXOSet', subBuilder: $1.RequestPruningPointUTXOSetMessage.create)
+    ..aOM<$1.RequestHeadersMessage>(45, _omitFieldNames ? '' : 'requestHeaders', protoName: 'requestHeaders', subBuilder: $1.RequestHeadersMessage.create)
+    ..aOM<$1.RequestBlockLocatorMessage>(46, _omitFieldNames ? '' : 'requestBlockLocator', protoName: 'requestBlockLocator', subBuilder: $1.RequestBlockLocatorMessage.create)
+    ..aOM<$1.PruningPointsMessage>(47, _omitFieldNames ? '' : 'pruningPoints', protoName: 'pruningPoints', subBuilder: $1.PruningPointsMessage.create)
+    ..aOM<$1.RequestPruningPointProofMessage>(48, _omitFieldNames ? '' : 'requestPruningPointProof', protoName: 'requestPruningPointProof', subBuilder: $1.RequestPruningPointProofMessage.create)
+    ..aOM<$1.PruningPointProofMessage>(49, _omitFieldNames ? '' : 'pruningPointProof', protoName: 'pruningPointProof', subBuilder: $1.PruningPointProofMessage.create)
+    ..aOM<$1.ReadyMessage>(50, _omitFieldNames ? '' : 'ready', subBuilder: $1.ReadyMessage.create)
+    ..aOM<$1.BlockWithTrustedDataV4Message>(51, _omitFieldNames ? '' : 'blockWithTrustedDataV4', protoName: 'blockWithTrustedDataV4', subBuilder: $1.BlockWithTrustedDataV4Message.create)
+    ..aOM<$1.TrustedDataMessage>(52, _omitFieldNames ? '' : 'trustedData', protoName: 'trustedData', subBuilder: $1.TrustedDataMessage.create)
+    ..aOM<$1.RequestIBDChainBlockLocatorMessage>(53, _omitFieldNames ? '' : 'requestIBDChainBlockLocator', protoName: 'requestIBDChainBlockLocator', subBuilder: $1.RequestIBDChainBlockLocatorMessage.create)
+    ..aOM<$1.IbdChainBlockLocatorMessage>(54, _omitFieldNames ? '' : 'ibdChainBlockLocator', protoName: 'ibdChainBlockLocator', subBuilder: $1.IbdChainBlockLocatorMessage.create)
+    ..aOM<$1.RequestAnticoneMessage>(55, _omitFieldNames ? '' : 'requestAnticone', protoName: 'requestAnticone', subBuilder: $1.RequestAnticoneMessage.create)
+    ..aOM<$1.RequestNextPruningPointAndItsAnticoneBlocksMessage>(56, _omitFieldNames ? '' : 'requestNextPruningPointAndItsAnticoneBlocks', protoName: 'requestNextPruningPointAndItsAnticoneBlocks', subBuilder: $1.RequestNextPruningPointAndItsAnticoneBlocksMessage.create)
+    ..aOM<$2.GetCurrentNetworkRequestMessage>(1001, _omitFieldNames ? '' : 'getCurrentNetworkRequest', protoName: 'getCurrentNetworkRequest', subBuilder: $2.GetCurrentNetworkRequestMessage.create)
+    ..aOM<$2.GetCurrentNetworkResponseMessage>(1002, _omitFieldNames ? '' : 'getCurrentNetworkResponse', protoName: 'getCurrentNetworkResponse', subBuilder: $2.GetCurrentNetworkResponseMessage.create)
+    ..aOM<$2.SubmitBlockRequestMessage>(1003, _omitFieldNames ? '' : 'submitBlockRequest', protoName: 'submitBlockRequest', subBuilder: $2.SubmitBlockRequestMessage.create)
+    ..aOM<$2.SubmitBlockResponseMessage>(1004, _omitFieldNames ? '' : 'submitBlockResponse', protoName: 'submitBlockResponse', subBuilder: $2.SubmitBlockResponseMessage.create)
+    ..aOM<$2.GetBlockTemplateRequestMessage>(1005, _omitFieldNames ? '' : 'getBlockTemplateRequest', protoName: 'getBlockTemplateRequest', subBuilder: $2.GetBlockTemplateRequestMessage.create)
+    ..aOM<$2.GetBlockTemplateResponseMessage>(1006, _omitFieldNames ? '' : 'getBlockTemplateResponse', protoName: 'getBlockTemplateResponse', subBuilder: $2.GetBlockTemplateResponseMessage.create)
+    ..aOM<$2.NotifyBlockAddedRequestMessage>(1007, _omitFieldNames ? '' : 'notifyBlockAddedRequest', protoName: 'notifyBlockAddedRequest', subBuilder: $2.NotifyBlockAddedRequestMessage.create)
+    ..aOM<$2.NotifyBlockAddedResponseMessage>(1008, _omitFieldNames ? '' : 'notifyBlockAddedResponse', protoName: 'notifyBlockAddedResponse', subBuilder: $2.NotifyBlockAddedResponseMessage.create)
+    ..aOM<$2.BlockAddedNotificationMessage>(1009, _omitFieldNames ? '' : 'blockAddedNotification', protoName: 'blockAddedNotification', subBuilder: $2.BlockAddedNotificationMessage.create)
+    ..aOM<$2.GetPeerAddressesRequestMessage>(1010, _omitFieldNames ? '' : 'getPeerAddressesRequest', protoName: 'getPeerAddressesRequest', subBuilder: $2.GetPeerAddressesRequestMessage.create)
+    ..aOM<$2.GetPeerAddressesResponseMessage>(1011, _omitFieldNames ? '' : 'getPeerAddressesResponse', protoName: 'getPeerAddressesResponse', subBuilder: $2.GetPeerAddressesResponseMessage.create)
+    ..aOM<$2.GetSelectedTipHashRequestMessage>(1012, _omitFieldNames ? '' : 'getSelectedTipHashRequest', protoName: 'getSelectedTipHashRequest', subBuilder: $2.GetSelectedTipHashRequestMessage.create)
+    ..aOM<$2.GetSelectedTipHashResponseMessage>(1013, _omitFieldNames ? '' : 'getSelectedTipHashResponse', protoName: 'getSelectedTipHashResponse', subBuilder: $2.GetSelectedTipHashResponseMessage.create)
+    ..aOM<$2.GetMempoolEntryRequestMessage>(1014, _omitFieldNames ? '' : 'getMempoolEntryRequest', protoName: 'getMempoolEntryRequest', subBuilder: $2.GetMempoolEntryRequestMessage.create)
+    ..aOM<$2.GetMempoolEntryResponseMessage>(1015, _omitFieldNames ? '' : 'getMempoolEntryResponse', protoName: 'getMempoolEntryResponse', subBuilder: $2.GetMempoolEntryResponseMessage.create)
+    ..aOM<$2.GetConnectedPeerInfoRequestMessage>(1016, _omitFieldNames ? '' : 'getConnectedPeerInfoRequest', protoName: 'getConnectedPeerInfoRequest', subBuilder: $2.GetConnectedPeerInfoRequestMessage.create)
+    ..aOM<$2.GetConnectedPeerInfoResponseMessage>(1017, _omitFieldNames ? '' : 'getConnectedPeerInfoResponse', protoName: 'getConnectedPeerInfoResponse', subBuilder: $2.GetConnectedPeerInfoResponseMessage.create)
+    ..aOM<$2.AddPeerRequestMessage>(1018, _omitFieldNames ? '' : 'addPeerRequest', protoName: 'addPeerRequest', subBuilder: $2.AddPeerRequestMessage.create)
+    ..aOM<$2.AddPeerResponseMessage>(1019, _omitFieldNames ? '' : 'addPeerResponse', protoName: 'addPeerResponse', subBuilder: $2.AddPeerResponseMessage.create)
+    ..aOM<$2.SubmitTransactionRequestMessage>(1020, _omitFieldNames ? '' : 'submitTransactionRequest', protoName: 'submitTransactionRequest', subBuilder: $2.SubmitTransactionRequestMessage.create)
+    ..aOM<$2.SubmitTransactionResponseMessage>(1021, _omitFieldNames ? '' : 'submitTransactionResponse', protoName: 'submitTransactionResponse', subBuilder: $2.SubmitTransactionResponseMessage.create)
+    ..aOM<$2.NotifyVirtualSelectedParentChainChangedRequestMessage>(1022, _omitFieldNames ? '' : 'notifyVirtualSelectedParentChainChangedRequest', protoName: 'notifyVirtualSelectedParentChainChangedRequest', subBuilder: $2.NotifyVirtualSelectedParentChainChangedRequestMessage.create)
+    ..aOM<$2.NotifyVirtualSelectedParentChainChangedResponseMessage>(1023, _omitFieldNames ? '' : 'notifyVirtualSelectedParentChainChangedResponse', protoName: 'notifyVirtualSelectedParentChainChangedResponse', subBuilder: $2.NotifyVirtualSelectedParentChainChangedResponseMessage.create)
+    ..aOM<$2.VirtualSelectedParentChainChangedNotificationMessage>(1024, _omitFieldNames ? '' : 'virtualSelectedParentChainChangedNotification', protoName: 'virtualSelectedParentChainChangedNotification', subBuilder: $2.VirtualSelectedParentChainChangedNotificationMessage.create)
+    ..aOM<$2.GetBlockRequestMessage>(1025, _omitFieldNames ? '' : 'getBlockRequest', protoName: 'getBlockRequest', subBuilder: $2.GetBlockRequestMessage.create)
+    ..aOM<$2.GetBlockResponseMessage>(1026, _omitFieldNames ? '' : 'getBlockResponse', protoName: 'getBlockResponse', subBuilder: $2.GetBlockResponseMessage.create)
+    ..aOM<$2.GetSubnetworkRequestMessage>(1027, _omitFieldNames ? '' : 'getSubnetworkRequest', protoName: 'getSubnetworkRequest', subBuilder: $2.GetSubnetworkRequestMessage.create)
+    ..aOM<$2.GetSubnetworkResponseMessage>(1028, _omitFieldNames ? '' : 'getSubnetworkResponse', protoName: 'getSubnetworkResponse', subBuilder: $2.GetSubnetworkResponseMessage.create)
+    ..aOM<$2.GetVirtualSelectedParentChainFromBlockRequestMessage>(1029, _omitFieldNames ? '' : 'getVirtualSelectedParentChainFromBlockRequest', protoName: 'getVirtualSelectedParentChainFromBlockRequest', subBuilder: $2.GetVirtualSelectedParentChainFromBlockRequestMessage.create)
+    ..aOM<$2.GetVirtualSelectedParentChainFromBlockResponseMessage>(1030, _omitFieldNames ? '' : 'getVirtualSelectedParentChainFromBlockResponse', protoName: 'getVirtualSelectedParentChainFromBlockResponse', subBuilder: $2.GetVirtualSelectedParentChainFromBlockResponseMessage.create)
+    ..aOM<$2.GetBlocksRequestMessage>(1031, _omitFieldNames ? '' : 'getBlocksRequest', protoName: 'getBlocksRequest', subBuilder: $2.GetBlocksRequestMessage.create)
+    ..aOM<$2.GetBlocksResponseMessage>(1032, _omitFieldNames ? '' : 'getBlocksResponse', protoName: 'getBlocksResponse', subBuilder: $2.GetBlocksResponseMessage.create)
+    ..aOM<$2.GetBlockCountRequestMessage>(1033, _omitFieldNames ? '' : 'getBlockCountRequest', protoName: 'getBlockCountRequest', subBuilder: $2.GetBlockCountRequestMessage.create)
+    ..aOM<$2.GetBlockCountResponseMessage>(1034, _omitFieldNames ? '' : 'getBlockCountResponse', protoName: 'getBlockCountResponse', subBuilder: $2.GetBlockCountResponseMessage.create)
+    ..aOM<$2.GetBlockDagInfoRequestMessage>(1035, _omitFieldNames ? '' : 'getBlockDagInfoRequest', protoName: 'getBlockDagInfoRequest', subBuilder: $2.GetBlockDagInfoRequestMessage.create)
+    ..aOM<$2.GetBlockDagInfoResponseMessage>(1036, _omitFieldNames ? '' : 'getBlockDagInfoResponse', protoName: 'getBlockDagInfoResponse', subBuilder: $2.GetBlockDagInfoResponseMessage.create)
+    ..aOM<$2.ResolveFinalityConflictRequestMessage>(1037, _omitFieldNames ? '' : 'resolveFinalityConflictRequest', protoName: 'resolveFinalityConflictRequest', subBuilder: $2.ResolveFinalityConflictRequestMessage.create)
+    ..aOM<$2.ResolveFinalityConflictResponseMessage>(1038, _omitFieldNames ? '' : 'resolveFinalityConflictResponse', protoName: 'resolveFinalityConflictResponse', subBuilder: $2.ResolveFinalityConflictResponseMessage.create)
+    ..aOM<$2.NotifyFinalityConflictsRequestMessage>(1039, _omitFieldNames ? '' : 'notifyFinalityConflictsRequest', protoName: 'notifyFinalityConflictsRequest', subBuilder: $2.NotifyFinalityConflictsRequestMessage.create)
+    ..aOM<$2.NotifyFinalityConflictsResponseMessage>(1040, _omitFieldNames ? '' : 'notifyFinalityConflictsResponse', protoName: 'notifyFinalityConflictsResponse', subBuilder: $2.NotifyFinalityConflictsResponseMessage.create)
+    ..aOM<$2.FinalityConflictNotificationMessage>(1041, _omitFieldNames ? '' : 'finalityConflictNotification', protoName: 'finalityConflictNotification', subBuilder: $2.FinalityConflictNotificationMessage.create)
+    ..aOM<$2.FinalityConflictResolvedNotificationMessage>(1042, _omitFieldNames ? '' : 'finalityConflictResolvedNotification', protoName: 'finalityConflictResolvedNotification', subBuilder: $2.FinalityConflictResolvedNotificationMessage.create)
+    ..aOM<$2.GetMempoolEntriesRequestMessage>(1043, _omitFieldNames ? '' : 'getMempoolEntriesRequest', protoName: 'getMempoolEntriesRequest', subBuilder: $2.GetMempoolEntriesRequestMessage.create)
+    ..aOM<$2.GetMempoolEntriesResponseMessage>(1044, _omitFieldNames ? '' : 'getMempoolEntriesResponse', protoName: 'getMempoolEntriesResponse', subBuilder: $2.GetMempoolEntriesResponseMessage.create)
+    ..aOM<$2.ShutDownRequestMessage>(1045, _omitFieldNames ? '' : 'shutDownRequest', protoName: 'shutDownRequest', subBuilder: $2.ShutDownRequestMessage.create)
+    ..aOM<$2.ShutDownResponseMessage>(1046, _omitFieldNames ? '' : 'shutDownResponse', protoName: 'shutDownResponse', subBuilder: $2.ShutDownResponseMessage.create)
+    ..aOM<$2.GetHeadersRequestMessage>(1047, _omitFieldNames ? '' : 'getHeadersRequest', protoName: 'getHeadersRequest', subBuilder: $2.GetHeadersRequestMessage.create)
+    ..aOM<$2.GetHeadersResponseMessage>(1048, _omitFieldNames ? '' : 'getHeadersResponse', protoName: 'getHeadersResponse', subBuilder: $2.GetHeadersResponseMessage.create)
+    ..aOM<$2.NotifyUtxosChangedRequestMessage>(1049, _omitFieldNames ? '' : 'notifyUtxosChangedRequest', protoName: 'notifyUtxosChangedRequest', subBuilder: $2.NotifyUtxosChangedRequestMessage.create)
+    ..aOM<$2.NotifyUtxosChangedResponseMessage>(1050, _omitFieldNames ? '' : 'notifyUtxosChangedResponse', protoName: 'notifyUtxosChangedResponse', subBuilder: $2.NotifyUtxosChangedResponseMessage.create)
+    ..aOM<$2.UtxosChangedNotificationMessage>(1051, _omitFieldNames ? '' : 'utxosChangedNotification', protoName: 'utxosChangedNotification', subBuilder: $2.UtxosChangedNotificationMessage.create)
+    ..aOM<$2.GetUtxosByAddressesRequestMessage>(1052, _omitFieldNames ? '' : 'getUtxosByAddressesRequest', protoName: 'getUtxosByAddressesRequest', subBuilder: $2.GetUtxosByAddressesRequestMessage.create)
+    ..aOM<$2.GetUtxosByAddressesResponseMessage>(1053, _omitFieldNames ? '' : 'getUtxosByAddressesResponse', protoName: 'getUtxosByAddressesResponse', subBuilder: $2.GetUtxosByAddressesResponseMessage.create)
+    ..aOM<$2.GetVirtualSelectedParentBlueScoreRequestMessage>(1054, _omitFieldNames ? '' : 'getVirtualSelectedParentBlueScoreRequest', protoName: 'getVirtualSelectedParentBlueScoreRequest', subBuilder: $2.GetVirtualSelectedParentBlueScoreRequestMessage.create)
+    ..aOM<$2.GetVirtualSelectedParentBlueScoreResponseMessage>(1055, _omitFieldNames ? '' : 'getVirtualSelectedParentBlueScoreResponse', protoName: 'getVirtualSelectedParentBlueScoreResponse', subBuilder: $2.GetVirtualSelectedParentBlueScoreResponseMessage.create)
+    ..aOM<$2.NotifyVirtualSelectedParentBlueScoreChangedRequestMessage>(1056, _omitFieldNames ? '' : 'notifyVirtualSelectedParentBlueScoreChangedRequest', protoName: 'notifyVirtualSelectedParentBlueScoreChangedRequest', subBuilder: $2.NotifyVirtualSelectedParentBlueScoreChangedRequestMessage.create)
+    ..aOM<$2.NotifyVirtualSelectedParentBlueScoreChangedResponseMessage>(1057, _omitFieldNames ? '' : 'notifyVirtualSelectedParentBlueScoreChangedResponse', protoName: 'notifyVirtualSelectedParentBlueScoreChangedResponse', subBuilder: $2.NotifyVirtualSelectedParentBlueScoreChangedResponseMessage.create)
+    ..aOM<$2.VirtualSelectedParentBlueScoreChangedNotificationMessage>(1058, _omitFieldNames ? '' : 'virtualSelectedParentBlueScoreChangedNotification', protoName: 'virtualSelectedParentBlueScoreChangedNotification', subBuilder: $2.VirtualSelectedParentBlueScoreChangedNotificationMessage.create)
+    ..aOM<$2.BanRequestMessage>(1059, _omitFieldNames ? '' : 'banRequest', protoName: 'banRequest', subBuilder: $2.BanRequestMessage.create)
+    ..aOM<$2.BanResponseMessage>(1060, _omitFieldNames ? '' : 'banResponse', protoName: 'banResponse', subBuilder: $2.BanResponseMessage.create)
+    ..aOM<$2.UnbanRequestMessage>(1061, _omitFieldNames ? '' : 'unbanRequest', protoName: 'unbanRequest', subBuilder: $2.UnbanRequestMessage.create)
+    ..aOM<$2.UnbanResponseMessage>(1062, _omitFieldNames ? '' : 'unbanResponse', protoName: 'unbanResponse', subBuilder: $2.UnbanResponseMessage.create)
+    ..aOM<$2.GetInfoRequestMessage>(1063, _omitFieldNames ? '' : 'getInfoRequest', protoName: 'getInfoRequest', subBuilder: $2.GetInfoRequestMessage.create)
+    ..aOM<$2.GetInfoResponseMessage>(1064, _omitFieldNames ? '' : 'getInfoResponse', protoName: 'getInfoResponse', subBuilder: $2.GetInfoResponseMessage.create)
+    ..aOM<$2.StopNotifyingUtxosChangedRequestMessage>(1065, _omitFieldNames ? '' : 'stopNotifyingUtxosChangedRequest', protoName: 'stopNotifyingUtxosChangedRequest', subBuilder: $2.StopNotifyingUtxosChangedRequestMessage.create)
+    ..aOM<$2.StopNotifyingUtxosChangedResponseMessage>(1066, _omitFieldNames ? '' : 'stopNotifyingUtxosChangedResponse', protoName: 'stopNotifyingUtxosChangedResponse', subBuilder: $2.StopNotifyingUtxosChangedResponseMessage.create)
+    ..aOM<$2.NotifyPruningPointUTXOSetOverrideRequestMessage>(1067, _omitFieldNames ? '' : 'notifyPruningPointUTXOSetOverrideRequest', protoName: 'notifyPruningPointUTXOSetOverrideRequest', subBuilder: $2.NotifyPruningPointUTXOSetOverrideRequestMessage.create)
+    ..aOM<$2.NotifyPruningPointUTXOSetOverrideResponseMessage>(1068, _omitFieldNames ? '' : 'notifyPruningPointUTXOSetOverrideResponse', protoName: 'notifyPruningPointUTXOSetOverrideResponse', subBuilder: $2.NotifyPruningPointUTXOSetOverrideResponseMessage.create)
+    ..aOM<$2.PruningPointUTXOSetOverrideNotificationMessage>(1069, _omitFieldNames ? '' : 'pruningPointUTXOSetOverrideNotification', protoName: 'pruningPointUTXOSetOverrideNotification', subBuilder: $2.PruningPointUTXOSetOverrideNotificationMessage.create)
+    ..aOM<$2.StopNotifyingPruningPointUTXOSetOverrideRequestMessage>(1070, _omitFieldNames ? '' : 'stopNotifyingPruningPointUTXOSetOverrideRequest', protoName: 'stopNotifyingPruningPointUTXOSetOverrideRequest', subBuilder: $2.StopNotifyingPruningPointUTXOSetOverrideRequestMessage.create)
+    ..aOM<$2.StopNotifyingPruningPointUTXOSetOverrideResponseMessage>(1071, _omitFieldNames ? '' : 'stopNotifyingPruningPointUTXOSetOverrideResponse', protoName: 'stopNotifyingPruningPointUTXOSetOverrideResponse', subBuilder: $2.StopNotifyingPruningPointUTXOSetOverrideResponseMessage.create)
+    ..aOM<$2.EstimateNetworkHashesPerSecondRequestMessage>(1072, _omitFieldNames ? '' : 'estimateNetworkHashesPerSecondRequest', protoName: 'estimateNetworkHashesPerSecondRequest', subBuilder: $2.EstimateNetworkHashesPerSecondRequestMessage.create)
+    ..aOM<$2.EstimateNetworkHashesPerSecondResponseMessage>(1073, _omitFieldNames ? '' : 'estimateNetworkHashesPerSecondResponse', protoName: 'estimateNetworkHashesPerSecondResponse', subBuilder: $2.EstimateNetworkHashesPerSecondResponseMessage.create)
+    ..aOM<$2.NotifyVirtualDaaScoreChangedRequestMessage>(1074, _omitFieldNames ? '' : 'notifyVirtualDaaScoreChangedRequest', protoName: 'notifyVirtualDaaScoreChangedRequest', subBuilder: $2.NotifyVirtualDaaScoreChangedRequestMessage.create)
+    ..aOM<$2.NotifyVirtualDaaScoreChangedResponseMessage>(1075, _omitFieldNames ? '' : 'notifyVirtualDaaScoreChangedResponse', protoName: 'notifyVirtualDaaScoreChangedResponse', subBuilder: $2.NotifyVirtualDaaScoreChangedResponseMessage.create)
+    ..aOM<$2.VirtualDaaScoreChangedNotificationMessage>(1076, _omitFieldNames ? '' : 'virtualDaaScoreChangedNotification', protoName: 'virtualDaaScoreChangedNotification', subBuilder: $2.VirtualDaaScoreChangedNotificationMessage.create)
+    ..aOM<$2.GetBalanceByAddressRequestMessage>(1077, _omitFieldNames ? '' : 'getBalanceByAddressRequest', protoName: 'getBalanceByAddressRequest', subBuilder: $2.GetBalanceByAddressRequestMessage.create)
+    ..aOM<$2.GetBalanceByAddressResponseMessage>(1078, _omitFieldNames ? '' : 'getBalanceByAddressResponse', protoName: 'getBalanceByAddressResponse', subBuilder: $2.GetBalanceByAddressResponseMessage.create)
+    ..aOM<$2.GetBalancesByAddressesRequestMessage>(1079, _omitFieldNames ? '' : 'getBalancesByAddressesRequest', protoName: 'getBalancesByAddressesRequest', subBuilder: $2.GetBalancesByAddressesRequestMessage.create)
+    ..aOM<$2.GetBalancesByAddressesResponseMessage>(1080, _omitFieldNames ? '' : 'getBalancesByAddressesResponse', protoName: 'getBalancesByAddressesResponse', subBuilder: $2.GetBalancesByAddressesResponseMessage.create)
+    ..aOM<$2.NotifyNewBlockTemplateRequestMessage>(1081, _omitFieldNames ? '' : 'notifyNewBlockTemplateRequest', protoName: 'notifyNewBlockTemplateRequest', subBuilder: $2.NotifyNewBlockTemplateRequestMessage.create)
+    ..aOM<$2.NotifyNewBlockTemplateResponseMessage>(1082, _omitFieldNames ? '' : 'notifyNewBlockTemplateResponse', protoName: 'notifyNewBlockTemplateResponse', subBuilder: $2.NotifyNewBlockTemplateResponseMessage.create)
+    ..aOM<$2.NewBlockTemplateNotificationMessage>(1083, _omitFieldNames ? '' : 'newBlockTemplateNotification', protoName: 'newBlockTemplateNotification', subBuilder: $2.NewBlockTemplateNotificationMessage.create)
+    ..aOM<$2.GetMempoolEntriesByAddressesRequestMessage>(1084, _omitFieldNames ? '' : 'getMempoolEntriesByAddressesRequest', protoName: 'getMempoolEntriesByAddressesRequest', subBuilder: $2.GetMempoolEntriesByAddressesRequestMessage.create)
+    ..aOM<$2.GetMempoolEntriesByAddressesResponseMessage>(1085, _omitFieldNames ? '' : 'getMempoolEntriesByAddressesResponse', protoName: 'getMempoolEntriesByAddressesResponse', subBuilder: $2.GetMempoolEntriesByAddressesResponseMessage.create)
+    ..aOM<$2.GetCoinSupplyRequestMessage>(1086, _omitFieldNames ? '' : 'getCoinSupplyRequest', protoName: 'getCoinSupplyRequest', subBuilder: $2.GetCoinSupplyRequestMessage.create)
+    ..aOM<$2.GetCoinSupplyResponseMessage>(1087, _omitFieldNames ? '' : 'getCoinSupplyResponse', protoName: 'getCoinSupplyResponse', subBuilder: $2.GetCoinSupplyResponseMessage.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  KaspadMessage clone() => KaspadMessage()..mergeFromMessage(this);
+  KarlsendMessage clone() => KarlsendMessage()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  KaspadMessage copyWith(void Function(KaspadMessage) updates) => super.copyWith((message) => updates(message as KaspadMessage)) as KaspadMessage; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static KaspadMessage create() => KaspadMessage._();
-  KaspadMessage createEmptyInstance() => create();
-  static $pb.PbList<KaspadMessage> createRepeated() => $pb.PbList<KaspadMessage>();
-  @$core.pragma('dart2js:noInline')
-  static KaspadMessage getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KaspadMessage>(create);
-  static KaspadMessage? _defaultInstance;
+  KarlsendMessage copyWith(void Function(KarlsendMessage) updates) => super.copyWith((message) => updates(message as KarlsendMessage)) as KarlsendMessage;
 
-  KaspadMessage_Payload whichPayload() => _KaspadMessage_PayloadByTag[$_whichOneof(0)]!;
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static KarlsendMessage create() => KarlsendMessage._();
+  KarlsendMessage createEmptyInstance() => create();
+  static $pb.PbList<KarlsendMessage> createRepeated() => $pb.PbList<KarlsendMessage>();
+  @$core.pragma('dart2js:noInline')
+  static KarlsendMessage getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KarlsendMessage>(create);
+  static KarlsendMessage? _defaultInstance;
+
+  KarlsendMessage_Payload whichPayload() => _KarlsendMessage_PayloadByTag[$_whichOneof(0)]!;
   void clearPayload() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -2396,3 +2403,6 @@ class KaspadMessage extends $pb.GeneratedMessage {
   $2.GetCoinSupplyResponseMessage ensureGetCoinSupplyResponse() => $_ensure(129);
 }
 
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');
