@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:karlsium/kaspa/bech32/bech32.dart';
-import 'package:karlsium/kaspa/kaspa.dart';
+import 'package:karlsium/karlsen/bech32/bech32.dart';
+import 'package:karlsium/karlsen/karlsen.dart';
 import 'package:karlsium/utils.dart';
 
 const checkEncodingStringTests = [

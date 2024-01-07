@@ -1,6 +1,6 @@
 import 'package:decimal/decimal.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:karlsium/kaspa/kaspa.dart';
+import 'package:karlsium/karlsen/karlsen.dart';
 import 'package:karlsium/util/numberutil.dart';
 
 void main() {

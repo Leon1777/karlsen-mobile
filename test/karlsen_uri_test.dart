@@ -1,35 +1,35 @@
 import 'package:decimal/decimal.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:karlsium/kaspa/kaspa.dart';
+import 'package:karlsium/karlsen/karlsen.dart';
 
 void main() {
   final address =
       'karlsen:qqe3p64wpjf5y27kxppxrgks298ge6lhu6ws7ndx4tswzj7c84qkjlrspcuxw';
 
   test('Uri with invalid address', () {
-    final uriStr = 'kaspa:invalid';
-    final uri = KaspaUri.tryParse(uriStr);
+    final uriStr = 'karlsen:invalid';
+    final uri = KarlsenUri.tryParse(uriStr);
 
     expect(uri, isNull);
   });
 
   test('Uri with different prefix', () {
     final uriStr = address;
-    final uri = KaspaUri.tryParse(uriStr, prefix: AddressPrefix.kaspaTest);
+    final uri = KarlsenUri.tryParse(uriStr, prefix: AddressPrefix.karlsenTest);
 
     expect(uri, isNull);
   });
 
   test('Uri with invalid amount', () {
     final uriStr = '$address?amount=10,1234';
-    final uri = KaspaUri.tryParse(uriStr);
+    final uri = KarlsenUri.tryParse(uriStr);
 
     expect(uri, isNull);
   });
 
   test('Uri with address', () {
     final uriStr = address;
-    final uri = KaspaUri.tryParse(uriStr);
+    final uri = KarlsenUri.tryParse(uriStr);
 
     expect(uri != null, true);
     expect(uri!.address.toString(), equals(address));
@@ -42,7 +42,7 @@ void main() {
   test('Uri with ddress and label', () {
     final label = 'My Address';
     final uriStr = '$address?label=${Uri.encodeComponent(label)}';
-    final uri = KaspaUri.tryParse(uriStr);
+    final uri = KarlsenUri.tryParse(uriStr);
 
     expect(uri, isNot(null));
     expect(uri!.address.toString(), equals(address));
@@ -57,7 +57,7 @@ void main() {
     final amount = Amount.value(Decimal.parse('1.234'));
     final uriStr =
         '$address?amount=$amount&label=${Uri.encodeComponent(label)}';
-    final uri = KaspaUri.tryParse(uriStr);
+    final uri = KarlsenUri.tryParse(uriStr);
 
     expect(uri, isNot(null));
     expect(uri!.address.toString(), equals(address));
@@ -78,7 +78,7 @@ void main() {
     };
     final uriStr =
         '$address?${params.entries.map((e) => '${e.key}=${e.value}').join('&')}';
-    final uri = KaspaUri.tryParse(uriStr);
+    final uri = KarlsenUri.tryParse(uriStr);
 
     expect(uri, isNot(null));
     expect(uri!.address.toString(), equals(address));
