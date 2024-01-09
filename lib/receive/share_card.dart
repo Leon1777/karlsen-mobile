@@ -199,7 +199,7 @@ class _AppShareCardState extends State<AppShareCard> {
                       width: 98,
                       margin: EdgeInsets.only(bottom: 12),
                       child: AutoSizeText(
-                        "            KASPA.ORG",
+                        "      KARLSENCOIN.COM",
                         minFontSize: 0.1,
                         stepGranularity: 0.1,
                         maxLines: 1,
