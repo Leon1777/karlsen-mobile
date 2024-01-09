@@ -6,7 +6,7 @@ import 'package:pointycastle/digests/blake2b.dart';
 
 import '../../utils.dart';
 import '../bip340/bip340.dart' as schnorr;
-import '../kaspa.dart';
+import '../karlsen.dart';
 
 const kTransactionHashDomain = 'TransactionHash';
 const kTransactionIdDomain = 'TransactionID';

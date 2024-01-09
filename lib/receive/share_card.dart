@@ -114,7 +114,7 @@ class _AppShareCardState extends State<AppShareCard> {
                             width: 60,
                             margin: const EdgeInsets.only(top: 1),
                             child: AutoSizeText(
-                              "KASPA",
+                              "KARLSEN",
                               style: TextStyle(
                                 color: theme.primary,
                                 fontFamily: "Comfortaa",

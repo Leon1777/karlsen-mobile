@@ -2,7 +2,7 @@ import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../database/database.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../util/random_util.dart';
 import '../utils.dart';
 import 'wallet_repository.dart';
@@ -24,10 +24,10 @@ class WalletBundleNotifier extends StateNotifier<WalletBundle> {
     state = state.copyWith(wallets: wallets);
   }
 
-  Future<void> selectWallet(WalletInfo wallet, KaspaNetwork network) =>
+  Future<void> selectWallet(WalletInfo wallet, KarlsenNetwork network) =>
       switchWallet(wallet, network);
 
-  Future<void> logout(KaspaNetwork network) async {
+  Future<void> logout(KarlsenNetwork network) async {
     final wallet = state.selected;
     if (wallet == null) {
       return;
@@ -37,7 +37,7 @@ class WalletBundleNotifier extends StateNotifier<WalletBundle> {
     await repository.closeWalletBoxes(wallet, network: network);
   }
 
-  Future<void> switchWallet(WalletInfo wallet, KaspaNetwork network) async {
+  Future<void> switchWallet(WalletInfo wallet, KarlsenNetwork network) async {
     final oldWallet = state.selected;
     await _updateSelectedWallet(wallet);
     if (oldWallet != null) {
@@ -59,7 +59,7 @@ class WalletBundleNotifier extends StateNotifier<WalletBundle> {
 
     BoxInfo genBoxInfo({
       required String wid,
-      required KaspaNetwork network,
+      required KarlsenNetwork network,
     }) {
       final addressBoxKey =
           digest(data: stringToBytesUtf8('addressBoxKey#$network#$wid')).hex;
@@ -97,10 +97,10 @@ class WalletBundleNotifier extends StateNotifier<WalletBundle> {
     }
 
     final boxInfo = BoxInfoByNetwork(
-      mainnet: genBoxInfo(wid: wid, network: KaspaNetwork.mainnet),
-      testnet: genBoxInfo(wid: wid, network: KaspaNetwork.testnet),
-      devnet: genBoxInfo(wid: wid, network: KaspaNetwork.devnet),
-      simnet: genBoxInfo(wid: wid, network: KaspaNetwork.simnet),
+      mainnet: genBoxInfo(wid: wid, network: KarlsenNetwork.mainnet),
+      testnet: genBoxInfo(wid: wid, network: KarlsenNetwork.testnet),
+      devnet: genBoxInfo(wid: wid, network: KarlsenNetwork.devnet),
+      simnet: genBoxInfo(wid: wid, network: KarlsenNetwork.simnet),
     );
 
     final mainnetPublicKey = walletData.map(
@@ -108,13 +108,13 @@ class WalletBundleNotifier extends StateNotifier<WalletBundle> {
         final seed = hexToBytes(data.seed);
         return HdWallet.hdPublicKeyFromSeed(
           seed,
-          networkType: kaspaMainnet,
+          networkType: karlsenMainnet,
         );
       },
       kpub: (data) {
         return convertHdPublicKey(
           data.kpub,
-          KaspaNetwork.mainnet,
+          KarlsenNetwork.mainnet,
         );
       },
     );
@@ -154,7 +154,7 @@ class WalletBundleNotifier extends StateNotifier<WalletBundle> {
     await walletVault.delete();
 
     // remove wallet boxes
-    for (final network in KaspaNetwork.values) {
+    for (final network in KarlsenNetwork.values) {
       final boxInfo = wallet.getBoxInfo(network);
       await Database.removeBox(boxInfo.address.boxKey);
       await Database.removeBox(boxInfo.balance.boxKey);

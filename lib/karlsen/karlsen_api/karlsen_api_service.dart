@@ -1,11 +1,11 @@
 import 'package:collection/collection.dart';
 
-import 'kaspa_api_base.dart';
+import 'karlsen_api_base.dart';
 import 'types.dart';
 
-class KaspaApiService {
-  final KaspaApi _api;
-  const KaspaApiService(this._api);
+class KarlsenApiService {
+  final KarlsenApi _api;
+  const KarlsenApiService(this._api);
 
   Future<int> getTxCountForAddress(
     String address, {

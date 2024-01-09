@@ -1581,7 +1581,7 @@ class GetBlockTemplateRequestMessage extends $pb.GeneratedMessage {
   static GetBlockTemplateRequestMessage getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetBlockTemplateRequestMessage>(create);
   static GetBlockTemplateRequestMessage? _defaultInstance;
 
-  /// Which kaspa address should the coinbase block reward transaction pay into
+  /// Which karlsen address should the coinbase block reward transaction pay into
   @$pb.TagNumber(1)
   $core.String get payAddress => $_getSZ(0);
   @$pb.TagNumber(1)

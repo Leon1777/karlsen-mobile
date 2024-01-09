@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
 
 import '../encrypt/crypter.dart';
-import '../kaspa/transaction/transaction_util.dart';
+import '../karlsen/transaction/transaction_util.dart';
 import '../utils.dart';
 
-class KaspaUtil {
-  const KaspaUtil();
+class KarlsenUtil {
+  const KarlsenUtil();
 
   static const seedLength = 128;
 

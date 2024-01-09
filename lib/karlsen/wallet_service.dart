@@ -3,7 +3,7 @@ import 'dart:async';
 import '../transactions/send_tx.dart';
 import '../utils.dart';
 import 'grpc/rpc.pb.dart';
-import 'kaspa.dart';
+import 'karlsen.dart';
 import 'transaction/transaction_builder.dart';
 import 'transaction/transaction_util.dart';
 
@@ -21,7 +21,7 @@ class SendResult {
 
 class WalletService {
   final SignerBase signer;
-  final KaspaClient client;
+  final KarlsenClient client;
 
   const WalletService({
     required this.signer,
@@ -43,7 +43,7 @@ class WalletService {
     final fee = BigInt.from(selectedUtxos.length) * feePerInput;
 
     return SendTx(
-      uri: KaspaUri(
+      uri: KarlsenUri(
         address: toAddress,
         amount: Amount.raw(amountRaw),
       ),
@@ -69,7 +69,7 @@ class WalletService {
     final amountRaw = selectedTotal - fee;
 
     return SendTx(
-      uri: KaspaUri(
+      uri: KarlsenUri(
         address: compoundAddress,
         amount: Amount.raw(amountRaw),
       ),

@@ -2,13 +2,13 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import 'kaspa_api.dart';
+import 'karlsen_api.dart';
 import 'types.dart';
 
-class KaspaApiMainnet implements KaspaApi {
+class KarlsenApiMainnet implements KarlsenApi {
   final String baseUrl;
 
-  KaspaApiMainnet(this.baseUrl);
+  KarlsenApiMainnet(this.baseUrl);
 
   Future<ApiAddressBalance> getBalance({
     required String address,

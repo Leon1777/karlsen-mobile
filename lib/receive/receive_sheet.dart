@@ -10,7 +10,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../app_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../send_sheet/account_address_widget.dart';
 import '../util/ui_util.dart';
@@ -33,7 +33,7 @@ class ReceiveSheet extends HookConsumerWidget {
     final address = receiveAddress.encoded;
     final amount = ref.watch(amountProvider);
 
-    final kaspaUri = KaspaUri(address: receiveAddress.address, amount: amount);
+    final karlsenUri = KarlsenUri(address: receiveAddress.address, amount: amount);
 
     final shareCardKey = useRef(GlobalKey());
     final showShareCard = useState(false);
@@ -60,7 +60,7 @@ class ReceiveSheet extends HookConsumerWidget {
 
     Future<void> copyUri() async {
       try {
-        await Clipboard.setData(ClipboardData(text: kaspaUri.toString()));
+        await Clipboard.setData(ClipboardData(text: karlsenUri.toString()));
         UIUtil.showSnackbar(l10n.addressCopied, context);
       } catch (_) {
         UIUtil.showSnackbar(l10n.addressCopiedFailed, context);
@@ -166,7 +166,7 @@ class ReceiveSheet extends HookConsumerWidget {
                                   Border.all(color: theme.primary, width: 2),
                             ),
                             child: QrImageView(
-                              data: '$kaspaUri',
+                              data: '$karlsenUri',
                               gapless: false,
                               embeddedImage:
                                   const AssetImage('assets/qr_code_icon.png'),

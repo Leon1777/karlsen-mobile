@@ -9,10 +9,10 @@ import 'types/address_prefix.dart';
 
 const kSeedSize = 64;
 
-const kKaspaDerivationPath = "m/44'/111111'/0'";
+const kKarlsenDerivationPath = "m/44'/111111'/0'";
 const kLegacyDerivationPath = "m/44'/972/0'";
 
-String convertHdPublicKey(String hdPubKey, KaspaNetwork toNetwork) {
+String convertHdPublicKey(String hdPubKey, KarlsenNetwork toNetwork) {
   final network = networkForKpub(hdPubKey);
   if (network == toNetwork) {
     return hdPubKey;
@@ -25,16 +25,16 @@ String convertHdPublicKey(String hdPubKey, KaspaNetwork toNetwork) {
   return bip32.toBase58();
 }
 
-AddressPrefix addressPrefixForNetwork(KaspaNetwork network) {
+AddressPrefix addressPrefixForNetwork(KarlsenNetwork network) {
   switch (network) {
-    case KaspaNetwork.mainnet:
-      return AddressPrefix.kaspa;
-    case KaspaNetwork.testnet:
-      return AddressPrefix.kaspaTest;
-    case KaspaNetwork.devnet:
-      return AddressPrefix.kaspaDev;
-    case KaspaNetwork.simnet:
-      return AddressPrefix.kaspaSim;
+    case KarlsenNetwork.mainnet:
+      return AddressPrefix.karlsen;
+    case KarlsenNetwork.testnet:
+      return AddressPrefix.karlsenTest;
+    case KarlsenNetwork.devnet:
+      return AddressPrefix.karlsenDev;
+    case KarlsenNetwork.simnet:
+      return AddressPrefix.karlsenSim;
   }
 }
 
@@ -127,7 +127,7 @@ abstract class HdWallet implements HdWalletView {
     required NetworkType networkType,
   }) {
     final bip32 = BIP32.fromSeed(seed, networkType);
-    final child = bip32.derivePath(kKaspaDerivationPath);
+    final child = bip32.derivePath(kKarlsenDerivationPath);
     return child.neutered().toBase58();
   }
 }
@@ -136,7 +136,7 @@ class HdWalletEcdsa extends HdWallet {
   late final BIP32 _bip32;
 
   HdWalletEcdsa(Uint8List seed) : super._() {
-    _bip32 = BIP32.fromSeed(seed).derivePath(kKaspaDerivationPath);
+    _bip32 = BIP32.fromSeed(seed).derivePath(kKarlsenDerivationPath);
   }
 
   @override

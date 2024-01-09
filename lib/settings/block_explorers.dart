@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 
 part 'block_explorers.freezed.dart';
 part 'block_explorers.g.dart';
@@ -11,7 +11,7 @@ const kParamPattern = '{0}';
 class BlockExplorer with _$BlockExplorer {
   const BlockExplorer._();
   const factory BlockExplorer({
-    required KaspaNetwork network,
+    required KarlsenNetwork network,
     required String name,
     required String url,
     required String addressUrl,
@@ -27,8 +27,8 @@ class BlockExplorer with _$BlockExplorer {
       _$BlockExplorerFromJson(json);
 }
 
-const kKaspaExplorerMainnet = BlockExplorer(
-  network: KaspaNetwork.mainnet,
+const kKarlsenExplorerMainnet = BlockExplorer(
+  network: KarlsenNetwork.mainnet,
   name: 'Karlsen Explorer',
   url: 'explorer.karlsencoin.com',
   addressUrl: 'https://explorer.karlsencoin.com/addresses/$kParamPattern',
@@ -36,10 +36,10 @@ const kKaspaExplorerMainnet = BlockExplorer(
 );
 
 const kBlockExplorerOptions = {
-  KaspaNetwork.mainnet: [
-    kKaspaExplorerMainnet,
+  KarlsenNetwork.mainnet: [
+    kKarlsenExplorerMainnet,
   ],
-  KaspaNetwork.testnet: [],
-  KaspaNetwork.devnet: [],
-  KaspaNetwork.simnet: [],
+  KarlsenNetwork.testnet: [],
+  KarlsenNetwork.devnet: [],
+  KarlsenNetwork.simnet: [],
 };

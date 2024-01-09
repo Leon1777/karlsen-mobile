@@ -9,8 +9,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../app_styles.dart';
 import '../chain_state/chain_state.dart';
 import '../database/database.dart';
-import '../kaspa/grpc/rpc.pb.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/grpc/rpc.pb.dart';
+import '../karlsen/karlsen.dart';
 import '../main_card/main_card_notifier.dart';
 import '../main_card/main_card_state.dart';
 import '../node_settings/node_providers.dart';
@@ -81,7 +81,7 @@ final loggerProvider = Provider(
 );
 
 final networkProvider = Provider((ref) {
-  final config = ref.watch(kaspaNodeConfigProvider);
+  final config = ref.watch(karlsenNodeConfigProvider);
   return config.network;
 });
 
@@ -92,26 +92,26 @@ final addressPrefixProvider = Provider((ref) {
   return prefix;
 });
 
-final _kaspaApiProvider = Provider<KaspaApi>((ref) {
+final _karlsenApiProvider = Provider<KarlsenApi>((ref) {
   final network = ref.watch(networkProvider);
-  if (network == KaspaNetwork.mainnet) {
-    return KaspaApiMainnet('https://api.kaspa.org');
+  if (network == KarlsenNetwork.mainnet) {
+    return KarlsenApiMainnet('https://api.kaspa.org');
   }
-  return KaspaApiEmpty();
+  return KarlsenApiEmpty();
 });
 
-final kaspaApiServiceProvider = Provider<KaspaApiService>((ref) {
-  final api = ref.watch(_kaspaApiProvider);
-  return KaspaApiService(api);
+final karlsenApiServiceProvider = Provider<KarlsenApiService>((ref) {
+  final api = ref.watch(_karlsenApiProvider);
+  return KarlsenApiService(api);
 });
 
-final kaspaClientProvider = Provider((ref) {
-  final config = ref.watch(kaspaNodeConfigProvider);
+final karlsenClientProvider = Provider((ref) {
+  final config = ref.watch(karlsenNodeConfigProvider);
   final inBackground = ref.watch(inBackgroundProvider);
 
   final client = inBackground
-      ? VoidKaspaClient()
-      : KaspaClient.url(config.url, isSecure: config.isSecure);
+      ? VoidKarlsenClient()
+      : KarlsenClient.url(config.url, isSecure: config.isSecure);
 
   ref.onDispose(() {
     client.close();
@@ -123,7 +123,7 @@ final kaspaClientProvider = Provider((ref) {
 final balancesForAddressesProvider = FutureProvider.family
     .autoDispose<Iterable<BalancesByAddressEntry>, List<String>>(
         (ref, addresses) async {
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(karlsenClientProvider);
   final balance = await client.getBalancesByAddresses(addresses);
   return balance;
 });
@@ -149,7 +149,7 @@ final lastKnownVirtualDaaScoreProvider = StateProvider<BigInt>((ref) {
 });
 
 final virtualDaaScoreProvider = StreamProvider((ref) {
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(karlsenClientProvider);
   return client.notifyVirtualDaaScoreChanged().map((value) {
     final virtualDaaScore = value.toUnsignedBigInt();
 
@@ -166,7 +166,7 @@ final virtualSelectedParentBlueScoreProvider = StateProvider<BigInt>((ref) {
 });
 
 final virtualSelectedParentBlueScoreStreamProvider = StreamProvider((ref) {
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(karlsenClientProvider);
   return client.notifyVirtualSelectedParentBlueScoreChanged().map((value) {
     final blueScore = value.toUnsignedBigInt();
 
@@ -198,12 +198,12 @@ final maxSendProvider = Provider.autoDispose((ref) {
   return Amount.raw(maxSend);
 });
 
-final kaspaFormatterProvider = Provider((ref) {
+final karlsenFormatterProvider = Provider((ref) {
   final format = NumberFormat.currency(name: '');
   final formatter = CurrencyFormatter(
     groupSeparator: format.symbols.GROUP_SEP,
     decimalSeparator: format.symbols.DECIMAL_SEP,
-    maxDecimalDigits: TokenInfo.kaspa.decimals,
+    maxDecimalDigits: TokenInfo.karlsen.decimals,
   );
 
   return formatter;

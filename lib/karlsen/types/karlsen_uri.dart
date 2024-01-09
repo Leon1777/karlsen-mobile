@@ -6,35 +6,35 @@ import 'address.dart';
 import 'address_prefix.dart';
 import 'amount.dart';
 
-part 'kaspa_uri.freezed.dart';
+part 'karlsen_uri.freezed.dart';
 
 const kAmountKey = 'amount';
 const kLabelKey = 'label';
 const kMessageKey = 'message';
 
 @freezed
-class KaspaUriParam with _$KaspaUriParam {
-  const KaspaUriParam._();
-  const factory KaspaUriParam({
+class KarlsenUriParam with _$KarlsenUriParam {
+  const KarlsenUriParam._();
+  const factory KarlsenUriParam({
     required String key,
     required String value,
-  }) = _KaspaUriParam;
+  }) = _KarlsenUriParam;
 
   bool get required => value.startsWith('req-');
 }
 
 @freezed
-class KaspaUri with _$KaspaUri {
-  const KaspaUri._();
-  const factory KaspaUri({
+class KarlsenUri with _$KarlsenUri {
+  const KarlsenUri._();
+  const factory KarlsenUri({
     required Address address,
     Amount? amount,
     String? label,
     String? message,
-    @Default(const IListConst([])) IList<KaspaUriParam> others,
-  }) = _KaspaUri;
+    @Default(const IListConst([])) IList<KarlsenUriParam> others,
+  }) = _KarlsenUri;
 
-  static KaspaUri parse(
+  static KarlsenUri parse(
     String uri, {
     AddressPrefix prefix = AddressPrefix.unknown,
   }) {
@@ -51,7 +51,7 @@ class KaspaUri with _$KaspaUri {
     Amount? amount;
     String? label;
     String? message;
-    final others = <KaspaUriParam>[];
+    final others = <KarlsenUriParam>[];
 
     for (final param in params) {
       final parts = param.split('=');
@@ -73,11 +73,11 @@ class KaspaUri with _$KaspaUri {
           message = value;
           break;
         default:
-          others.add(KaspaUriParam(key: key, value: value));
+          others.add(KarlsenUriParam(key: key, value: value));
       }
     }
 
-    return KaspaUri(
+    return KarlsenUri(
       address: address,
       amount: amount,
       label: label,
@@ -86,7 +86,7 @@ class KaspaUri with _$KaspaUri {
     );
   }
 
-  static KaspaUri? tryParse(
+  static KarlsenUri? tryParse(
     String uri, {
     AddressPrefix prefix = AddressPrefix.unknown,
   }) {
@@ -98,7 +98,7 @@ class KaspaUri with _$KaspaUri {
   }
 
   bool get hasRequiredParams => others.any((param) => param.required);
-  Iterable<KaspaUriParam> get requiredParams =>
+  Iterable<KarlsenUriParam> get requiredParams =>
       others.where((param) => param.required);
 
   String escape(String key, String? value) {

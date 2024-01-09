@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../app_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../util/ui_util.dart';
 import '../util/user_data_util.dart';

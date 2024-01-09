@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../app_icons.dart';
 import '../app_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../widgets/app_text_field.dart';
 import '../widgets/fiat_value_container.dart';
@@ -24,7 +24,7 @@ class ReceiveAmountField extends HookConsumerWidget {
     final styles = ref.watch(stylesProvider);
     final l10n = l10nOf(context);
 
-    final formatter = ref.watch(kaspaFormatterProvider);
+    final formatter = ref.watch(karlsenFormatterProvider);
     final amount = ref.watch(amountProvider);
 
     final amountController = useTextEditingController();

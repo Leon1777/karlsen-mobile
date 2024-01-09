@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../app_icons.dart';
 import '../app_providers.dart';
-import '../kaspa/types.dart';
+import '../karlsen/types.dart';
 import '../l10n/l10n.dart';
 import '../themes/karlsium_light_theme.dart';
 import '../util/ui_util.dart';
@@ -25,9 +25,9 @@ class MainCard extends ConsumerWidget {
     final l10n = l10nOf(context);
 
     final wallet = ref.watch(walletProvider);
-    final kaspaBalance = ref.watch(formatedTotalBalanceProvider);
+    final karlsenBalance = ref.watch(formatedTotalBalanceProvider);
     final fiatBalance = ref.watch(formatedTotalFiatProvider);
-    final kaspaPrice = ref.watch(formatedKaspaPriceProvider);
+    final karlsenPrice = ref.watch(formatedKarlsenPriceProvider);
     final scaffoldKey = ref.watch(homePageScaffoldKeyProvider);
 
     Future<void> scanQrCode() async {
@@ -38,7 +38,7 @@ class MainCard extends ConsumerWidget {
       }
 
       final prefix = ref.read(addressPrefixProvider);
-      final uri = KaspaUri.tryParse(data, prefix: prefix);
+      final uri = KarlsenUri.tryParse(data, prefix: prefix);
       UIUtil.showSendFlow(
         context,
         ifNullMessage: l10n.scanQrCodeError,
@@ -98,7 +98,7 @@ class MainCard extends ConsumerWidget {
                               ),
                               const SizedBox(width: 4),
                               Text(
-                                '$kaspaBalance',
+                                '$karlsenBalance',
                                 textAlign: TextAlign.end,
                                 style: styles.textStyleCurrency,
                               ),
@@ -108,7 +108,7 @@ class MainCard extends ConsumerWidget {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        kaspaPrice,
+                        karlsenPrice,
                         textAlign: TextAlign.end,
                         style: styles.textStyleTransactionAmountSmall.copyWith(
                           fontSize: 13,

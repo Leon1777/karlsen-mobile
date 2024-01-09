@@ -28,7 +28,7 @@ class NetworkMenu extends ConsumerWidget {
     final styles = ref.watch(stylesProvider);
     final l10n = l10nOf(context);
 
-    final karlsenNodeConfig = ref.watch(kaspaNodeConfigProvider);
+    final karlsenNodeConfig = ref.watch(karlsenNodeConfigProvider);
 
     return Container(
       decoration: BoxDecoration(

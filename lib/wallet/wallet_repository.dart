@@ -1,7 +1,7 @@
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 
 import '../database/database.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../settings/settings_providers.dart';
 import '../transactions/transaction_types.dart';
 import '../util/vault.dart';
@@ -56,7 +56,7 @@ class WalletRepository {
 
   Future<void> openWalletBoxes(
     WalletInfo wallet, {
-    required KaspaNetwork network,
+    required KarlsenNetwork network,
   }) async {
     final boxInfo = wallet.getBoxInfo(network);
     // open wallet boxes
@@ -89,7 +89,7 @@ class WalletRepository {
 
   Future<void> closeWalletBoxes(
     WalletInfo wallet, {
-    required KaspaNetwork network,
+    required KarlsenNetwork network,
   }) async {
     final boxInfo = wallet.getBoxInfo(network);
     // close wallet boxes

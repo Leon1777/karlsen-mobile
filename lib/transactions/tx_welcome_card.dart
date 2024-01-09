@@ -64,14 +64,14 @@ class TxWelcomeCard extends ConsumerWidget {
 
     final workingStr = l10n.exampleCardIntro;
 
-    if (!workingStr.contains('KASPA')) {
+    if (!workingStr.contains('KARLSEN')) {
       return TextSpan(
         text: workingStr,
         style: styles.textStyleTransactionWelcome,
       );
     }
     // Colorize Karlsen
-    List<String> splitStr = workingStr.split('KASPA');
+    List<String> splitStr = workingStr.split('KARLSEN');
     if (splitStr.length != 2) {
       return TextSpan(
         text: workingStr,
@@ -85,7 +85,7 @@ class TxWelcomeCard extends ConsumerWidget {
           style: styles.textStyleTransactionWelcome,
         ),
         TextSpan(
-          text: 'KASPA',
+          text: 'KARLSEN',
           style: styles.textStyleTransactionWelcomePrimary,
         ),
         TextSpan(

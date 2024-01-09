@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
 
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../send_sheet/send_confirm_sheet.dart';
 import '../send_sheet/send_sheet.dart';
@@ -29,7 +29,7 @@ abstract class UIUtil {
     BuildContext context, {
     required String ifNullMessage,
     required BaseTheme theme,
-    required KaspaUri? uri,
+    required KarlsenUri? uri,
   }) {
     if (uri == null) {
       UIUtil.showSnackbar(ifNullMessage, context);
@@ -76,9 +76,9 @@ abstract class UIUtil {
       action += '\n$amountConfirm';
     }
     if (fee != null && fee != BigInt.zero) {
-      final kaspa = TokenInfo.kaspa;
-      final feeStr = NumberUtil.approxAmountRaw(fee, kaspa.decimals);
-      final feeConfirm = l10n.feeConfirm(feeStr, kaspa.symbolLabel);
+      final karlsen = TokenInfo.karlsen;
+      final feeStr = NumberUtil.approxAmountRaw(fee, karlsen.decimals);
+      final feeConfirm = l10n.feeConfirm(feeStr, karlsen.symbolLabel);
       action += '\n$feeConfirm';
     }
     return action;

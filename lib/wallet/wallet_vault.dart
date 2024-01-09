@@ -1,4 +1,4 @@
-import '../util/kaspa_util.dart';
+import '../util/karlsen_util.dart';
 import '../util/vault.dart';
 
 const _kMnemonicKey = 'karlsium_mnemonic_key';
@@ -20,7 +20,7 @@ class WalletVault {
       throw Exception('Mnemonic is missing from vault');
     }
 
-    if (!KaspaUtil.isEncryptedHex(mnemonic)) {
+    if (!KarlsenUtil.isEncryptedHex(mnemonic)) {
       return mnemonic;
     }
 
@@ -28,7 +28,7 @@ class WalletVault {
       throw Exception('Mnemonic is password protected');
     }
 
-    final decrypted = KaspaUtil.decryptToText(mnemonic, password);
+    final decrypted = KarlsenUtil.decryptToText(mnemonic, password);
     return decrypted;
   }
 
@@ -39,7 +39,7 @@ class WalletVault {
       throw Exception('Seed is missing from vault');
     }
 
-    if (!KaspaUtil.isEncryptedHex(seed)) {
+    if (!KarlsenUtil.isEncryptedHex(seed)) {
       return seed;
     }
 
@@ -47,9 +47,9 @@ class WalletVault {
       throw Exception('Seed is password protected');
     }
 
-    final decrypted = KaspaUtil.decryptHex(seed, password);
+    final decrypted = KarlsenUtil.decryptHex(seed, password);
 
-    if (!KaspaUtil.isValidSeed(decrypted)) {
+    if (!KarlsenUtil.isValidSeed(decrypted)) {
       throw Exception('Incorrect password');
     }
     return decrypted;
@@ -67,7 +67,7 @@ class WalletVault {
       return false;
     }
 
-    return KaspaUtil.isEncryptedHex(seed);
+    return KarlsenUtil.isEncryptedHex(seed);
   }
 
   Future<void> setSeed(
@@ -77,9 +77,9 @@ class WalletVault {
   }) async {
     if (password != null) {
       // encrypt mnemonic with password for vault
-      mnemonic = KaspaUtil.maybeEncryptText(mnemonic, password);
+      mnemonic = KarlsenUtil.maybeEncryptText(mnemonic, password);
       // encrypt seed with password for vault
-      seed = KaspaUtil.encryptHex(seed, password);
+      seed = KarlsenUtil.encryptHex(seed, password);
     }
     await vault.set(_seedKey, seed);
     await vault.set(_mnemonicKey, mnemonic);

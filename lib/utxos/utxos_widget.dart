@@ -19,7 +19,7 @@ class UtxosWidget extends ConsumerWidget {
 
       final networkError = ref.read(networkErrorProvider);
       if (networkError) {
-        ref.invalidate(kaspaClientProvider);
+        ref.invalidate(karlsenClientProvider);
       }
 
       final addresses = ref.read(activeAddressesProvider);

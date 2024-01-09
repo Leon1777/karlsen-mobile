@@ -5,7 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../utils.dart';
 import '../grpc/rpc.pb.dart';
-import '../kaspa.dart';
+import '../karlsen.dart';
 
 part 'types.freezed.dart';
 part 'types.g.dart';

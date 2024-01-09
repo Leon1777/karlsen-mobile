@@ -1,6 +1,6 @@
 import 'types.dart';
 
-export 'kaspa_api_mainnet.dart';
+export 'karlsen_api_mainnet.dart';
 
 enum ResolvePreviousOutpoints {
   no,
@@ -8,7 +8,7 @@ enum ResolvePreviousOutpoints {
   full,
 }
 
-abstract class KaspaApi {
+abstract class KarlsenApi {
   Future<ApiAddressBalance> getBalance({
     required String address,
     int retryCount,

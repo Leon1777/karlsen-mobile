@@ -8,7 +8,7 @@ import '../app_icons.dart';
 import '../app_providers.dart';
 import '../contacts/contact_labels.dart';
 import '../contacts/contacts_widget.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../send_sheet/send_sheet.dart';
 import '../settings/available_currency.dart';
@@ -374,7 +374,7 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
                         ),
                       ],
                       if (!kPlatformIsIOS &&
-                          network == KaspaNetwork.mainnet &&
+                          network == KarlsenNetwork.mainnet &&
                           !wallet.isViewOnly) ...[
                         Divider(height: 2, color: theme.text15),
                         DoubleLineItem(
@@ -382,9 +382,9 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
                           defaultMethod: DonateSettingItem(),
                           icon: Icons.handshake_rounded,
                           onPressed: () {
-                            final uri = KaspaUri(
+                            final uri = KarlsenUri(
                               address:
-                                  Address.decodeAddress(kKaspaDevFundAddress),
+                                  Address.decodeAddress(kKarlsenDevFundAddress),
                             );
                             Sheets.showAppHeightNineSheet(
                               context: context,

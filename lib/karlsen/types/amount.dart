@@ -4,7 +4,7 @@ import 'package:decimal/decimal.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../kaspa.dart';
+import '../karlsen.dart';
 
 part 'amount.freezed.dart';
 part 'amount.g.dart';
@@ -19,23 +19,23 @@ class Amount with _$Amount {
     required TokenInfo tokenInfo,
   }) = _Amount;
 
-  factory Amount.raw(BigInt raw, {TokenInfo tokenInfo = TokenInfo.kaspa}) =>
+  factory Amount.raw(BigInt raw, {TokenInfo tokenInfo = TokenInfo.karlsen}) =>
       Amount(raw: raw, tokenInfo: tokenInfo);
   factory Amount.value(
     Decimal value, {
-    TokenInfo tokenInfo = TokenInfo.kaspa,
+    TokenInfo tokenInfo = TokenInfo.karlsen,
   }) =>
       Amount(
         raw: value.shift(tokenInfo.decimals).toBigInt(),
         tokenInfo: tokenInfo,
       );
 
-  factory Amount.rawInt(int raw, {TokenInfo tokenInfo = TokenInfo.kaspa}) {
+  factory Amount.rawInt(int raw, {TokenInfo tokenInfo = TokenInfo.karlsen}) {
     final rawBigInt = BigInt.from(raw);
     return Amount(raw: rawBigInt, tokenInfo: tokenInfo);
   }
 
-  factory Amount.rawInt64(Int64 raw, {TokenInfo tokenInfo = TokenInfo.kaspa}) {
+  factory Amount.rawInt64(Int64 raw, {TokenInfo tokenInfo = TokenInfo.karlsen}) {
     final rawBigInt = BigInt.parse(raw.toString());
     return Amount(raw: rawBigInt, tokenInfo: tokenInfo);
   }

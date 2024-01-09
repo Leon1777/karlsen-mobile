@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../app_providers.dart';
 import '../intro/intro_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../utils.dart';
 import '../wallet/wallet_types.dart';
@@ -76,8 +76,8 @@ class SetupWalletScreen extends HookConsumerWidget {
         await auth.unlock(password: introData.password);
 
         // address discovery
-        final client = ref.read(kaspaClientProvider);
-        final api = ref.read(kaspaApiServiceProvider);
+        final client = ref.read(karlsenClientProvider);
+        final api = ref.read(karlsenApiServiceProvider);
         final addressGenerator = auth.addressGenerator(network);
 
         final addressDiscovery = AddressDiscovery(
@@ -93,7 +93,7 @@ class SetupWalletScreen extends HookConsumerWidget {
 
         WalletDiscoveryResult discovery;
 
-        if (network == KaspaNetwork.mainnet && !introData.generated) {
+        if (network == KarlsenNetwork.mainnet && !introData.generated) {
           message.value = l10n.walletSetupAddressDiscovery;
           discovery = await addressDiscovery.addressDiscovery(
             startReceiveIndex: 0,

@@ -41,7 +41,7 @@ class KarlsenNodesSheet extends ConsumerWidget {
     final theme = ref.watch(themeProvider);
     final l10n = l10nOf(context);
 
-    final items = ref.watch(kaspaNodeOptionsProvider);
+    final items = ref.watch(karlsenNodeOptionsProvider);
 
     void addNode() {
       Sheets.showAppHeightNineSheet(
@@ -66,7 +66,7 @@ class KarlsenNodesSheet extends ConsumerWidget {
               final config = ActiveNodeConfig(config: items[index]);
               return ProviderScope(
                 overrides: [
-                  kaspaNodeConfigItemProvider.overrideWithValue(config),
+                  karlsenNodeConfigItemProvider.overrideWithValue(config),
                 ],
                 child: const NodeItem(),
               );

@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../settings/block_explorer_settings.dart';
 import '../settings/block_explorers.dart';
 import '../settings/settings.dart';
@@ -29,7 +29,7 @@ class BlockExplorerNotifier extends StateNotifier<BlockExplorerSettings> {
 
   Future<void> updateBlockExplorer(
     BlockExplorer explorer, {
-    required KaspaNetwork network,
+    required KarlsenNetwork network,
   }) {
     final selection = Map.of(state.selection);
     selection[network] = explorer;

@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 
 part 'node_types.freezed.dart';
 part 'node_types.g.dart';
@@ -13,7 +13,7 @@ const mainnetNodeConfig = NodeConfig(
   name: 'Karlsium Official',
   urls: ['node.karlsium.io'],
   isSecure: true,
-  network: KaspaNetwork.mainnet,
+  network: KarlsenNetwork.mainnet,
 );
 
 @freezed
@@ -36,7 +36,7 @@ class NodeConfig with _$NodeConfig {
     @Default(false) bool isDns,
     @Default(false) bool isSecure,
     required List<String> urls,
-    required KaspaNetwork network,
+    required KarlsenNetwork network,
   }) = _NodeConfig;
 
   factory NodeConfig.fromJson(Map<String, dynamic> json) =>
@@ -51,7 +51,7 @@ class ActiveNodeConfig with _$ActiveNodeConfig {
   }) = _ActiveNodeConfig;
 
   String get name => config.name;
-  KaspaNetwork get network => config.network;
+  KarlsenNetwork get network => config.network;
   bool get isSecure => config.isSecure;
   late final String url = config.urls[Random().nextInt(config.urls.length)];
 }

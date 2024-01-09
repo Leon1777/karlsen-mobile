@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../app_icons.dart';
 import '../app_providers.dart';
 import '../contacts/contact.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../transactions/send_tx.dart';
 import '../util/numberutil.dart';
@@ -32,7 +32,7 @@ enum AddressStyle { TEXT60, TEXT90, PRIMARY }
 class SendSheet extends ConsumerStatefulWidget {
   final String? title;
   final Contact? contact;
-  final KaspaUri? uri;
+  final KarlsenUri? uri;
   final BigInt? feeRaw;
   final String? note;
 
@@ -184,7 +184,7 @@ class _SendSheetState extends ConsumerState<SendSheet> {
     if (amountRaw != null) {
       _amountController.text = NumberUtil.getStringFromRaw(
         amountRaw!,
-        TokenInfo.kaspa.decimals,
+        TokenInfo.karlsen.decimals,
       );
     }
   }
@@ -218,7 +218,7 @@ class _SendSheetState extends ConsumerState<SendSheet> {
       }
 
       final prefix = ref.read(addressPrefixProvider);
-      final uri = KaspaUri.tryParse(qrData, prefix: prefix);
+      final uri = KarlsenUri.tryParse(qrData, prefix: prefix);
       final address = uri?.address;
       if (address == null) {
         UIUtil.showSnackbar(l10n.qrInvalidAddress, context);
@@ -229,7 +229,7 @@ class _SendSheetState extends ConsumerState<SendSheet> {
       if (amount != null) {
         _amountController.text = NumberUtil.getStringFromRaw(
           amount.raw,
-          TokenInfo.kaspa.decimals,
+          TokenInfo.karlsen.decimals,
         );
         amountRaw = amount.raw;
       }
@@ -657,7 +657,7 @@ class _SendSheetState extends ConsumerState<SendSheet> {
       final styles = ref.watch(stylesProvider);
       final l10n = l10nOf(context);
 
-      final formatter = ref.watch(kaspaFormatterProvider);
+      final formatter = ref.watch(karlsenFormatterProvider);
       final maxSend = ref.watch(maxSendProvider);
       final isMaxSend = amountRaw == maxSend.raw || maxSend.raw == BigInt.zero;
 

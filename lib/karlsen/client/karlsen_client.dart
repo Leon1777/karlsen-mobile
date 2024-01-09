@@ -18,8 +18,8 @@ class RpcException implements Exception {
   String toString() => message;
 }
 
-class VoidKaspaClient extends KaspaClient {
-  VoidKaspaClient()
+class VoidKarlsenClient extends KarlsenClient {
+  VoidKarlsenClient()
       : super(
           channel: ClientChannel(
             'localhost',
@@ -31,13 +31,13 @@ class VoidKaspaClient extends KaspaClient {
         );
 
   @override
-  Future<KaspadMessage> _singleRequest(KaspadMessage message) async {
-    return KaspadMessage();
+  Future<KarlsendMessage> _singleRequest(KarlsendMessage message) async {
+    return KarlsendMessage();
   }
 
   @override
-  Stream<KaspadMessage> _streamRequest(KaspadMessage message) {
-    return StreamController<KaspadMessage>().stream;
+  Stream<KarlsendMessage> _streamRequest(KarlsendMessage message) {
+    return StreamController<KarlsendMessage>().stream;
   }
 
   @override
@@ -47,13 +47,13 @@ class VoidKaspaClient extends KaspaClient {
   Future<void> terminate() async {}
 }
 
-class KaspaClient {
+class KarlsenClient {
   late final ClientChannel channel;
   late final RPCClient rpcClient;
 
-  KaspaClient({required this.channel}) : rpcClient = RPCClient(channel);
+  KarlsenClient({required this.channel}) : rpcClient = RPCClient(channel);
 
-  factory KaspaClient.url(String url, {bool isSecure = false}) {
+  factory KarlsenClient.url(String url, {bool isSecure = false}) {
     final components = url.split(':');
     final host = components.first;
     final port = int.tryParse(components.last) ?? kMainnetRpcPort;
@@ -68,15 +68,15 @@ class KaspaClient {
       ),
     );
 
-    return KaspaClient(channel: channel);
+    return KarlsenClient(channel: channel);
   }
 
   Future<void> close() => channel.shutdown();
 
   Future<void> terminate() => channel.terminate();
 
-  Future<KaspadMessage> _singleRequest(KaspadMessage message) async {
-    final request = StreamController<KaspadMessage>();
+  Future<KarlsendMessage> _singleRequest(KarlsendMessage message) async {
+    final request = StreamController<KarlsendMessage>();
     final response = rpcClient.messageStream(request.stream);
 
     request.sink.add(message);
@@ -88,8 +88,8 @@ class KaspaClient {
     return result;
   }
 
-  Stream<KaspadMessage> _streamRequest(KaspadMessage message) {
-    final request = StreamController<KaspadMessage>();
+  Stream<KarlsendMessage> _streamRequest(KarlsendMessage message) {
+    final request = StreamController<KarlsendMessage>();
     final response = rpcClient.messageStream(request.stream);
 
     request.sink.add(message);
@@ -100,7 +100,7 @@ class KaspaClient {
   Future<List<BalancesByAddressEntry>> getBalancesByAddresses(
     Iterable<String> addresses,
   ) async {
-    final message = KaspadMessage(
+    final message = KarlsendMessage(
       getBalancesByAddressesRequest: GetBalancesByAddressesRequestMessage(
         addresses: addresses,
       ),
@@ -117,7 +117,7 @@ class KaspaClient {
   Future<List<UtxosByAddressesEntry>> getUtxosByAddresses(
     Iterable<String> addresses,
   ) async {
-    final message = KaspadMessage(
+    final message = KarlsendMessage(
       getUtxosByAddressesRequest: GetUtxosByAddressesRequestMessage(
         addresses: addresses,
       ),
@@ -135,7 +135,7 @@ class KaspaClient {
   Stream<UtxosChangedNotificationMessage> notifyUtxosChanged(
     Iterable<String> addresses,
   ) {
-    final message = KaspadMessage(
+    final message = KarlsendMessage(
       notifyUtxosChangedRequest: NotifyUtxosChangedRequestMessage(
         addresses: addresses,
       ),
@@ -155,7 +155,7 @@ class KaspaClient {
   }
 
   Future<void> stopNotifyingUtxosChanged(List<String> addresses) async {
-    final message = KaspadMessage(
+    final message = KarlsendMessage(
       stopNotifyingUtxosChangedRequest: StopNotifyingUtxosChangedRequestMessage(
         addresses: addresses,
       ),
@@ -171,7 +171,7 @@ class KaspaClient {
   // Block Notifications
 
   Stream<BlockAddedNotificationMessage> notifyBlockAdded() {
-    final message = KaspadMessage(
+    final message = KarlsendMessage(
       notifyBlockAddedRequest: NotifyBlockAddedRequestMessage(),
     );
 
@@ -191,7 +191,7 @@ class KaspaClient {
   // Submit Transaction
 
   Future<String> submitTransaction(RpcTransaction transaction) async {
-    final message = KaspadMessage(
+    final message = KarlsendMessage(
       submitTransactionRequest: SubmitTransactionRequestMessage(
         transaction: transaction,
       ),
@@ -213,7 +213,7 @@ class KaspaClient {
     bool includeOrphanPool = true,
     bool filterTransactionPool = true,
   }) async {
-    final message = KaspadMessage(
+    final message = KarlsendMessage(
       getMempoolEntryRequest: GetMempoolEntryRequestMessage(
         txId: txId,
         includeOrphanPool: includeOrphanPool,
@@ -234,7 +234,7 @@ class KaspaClient {
     bool includeOrphanPool = true,
     bool filterTransactionPool = true,
   }) async {
-    final message = KaspadMessage(
+    final message = KarlsendMessage(
       getMempoolEntriesRequest: GetMempoolEntriesRequestMessage(
         includeOrphanPool: includeOrphanPool,
         filterTransactionPool: filterTransactionPool,
@@ -255,7 +255,7 @@ class KaspaClient {
     bool filterTransactionPool = true,
     bool includeOrphanPool = true,
   }) async {
-    final message = KaspadMessage(
+    final message = KarlsendMessage(
       getMempoolEntriesByAddressesRequest:
           GetMempoolEntriesByAddressesRequestMessage(
         addresses: addresses,
@@ -276,7 +276,7 @@ class KaspaClient {
   // Network info
 
   Future<String> getNetworkName() async {
-    final message = KaspadMessage(
+    final message = KarlsendMessage(
       getCurrentNetworkRequest: GetCurrentNetworkRequestMessage(),
     );
 
@@ -292,7 +292,7 @@ class KaspaClient {
   // Get Info
 
   Future<GetInfoResponseMessage> getInfo() async {
-    final message = KaspadMessage(
+    final message = KarlsendMessage(
       getInfoRequest: GetInfoRequestMessage(),
     );
 
@@ -311,7 +311,7 @@ class KaspaClient {
       notifyVirtualSelectedParentChainChanged({
     required includeAcceptedTransactionIds,
   }) {
-    final message = KaspadMessage(
+    final message = KarlsendMessage(
       notifyVirtualSelectedParentChainChangedRequest:
           NotifyVirtualSelectedParentChainChangedRequestMessage(
         includeAcceptedTransactionIds: includeAcceptedTransactionIds,
@@ -334,7 +334,7 @@ class KaspaClient {
   // Virtual Selected Parent Blue Score
 
   Future<Int64> getVirtualSelectedParentBlueScore() async {
-    final message = KaspadMessage(
+    final message = KarlsendMessage(
       getVirtualSelectedParentBlueScoreRequest:
           GetVirtualSelectedParentBlueScoreRequestMessage(),
     );
@@ -349,7 +349,7 @@ class KaspaClient {
   }
 
   Stream<Int64> notifyVirtualSelectedParentBlueScoreChanged() {
-    final message = KaspadMessage(
+    final message = KarlsendMessage(
       notifyVirtualSelectedParentBlueScoreChangedRequest:
           NotifyVirtualSelectedParentBlueScoreChangedRequestMessage(),
     );
@@ -372,7 +372,7 @@ class KaspaClient {
   // Virtual DAA Score
 
   Stream<Int64> notifyVirtualDaaScoreChanged() {
-    final message = KaspadMessage(
+    final message = KarlsendMessage(
       notifyVirtualDaaScoreChangedRequest:
           NotifyVirtualDaaScoreChangedRequestMessage(),
     );
@@ -394,7 +394,7 @@ class KaspaClient {
     String hash, {
     bool includeTransactions = true,
   }) async {
-    final message = KaspadMessage(
+    final message = KarlsendMessage(
       getBlockRequest: GetBlockRequestMessage(
         hash: hash,
         includeTransactions: includeTransactions,

@@ -9,7 +9,7 @@ import '../widgets/dialog.dart';
 import 'node_providers.dart';
 import 'node_types.dart';
 
-final kaspaNodeConfigItemProvider =
+final karlsenNodeConfigItemProvider =
     Provider<ActiveNodeConfig>((ref) => throw UnimplementedError);
 
 class NodeItem extends ConsumerWidget {
@@ -21,8 +21,8 @@ class NodeItem extends ConsumerWidget {
     final styles = ref.watch(stylesProvider);
     final l10n = l10nOf(context);
 
-    final item = ref.watch(kaspaNodeConfigItemProvider);
-    final activeConfig = ref.watch(kaspaNodeConfigProvider);
+    final item = ref.watch(karlsenNodeConfigItemProvider);
+    final activeConfig = ref.watch(karlsenNodeConfigProvider);
 
     Future<void> change() async {
       final oldNetwork = ref.read(networkProvider);
@@ -33,7 +33,7 @@ class NodeItem extends ConsumerWidget {
         await repository.openWalletBoxes(wallet, network: newNetwork);
       }
 
-      final notifier = ref.read(kaspaNodeSettingsProvider.notifier);
+      final notifier = ref.read(karlsenNodeSettingsProvider.notifier);
       await notifier.updateSelected(item.config);
 
       if (oldNetwork != newNetwork) {
@@ -42,7 +42,7 @@ class NodeItem extends ConsumerWidget {
     }
 
     void delete() {
-      final notifier = ref.read(kaspaNodeSettingsProvider.notifier);
+      final notifier = ref.read(karlsenNodeSettingsProvider.notifier);
       notifier.removeOption(item.config);
     }
 

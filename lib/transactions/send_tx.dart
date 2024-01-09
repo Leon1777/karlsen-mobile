@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 
 part 'send_tx.freezed.dart';
 
@@ -9,7 +9,7 @@ class SendTx with _$SendTx {
   const SendTx._();
 
   factory SendTx({
-    required KaspaUri uri,
+    required KarlsenUri uri,
     Address? changeAddress,
     required BigInt amountRaw,
     @Default([]) List<Utxo> utxos,

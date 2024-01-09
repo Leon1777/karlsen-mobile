@@ -1,7 +1,7 @@
-import 'kaspa_api_base.dart';
+import 'karlsen_api_base.dart';
 import 'types.dart';
 
-class KaspaApiEmpty implements KaspaApi {
+class KarlsenApiEmpty implements KarlsenApi {
   @override
   Future<ApiAddressBalance> getBalance({
     required String address,

@@ -199,7 +199,7 @@ mixin _$NodeConfig {
   bool get isDns => throw _privateConstructorUsedError;
   bool get isSecure => throw _privateConstructorUsedError;
   List<String> get urls => throw _privateConstructorUsedError;
-  KaspaNetwork get network => throw _privateConstructorUsedError;
+  KarlsenNetwork get network => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -219,7 +219,7 @@ abstract class $NodeConfigCopyWith<$Res> {
       bool isDns,
       bool isSecure,
       List<String> urls,
-      KaspaNetwork network});
+      KarlsenNetwork network});
 }
 
 /// @nodoc
@@ -266,7 +266,7 @@ class _$NodeConfigCopyWithImpl<$Res, $Val extends NodeConfig>
       network: null == network
           ? _value.network
           : network // ignore: cast_nullable_to_non_nullable
-              as KaspaNetwork,
+              as KarlsenNetwork,
     ) as $Val);
   }
 }
@@ -285,7 +285,7 @@ abstract class _$$_NodeConfigCopyWith<$Res>
       bool isDns,
       bool isSecure,
       List<String> urls,
-      KaspaNetwork network});
+      KarlsenNetwork network});
 }
 
 /// @nodoc
@@ -330,7 +330,7 @@ class __$$_NodeConfigCopyWithImpl<$Res>
       network: null == network
           ? _value.network
           : network // ignore: cast_nullable_to_non_nullable
-              as KaspaNetwork,
+              as KarlsenNetwork,
     ));
   }
 }
@@ -370,7 +370,7 @@ class _$_NodeConfig extends _NodeConfig {
   }
 
   @override
-  final KaspaNetwork network;
+  final KarlsenNetwork network;
 
   @override
   String toString() {
@@ -417,7 +417,7 @@ abstract class _NodeConfig extends NodeConfig {
       final bool isDns,
       final bool isSecure,
       required final List<String> urls,
-      required final KaspaNetwork network}) = _$_NodeConfig;
+      required final KarlsenNetwork network}) = _$_NodeConfig;
   const _NodeConfig._() : super._();
 
   factory _NodeConfig.fromJson(Map<String, dynamic> json) =
@@ -434,7 +434,7 @@ abstract class _NodeConfig extends NodeConfig {
   @override
   List<String> get urls;
   @override
-  KaspaNetwork get network;
+  KarlsenNetwork get network;
   @override
   @JsonKey(ignore: true)
   _$$_NodeConfigCopyWith<_$_NodeConfig> get copyWith =>

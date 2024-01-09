@@ -9,20 +9,20 @@ import '../settings/settings_providers.dart';
 import 'coingecko_price_notifier.dart';
 import 'coingecko_types.dart';
 
-final _kaspaPriceCacheProvider =
+final _karlsenPriceCacheProvider =
     StateNotifierProvider<CoinGeckoPriceNotifier, CoinGeckoPrice>((ref) {
   final repository = ref.watch(settingsRepositoryProvider);
   return CoinGeckoPriceNotifier(repository);
 });
 
-final _kaspaPriceRemoteProvider = FutureProvider<CoinGeckoPrice>((ref) async {
+final _karlsenPriceRemoteProvider = FutureProvider<CoinGeckoPrice>((ref) async {
   ref.watch(remoteRefreshProvider);
 
   final currency = ref.watch(currencyProvider);
   final fiat = currency.getIso4217Code().toLowerCase();
 
   final log = ref.read(loggerProvider);
-  final cached = ref.read(_kaspaPriceCacheProvider);
+  final cached = ref.read(_karlsenPriceCacheProvider);
 
   final uri = Uri.parse(
       'https://api.coingecko.com/api/v3/simple/price?ids=kaspa&vs_currencies=$fiat,btc');
@@ -39,7 +39,7 @@ final _kaspaPriceRemoteProvider = FutureProvider<CoinGeckoPrice>((ref) async {
     if (data is! Map) {
       throw Exception('Returned data is not a Map');
     }
-    final rates = data['kaspa'] as Map<String, dynamic>;
+    final rates = data['karlsen'] as Map<String, dynamic>;
     final price = rates[fiat] as num;
     final priceBtc = rates['btc'] as num;
     return CoinGeckoPrice(
@@ -53,9 +53,9 @@ final _kaspaPriceRemoteProvider = FutureProvider<CoinGeckoPrice>((ref) async {
   }
 });
 
-final coingeckoKaspaPriceProvider = Provider.autoDispose((ref) {
-  final cache = ref.watch(_kaspaPriceCacheProvider.notifier);
-  final remote = ref.watch(_kaspaPriceRemoteProvider);
+final coingeckoKarlsenPriceProvider = Provider.autoDispose((ref) {
+  final cache = ref.watch(_karlsenPriceCacheProvider.notifier);
+  final remote = ref.watch(_karlsenPriceRemoteProvider);
 
   remote.whenOrNull(data: (data) {
     Future.microtask(() => cache.updatePrice(data));

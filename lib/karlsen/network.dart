@@ -5,66 +5,66 @@ const int kTestnetPpcPort = 42210;
 const int kSimnetRpcPort = 42510;
 const int kDevnetRpcPort = 42610;
 
-enum KaspaNetwork {
+enum KarlsenNetwork {
   mainnet,
   testnet,
   devnet,
   simnet,
 }
 
-int portForNetwork(KaspaNetwork network) {
+int portForNetwork(KarlsenNetwork network) {
   switch (network) {
-    case KaspaNetwork.mainnet:
+    case KarlsenNetwork.mainnet:
       return kMainnetRpcPort;
-    case KaspaNetwork.testnet:
+    case KarlsenNetwork.testnet:
       return kTestnetPpcPort;
-    case KaspaNetwork.simnet:
+    case KarlsenNetwork.simnet:
       return kSimnetRpcPort;
-    case KaspaNetwork.devnet:
+    case KarlsenNetwork.devnet:
       return kDevnetRpcPort;
   }
 }
 
-KaspaNetwork networkForPort(int port) {
+KarlsenNetwork networkForPort(int port) {
   switch (port) {
     case kMainnetRpcPort:
-      return KaspaNetwork.mainnet;
+      return KarlsenNetwork.mainnet;
     case kTestnetPpcPort:
-      return KaspaNetwork.testnet;
+      return KarlsenNetwork.testnet;
     case kSimnetRpcPort:
-      return KaspaNetwork.simnet;
+      return KarlsenNetwork.simnet;
     case kDevnetRpcPort:
-      return KaspaNetwork.devnet;
+      return KarlsenNetwork.devnet;
     default:
-      return KaspaNetwork.mainnet;
+      return KarlsenNetwork.mainnet;
   }
 }
 
-KaspaNetwork networkForKpub(String kpub) {
+KarlsenNetwork networkForKpub(String kpub) {
   return switch (kpub.substring(0, 4)) {
-    'kpub' => KaspaNetwork.mainnet,
-    'ktub' => KaspaNetwork.testnet,
-    'ksub' => KaspaNetwork.simnet,
-    'kdub' => KaspaNetwork.devnet,
-    _ => KaspaNetwork.mainnet,
+    'kpub' => KarlsenNetwork.mainnet,
+    'ktub' => KarlsenNetwork.testnet,
+    'ksub' => KarlsenNetwork.simnet,
+    'kdub' => KarlsenNetwork.devnet,
+    _ => KarlsenNetwork.mainnet,
   };
 }
 
-NetworkType networkTypeForNetwork(KaspaNetwork network) {
+NetworkType networkTypeForNetwork(KarlsenNetwork network) {
   switch (network) {
-    case KaspaNetwork.mainnet:
+    case KarlsenNetwork.mainnet:
       return karlsenMainnet;
-    case KaspaNetwork.testnet:
+    case KarlsenNetwork.testnet:
       return karlsenTestnet;
-    case KaspaNetwork.devnet:
+    case KarlsenNetwork.devnet:
       return karlsenDevnet;
-    case KaspaNetwork.simnet:
+    case KarlsenNetwork.simnet:
       return karlsenSimnet;
   }
 }
 
-final kaspaMainnet = NetworkType(
-  messagePrefix: 'Kaspa Signed Message:\n',
+final karlsenMainnet = NetworkType(
+  messagePrefix: 'Karlsen Signed Message:\n',
   bech32: 'karlsen',
   bip32: Bip32Type(
     public: 0x038f332e,
@@ -76,8 +76,8 @@ final kaspaMainnet = NetworkType(
   opreturnSize: 80,
 );
 
-final kaspaTestnet = NetworkType(
-  messagePrefix: 'Kaspa Signed Message:\n',
+final karlsenTestnet = NetworkType(
+  messagePrefix: 'Karlsen Signed Message:\n',
   bech32: 'karlsentest',
   wif: 0xef,
   bip32: Bip32Type(
@@ -89,8 +89,8 @@ final kaspaTestnet = NetworkType(
   opreturnSize: 80,
 );
 
-final kaspaSimnet = NetworkType(
-  messagePrefix: 'Kaspa Signed Message:\n',
+final karlsenSimnet = NetworkType(
+  messagePrefix: 'Karlsen Signed Message:\n',
   bech32: 'karlsensim',
   wif: 0x64,
   bip32: Bip32Type(
@@ -102,8 +102,8 @@ final kaspaSimnet = NetworkType(
   opreturnSize: 80,
 );
 
-final kaspaDevnet = NetworkType(
-  messagePrefix: 'Kaspa Signed Message:\n',
+final karlsenDevnet = NetworkType(
+  messagePrefix: 'Karlsen Signed Message:\n',
   bech32: 'karlsendev',
   wif: 0xef,
   bip32: Bip32Type(

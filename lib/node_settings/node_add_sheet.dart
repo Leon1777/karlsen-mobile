@@ -6,7 +6,7 @@ import 'package:validators/validators.dart';
 
 import '../app_icons.dart';
 import '../app_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../util/random_util.dart';
 import '../util/ui_util.dart';
@@ -90,7 +90,7 @@ class NodeAddSheet extends HookConsumerWidget {
       final name = nameController.text;
       final url = urlController.text;
 
-      KaspaClient? client;
+      KarlsenClient? client;
       bool cancelled = false;
 
       AppDialogs.showInProgressDialog(
@@ -106,12 +106,12 @@ class NodeAddSheet extends HookConsumerWidget {
         var nodeInfo;
         try {
           // Try secure connection first
-          client = KaspaClient.url(url, isSecure: true);
+          client = KarlsenClient.url(url, isSecure: true);
           nodeInfo = await client.getInfo();
           isSecure = true;
         } catch (_) {
           // Fallback to insecure connection
-          client = KaspaClient.url(url, isSecure: false);
+          client = KarlsenClient.url(url, isSecure: false);
           nodeInfo = await client.getInfo();
           isSecure = false;
         }
@@ -126,7 +126,7 @@ class NodeAddSheet extends HookConsumerWidget {
           throw Exception(l10n.nodeNoUTXOIndexException);
         }
 
-        final notifier = ref.read(kaspaNodeSettingsProvider.notifier);
+        final notifier = ref.read(karlsenNodeSettingsProvider.notifier);
         final config = NodeConfig(
           id: RandomUtil.generateKey(),
           name: name,

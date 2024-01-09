@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../core/core_providers.dart';
-import '../kaspa/types.dart';
+import '../karlsen/types.dart';
 import '../util/numberutil.dart';
 import 'fiat_value_container.dart';
 import 'kas_icon_widget.dart';

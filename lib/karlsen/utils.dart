@@ -4,7 +4,7 @@ import 'package:fixnum/fixnum.dart';
 
 import '../utils.dart';
 
-const kaspaDecimals = 8;
+const karlsenDecimals = 8;
 
 extension ToBigInt on Int64 {
   BigInt toUnsignedBigInt() => BigInt.parse(toStringUnsigned());
