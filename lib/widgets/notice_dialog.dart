@@ -54,14 +54,6 @@ class NoticeDialog extends HookConsumerWidget {
         ),
       ),
       actions: [
-        // TextButton(
-        //   style: styles.dialogButtonStyle,
-        //   child: Text(
-        //     'Join Discord',
-        //     style: styles.textStyleDialogOptions,
-        //   ),
-        //   onPressed: () => openUrl('https://discord.gg/kaspa'),
-        // ),
         TextButton(
           style: styles.dialogButtonStyle,
           child: Text(
