@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-const kKasIconPath = 'assets/karlsen_icon.png';
+const kKarlsenIconPath = 'assets/karlsen_icon.png';
 
-class KasIconWidget extends ConsumerWidget {
+class KarlsenIconWidget extends ConsumerWidget {
   final Size size;
 
-  const KasIconWidget({
+  const KarlsenIconWidget({
     Key? key,
     this.size = const Size(40, 40),
   }) : super(key: key);
@@ -20,7 +20,7 @@ class KasIconWidget extends ConsumerWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(size.width / 2),
             child: Image.asset(
-              kKasIconPath,
+              kKarlsenIconPath,
               width: size.width,
               height: size.height,
               filterQuality: FilterQuality.medium,

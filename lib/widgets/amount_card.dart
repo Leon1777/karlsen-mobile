@@ -6,7 +6,7 @@ import '../core/core_providers.dart';
 import '../karlsen/types.dart';
 import '../util/numberutil.dart';
 import 'fiat_value_container.dart';
-import 'kls_icon_widget.dart';
+import 'karlsen_icon_widget.dart';
 
 class AmountCard extends HookConsumerWidget {
   final Amount amount;
@@ -55,7 +55,7 @@ class AmountCard extends HookConsumerWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(4),
-                child: const KasIconWidget(),
+                child: const KarlsenIconWidget(),
               ),
             ),
             Expanded(

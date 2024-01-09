@@ -18,7 +18,7 @@ import '../widgets/app_text_field.dart';
 import '../widgets/buttons.dart';
 import '../widgets/fiat_value_container.dart';
 import '../widgets/gradient_widgets.dart';
-import '../widgets/kls_icon_widget.dart';
+import '../widgets/karlsen_icon_widget.dart';
 import '../widgets/sheet_handle.dart';
 import '../widgets/sheet_util.dart';
 import '../widgets/tap_outside_unfocus.dart';
@@ -710,7 +710,7 @@ class _SendSheetState extends ConsumerState<SendSheet> {
           prefixButton: TextFieldButton(
             icon: AppIcons.swapcurrency,
             widget: Image.asset(
-              kKasIconPath,
+              kKarlsenIconPath,
               width: 40,
               height: 40,
               filterQuality: FilterQuality.medium,

@@ -9,7 +9,7 @@ import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../widgets/app_text_field.dart';
 import '../widgets/fiat_value_container.dart';
-import '../widgets/kls_icon_widget.dart';
+import '../widgets/karlsen_icon_widget.dart';
 
 final amountProvider = StateProvider.autoDispose<Amount?>((ref) => null);
 
@@ -63,7 +63,7 @@ class ReceiveAmountField extends HookConsumerWidget {
         prefixButton: TextFieldButton(
           icon: AppIcons.swapcurrency,
           widget: Image.asset(
-            kKasIconPath,
+            kKarlsenIconPath,
             width: 40,
             height: 40,
             filterQuality: FilterQuality.medium,
