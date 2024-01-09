@@ -4,6 +4,11 @@ Karlsium is a non-custodial wallet for the [Karlsen](https://karlsennetwork.com)
 BlockDAG, available for Android and iOS. It is written in
 [Dart](https://dart.dev) using [Flutter](https://flutter.dev).
 
+| Link                                       | Description              |
+|:-------------------------------------------|:-------------------------|
+| [karlsium.io](https://karlsium.io)         | Karlsium Homepage        |
+| [karlsencoin.com](https://karlsencoin.com) | Karlsen Network Homepage |
+
 ## Contributing
 
 * Fork the repository and clone it to your local machine.
