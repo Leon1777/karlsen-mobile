@@ -6,7 +6,7 @@ import '../core/core_providers.dart';
 import '../karlsen/types.dart';
 import '../util/numberutil.dart';
 import 'fiat_value_container.dart';
-import 'kas_icon_widget.dart';
+import 'kls_icon_widget.dart';
 
 class AmountCard extends HookConsumerWidget {
   final Amount amount;

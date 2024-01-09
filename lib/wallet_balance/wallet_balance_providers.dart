@@ -143,7 +143,7 @@ final formatedKarlsenPriceProvider = Provider.autoDispose((ref) {
     decimalDigits: decimals,
   ).format(DecimalIntl(price));
 
-  return '$priceStr / KAS';
+  return '$priceStr / KLS';
 });
 
 final formatedTotalBtcProvider = Provider.autoDispose((ref) {
