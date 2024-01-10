@@ -14,7 +14,7 @@ _$_BlockExplorerSettings _$$_BlockExplorerSettingsFromJson(Map json) =>
           ) ??
           const {
             KarlsenNetwork.mainnet: kKarlsenExplorerMainnet,
-            KarlsenNetwork.testnet: kKatnipTestnet,
+            KarlsenNetwork.testnet: kKarlsenExplorerMainnet,
             KarlsenNetwork.devnet: kKarlsenExplorerMainnet,
             KarlsenNetwork.simnet: kKarlsenExplorerMainnet
           },

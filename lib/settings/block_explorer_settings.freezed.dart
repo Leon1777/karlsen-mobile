@@ -103,7 +103,7 @@ class _$_BlockExplorerSettings extends _BlockExplorerSettings {
   const _$_BlockExplorerSettings(
       {final Map<KarlsenNetwork, BlockExplorer> selection = const {
         KarlsenNetwork.mainnet: kKarlsenExplorerMainnet,
-        KarlsenNetwork.testnet: kKatnipTestnet,
+        KarlsenNetwork.testnet: kKarlsenExplorerMainnet,
         KarlsenNetwork.devnet: kKarlsenExplorerMainnet,
         KarlsenNetwork.simnet: kKarlsenExplorerMainnet
       }})

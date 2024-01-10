@@ -13,7 +13,7 @@ class BlockExplorerSettings with _$BlockExplorerSettings {
   const factory BlockExplorerSettings({
     @Default(const {
       KarlsenNetwork.mainnet: kKarlsenExplorerMainnet,
-      KarlsenNetwork.testnet: kKatnipTestnet,
+      KarlsenNetwork.testnet: kKarlsenExplorerMainnet,
       KarlsenNetwork.devnet: kKarlsenExplorerMainnet,
       KarlsenNetwork.simnet: kKarlsenExplorerMainnet,
     })
