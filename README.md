@@ -46,6 +46,16 @@ Release mode:
 flutter run --release
 ```
 
+## Recompile gRPC Code
+
+If you need to recompile the updated protocol code, please do the
+following:
+
+```bash
+dart pub global activate protoc_plugin 20.0.1
+protoc --dart_out="grpc:lib/karlsen/grpc" -I./proto messages.proto p2p.proto rpc.proto --plugin ~/.pub-cache/bin/protoc-gen-dart
+```
+
 ## Translations
 
 For some details regarding translations, have a look at
