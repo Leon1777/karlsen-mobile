@@ -1,13 +1,13 @@
-# Karlsium
+# Karlsen Mobile
 
-Karlsium is a non-custodial wallet for the [Karlsen](https://karlsennetwork.com)
+Karlsen Mobile is a non-custodial wallet for the [Karlsen](https://karlsennetwork.com)
 BlockDAG, available for Android and iOS. It is written in
 [Dart](https://dart.dev) using [Flutter](https://flutter.dev).
 
-| Link                                       | Description              |
-|:-------------------------------------------|:-------------------------|
-| [karlsium.io](https://karlsium.io)         | Karlsium Homepage        |
-| [karlsencoin.com](https://karlsencoin.com) | Karlsen Network Homepage |
+| Link                                                     | Description              |
+|:---------------------------------------------------------|:-------------------------|
+| [mobile.karlsencoin.com](https://mobile.karlsencoin.com) | Karlsen Mobile Homepage  |
+| [karlsencoin.com](https://karlsencoin.com)               | Karlsen Network Homepage |
 
 ## Contributing
 
@@ -63,5 +63,5 @@ For some details regarding translations, have a look at
 
 ## Have a question?
 
-If you need any help, feel free to [file a feature request or an issue](https://github.com/karlsen-network/karlsium/issues/new/choose)
+If you need any help, feel free to [file a feature request or an issue](https://github.com/karlsen-network/karlsen-mobile/issues/new/choose)
 if you do not manage to find a solution.
