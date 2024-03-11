@@ -4,24 +4,21 @@ import 'package:flutter/services.dart';
 import 'base_theme.dart';
 
 class KarlsenMobileLightTheme extends BaseTheme {
-  //static const deepBlue = Color(0xFF009688);
-  static const deepBlue = Color(0xFF6FC0B3);
+  static const deepBlue = Color(0xFF4c5157);
 
-  //static const green = Color(0xFF009688);
-  static const green = Color(0xFF6FC0B3);
+  static const green = Color(0xFF4c5157);
 
-  //static const greenLight = Color(0xFF9EEDD4);
-  static const greenLight = Color(0xFF6FC0B3);
+  static const greenLight = Color(0xFF4c5157);
 
   static const white = Color(0xFFFFFFFF);
 
-  static const whiteishDark = Color(0xFFE8F0FA);
+  static const whiteishDark = Color(0xFFecebf0);
 
   static const grey = Color(0xFF454868);
 
   static const black = Color(0xFF000000);
 
-  static const darkDeepBlue = Color(0xFF009688);
+  static const darkDeepBlue = Color(0xFF2a2b38);
 
   bool isLightTheme = true;
 
