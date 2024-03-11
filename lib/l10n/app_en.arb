@@ -191,7 +191,7 @@
   "invalidDestinationAddress": "Invalid Destination Address",
   "invalidPassword": "Invalid Password",
   "karlsenDevFund": "Karlsen Dev Fund",
-  "karlsiumWallet": "Karlsium Wallet",
+  "mobileWallet": "Karlsen Mobile Wallet",
   "language": "Language",
   "loadingTransactions": "Loading Transactions...",
   "lockAppSetting": "Authenticate on Launch",
@@ -303,9 +303,9 @@
   "settingsHeader": "Settings",
   "settingsTransfer": "Load from Paper Wallet",
   "setupFailedMessage": "Something went wrong",
-  "shareKarlsium": "Share Karlsium",
-  "shareKarlsiumSubject": "Check out Karlsium Wallet",
-  "shareKarlsiumText": "Check out Karlsium - Karlsen Mobile Wallet.\nWebsite - mobile.karlsencoin.com",
+  "shareMobile": "Share Karlsen Mobile",
+  "shareMobileSubject": "Check out Karlsen Mobile Wallet",
+  "shareMobileText": "Check out Karlsen Mobile - Karlsen Mobile Wallet.\nWebsite - mobile.karlsencoin.com",
   "somethingWentWrong": "Something went wrong",
   "systemDefault": "System Default",
   "tapToHide": "Tap to hide",
@@ -322,7 +322,7 @@
   "transactionsUppercase": "TRANSACTIONS",
   "transfer": "Transfer",
   "transferClose": "Tap anywhere to close the window.",
-  "transferComplete": "{amount} KLS successfully transferred to your Karlsium Wallet.\n",
+  "transferComplete": "{amount} KLS successfully transferred to your Karlsen Mobile Wallet.\n",
   "@transferComplete": {
     "placeholders": {
       "amount": {
@@ -342,7 +342,7 @@
   "transferConfirmInfoThird": "Transfer may take several seconds to complete.",
   "transferError": "An error has occurred during the transfer. Please try again later.",
   "transferHeader": "Transfer Funds",
-  "transferIntro": "This process will transfer the funds from a paper wallet to your Karlsium wallet.\n\nTap the \"{button}\" button to start.",
+  "transferIntro": "This process will transfer the funds from a paper wallet to your Karlsen Mobile wallet.\n\nTap the \"{button}\" button to start.",
   "@transferIntro": {
     "placeholders": {
       "button": {
@@ -373,7 +373,7 @@
   "walletSetupMessage": "Setting up wallet",
   "walletsTitle": "Wallets",
   "warning": "Warning",
-  "welcomeMessage": "Welcome!\n\nThis is version {version} of Karlsium - the mobile wallet for Karlsen",
+  "welcomeMessage": "Welcome!\n\nThis is version {version} of Karlsen Mobile - the mobile wallet for Karlsen",
   "@welcomeMessage": {
     "placeholders": {
       "version": {
@@ -381,7 +381,7 @@
       }
     }
   },
-  "welcomeText": "Welcome to Karlsium. To begin, you may create a new wallet or import an existing one.",
+  "welcomeText": "Welcome to Karlsen Mobile. To begin, you may create a new wallet or import an existing one.",
   "xMinutes": "After {minutes, plural, =1{1 minute} other{{minutes} minutes}}",
   "@xMinutes": {
     "placeholders": {
