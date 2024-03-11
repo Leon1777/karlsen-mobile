@@ -1,9 +1,9 @@
 # Translations and translators
 
-To make Karlsium usable to a broad audience, the Kaspa translators
-team provided translations for a lot of different languages in our
-upstream Kaspium wallet. At this point a big **Thank You** to all
-involved parties!
+To make Karlsen Mobile usable to a broad audience, the Kaspa
+translators team provided translations for a lot of different
+languages in our upstream Kaspium wallet. At this point a big
+**Thank You** to all involved parties!
 
 ## Available translations and their translators
 

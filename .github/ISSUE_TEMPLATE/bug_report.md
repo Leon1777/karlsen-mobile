@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report to help improve Karlsium
+about: Create a report to help improve Karlsen Mobile
 title: ''
 labels: ''
 assignees: ''
@@ -26,7 +26,7 @@ If applicable, add screenshots to help explain your problem.
 **Desktop (please complete the following information):**
  - OS and version: [e.g. Android 13]
  - Device: [e.g. Galaxy S20]
- - Karlsium version: [e.g. 0.2.0]
+ - Karlsen Mobile version: [e.g. 0.2.0]
 
 **Additional context**
 Add any other context about the problem here.

@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
-set(BINARY_NAME "karlsium")
-set(APPLICATION_ID "io.karlsium.karlsium")
+set(BINARY_NAME "karlsen-mobile")
+set(APPLICATION_ID "io.karlsen.mobile")
 
 cmake_policy(SET CMP0063 NEW)
 

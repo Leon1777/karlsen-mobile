@@ -10,7 +10,7 @@ part 'node_types.g.dart';
 
 const mainnetNodeConfig = NodeConfig(
   id: '667bba70-95bb-4f6d-a21a-c62fc5a4d54f',
-  name: 'Karlsium Official',
+  name: 'Karlsen Mobile Official',
   urls: ['mobile.karlsencoin.com'],
   isSecure: true,
   network: KarlsenNetwork.mainnet,

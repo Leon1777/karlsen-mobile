@@ -1,1 +1,1 @@
-const kWalletTitle = 'Karlsium';
+const kWalletTitle = 'Karlsen Mobile';

@@ -7,7 +7,7 @@ import '../app_icons.dart';
 import '../app_providers.dart';
 import '../karlsen/types.dart';
 import '../l10n/l10n.dart';
-import '../themes/karlsium_light_theme.dart';
+import '../themes/karlsen_mobile_light_theme.dart';
 import '../util/ui_util.dart';
 import '../util/user_data_util.dart';
 import '../widgets/app_icon_button.dart';
@@ -92,7 +92,7 @@ class MainCard extends ConsumerWidget {
                               Image.asset(
                                 'assets/karlsen_transparent_180.png',
                                 width: 30,
-                                color: theme is KarlsiumLightTheme
+                                color: theme is KarlsenMobileLightTheme
                                     ? theme.primary
                                     : null,
                               ),

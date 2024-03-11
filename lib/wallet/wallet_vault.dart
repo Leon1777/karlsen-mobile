@@ -1,8 +1,8 @@
 import '../util/karlsen_util.dart';
 import '../util/vault.dart';
 
-const _kMnemonicKey = 'karlsium_mnemonic_key';
-const _kSeedKey = 'karlsium_seed_key';
+const _kMnemonicKey = 'karlsen_mobile_mnemonic_key';
+const _kSeedKey = 'karlsen_mobile_seed_key';
 
 class WalletVault {
   final Vault vault;

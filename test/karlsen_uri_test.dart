@@ -1,6 +1,6 @@
 import 'package:decimal/decimal.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:karlsium/karlsen/karlsen.dart';
+import 'package:karlsen_mobile/karlsen/karlsen.dart';
 
 void main() {
   final address =

@@ -16,7 +16,7 @@ class NoticeDialog extends HookConsumerWidget {
     final styles = ref.watch(stylesProvider);
     final l10n = l10nOf(context);
 
-    final title = l10n.karlsiumWallet;
+    final title = l10n.mobileWallet;
     final content = l10n.welcomeMessage(version);
 
     final isChecked = useState(false);

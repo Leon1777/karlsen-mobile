@@ -1,7 +1,7 @@
 import 'package:decimal/decimal.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:karlsium/karlsen/karlsen.dart';
-import 'package:karlsium/util/numberutil.dart';
+import 'package:karlsen_mobile/karlsen/karlsen.dart';
+import 'package:karlsen_mobile/util/numberutil.dart';
 
 void main() {
   group('NumberUtil.formatAmount', () {

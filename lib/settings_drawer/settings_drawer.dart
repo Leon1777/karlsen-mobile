@@ -399,12 +399,12 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
                       ],
                       Divider(height: 2, color: theme.text15),
                       SingleLineItem(
-                        heading: l10n.shareKarlsium,
+                        heading: l10n.shareMobile,
                         settingIcon: AppIcons.share,
                         onPressed: () {
                           Share.share(
-                            l10n.shareKarlsiumText,
-                            subject: l10n.shareKarlsiumSubject,
+                            l10n.shareMobileText,
+                            subject: l10n.shareMobileSubject,
                           );
                         },
                       ),

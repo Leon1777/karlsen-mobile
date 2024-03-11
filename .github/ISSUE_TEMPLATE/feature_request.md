@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for Karlsium
+about: Suggest an idea for Karlsen Mobile
 title: ''
 labels: ''
 assignees: ''

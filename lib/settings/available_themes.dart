@@ -28,9 +28,9 @@ class ThemeSetting extends SettingSelectionItem {
   BaseTheme getTheme() {
     switch (theme) {
       case ThemeOptions.KARLSIUM_LIGHT:
-        return KarlsiumLightTheme();
+        return KarlsenMobileLightTheme();
       case ThemeOptions.KARLSIUM_DARK:
-        return KarlsiumDarkTheme();
+        return KarlsenMobileDarkTheme();
     }
   }
 

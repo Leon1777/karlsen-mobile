@@ -7,7 +7,7 @@ import 'contact_labels.dart';
 
 const defaultContacts = {
   'karlsen:qqkne8rk50zva7hwgac6lvzwxntlkms2mqarh5sqyl9c5lqtftl3jgucwgvd0':
-      '@KarlsiumTeam',
+      '@KarlsenMobileTeam',
 };
 
 class ContactsNotifier extends ChangeNotifier {
