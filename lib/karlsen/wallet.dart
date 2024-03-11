@@ -9,7 +9,7 @@ import 'types/address_prefix.dart';
 
 const kSeedSize = 64;
 
-const kKarlsenDerivationPath = "m/44'/111111'/0'";
+const kKarlsenDerivationPath = "m/44'/121337'/0'";
 const kLegacyDerivationPath = "m/44'/972/0'";
 
 String convertHdPublicKey(String hdPubKey, KarlsenNetwork toNetwork) {
