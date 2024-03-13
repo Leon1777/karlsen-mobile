@@ -56,6 +56,14 @@ dart pub global activate protoc_plugin 20.0.1
 protoc --dart_out="grpc:lib/karlsen/grpc" -I./proto messages.proto p2p.proto rpc.proto --plugin ~/.pub-cache/bin/protoc-gen-dart
 ```
 
+## Regenerate Freezed Code
+
+If you need to regenerate the runtime code, please do the following:
+
+```bash
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+
 ## Translations
 
 For some details regarding translations, have a look at
