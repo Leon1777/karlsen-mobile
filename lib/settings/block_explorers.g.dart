@@ -7,7 +7,7 @@ part of 'block_explorers.dart';
 // **************************************************************************
 
 _$_BlockExplorer _$$_BlockExplorerFromJson(Map json) => _$_BlockExplorer(
-      network: $enumDecode(_$KaspaNetworkEnumMap, json['network']),
+      network: $enumDecode(_$KarlsenNetworkEnumMap, json['network']),
       name: json['name'] as String,
       url: json['url'] as String,
       addressUrl: json['addressUrl'] as String,
@@ -16,16 +16,16 @@ _$_BlockExplorer _$$_BlockExplorerFromJson(Map json) => _$_BlockExplorer(
 
 Map<String, dynamic> _$$_BlockExplorerToJson(_$_BlockExplorer instance) =>
     <String, dynamic>{
-      'network': _$KaspaNetworkEnumMap[instance.network]!,
+      'network': _$KarlsenNetworkEnumMap[instance.network]!,
       'name': instance.name,
       'url': instance.url,
       'addressUrl': instance.addressUrl,
       'txUrl': instance.txUrl,
     };
 
-const _$KaspaNetworkEnumMap = {
-  KaspaNetwork.mainnet: 'mainnet',
-  KaspaNetwork.testnet: 'testnet',
-  KaspaNetwork.devnet: 'devnet',
-  KaspaNetwork.simnet: 'simnet',
+const _$KarlsenNetworkEnumMap = {
+  KarlsenNetwork.mainnet: 'mainnet',
+  KarlsenNetwork.testnet: 'testnet',
+  KarlsenNetwork.devnet: 'devnet',
+  KarlsenNetwork.simnet: 'simnet',
 };

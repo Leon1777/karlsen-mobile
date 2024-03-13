@@ -65,14 +65,14 @@ class UtxosEmptyCard extends ConsumerWidget {
 
     final workingStr = l10n.emptyCardIntroUtxos;
 
-    if (!workingStr.contains('KASPA')) {
+    if (!workingStr.contains('KARLSEN')) {
       return TextSpan(
         text: workingStr,
         style: styles.textStyleTransactionWelcome,
       );
     }
-    // Colorize Kaspa
-    List<String> splitStr = workingStr.split('KASPA');
+    // Colorize Karlsen
+    List<String> splitStr = workingStr.split('KARLSEN');
     if (splitStr.length != 2) {
       return TextSpan(
         text: workingStr,
@@ -86,7 +86,7 @@ class UtxosEmptyCard extends ConsumerWidget {
           style: styles.textStyleTransactionWelcome,
         ),
         TextSpan(
-          text: 'KASPA',
+          text: 'KARLSEN',
           style: styles.textStyleTransactionWelcomePrimary,
         ),
         TextSpan(

@@ -105,7 +105,7 @@ class _AppShareCardState extends State<AppShareCard> {
                           Container(
                             width: 30,
                             child: Image.asset(
-                              'assets/kas_icon.png',
+                              'assets/karlsen_icon.png',
                               width: 30,
                               height: 30,
                             ),
@@ -114,7 +114,7 @@ class _AppShareCardState extends State<AppShareCard> {
                             width: 60,
                             margin: const EdgeInsets.only(top: 1),
                             child: AutoSizeText(
-                              "KASPA",
+                              "KARLSEN",
                               style: TextStyle(
                                 color: theme.primary,
                                 fontFamily: "Comfortaa",
@@ -199,7 +199,7 @@ class _AppShareCardState extends State<AppShareCard> {
                       width: 98,
                       margin: EdgeInsets.only(bottom: 12),
                       child: AutoSizeText(
-                        "            KASPA.ORG",
+                        "      KARLSENCOIN.COM",
                         minFontSize: 0.1,
                         stepGranularity: 0.1,
                         maxLines: 1,

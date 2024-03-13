@@ -33,15 +33,15 @@ class ListViewEndItem extends ConsumerWidget {
   }
 }
 
-class ViteNodesSheet extends ConsumerWidget {
-  const ViteNodesSheet({Key? key}) : super(key: key);
+class KarlsenNodesSheet extends ConsumerWidget {
+  const KarlsenNodesSheet({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(themeProvider);
     final l10n = l10nOf(context);
 
-    final items = ref.watch(kaspaNodeOptionsProvider);
+    final items = ref.watch(karlsenNodeOptionsProvider);
 
     void addNode() {
       Sheets.showAppHeightNineSheet(
@@ -66,7 +66,7 @@ class ViteNodesSheet extends ConsumerWidget {
               final config = ActiveNodeConfig(config: items[index]);
               return ProviderScope(
                 overrides: [
-                  kaspaNodeConfigItemProvider.overrideWithValue(config),
+                  karlsenNodeConfigItemProvider.overrideWithValue(config),
                 ],
                 child: const NodeItem(),
               );

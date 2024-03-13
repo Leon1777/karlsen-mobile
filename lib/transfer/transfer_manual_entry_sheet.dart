@@ -8,7 +8,7 @@ import '../app_providers.dart';
 import '../app_styles.dart';
 import '../l10n/l10n.dart';
 import '../util/formatters.dart';
-import '../util/kaspa_util.dart';
+import '../util/karlsen_util.dart';
 import '../util/user_data_util.dart';
 import '../widgets/app_text_field.dart';
 import '../widgets/buttons/primary_button.dart';
@@ -107,7 +107,7 @@ class _TransferManualEntrySheetState
                         ),
                         fadeSuffixOnCondition: true,
                         suffixShowFirstCondition:
-                            !KaspaUtil.isValidSeed(_seedInputController.text),
+                            !KarlsenUtil.isValidSeed(_seedInputController.text),
                         keyboardType: TextInputType.text,
                         style: seedIsValid
                             ? styles.textStyleSeed
@@ -116,7 +116,7 @@ class _TransferManualEntrySheetState
                           // Always reset the error message to be less annoying
                           setState(() => hasError = false);
                           // If valid seed, clear focus/close keyboard
-                          if (KaspaUtil.isValidSeed(text) && mounted) {
+                          if (KarlsenUtil.isValidSeed(text) && mounted) {
                             _seedInputFocusNode.unfocus();
                             setState(() => seedIsValid = true);
                           } else if (mounted) {
@@ -149,7 +149,7 @@ class _TransferManualEntrySheetState
                   title: l10n.transfer,
                   onPressed: () {
                     final seed = _seedInputController.text;
-                    if (KaspaUtil.isValidSeed(seed) &&
+                    if (KarlsenUtil.isValidSeed(seed) &&
                         widget.validSeedCallback != null) {
                       widget.validSeedCallback!(seed);
                     } else if (mounted) {

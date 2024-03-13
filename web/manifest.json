@@ -1,11 +1,11 @@
 {
-    "name": "kaspa_wallet",
-    "short_name": "kaspa_wallet",
+    "name": "karlsen-mobile",
+    "short_name": "karlsen-mobile",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#004a50",
     "theme_color": "#004a50",
-    "description": "A Non-Custodial Wallet for Vite Blockchain.",
+    "description": "A Non-Custodial Wallet for Karlsen BlockDAG.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

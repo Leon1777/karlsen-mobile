@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../contacts/contact.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../transactions/transaction_types.dart';
 import '../txnotes/txnotes_types.dart';
 import '../util/vault.dart';
@@ -72,7 +72,7 @@ class Database {
 
   static bool _isInitialized = false;
   static Future<void> _initHive() async {
-    await Hive.initFlutter('kaspium_wallet');
+    await Hive.initFlutter('karlsen-mobile');
 
     Hive.registerAdapter(walletAddressAdapter);
     Hive.registerAdapter(addressBalanceAdapter);
@@ -114,7 +114,7 @@ class Database {
   }
 
   Future<void> _init() async {
-    await Hive.initFlutter('kaspium_wallet');
+    await Hive.initFlutter('karlsen-mobile');
 
     const kContactsBoxId = '_contactsBox';
     const kSettingsBoxId = '_settingsBox';

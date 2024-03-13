@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/core_providers.dart';
 import '../database/boxes.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../utxos/utxos_providers.dart';
 import '../wallet/wallet_types.dart';
 import '../wallet_address/wallet_address_providers.dart';
@@ -14,9 +14,9 @@ import 'transaction_notifier.dart';
 import 'transaction_types.dart';
 import 'tx_cache_service.dart';
 
-// All new transactions from kaspa node
+// All new transactions from karlsen node
 final _newTransactionProvider = StreamProvider.autoDispose((ref) {
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(karlsenClientProvider);
 
   final newBlock = client.notifyBlockAdded();
 
@@ -64,7 +64,7 @@ final _newWalletTransactionProvider = StreamProvider.autoDispose((ref) {
 });
 
 final _acceptedTransactionIdsProvider = StreamProvider.autoDispose((ref) {
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(karlsenClientProvider);
   return client
       .notifyVirtualSelectedParentChainChanged(
     includeAcceptedTransactionIds: true,
@@ -105,7 +105,7 @@ final txCacheServiceProvider =
   );
 
   ref.listen(
-    kaspaApiServiceProvider,
+    karlsenApiServiceProvider,
     (_, api) => txCache.api = api,
     fireImmediately: true,
   );
@@ -147,7 +147,7 @@ final txNotifierForWalletProvider = ChangeNotifierProvider.autoDispose
   // Update transaction status
   ref.listen(_acceptedTransactionIdsProvider, (_, next) {
     if (next.asData?.value case final ids?) {
-      final client = ref.read(kaspaClientProvider);
+      final client = ref.read(karlsenClientProvider);
 
       notifier.processAcceptedTxIds(
         ids.acceptedTransactionIds,

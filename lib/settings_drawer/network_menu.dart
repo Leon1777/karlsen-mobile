@@ -28,7 +28,7 @@ class NetworkMenu extends ConsumerWidget {
     final styles = ref.watch(stylesProvider);
     final l10n = l10nOf(context);
 
-    final viteNodeConfig = ref.watch(kaspaNodeConfigProvider);
+    final karlsenNodeConfig = ref.watch(karlsenNodeConfigProvider);
 
     return Container(
       decoration: BoxDecoration(
@@ -85,10 +85,10 @@ class NetworkMenu extends ConsumerWidget {
                       Divider(height: 2, color: theme.text15),
                       DoubleLineItem(
                         heading: l10n.nodeAddress,
-                        defaultMethod: NodeSetting(viteNodeConfig.config),
+                        defaultMethod: NodeSetting(karlsenNodeConfig.config),
                         icon: Icons.settings_ethernet,
                         onPressed: () {
-                          _changeViteNode(context, ref);
+                          _changeKarlsenNode(context, ref);
                         },
                       ),
                       Divider(height: 2, color: theme.text15),
@@ -115,12 +115,12 @@ class NetworkMenu extends ConsumerWidget {
     );
   }
 
-  void _changeViteNode(BuildContext context, WidgetRef ref) {
+  void _changeKarlsenNode(BuildContext context, WidgetRef ref) {
     final theme = ref.read(themeProvider);
     Sheets.showAppHeightNineSheet(
       context: context,
       theme: theme,
-      widget: const ViteNodesSheet(),
+      widget: const KarlsenNodesSheet(),
     );
   }
 

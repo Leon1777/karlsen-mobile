@@ -57,19 +57,19 @@ class NodeSettingsNotifier extends StateNotifier<NodeConfigSettings> {
   }
 }
 
-final kaspaNodeSettingsProvider =
+final karlsenNodeSettingsProvider =
     StateNotifierProvider<NodeSettingsNotifier, NodeConfigSettings>((ref) {
   final repository = ref.watch(settingsRepositoryProvider);
   final notifier = NodeSettingsNotifier(repository);
   return notifier;
 });
 
-final kaspaNodeOptionsProvider = Provider((ref) {
-  final settings = ref.watch(kaspaNodeSettingsProvider);
+final karlsenNodeOptionsProvider = Provider((ref) {
+  final settings = ref.watch(karlsenNodeSettingsProvider);
   return settings.options;
 });
 
-final kaspaNodeConfigProvider = Provider((ref) {
-  final settings = ref.watch(kaspaNodeSettingsProvider);
+final karlsenNodeConfigProvider = Provider((ref) {
+  final settings = ref.watch(karlsenNodeSettingsProvider);
   return ActiveNodeConfig(config: settings.selected);
 });

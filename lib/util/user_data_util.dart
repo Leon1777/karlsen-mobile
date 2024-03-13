@@ -5,9 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:validators/validators.dart';
 
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../widgets/qr_scanner_widget.dart';
-import 'kaspa_util.dart';
+import 'karlsen_util.dart';
 
 enum DataType { RAW, URL, ADDRESS, SEED }
 
@@ -42,7 +42,7 @@ class UserDataUtil {
       }
     } else if (type == DataType.SEED) {
       // Check if valid seed
-      if (KaspaUtil.isValidSeed(data)) {
+      if (KarlsenUtil.isValidSeed(data)) {
         return data;
       }
     }

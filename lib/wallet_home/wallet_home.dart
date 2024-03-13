@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../app_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../main_card/main_card.dart';
 import '../transactions/transactions_widget.dart';
@@ -48,11 +48,11 @@ class WalletHome extends HookConsumerWidget {
             return;
           }
           final prefix = ref.read(addressPrefixProvider);
-          final uri = KaspaUri.tryParse(appLink, prefix: prefix);
+          final uri = KarlsenUri.tryParse(appLink, prefix: prefix);
           Future.microtask(() {
             UIUtil.showSendFlow(
               context,
-              ifNullMessage: l10n.kaspaUriInvalid,
+              ifNullMessage: l10n.karlsenUriInvalid,
               theme: theme,
               uri: uri,
             );

@@ -1,6 +1,9 @@
 # Translations and translators
 
-To make Kaspium usable to a broad audience, the Kaspa translators team provided translations for a lot of different languages. At this point a big **Thank You** to all involved parties!
+To make Karlsen Mobile usable to a broad audience, the Kaspa
+translators team provided translations for a lot of different
+languages in our upstream Kaspium wallet. At this point a big
+**Thank You** to all involved parties!
 
 ## Available translations and their translators
 
@@ -45,11 +48,17 @@ To make Kaspium usable to a broad audience, the Kaspa translators team provided 
 | Urdu (ur)       | Devilking946285                      |
 
 Some hints to the table above:
-* Some translations currently have no translator, so they just contain the default translations
-* Some translators prefer to stay anonymous, so they are not mentioned on the list
-* Some translators do not tell their Discord account name, so they are also not mentioned on the list
+
+* Some translations currently have no translator, so they just
+  contain the default translations.
+* Some translators prefer to stay anonymous, so they are not
+  mentioned on the list.
+* Some translators do not tell their Discord account name, so
+  they are also not mentioned on the list.
 
 ## How to contribute
-The whole translation effort is coordinated by Helix. If you like to add another language, 
-feel free to get in touch at our Discord, especially the channel _#translation_ and have 
-a look at the [translations part in our wiki](https://wiki.kaspa.org/en/i18n).
+
+The whole translation effort is coordinated by the Karlsen Network
+developers. If you like to add another language, feel free to get
+in touch at our [Discord](https://discord.gg/ZPZRvgMJDT),
+especially the channel _#translations_.

@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 
 part 'block_explorers.freezed.dart';
 part 'block_explorers.g.dart';
@@ -11,7 +11,7 @@ const kParamPattern = '{0}';
 class BlockExplorer with _$BlockExplorer {
   const BlockExplorer._();
   const factory BlockExplorer({
-    required KaspaNetwork network,
+    required KarlsenNetwork network,
     required String name,
     required String url,
     required String addressUrl,
@@ -27,56 +27,19 @@ class BlockExplorer with _$BlockExplorer {
       _$BlockExplorerFromJson(json);
 }
 
-const kKaspaExplorerMainnet = BlockExplorer(
-  network: KaspaNetwork.mainnet,
-  name: 'Kaspa Explorer',
-  url: 'explorer.kaspa.org',
-  addressUrl: 'https://explorer.kaspa.org/addresses/$kParamPattern',
-  txUrl: 'https://explorer.kaspa.org/txs/$kParamPattern',
-);
-
-const kKasFyiMainnet = BlockExplorer(
-  network: KaspaNetwork.mainnet,
-  name: 'Kas.fyi',
-  url: 'kas.fyi',
-  addressUrl: 'https://kas.fyi/address/$kParamPattern',
-  txUrl: 'https://kas.fyi/transaction/$kParamPattern',
-);
-
-const kKasFyiTestnet = BlockExplorer(
-  network: KaspaNetwork.testnet,
-  name: 'Kas.fyi Testnet',
-  url: 'testnet.kas.fyi',
-  addressUrl: 'https://testnet.kas.fyi/address/$kParamPattern',
-  txUrl: 'https://testnet.kas.fyi/transaction/$kParamPattern',
-);
-
-const kKatnipMainnet = BlockExplorer(
-  network: KaspaNetwork.mainnet,
-  name: 'Katnip',
-  url: 'katnip.kaspad.net',
-  addressUrl: 'https://katnip.kaspad.net/addr/$kParamPattern',
-  txUrl: 'https://katnip.kaspad.net/tx/$kParamPattern',
-);
-
-const kKatnipTestnet = BlockExplorer(
-  network: KaspaNetwork.testnet,
-  name: 'Katnip Testnet',
-  url: 'katnip-testnet.kaspad.net',
-  addressUrl: 'https://katnip-testnet.kaspad.net/addr/$kParamPattern',
-  txUrl: 'https://katnip-testnet.kaspad.net/tx/$kParamPattern',
+const kKarlsenExplorerMainnet = BlockExplorer(
+  network: KarlsenNetwork.mainnet,
+  name: 'Karlsen Explorer',
+  url: 'explorer.karlsencoin.com',
+  addressUrl: 'https://explorer.karlsencoin.com/addresses/$kParamPattern',
+  txUrl: 'https://explorer.karlsencoin.com/txs/$kParamPattern',
 );
 
 const kBlockExplorerOptions = {
-  KaspaNetwork.mainnet: [
-    kKaspaExplorerMainnet,
-    kKasFyiMainnet,
-    kKatnipMainnet,
+  KarlsenNetwork.mainnet: [
+    kKarlsenExplorerMainnet,
   ],
-  KaspaNetwork.testnet: [
-    kKatnipTestnet,
-    kKasFyiTestnet,
-  ],
-  KaspaNetwork.devnet: [],
-  KaspaNetwork.simnet: [],
+  KarlsenNetwork.testnet: [],
+  KarlsenNetwork.devnet: [],
+  KarlsenNetwork.simnet: [],
 };

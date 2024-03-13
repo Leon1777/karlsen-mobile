@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import '../app_icons.dart';
 import '../app_providers.dart';
 import '../app_styles.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../util/numberutil.dart';
 import '../widgets/sheet_util.dart';
@@ -119,7 +119,7 @@ class TransactionCard extends ConsumerWidget {
                                       .copyWith(fontSize: AppFontSizes.small),
                                 ),
                                 TextSpan(
-                                  text: ' KAS',
+                                  text: ' KLS',
                                   style: styles.textStyleTransactionUnit
                                       .copyWith(fontSize: AppFontSizes.small),
                                 ),

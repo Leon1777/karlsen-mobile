@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../app_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../transactions/send_tx.dart';
 import '../util/numberutil.dart';
@@ -102,7 +102,7 @@ class SendConfirmSheet extends HookConsumerWidget {
     String? checkMissingBalance() {
       final balance = ref.read(totalBalanceProvider).raw;
       if (balance < amount.raw) {
-        return 'KAS';
+        return 'KLS';
       }
 
       if (fee != null) {

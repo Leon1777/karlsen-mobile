@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../app_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../wallet_address/wallet_address.dart';
 
 final _balanceProvider =
@@ -35,7 +35,7 @@ class BalanceRowWidget extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final styles = ref.watch(stylesProvider);
 
-    final tokenInfo = TokenInfo.kaspa;
+    final tokenInfo = TokenInfo.karlsen;
     final balance = ref.watch(_balanceProvider(address));
     final fiatValue = ref.watch(_fiatProvider(address));
 
@@ -94,7 +94,7 @@ class BalanceTextWidget extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final styles = ref.watch(stylesProvider);
 
-    final tokenInfo = TokenInfo.kaspa;
+    final tokenInfo = TokenInfo.karlsen;
     final balance = ref.watch(_balanceProvider(address));
     final fiatValue = ref.watch(_fiatProvider(address));
 

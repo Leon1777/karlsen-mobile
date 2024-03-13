@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Kaspium</string>
+	<string>Karlsen Mobile</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIconName</key>
@@ -72,7 +72,7 @@
 		<string>zh_TW</string>
 	</array>
 	<key>CFBundleName</key>
-	<string>Kaspium</string>
+	<string>Karlsen Mobile</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -85,40 +85,40 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>io.kaspium.kaspiumwallet</string>
+			<string>io.karlsen.mobilewallet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kaspa</string>
+				<string>karlsen</string>
 			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>io.kaspium.kaspiumwallet</string>
+			<string>io.karlsen.mobilewallet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kaspatest</string>
+				<string>karlsentest</string>
 			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>io.kaspium.kaspiumwallet</string>
+			<string>io.karlsen.mobilewallet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kaspadev</string>
+				<string>karlsendev</string>
 			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>io.kaspium.kaspiumwallet</string>
+			<string>io.karlsen.mobilewallet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kaspasim</string>
+				<string>karlsensim</string>
 			</array>
 		</dict>
 	</array>

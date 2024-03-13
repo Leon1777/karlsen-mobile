@@ -35,7 +35,7 @@ _$_NodeConfig _$$_NodeConfigFromJson(Map json) => _$_NodeConfig(
       isDns: json['isDns'] as bool? ?? false,
       isSecure: json['isSecure'] as bool? ?? false,
       urls: (json['urls'] as List<dynamic>).map((e) => e as String).toList(),
-      network: $enumDecode(_$KaspaNetworkEnumMap, json['network']),
+      network: $enumDecode(_$KarlsenNetworkEnumMap, json['network']),
     );
 
 Map<String, dynamic> _$$_NodeConfigToJson(_$_NodeConfig instance) =>
@@ -45,12 +45,12 @@ Map<String, dynamic> _$$_NodeConfigToJson(_$_NodeConfig instance) =>
       'isDns': instance.isDns,
       'isSecure': instance.isSecure,
       'urls': instance.urls,
-      'network': _$KaspaNetworkEnumMap[instance.network]!,
+      'network': _$KarlsenNetworkEnumMap[instance.network]!,
     };
 
-const _$KaspaNetworkEnumMap = {
-  KaspaNetwork.mainnet: 'mainnet',
-  KaspaNetwork.testnet: 'testnet',
-  KaspaNetwork.devnet: 'devnet',
-  KaspaNetwork.simnet: 'simnet',
+const _$KarlsenNetworkEnumMap = {
+  KarlsenNetwork.mainnet: 'mainnet',
+  KarlsenNetwork.testnet: 'testnet',
+  KarlsenNetwork.devnet: 'devnet',
+  KarlsenNetwork.simnet: 'simnet',
 };

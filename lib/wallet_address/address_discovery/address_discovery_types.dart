@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../kaspa/kaspa.dart';
+import '../../karlsen/karlsen.dart';
 import '../wallet_address.dart';
 
 part 'address_discovery_types.freezed.dart';

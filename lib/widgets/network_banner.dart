@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../app_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 
 final _networkBannerProvider = Provider<String?>((ref) {
   final network = ref.watch(networkProvider);
-  if (network != KaspaNetwork.mainnet) {
+  if (network != KarlsenNetwork.mainnet) {
     return network.name.toUpperCase();
   }
   return null;

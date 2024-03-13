@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SendTx {
-  KaspaUri get uri => throw _privateConstructorUsedError;
+  KarlsenUri get uri => throw _privateConstructorUsedError;
   Address? get changeAddress => throw _privateConstructorUsedError;
   BigInt get amountRaw => throw _privateConstructorUsedError;
   List<Utxo> get utxos => throw _privateConstructorUsedError;
@@ -33,14 +33,14 @@ abstract class $SendTxCopyWith<$Res> {
       _$SendTxCopyWithImpl<$Res, SendTx>;
   @useResult
   $Res call(
-      {KaspaUri uri,
+      {KarlsenUri uri,
       Address? changeAddress,
       BigInt amountRaw,
       List<Utxo> utxos,
       BigInt? fee,
       String? note});
 
-  $KaspaUriCopyWith<$Res> get uri;
+  $KarlsenUriCopyWith<$Res> get uri;
   $AddressCopyWith<$Res>? get changeAddress;
 }
 
@@ -68,7 +68,7 @@ class _$SendTxCopyWithImpl<$Res, $Val extends SendTx>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as KaspaUri,
+              as KarlsenUri,
       changeAddress: freezed == changeAddress
           ? _value.changeAddress
           : changeAddress // ignore: cast_nullable_to_non_nullable
@@ -94,8 +94,8 @@ class _$SendTxCopyWithImpl<$Res, $Val extends SendTx>
 
   @override
   @pragma('vm:prefer-inline')
-  $KaspaUriCopyWith<$Res> get uri {
-    return $KaspaUriCopyWith<$Res>(_value.uri, (value) {
+  $KarlsenUriCopyWith<$Res> get uri {
+    return $KarlsenUriCopyWith<$Res>(_value.uri, (value) {
       return _then(_value.copyWith(uri: value) as $Val);
     });
   }
@@ -120,7 +120,7 @@ abstract class _$$_SendTxCopyWith<$Res> implements $SendTxCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {KaspaUri uri,
+      {KarlsenUri uri,
       Address? changeAddress,
       BigInt amountRaw,
       List<Utxo> utxos,
@@ -128,7 +128,7 @@ abstract class _$$_SendTxCopyWith<$Res> implements $SendTxCopyWith<$Res> {
       String? note});
 
   @override
-  $KaspaUriCopyWith<$Res> get uri;
+  $KarlsenUriCopyWith<$Res> get uri;
   @override
   $AddressCopyWith<$Res>? get changeAddress;
 }
@@ -154,7 +154,7 @@ class __$$_SendTxCopyWithImpl<$Res>
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as KaspaUri,
+              as KarlsenUri,
       changeAddress: freezed == changeAddress
           ? _value.changeAddress
           : changeAddress // ignore: cast_nullable_to_non_nullable
@@ -193,7 +193,7 @@ class _$_SendTx extends _SendTx {
         super._();
 
   @override
-  final KaspaUri uri;
+  final KarlsenUri uri;
   @override
   final Address? changeAddress;
   @override
@@ -245,7 +245,7 @@ class _$_SendTx extends _SendTx {
 
 abstract class _SendTx extends SendTx {
   factory _SendTx(
-      {required final KaspaUri uri,
+      {required final KarlsenUri uri,
       final Address? changeAddress,
       required final BigInt amountRaw,
       final List<Utxo> utxos,
@@ -254,7 +254,7 @@ abstract class _SendTx extends SendTx {
   _SendTx._() : super._();
 
   @override
-  KaspaUri get uri;
+  KarlsenUri get uri;
   @override
   Address? get changeAddress;
   @override

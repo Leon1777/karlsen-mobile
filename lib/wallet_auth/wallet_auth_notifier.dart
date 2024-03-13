@@ -2,8 +2,8 @@ import 'dart:typed_data';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../kaspa/kaspa.dart';
-import '../util/kaspa_util.dart';
+import '../karlsen/karlsen.dart';
+import '../util/karlsen_util.dart';
 import '../utils.dart';
 import '../wallet/wallet_vault.dart';
 import 'wallet_auth_types.dart';
@@ -30,7 +30,7 @@ class WalletAuthNotifier extends StateNotifier<WalletAuth> {
     if (!state.isEncrypted) {
       final seed = await walletVault.getSeed();
 
-      if (KaspaUtil.isEncryptedHex(seed)) {
+      if (KarlsenUtil.isEncryptedHex(seed)) {
         throw Exception('Seed is password protected');
       }
       return seed;
@@ -42,7 +42,7 @@ class WalletAuthNotifier extends StateNotifier<WalletAuth> {
     }
 
     final sessionKey = await walletVault.getSessionKey();
-    return KaspaUtil.decryptHex(secret, sessionKey);
+    return KarlsenUtil.decryptHex(secret, sessionKey);
   }
 
   Future<Uint8List> sign(
@@ -56,7 +56,7 @@ class WalletAuthNotifier extends StateNotifier<WalletAuth> {
     final wallet = HdWallet.forSeedHex(seed, type: walletKind.type);
     final keyPair = wallet.deriveKeyPair(typeIndex: typeIndex, index: index);
     final signature =
-        await KaspaUtil.computeSignDataSchnorr(data, keyPair.privateKey);
+        await KarlsenUtil.computeSignDataSchnorr(data, keyPair.privateKey);
     return signature;
   }
 
@@ -94,7 +94,7 @@ class WalletAuthNotifier extends StateNotifier<WalletAuth> {
     final seed = await walletVault.getSeed(password: password);
 
     final sessionKey = await walletVault.getSessionKey();
-    final encryptedSecret = KaspaUtil.encryptHex(seed, sessionKey);
+    final encryptedSecret = KarlsenUtil.encryptHex(seed, sessionKey);
 
     state = state.copyWith(
       encryptedSecret: encryptedSecret,
@@ -108,7 +108,7 @@ class WalletAuthNotifier extends StateNotifier<WalletAuth> {
       final seed = await walletVault.getSeed();
       final mnemonic = await walletVault.getMnemonic();
       final sessionKey = await walletVault.getSessionKey();
-      final encryptedSecret = KaspaUtil.encryptHex(seed, sessionKey);
+      final encryptedSecret = KarlsenUtil.encryptHex(seed, sessionKey);
 
       await walletVault.setSeed(
         seed,
@@ -154,7 +154,7 @@ class WalletAuthNotifier extends StateNotifier<WalletAuth> {
     return keyPair.publicKey;
   }
 
-  HdAddressGenerator addressGenerator(KaspaNetwork network) {
+  HdAddressGenerator addressGenerator(KarlsenNetwork network) {
     final wallet = state.wallet;
     final prefix = addressPrefixForNetwork(network);
     final hdPubKey = wallet.hdPublicKey(network);

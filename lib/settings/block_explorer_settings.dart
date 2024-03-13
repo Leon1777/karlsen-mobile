@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import 'block_explorers.dart';
 
 part 'block_explorer_settings.freezed.dart';
@@ -12,16 +12,16 @@ class BlockExplorerSettings with _$BlockExplorerSettings {
 
   const factory BlockExplorerSettings({
     @Default(const {
-      KaspaNetwork.mainnet: kKaspaExplorerMainnet,
-      KaspaNetwork.testnet: kKatnipTestnet,
-      KaspaNetwork.devnet: kKaspaExplorerMainnet,
-      KaspaNetwork.simnet: kKaspaExplorerMainnet,
+      KarlsenNetwork.mainnet: kKarlsenExplorerMainnet,
+      KarlsenNetwork.testnet: kKarlsenExplorerMainnet,
+      KarlsenNetwork.devnet: kKarlsenExplorerMainnet,
+      KarlsenNetwork.simnet: kKarlsenExplorerMainnet,
     })
-        Map<KaspaNetwork, BlockExplorer> selection,
+        Map<KarlsenNetwork, BlockExplorer> selection,
   }) = _BlockExplorerSettings;
 
-  BlockExplorer explorerForNetwork(KaspaNetwork network) {
-    return selection[network] ?? kKaspaExplorerMainnet;
+  BlockExplorer explorerForNetwork(KarlsenNetwork network) {
+    return selection[network] ?? kKarlsenExplorerMainnet;
   }
 
   factory BlockExplorerSettings.fromJson(Map<String, dynamic> json) =>

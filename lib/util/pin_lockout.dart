@@ -3,8 +3,8 @@ import 'package:intl/intl.dart';
 import 'vault.dart';
 
 class PinLockout {
-  static const _pin_attempts = 'fkaspium_pin_attempts';
-  static const _pin_lock_until = 'fkaspium_lock_duraton';
+  static const _pin_attempts = 'fkarlsen_mobile_pin_attempts';
+  static const _pin_lock_until = 'fkarlsen_mobile_lock_duraton';
 
   final Vault vault;
   PinLockout(this.vault);

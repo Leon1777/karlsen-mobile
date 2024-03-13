@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/core_providers.dart';
 import '../database/boxes.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../transactions/transaction_providers.dart';
 import '../wallet/wallet_types.dart';

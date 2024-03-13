@@ -1,7 +1,7 @@
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 
 part 'wallet_types.freezed.dart';
 part 'wallet_types.g.dart';
@@ -44,15 +44,15 @@ class BoxInfoByNetwork with _$BoxInfoByNetwork {
   factory BoxInfoByNetwork.fromJson(Map<String, dynamic> json) =>
       _$BoxInfoByNetworkFromJson(json);
 
-  BoxInfo getBoxInfo(KaspaNetwork network) {
+  BoxInfo getBoxInfo(KarlsenNetwork network) {
     switch (network) {
-      case KaspaNetwork.mainnet:
+      case KarlsenNetwork.mainnet:
         return mainnet;
-      case KaspaNetwork.testnet:
+      case KarlsenNetwork.testnet:
         return testnet;
-      case KaspaNetwork.devnet:
+      case KarlsenNetwork.devnet:
         return devnet;
-      case KaspaNetwork.simnet:
+      case KarlsenNetwork.simnet:
         return simnet;
     }
   }
@@ -106,10 +106,10 @@ class WalletInfo with _$WalletInfo {
 
   bool get isViewOnly => kind.isViewOnly;
 
-  BoxInfo getBoxInfo(KaspaNetwork network) => boxInfo.getBoxInfo(network);
+  BoxInfo getBoxInfo(KarlsenNetwork network) => boxInfo.getBoxInfo(network);
 
-  String hdPublicKey(KaspaNetwork network) {
-    if (network == KaspaNetwork.mainnet) {
+  String hdPublicKey(KarlsenNetwork network) {
+    if (network == KarlsenNetwork.mainnet) {
       return mainnetPublicKey;
     }
 

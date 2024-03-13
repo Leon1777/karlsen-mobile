@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../util/kaspa_util.dart';
+import '../util/karlsen_util.dart';
 import '../utils.dart';
 import 'intro_types.dart';
 
 String _computeSeed(String mnemonic) {
-  return KaspaUtil.seedFromMnemonic(mnemonic);
+  return KarlsenUtil.seedFromMnemonic(mnemonic);
 }
 
 class IntroDataNotifier extends StateNotifier<IntroData> {

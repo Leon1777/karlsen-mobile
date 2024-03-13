@@ -17,15 +17,15 @@ class SharedPrefsUtil {
   SharedPrefsUtil(this.sharedPrefs);
 
   // Keys
-  static const String first_launch_key = 'fkaspium_first_launch';
-  static const String auth_method = 'fkaspium_auth_method';
-  static const String cur_currency = 'fkaspium_currency_pref';
-  static const String cur_language = 'fkaspium_language_pref';
-  static const String cur_theme = 'fkaspium_theme_pref';
-  static const String firstcontact_added = 'fkaspium_first_contact_added';
+  static const String first_launch_key = 'fkarlsen_mobile_first_launch';
+  static const String auth_method = 'fkarlsen_mobile_auth_method';
+  static const String cur_currency = 'fkarlsen_mobile_currency_pref';
+  static const String cur_language = 'fkarlsen_mobile_language_pref';
+  static const String cur_theme = 'fkarlsen_mobile_theme_pref';
+  static const String firstcontact_added = 'fkarlsen_mobile_first_contact_added';
   // If user has seen the root/jailbreak warning yet
-  static const String has_shown_root_warning = 'fkaspium_root_warn';
-  static const String notice_shown = 'fkaspium_notice_shown';
+  static const String has_shown_root_warning = 'fkarlsen_mobile_root_warn';
+  static const String notice_shown = 'fkarlsen_mobile_notice_shown';
 
   // For plain-text data
   Future<bool> set<T>(String key, T value) async {
@@ -136,7 +136,7 @@ class SharedPrefsUtil {
   ThemeSetting getTheme() {
     return ThemeSetting(ThemeOptions.values.byName(get(
       cur_theme,
-      defaultValue: ThemeOptions.KASPIUM_DARK.name,
+      defaultValue: ThemeOptions.KARLSIUM_DARK.name,
     )));
   }
 

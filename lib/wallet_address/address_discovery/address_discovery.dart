@@ -1,10 +1,10 @@
-import '../../kaspa/kaspa.dart';
+import '../../karlsen/karlsen.dart';
 import '../wallet_address.dart';
 import 'address_discovery_types.dart';
 
 class AddressDiscovery {
-  final KaspaApiService api;
-  final KaspaClient client;
+  final KarlsenApiService api;
+  final KarlsenClient client;
   final HdAddressGenerator addressGenerator;
   final AddressNameCallback addressNameCallback;
 

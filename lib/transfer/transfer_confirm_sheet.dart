@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../app_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../util/numberutil.dart';
 import '../widgets/buttons/primary_button.dart';
@@ -152,11 +152,11 @@ class _AppTransferConfirmSheetState extends State<AppTransferConfirmSheet> {
   //   String? seed;
   //   if (encryptedSecret != null) {
   //     final sessionKey = await vault.getSessionKey();
-  //     seed = ViteUtil.decryptHex(encryptedSecret, sessionKey);
+  //     seed = KarlsenUtil.decryptHex(encryptedSecret, sessionKey);
   //   } else {
   //     seed = await vault.getSeed();
   //   }
-  //   return ViteUtil.seedToPrivate(seed!, index);
+  //   return KarlsenUtil.seedToPrivate(seed!, index);
   // }
 
   Future<void> processWallets() async {

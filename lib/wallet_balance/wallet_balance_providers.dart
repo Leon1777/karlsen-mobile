@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 
 import '../coingecko/coingecko_providers.dart';
 import '../core/core_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../settings/settings_providers.dart';
 import '../util/numberutil.dart';
 import '../utxos/utxos_providers.dart';
@@ -13,8 +13,8 @@ import '../wallet_address/wallet_address_providers.dart';
 import '../wallet_auth/wallet_auth_providers.dart';
 import 'wallet_balance_notifier.dart';
 
-final kaspaPriceProvider = Provider.autoDispose((ref) {
-  return ref.watch(coingeckoKaspaPriceProvider);
+final karlsenPriceProvider = Provider.autoDispose((ref) {
+  return ref.watch(coingeckoKarlsenPriceProvider);
 });
 
 final _addressBalanceBoxProvider = Provider.autoDispose((ref) {
@@ -30,7 +30,7 @@ final _addressBalanceBoxProvider = Provider.autoDispose((ref) {
 final balanceNotifierProvider = ChangeNotifierProvider.autoDispose((ref) {
   final balanceBox = ref.watch(_addressBalanceBoxProvider);
   final addressNotifier = ref.watch(addressNotifierProvider.notifier);
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(karlsenClientProvider);
 
   final notifier = WalletBalanceNotifier(
     balanceBox: balanceBox,
@@ -108,7 +108,7 @@ final formatedTotalBalanceProvider = Provider.autoDispose((ref) {
 
 final formatedTotalFiatProvider = Provider.autoDispose((ref) {
   final balance = ref.watch(totalBalanceProvider);
-  final price = ref.watch(kaspaPriceProvider);
+  final price = ref.watch(karlsenPriceProvider);
   final currency = ref.watch(currencyProvider);
   final fiat = balance.value * price.price;
   final decimals = fiat >= Decimal.parse('0.01')
@@ -126,15 +126,15 @@ final formatedTotalFiatProvider = Provider.autoDispose((ref) {
 });
 
 final totalBtcValueProvider = Provider.autoDispose((ref) {
-  final price = ref.watch(kaspaPriceProvider);
+  final price = ref.watch(karlsenPriceProvider);
   final balance = ref.watch(totalBalanceProvider);
   final value = balance.value * price.priceBtc;
 
   return value;
 });
 
-final formatedKaspaPriceProvider = Provider.autoDispose((ref) {
-  final price = ref.watch(kaspaPriceProvider).price;
+final formatedKarlsenPriceProvider = Provider.autoDispose((ref) {
+  final price = ref.watch(karlsenPriceProvider).price;
   final currency = ref.watch(currencyProvider);
   final decimals = price >= Decimal.parse('1') ? 2 : 4;
   final priceStr = NumberFormat.currency(
@@ -143,7 +143,7 @@ final formatedKaspaPriceProvider = Provider.autoDispose((ref) {
     decimalDigits: decimals,
   ).format(DecimalIntl(price));
 
-  return '$priceStr / KAS';
+  return '$priceStr / KLS';
 });
 
 final formatedTotalBtcProvider = Provider.autoDispose((ref) {
@@ -162,7 +162,7 @@ final formatedTotalBtcProvider = Provider.autoDispose((ref) {
 
 final fiatValueForAddressProvider =
     Provider.autoDispose.family<Decimal, String>((ref, address) {
-  final price = ref.watch(kaspaPriceProvider);
+  final price = ref.watch(karlsenPriceProvider);
   final balance = ref.watch(balanceForAddressProvider(address));
 
   return balance.value * price.price;
@@ -181,7 +181,7 @@ final formatedFiatForAddressProvider =
 
 final formatedFiatForAmountProvider =
     Provider.autoDispose.family<String, Amount>((ref, value) {
-  final price = ref.watch(kaspaPriceProvider);
+  final price = ref.watch(karlsenPriceProvider);
   final currency = ref.watch(currencyProvider);
 
   final fiatValue = value.value * price.price;

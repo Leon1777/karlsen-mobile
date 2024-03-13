@@ -11,7 +11,7 @@ import 'package:share_plus/share_plus.dart';
 import '../contacts/contact.dart';
 import '../contacts/contacts_providers.dart';
 import '../core/core_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../util/ui_util.dart';
 
@@ -30,7 +30,7 @@ Future<void> exportContacts(WidgetRef ref, BuildContext context) async {
   });
   final exportTime = DateTime.now();
   final filename =
-      "kaspium_contacts_${exportTime.year}${exportTime.month}${exportTime.day}${exportTime.hour}${exportTime.minute}${exportTime.second}.txt";
+      "karlsen_mobile_contacts_${exportTime.year}${exportTime.month}${exportTime.day}${exportTime.hour}${exportTime.minute}${exportTime.second}.txt";
   final baseDirectory = await getTemporaryDirectory();
   final contactsFile = File("${baseDirectory.path}/$filename");
   await contactsFile.writeAsString(json.encode(jsonList));
