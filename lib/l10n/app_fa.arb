@@ -291,7 +291,7 @@
   "importOption24WordsTitle": "وارد کردن عبارت مخفی 24 کلمه ای ",
   "importOption24WordsDescription": "رگولاتور با کیف پول Cli",
   "importOption12WordsTitle": "وارد کردن عبارت مخفی 12 کلمه ای",
-  "importOption12WordsDescription": "سازگار با کیف پول KDX و Web Wallet",
+  "importOption12WordsDescription": "سازگار با کیف پول Karlsen Desktop و Web Wallet",
   "importOptionKpubTitle": "وارد کردن کیف پول Watch Only",
   "importOptionKpubDescription": "با استفاده از کلید عمومی توسعه یافته، موجودی و تراکنش های کیف پول را کنترل کنید",
   "importKpub": "وارد کردن کیف پول Watch Only",

@@ -291,7 +291,7 @@
   "importOption24WordsTitle": "Inportatu 24 hitz esaldi sekretua",
   "importOption24WordsDescription": "Cli Wallet bateragarria",
   "importOption12WordsTitle": "Inportatu 12 hitz esaldi sekretua",
-  "importOption12WordsDescription": "Web Wallet eta KDX-rekin bateragarria",
+  "importOption12WordsDescription": "Web Wallet eta Karlsen Desktop-rekin bateragarria",
   "importOptionKpubTitle": "Inportatu zorroa ikusteko moduan bakarrik",
   "importOptionKpubDescription": "Kontrolatu diru-zorro baten saldoa eta transakzioak gako publiko hedatua erabiliz",
   "importKpub": "Inportatu zorroa ikusteko moduan bakarrik",

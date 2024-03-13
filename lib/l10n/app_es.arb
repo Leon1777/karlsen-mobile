@@ -291,7 +291,7 @@
   "importOption24WordsTitle": "Importar Frase Secreta de 24 Palabras",
   "importOption24WordsDescription": "Compatible con Cli Wallet",
   "importOption12WordsTitle": "Importar Frase Secreta de 12 Palabras",
-  "importOption12WordsDescription": "Compatible con Web Wallet y KDX",
+  "importOption12WordsDescription": "Compatible con Web Wallet y Karlsen Desktop",
   "importOptionKpubTitle": "Importar Billetera de Solo Lectura",
   "importOptionKpubDescription": "Monitoriza el balance y las transacciones de una billetera utilizando una clave pública extendida",
   "importKpub": "Importar Billetera de Solo Lectura",

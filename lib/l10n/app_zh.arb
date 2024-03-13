@@ -291,7 +291,7 @@
   "importOption24WordsTitle": "导入 24 个助记词",
   "importOption24WordsDescription": "兼容Cli钱包",
   "importOption12WordsTitle": "导入 12 个助记词",
-  "importOption12WordsDescription": "与网页钱包和 KDX 兼容",
+  "importOption12WordsDescription": "与网页钱包和 Karlsen Desktop 兼容",
   "importOptionKpubTitle": "导入只读钱包",
   "importOptionKpubDescription": "使用扩展公钥监视一个钱包的余额和交易",
   "importKpub": "导入只读钱包",

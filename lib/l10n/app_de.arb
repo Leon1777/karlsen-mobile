@@ -291,7 +291,7 @@
   "importOption24WordsTitle": "24 Wort Seed Phrase importieren",
   "importOption24WordsDescription": "Kompatibel mit Cli Wallet",
   "importOption12WordsTitle": "12 Wort Seed Phrase importieren",
-  "importOption12WordsDescription": "Kompatibel mit Web Wallet und KDX",
+  "importOption12WordsDescription": "Kompatibel mit Web Wallet und Karlsen Desktop",
   "importOptionKpubTitle": "Beobachtungswallet importieren",
   "importOptionKpubDescription": "Saldo und Transaktionen eines Wallet mit einem erweiterten öffentlichen Schlüssel überwachen",
   "importKpub": "Beobachtungswallet importieren",

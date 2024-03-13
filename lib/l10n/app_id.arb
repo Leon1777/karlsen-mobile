@@ -291,7 +291,7 @@
   "importOption24WordsTitle": "Impor 24 Kata Frasa Rahasia",
   "importOption24WordsDescription": "Kompatibel dengan Dompet Cli",
   "importOption12WordsTitle": "Impor 12 Kata Frasa Rahasia",
-  "importOption12WordsDescription": "Kompatibel dengan Dompet Web dan KDX",
+  "importOption12WordsDescription": "Kompatibel dengan Dompet Web dan Karlsen Desktop",
   "importOptionKpubTitle": "Impor Dompet Khusus Hanya Lihat Saja",
   "importOptionKpubDescription": "Memantau saldo dan transaksi dompet menggunakan kunci publik yang diperpanjang",
   "importKpub": "Impor Dompet Khusus Hanya Lihat Saja",

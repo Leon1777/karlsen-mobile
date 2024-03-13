@@ -291,7 +291,7 @@
   "importOption24WordsTitle": "Importă cele 24 cuvinte secrete",
   "importOption24WordsDescription": "Compatibil cu Portofel Cli",
   "importOption12WordsTitle": "Importă cele 12 cuvinte secrete",
-  "importOption12WordsDescription": "Compatibil cu Web Wallet și KDX",
+  "importOption12WordsDescription": "Compatibil cu Web Wallet și Karlsen Desktop",
   "importOptionKpubTitle": "Importă Portofelul Watch Only",
   "importOptionKpubDescription": "Monitorizați soldul și tranzacțiile unui portofel folosind o cheie publică extinsă",
   "importKpub": "Importă Portofelul Watch Only",

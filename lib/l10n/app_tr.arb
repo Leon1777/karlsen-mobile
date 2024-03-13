@@ -291,7 +291,7 @@
   "importOption24WordsTitle": "24 Kelimelik Gizli Cümleyi Aktar",
   "importOption24WordsDescription": "Cli Cüzdan ile uyumlu",
   "importOption12WordsTitle": "12 Kelimelik Gizli Cümleyi Aktar",
-  "importOption12WordsDescription": "Web Cüzdan ve KDX ile uyumlu",
+  "importOption12WordsDescription": "Web Cüzdan ve Karlsen Desktop ile uyumlu",
   "importOptionKpubTitle": "Sadece İzlemek için Cüzdan Aktar",
   "importOptionKpubDescription": "Bir genişletilmiş herkese açık anahtar (public key) kullanarak bir cüzdanın bakiyesini ve işlemlerini gözlemleyin",
   "importKpub": "Sadece İzlemek için Cüzdan Aktar",

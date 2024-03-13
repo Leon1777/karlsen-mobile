@@ -291,7 +291,7 @@
   "importOption24WordsTitle": "Импортирай тайна фраза от 24 думи",
   "importOption24WordsDescription": "Съвместим с Cli Wallet",
   "importOption12WordsTitle": "Импортирай тайна фраза от 12 думи",
-  "importOption12WordsDescription": "Съвместим с Web Wallet и KDX",
+  "importOption12WordsDescription": "Съвместим с Web Wallet и Karlsen Desktop",
   "importOptionKpubTitle": "Импортирай портфейл само за преглед",
   "importOptionKpubDescription": "Следи балансът и транзакциите на портфейл използващ удължен публичен ключ",
   "importKpub": "Импортирай портфейл само за преглед",

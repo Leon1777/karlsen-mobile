@@ -3,12 +3,13 @@ import 'dart:typed_data';
 import 'package:coinslib/coinslib.dart';
 
 import '../utils.dart';
-import 'bip32_kdx.dart';
+import 'bip32_desktop.dart';
 import 'network.dart';
 import 'types/address_prefix.dart';
 
 const kSeedSize = 64;
 
+const kKaspaDerivationPath = "m/44'/111111'/0'";
 const kKarlsenDerivationPath = "m/44'/121337'/0'";
 const kLegacyDerivationPath = "m/44'/972/0'";
 
@@ -174,7 +175,7 @@ class HdWalletLegacy extends HdWallet {
   late final BIP32 _bip32;
 
   HdWalletLegacy(Uint8List seed) : super._() {
-    _bip32 = BIP32Kdx.fromSeed(seed);
+    _bip32 = BIP32Desktop.fromSeed(seed);
   }
 
   @override

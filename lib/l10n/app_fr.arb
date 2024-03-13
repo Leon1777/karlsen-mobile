@@ -291,7 +291,7 @@
   "importOption24WordsTitle": "Importer une passe phrase de 24 mots",
   "importOption24WordsDescription": "Compatible avec le portefeuille CLI",
   "importOption12WordsTitle": "Importer une passe phrase de 12 mots",
-  "importOption12WordsDescription": "Compatible avec le portefeuille web et KDX",
+  "importOption12WordsDescription": "Compatible avec le portefeuille web et Karlsen Desktop",
   "importOptionKpubTitle": "Importer un portefeuille en lecture seule",
   "importOptionKpubDescription": "Surveille le solde et les transactions d'un portefeuille à l'aide de sa clé publique étendue",
   "importKpub": "Importer un portefeuille en lecture seule",

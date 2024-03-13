@@ -291,7 +291,7 @@
   "importOption24WordsTitle": "24 শব্দের গোপন বাক্যাংশ আমদানি করুন",
   "importOption24WordsDescription": "CLI ওয়ালেট এবং লেজারের সাথে সামঞ্জস্যপূর্ণ",
   "importOption12WordsTitle": "12 শব্দের গোপন বাক্যাংশ আমদানি করুন",
-  "importOption12WordsDescription": "ওয়েব ওয়ালেট এবং KDX এর সাথে সামঞ্জস্যপূর্ণ",
+  "importOption12WordsDescription": "ওয়েব ওয়ালেট এবং Karlsen Desktop এর সাথে সামঞ্জস্যপূর্ণ",
   "importOptionKpubTitle": "শুধুমাত্র পর্যবেক্ষণ করার ওয়ালেট আমদানি করুন",
   "importOptionKpubDescription": "একটি বর্ধিত পাবলিক কী ব্যবহার করে একটি ওয়ালেটের ব্যালেন্স এবং লেনদেন নিরীক্ষণ করুন",
   "importKpub": "শুধুমাত্র পর্যবেক্ষণ করার ওয়ালেট আমদানি করুন",
