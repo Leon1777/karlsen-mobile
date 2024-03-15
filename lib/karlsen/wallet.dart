@@ -96,19 +96,27 @@ abstract class HdWallet implements HdWalletView {
 
   const HdWallet._();
 
-  factory HdWallet.forSeed(Uint8List seed, {required HdWalletType type}) {
+  factory HdWallet.forSeed(
+    Uint8List seed, {
+    required bool legacy,
+    required HdWalletType type,
+  }) {
     if (seed.length != kSeedSize) {
       throw Exception('Invalid seed length');
     }
     return switch (type) {
-      HdWalletType.ecdsa => HdWalletEcdsa(seed),
-      HdWalletType.schnorr => HdWalletSchnorr(seed),
+      HdWalletType.ecdsa => HdWalletEcdsa(seed, legacy: legacy),
+      HdWalletType.schnorr => HdWalletSchnorr(seed, legacy: legacy),
       HdWalletType.legacy => HdWalletLegacy(seed),
     };
   }
 
-  factory HdWallet.forSeedHex(String seed, {required HdWalletType type}) =>
-      HdWallet.forSeed(hexToBytes(seed), type: type);
+  factory HdWallet.forSeedHex(
+    String seed, {
+    required bool legacy,
+    required HdWalletType type,
+  }) =>
+      HdWallet.forSeed(hexToBytes(seed), legacy: legacy, type: type);
 
   KeyPair deriveKeyPair({
     required int typeIndex,
@@ -125,10 +133,11 @@ abstract class HdWallet implements HdWalletView {
 
   static String hdPublicKeyFromSeed(
     Uint8List seed, {
+    required bool legacy,
     required NetworkType networkType,
   }) {
     final bip32 = BIP32.fromSeed(seed, networkType);
-    final child = bip32.derivePath(kKarlsenDerivationPath);
+    final child = bip32.derivePath(legacy ? kKaspaDerivationPath : kKarlsenDerivationPath);
     return child.neutered().toBase58();
   }
 }
@@ -136,8 +145,11 @@ abstract class HdWallet implements HdWalletView {
 class HdWalletEcdsa extends HdWallet {
   late final BIP32 _bip32;
 
-  HdWalletEcdsa(Uint8List seed) : super._() {
-    _bip32 = BIP32.fromSeed(seed).derivePath(kKarlsenDerivationPath);
+  HdWalletEcdsa(
+    Uint8List seed, {
+    required bool legacy,
+  }) : super._() {
+    _bip32 = BIP32.fromSeed(seed).derivePath(legacy ? kKaspaDerivationPath : kKarlsenDerivationPath);
   }
 
   @override
@@ -155,7 +167,10 @@ class HdWalletEcdsa extends HdWallet {
 }
 
 class HdWalletSchnorr extends HdWalletEcdsa {
-  HdWalletSchnorr(Uint8List seed) : super(seed);
+  HdWalletSchnorr(
+    Uint8List seed, {
+    required bool legacy,
+  }) : super(seed, legacy: legacy);
 
   @override
   HdWalletType get type => HdWalletType.schnorr;

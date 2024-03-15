@@ -96,6 +96,7 @@ class WalletInfo with _$WalletInfo {
     required String name,
     @Default(WalletKind.localHdSchnorr()) WalletKind kind,
     required String wid,
+    required bool legacy,
     required BoxInfoByNetwork boxInfo,
     // HDPublic key base58 encoded
     required String mainnetPublicKey,

@@ -103,7 +103,8 @@ class __$$_KarlsenUriParamCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_KarlsenUriParam extends _KarlsenUriParam {
-  const _$_KarlsenUriParam({required this.key, required this.value}) : super._();
+  const _$_KarlsenUriParam({required this.key, required this.value})
+      : super._();
 
   @override
   final String key;
@@ -165,7 +166,8 @@ mixin _$KarlsenUri {
 
 /// @nodoc
 abstract class $KarlsenUriCopyWith<$Res> {
-  factory $KarlsenUriCopyWith(KarlsenUri value, $Res Function(KarlsenUri) then) =
+  factory $KarlsenUriCopyWith(
+          KarlsenUri value, $Res Function(KarlsenUri) then) =
       _$KarlsenUriCopyWithImpl<$Res, KarlsenUri>;
   @useResult
   $Res call(
@@ -244,7 +246,8 @@ class _$KarlsenUriCopyWithImpl<$Res, $Val extends KarlsenUri>
 }
 
 /// @nodoc
-abstract class _$$_KarlsenUriCopyWith<$Res> implements $KarlsenUriCopyWith<$Res> {
+abstract class _$$_KarlsenUriCopyWith<$Res>
+    implements $KarlsenUriCopyWith<$Res> {
   factory _$$_KarlsenUriCopyWith(
           _$_KarlsenUri value, $Res Function(_$_KarlsenUri) then) =
       __$$_KarlsenUriCopyWithImpl<$Res>;

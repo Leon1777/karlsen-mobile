@@ -444,6 +444,7 @@ mixin _$IntroData {
   String? get name => throw _privateConstructorUsedError;
   String? get pin => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
+  bool get legacy => throw _privateConstructorUsedError;
   bool get generated => throw _privateConstructorUsedError;
   bool get completed => throw _privateConstructorUsedError;
 
@@ -464,6 +465,7 @@ abstract class $IntroDataCopyWith<$Res> {
       String? name,
       String? pin,
       String? password,
+      bool legacy,
       bool generated,
       bool completed});
 }
@@ -487,6 +489,7 @@ class _$IntroDataCopyWithImpl<$Res, $Val extends IntroData>
     Object? name = freezed,
     Object? pin = freezed,
     Object? password = freezed,
+    Object? legacy = null,
     Object? generated = null,
     Object? completed = null,
   }) {
@@ -515,6 +518,10 @@ class _$IntroDataCopyWithImpl<$Res, $Val extends IntroData>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
+      legacy: null == legacy
+          ? _value.legacy
+          : legacy // ignore: cast_nullable_to_non_nullable
+              as bool,
       generated: null == generated
           ? _value.generated
           : generated // ignore: cast_nullable_to_non_nullable
@@ -541,6 +548,7 @@ abstract class _$$_IntroDataCopyWith<$Res> implements $IntroDataCopyWith<$Res> {
       String? name,
       String? pin,
       String? password,
+      bool legacy,
       bool generated,
       bool completed});
 }
@@ -562,6 +570,7 @@ class __$$_IntroDataCopyWithImpl<$Res>
     Object? name = freezed,
     Object? pin = freezed,
     Object? password = freezed,
+    Object? legacy = null,
     Object? generated = null,
     Object? completed = null,
   }) {
@@ -590,6 +599,10 @@ class __$$_IntroDataCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
+      legacy: null == legacy
+          ? _value.legacy
+          : legacy // ignore: cast_nullable_to_non_nullable
+              as bool,
       generated: null == generated
           ? _value.generated
           : generated // ignore: cast_nullable_to_non_nullable
@@ -612,6 +625,7 @@ class _$_IntroData implements _IntroData {
       this.name,
       this.pin,
       this.password,
+      this.legacy = false,
       this.generated = false,
       this.completed = false});
 
@@ -629,6 +643,9 @@ class _$_IntroData implements _IntroData {
   final String? password;
   @override
   @JsonKey()
+  final bool legacy;
+  @override
+  @JsonKey()
   final bool generated;
   @override
   @JsonKey()
@@ -636,7 +653,7 @@ class _$_IntroData implements _IntroData {
 
   @override
   String toString() {
-    return 'IntroData(mnemonic: $mnemonic, kpub: $kpub, seed: $seed, name: $name, pin: $pin, password: $password, generated: $generated, completed: $completed)';
+    return 'IntroData(mnemonic: $mnemonic, kpub: $kpub, seed: $seed, name: $name, pin: $pin, password: $password, legacy: $legacy, generated: $generated, completed: $completed)';
   }
 
   @override
@@ -652,6 +669,7 @@ class _$_IntroData implements _IntroData {
             (identical(other.pin, pin) || other.pin == pin) &&
             (identical(other.password, password) ||
                 other.password == password) &&
+            (identical(other.legacy, legacy) || other.legacy == legacy) &&
             (identical(other.generated, generated) ||
                 other.generated == generated) &&
             (identical(other.completed, completed) ||
@@ -660,7 +678,7 @@ class _$_IntroData implements _IntroData {
 
   @override
   int get hashCode => Object.hash(runtimeType, mnemonic, kpub, seed, name, pin,
-      password, generated, completed);
+      password, legacy, generated, completed);
 
   @JsonKey(ignore: true)
   @override
@@ -677,6 +695,7 @@ abstract class _IntroData implements IntroData {
       final String? name,
       final String? pin,
       final String? password,
+      final bool legacy,
       final bool generated,
       final bool completed}) = _$_IntroData;
 
@@ -692,6 +711,8 @@ abstract class _IntroData implements IntroData {
   String? get pin;
   @override
   String? get password;
+  @override
+  bool get legacy;
   @override
   bool get generated;
   @override

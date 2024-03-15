@@ -102,6 +102,7 @@ _$_WalletInfo _$$_WalletInfoFromJson(Map json) => _$_WalletInfo(
           ? const WalletKind.localHdSchnorr()
           : WalletKind.fromJson(Map<String, dynamic>.from(json['kind'] as Map)),
       wid: json['wid'] as String,
+      legacy: json['legacy'] as bool,
       boxInfo: BoxInfoByNetwork.fromJson(
           Map<String, dynamic>.from(json['boxInfo'] as Map)),
       mainnetPublicKey: json['mainnetPublicKey'] as String,
@@ -112,6 +113,7 @@ Map<String, dynamic> _$$_WalletInfoToJson(_$_WalletInfo instance) =>
       'name': instance.name,
       'kind': instance.kind.toJson(),
       'wid': instance.wid,
+      'legacy': instance.legacy,
       'boxInfo': instance.boxInfo.toJson(),
       'mainnetPublicKey': instance.mainnetPublicKey,
     };

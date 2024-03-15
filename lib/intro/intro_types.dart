@@ -7,6 +7,7 @@ enum IntroPage {
   password,
   passwordOnLaunch,
   importSelect,
+  importSeedLegacyDerivation,
   importSeed,
   importLegacySeed,
   importKpub,
@@ -31,6 +32,7 @@ class IntroData with _$IntroData {
     String? name,
     String? pin,
     String? password,
+    @Default(false) bool legacy,
     @Default(false) bool generated,
     @Default(false) bool completed,
   }) = _IntroData;
