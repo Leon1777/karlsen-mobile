@@ -39,7 +39,8 @@ final _showInvalidChecksumProvider =
 
 class IntroImportSeed extends HookConsumerWidget {
   final bool isLegacy;
-  const IntroImportSeed({Key? key, this.isLegacy = false}) : super(key: key);
+  final bool isLegacyDerivation;
+  const IntroImportSeed({Key? key, this.isLegacy = false, this.isLegacyDerivation = false}) : super(key: key);
 
   int get mnemonicLength => isLegacy ? 12 : 24;
 
@@ -160,7 +161,7 @@ class IntroImportSeed extends HookConsumerWidget {
       final intro = ref.read(introStateProvider.notifier);
 
       if (isValidMnemonic(mnemonic, verifyChecksum: false)) {
-        intro.setMnemonic(mnemonic);
+        intro.setMnemonic(mnemonic, legacy: isLegacyDerivation);
       }
     }
 

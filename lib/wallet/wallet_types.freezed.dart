@@ -1261,6 +1261,7 @@ mixin _$WalletInfo {
   String get name => throw _privateConstructorUsedError;
   WalletKind get kind => throw _privateConstructorUsedError;
   String get wid => throw _privateConstructorUsedError;
+  bool get legacy => throw _privateConstructorUsedError;
   BoxInfoByNetwork get boxInfo =>
       throw _privateConstructorUsedError; // HDPublic key base58 encoded
   String get mainnetPublicKey => throw _privateConstructorUsedError;
@@ -1281,6 +1282,7 @@ abstract class $WalletInfoCopyWith<$Res> {
       {String name,
       WalletKind kind,
       String wid,
+      bool legacy,
       BoxInfoByNetwork boxInfo,
       String mainnetPublicKey});
 
@@ -1304,6 +1306,7 @@ class _$WalletInfoCopyWithImpl<$Res, $Val extends WalletInfo>
     Object? name = null,
     Object? kind = null,
     Object? wid = null,
+    Object? legacy = null,
     Object? boxInfo = null,
     Object? mainnetPublicKey = null,
   }) {
@@ -1320,6 +1323,10 @@ class _$WalletInfoCopyWithImpl<$Res, $Val extends WalletInfo>
           ? _value.wid
           : wid // ignore: cast_nullable_to_non_nullable
               as String,
+      legacy: null == legacy
+          ? _value.legacy
+          : legacy // ignore: cast_nullable_to_non_nullable
+              as bool,
       boxInfo: null == boxInfo
           ? _value.boxInfo
           : boxInfo // ignore: cast_nullable_to_non_nullable
@@ -1360,6 +1367,7 @@ abstract class _$$_WalletInfoCopyWith<$Res>
       {String name,
       WalletKind kind,
       String wid,
+      bool legacy,
       BoxInfoByNetwork boxInfo,
       String mainnetPublicKey});
 
@@ -1383,6 +1391,7 @@ class __$$_WalletInfoCopyWithImpl<$Res>
     Object? name = null,
     Object? kind = null,
     Object? wid = null,
+    Object? legacy = null,
     Object? boxInfo = null,
     Object? mainnetPublicKey = null,
   }) {
@@ -1399,6 +1408,10 @@ class __$$_WalletInfoCopyWithImpl<$Res>
           ? _value.wid
           : wid // ignore: cast_nullable_to_non_nullable
               as String,
+      legacy: null == legacy
+          ? _value.legacy
+          : legacy // ignore: cast_nullable_to_non_nullable
+              as bool,
       boxInfo: null == boxInfo
           ? _value.boxInfo
           : boxInfo // ignore: cast_nullable_to_non_nullable
@@ -1418,6 +1431,7 @@ class _$_WalletInfo extends _WalletInfo {
       {required this.name,
       this.kind = const WalletKind.localHdSchnorr(),
       required this.wid,
+      required this.legacy,
       required this.boxInfo,
       required this.mainnetPublicKey})
       : super._();
@@ -1433,6 +1447,8 @@ class _$_WalletInfo extends _WalletInfo {
   @override
   final String wid;
   @override
+  final bool legacy;
+  @override
   final BoxInfoByNetwork boxInfo;
 // HDPublic key base58 encoded
   @override
@@ -1440,7 +1456,7 @@ class _$_WalletInfo extends _WalletInfo {
 
   @override
   String toString() {
-    return 'WalletInfo(name: $name, kind: $kind, wid: $wid, boxInfo: $boxInfo, mainnetPublicKey: $mainnetPublicKey)';
+    return 'WalletInfo(name: $name, kind: $kind, wid: $wid, legacy: $legacy, boxInfo: $boxInfo, mainnetPublicKey: $mainnetPublicKey)';
   }
 
   @override
@@ -1451,6 +1467,7 @@ class _$_WalletInfo extends _WalletInfo {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.kind, kind) || other.kind == kind) &&
             (identical(other.wid, wid) || other.wid == wid) &&
+            (identical(other.legacy, legacy) || other.legacy == legacy) &&
             (identical(other.boxInfo, boxInfo) || other.boxInfo == boxInfo) &&
             (identical(other.mainnetPublicKey, mainnetPublicKey) ||
                 other.mainnetPublicKey == mainnetPublicKey));
@@ -1458,8 +1475,8 @@ class _$_WalletInfo extends _WalletInfo {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, kind, wid, boxInfo, mainnetPublicKey);
+  int get hashCode => Object.hash(
+      runtimeType, name, kind, wid, legacy, boxInfo, mainnetPublicKey);
 
   @JsonKey(ignore: true)
   @override
@@ -1480,6 +1497,7 @@ abstract class _WalletInfo extends WalletInfo {
       {required final String name,
       final WalletKind kind,
       required final String wid,
+      required final bool legacy,
       required final BoxInfoByNetwork boxInfo,
       required final String mainnetPublicKey}) = _$_WalletInfo;
   const _WalletInfo._() : super._();
@@ -1493,6 +1511,8 @@ abstract class _WalletInfo extends WalletInfo {
   WalletKind get kind;
   @override
   String get wid;
+  @override
+  bool get legacy;
   @override
   BoxInfoByNetwork get boxInfo;
   @override // HDPublic key base58 encoded

@@ -48,7 +48,7 @@ class SetupWalletScreen extends HookConsumerWidget {
           }
           WalletKind walletKind;
           if (introData.mnemonic?.split(' ').length == 12) {
-            final wallet = HdWallet.forSeedHex(seed, type: HdWalletType.legacy);
+            final wallet = HdWallet.forSeedHex(seed, legacy: false, type: HdWalletType.legacy);
             final pubKey = wallet.derivePublicKey(typeIndex: 0, index: 0);
             walletKind = WalletKind.localHdLegacy(mainPubKey: pubKey.hex);
           } else {
@@ -67,7 +67,7 @@ class SetupWalletScreen extends HookConsumerWidget {
         // setup wallet
         final network = ref.read(networkProvider);
         final notifier = ref.read(walletBundleProvider.notifier);
-        final wallet = await notifier.setupWallet(walletData);
+        final wallet = await notifier.setupWallet(walletData, legacy: introData.legacy);
         await notifier.selectWallet(wallet, network);
 
         final auth = ref.read(walletAuthNotifierProvider);

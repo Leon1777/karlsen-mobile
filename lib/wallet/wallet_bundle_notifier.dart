@@ -54,7 +54,10 @@ class WalletBundleNotifier extends StateNotifier<WalletBundle> {
     await _updateWallets(wallets.add(wallet));
   }
 
-  static WalletInfo generateWalletInfo(WalletData walletData) {
+  static WalletInfo generateWalletInfo(
+    WalletData walletData, {
+    required bool legacy,
+  }) {
     final wid = RandomUtil.generateKey();
 
     BoxInfo genBoxInfo({
@@ -108,6 +111,7 @@ class WalletBundleNotifier extends StateNotifier<WalletBundle> {
         final seed = hexToBytes(data.seed);
         return HdWallet.hdPublicKeyFromSeed(
           seed,
+          legacy: legacy,
           networkType: karlsenMainnet,
         );
       },
@@ -123,13 +127,17 @@ class WalletBundleNotifier extends StateNotifier<WalletBundle> {
       name: walletData.name,
       kind: walletData.kind,
       wid: wid,
+      legacy: legacy,
       boxInfo: boxInfo,
       mainnetPublicKey: mainnetPublicKey,
     );
   }
 
-  Future<WalletInfo> setupWallet(WalletData walletData) async {
-    final wallet = generateWalletInfo(walletData);
+  Future<WalletInfo> setupWallet(
+    WalletData walletData, {
+    required bool legacy,
+  }) async {
+    final wallet = generateWalletInfo(walletData, legacy: legacy);
 
     await walletData.mapOrNull(seed: (data) async {
       final walletVault = WalletVault(wallet.wid, repository.vault);
