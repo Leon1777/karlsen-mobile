@@ -20,7 +20,7 @@ languages in our upstream Kaspium wallet. At this point a big
 | Danish (da)     | OhNoSheDiint                         |
 | Dutch (nl)      | Jeroen, Steve B                      |
 | Finnish (fi)    | Malformation                         |
-| French (fr)     | Na0mir                               |
+| French (fr)     | Na0mir, okilisan                     |
 | German (de)     | Helix, jwj                           |
 | Greek (el)      | sp4rtan                              |
 | Hebrew (he)     | O_Josephs Backup Device, hauntedcook |
@@ -43,7 +43,7 @@ languages in our upstream Kaspium wallet. At this point a big
 | Swedish (sv)    | mawen.algo                           |
 | Tagalog (tl)    |                                      |
 | Telugu (te)     | sa1krishna                           |
-| Turkish (tr)    |                                      |
+| Turkish (tr)    | oguzhankls                           |
 | Ukrainian (uk)  | azazino                              |
 | Urdu (ur)       | Devilking946285                      |
 
