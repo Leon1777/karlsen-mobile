@@ -253,7 +253,7 @@
   "walletSetupMessage": "הכנת ארנק",
   "walletsTitle": "ארנקים",
   "warning": "אזהרה",
-  "welcoemMessage": "ברוך הבא!\n\nזוהי גרסה {version} של Karlsen Mobile - ארנק בטוח לנייד",
+  "welcomeMessage": "ברוך הבא!\n\nזוהי גרסה {version} של Karlsen Mobile - ארנק בטוח לנייד",
   "welcomeText": "ברוכים הבאים ל- Karlsen Mobile. כדי להתחיל, אתה יכול ליצור ארנק חדש או לייבא קיים.",
   "xMinutes": "אחרי {minutes, plural, =1{1 דקה} other{{minutes} דקות}}",
   "yes": "כן",
