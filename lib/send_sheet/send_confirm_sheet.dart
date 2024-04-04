@@ -45,6 +45,14 @@ class SendConfirmSheet extends HookConsumerWidget {
 
     Future<void> sendTransaction() async {
       final walletService = ref.read(walletServiceProvider);
+      final spendableUtxos = ref.read(spendableUtxosProvider);
+      final tmptx = walletService.createSendTx(
+        toAddress: tx.toAddress,
+        amountRaw: tx.amountRaw,
+        spendableUtxos: spendableUtxos,
+        feePerInput: kFeePerInput,
+        note: tx.note,
+      );
 
       try {
         AppDialogs.showInProgressDialog(
@@ -57,7 +65,7 @@ class SendConfirmSheet extends HookConsumerWidget {
         final changeAddress = await addressNotifier.nextChangeAddress;
 
         final result = await walletService.sendTransaction(
-          tx,
+          tmptx,
           changeAddress: changeAddress.address,
         );
 
@@ -65,7 +73,7 @@ class SendConfirmSheet extends HookConsumerWidget {
           await addressNotifier.addAddress(changeAddress);
         }
 
-        if (tx.note case final txNote?) {
+        if (tmptx.note case final txNote?) {
           final notes = ref.read(txNotesProvider);
           notes.addNoteForTxId(result.txId, txNote);
         }
@@ -73,9 +81,9 @@ class SendConfirmSheet extends HookConsumerWidget {
         Navigator.of(context).pop();
 
         final sheet = SendCompleteSheet(
-          amount: tx.amount,
-          toAddress: tx.toAddress,
-          note: tx.note,
+          amount: tmptx.amount,
+          toAddress: tmptx.toAddress,
+          note: tmptx.note,
         );
 
         Sheets.showAppHeightNineSheet(
