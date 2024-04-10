@@ -73,3 +73,9 @@ For some details regarding translations, have a look at
 
 If you need any help, feel free to [file a feature request or an issue](https://github.com/karlsen-network/karlsen-mobile/issues/new/choose)
 if you do not manage to find a solution.
+
+## Screenshots
+
+| ![](assets/images/android-1.png) | ![](assets/images/android-2.png) | ![](assets/images/android-3.png) |
+|----------------------------------|----------------------------------|----------------------------------|
+| ![](assets/images/android-4.png) | ![](assets/images/android-5.png) | ![](assets/images/android-6.png) |
