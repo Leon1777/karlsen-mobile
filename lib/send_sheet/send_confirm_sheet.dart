@@ -40,19 +40,10 @@ class SendConfirmSheet extends HookConsumerWidget {
     final note = tx.note;
 
     final title = l10n.sendConfirm;
-
     final toTitle = l10n.sendToAddressTitle;
 
     Future<void> sendTransaction() async {
       final walletService = ref.read(walletServiceProvider);
-      final spendableUtxos = ref.read(spendableUtxosProvider);
-      final tmptx = walletService.createSendTx(
-        toAddress: tx.toAddress,
-        amountRaw: tx.amountRaw,
-        spendableUtxos: spendableUtxos,
-        feePerInput: kFeePerInput,
-        note: tx.note,
-      );
 
       try {
         AppDialogs.showInProgressDialog(
@@ -65,7 +56,7 @@ class SendConfirmSheet extends HookConsumerWidget {
         final changeAddress = await addressNotifier.nextChangeAddress;
 
         final result = await walletService.sendTransaction(
-          tmptx,
+          tx,
           changeAddress: changeAddress.address,
         );
 
@@ -73,7 +64,7 @@ class SendConfirmSheet extends HookConsumerWidget {
           await addressNotifier.addAddress(changeAddress);
         }
 
-        if (tmptx.note case final txNote?) {
+        if (tx.note case final txNote?) {
           final notes = ref.read(txNotesProvider);
           notes.addNoteForTxId(result.txId, txNote);
         }
@@ -81,9 +72,10 @@ class SendConfirmSheet extends HookConsumerWidget {
         Navigator.of(context).pop();
 
         final sheet = SendCompleteSheet(
-          amount: tmptx.amount,
-          toAddress: tmptx.toAddress,
-          note: tmptx.note,
+          amount: tx.amount,
+          toAddress: tx.toAddress,
+          txId: result.txId,
+          note: tx.note,
         );
 
         Sheets.showAppHeightNineSheet(
@@ -95,7 +87,7 @@ class SendConfirmSheet extends HookConsumerWidget {
         );
       } catch (e, st) {
         final log = ref.read(loggerProvider);
-        log.e('Failed to send transaction', e, st);
+        log.e('Failed to send transaction', error: e, stackTrace: st);
 
         UIUtil.showSnackbar(l10n.sendError, context);
         Navigator.of(context).pop();
@@ -110,7 +102,7 @@ class SendConfirmSheet extends HookConsumerWidget {
     String? checkMissingBalance() {
       final balance = ref.read(totalBalanceProvider).raw;
       if (balance < amount.raw) {
-        return 'KLS';
+        return 'KAS';
       }
 
       if (fee != null) {
@@ -178,10 +170,7 @@ class SendConfirmSheet extends HookConsumerWidget {
                       top: 30,
                       bottom: 10,
                     ),
-                    child: SendNoteWidget(
-                      note: note,
-                      success: true,
-                    ),
+                    child: SendNoteWidget(note: note),
                   ),
               ],
             ),

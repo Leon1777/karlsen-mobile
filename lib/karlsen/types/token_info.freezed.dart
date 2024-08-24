@@ -12,7 +12,7 @@ part of 'token_info.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 TokenInfo _$TokenInfoFromJson(Map<String, dynamic> json) {
   return _TokenInfo.fromJson(json);
@@ -23,8 +23,12 @@ mixin _$TokenInfo {
   String get tokenId => throw _privateConstructorUsedError;
   int get decimals => throw _privateConstructorUsedError;
 
+  /// Serializes this TokenInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TokenInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TokenInfoCopyWith<TokenInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$TokenInfoCopyWithImpl<$Res, $Val extends TokenInfo>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TokenInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -67,30 +73,33 @@ class _$TokenInfoCopyWithImpl<$Res, $Val extends TokenInfo>
 }
 
 /// @nodoc
-abstract class _$$_TokenInfoCopyWith<$Res> implements $TokenInfoCopyWith<$Res> {
-  factory _$$_TokenInfoCopyWith(
-          _$_TokenInfo value, $Res Function(_$_TokenInfo) then) =
-      __$$_TokenInfoCopyWithImpl<$Res>;
+abstract class _$$TokenInfoImplCopyWith<$Res>
+    implements $TokenInfoCopyWith<$Res> {
+  factory _$$TokenInfoImplCopyWith(
+          _$TokenInfoImpl value, $Res Function(_$TokenInfoImpl) then) =
+      __$$TokenInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String tokenId, int decimals});
 }
 
 /// @nodoc
-class __$$_TokenInfoCopyWithImpl<$Res>
-    extends _$TokenInfoCopyWithImpl<$Res, _$_TokenInfo>
-    implements _$$_TokenInfoCopyWith<$Res> {
-  __$$_TokenInfoCopyWithImpl(
-      _$_TokenInfo _value, $Res Function(_$_TokenInfo) _then)
+class __$$TokenInfoImplCopyWithImpl<$Res>
+    extends _$TokenInfoCopyWithImpl<$Res, _$TokenInfoImpl>
+    implements _$$TokenInfoImplCopyWith<$Res> {
+  __$$TokenInfoImplCopyWithImpl(
+      _$TokenInfoImpl _value, $Res Function(_$TokenInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TokenInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? tokenId = null,
     Object? decimals = null,
   }) {
-    return _then(_$_TokenInfo(
+    return _then(_$TokenInfoImpl(
       tokenId: null == tokenId
           ? _value.tokenId
           : tokenId // ignore: cast_nullable_to_non_nullable
@@ -105,12 +114,12 @@ class __$$_TokenInfoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TokenInfo extends _TokenInfo {
-  const _$_TokenInfo({required this.tokenId, required this.decimals})
+class _$TokenInfoImpl extends _TokenInfo {
+  const _$TokenInfoImpl({required this.tokenId, required this.decimals})
       : super._();
 
-  factory _$_TokenInfo.fromJson(Map<String, dynamic> json) =>
-      _$$_TokenInfoFromJson(json);
+  factory _$TokenInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TokenInfoImplFromJson(json);
 
   @override
   final String tokenId;
@@ -123,28 +132,30 @@ class _$_TokenInfo extends _TokenInfo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TokenInfo &&
+            other is _$TokenInfoImpl &&
             (identical(other.tokenId, tokenId) || other.tokenId == tokenId) &&
             (identical(other.decimals, decimals) ||
                 other.decimals == decimals));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, tokenId, decimals);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TokenInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TokenInfoCopyWith<_$_TokenInfo> get copyWith =>
-      __$$_TokenInfoCopyWithImpl<_$_TokenInfo>(this, _$identity);
+  _$$TokenInfoImplCopyWith<_$TokenInfoImpl> get copyWith =>
+      __$$TokenInfoImplCopyWithImpl<_$TokenInfoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TokenInfoToJson(
+    return _$$TokenInfoImplToJson(
       this,
     );
   }
@@ -153,18 +164,21 @@ class _$_TokenInfo extends _TokenInfo {
 abstract class _TokenInfo extends TokenInfo {
   const factory _TokenInfo(
       {required final String tokenId,
-      required final int decimals}) = _$_TokenInfo;
+      required final int decimals}) = _$TokenInfoImpl;
   const _TokenInfo._() : super._();
 
   factory _TokenInfo.fromJson(Map<String, dynamic> json) =
-      _$_TokenInfo.fromJson;
+      _$TokenInfoImpl.fromJson;
 
   @override
   String get tokenId;
   @override
   int get decimals;
+
+  /// Create a copy of TokenInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_TokenInfoCopyWith<_$_TokenInfo> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$TokenInfoImplCopyWith<_$TokenInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

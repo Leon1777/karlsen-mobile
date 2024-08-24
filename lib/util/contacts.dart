@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -29,8 +30,8 @@ Future<void> exportContacts(WidgetRef ref, BuildContext context) async {
     jsonList.add(contact.toJson());
   });
   final exportTime = DateTime.now();
-  final filename =
-      "karlsen_mobile_contacts_${exportTime.year}${exportTime.month}${exportTime.day}${exportTime.hour}${exportTime.minute}${exportTime.second}.txt";
+  final format = DateFormat('yyyyMMdd_HHmmss');
+  final filename = "karlsen_mobile_contacts_${format.format(exportTime)}.txt";
   final baseDirectory = await getTemporaryDirectory();
   final contactsFile = File("${baseDirectory.path}/$filename");
   await contactsFile.writeAsString(json.encode(jsonList));
@@ -91,7 +92,7 @@ Future<void> importContacts(WidgetRef ref, BuildContext context) async {
       }
     } catch (e) {
       final log = ref.read(loggerProvider);
-      log.e('Failed to import contacts', e);
+      log.e('Failed to import contacts', error: e);
       UIUtil.showSnackbar(l10n.contactsImportErr, context);
     }
   }

@@ -12,7 +12,7 @@ part of 'wallet_auth_types.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$WalletStatus {
@@ -78,28 +78,35 @@ class _$WalletStatusCopyWithImpl<$Res, $Val extends WalletStatus>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of WalletStatus
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$_WalletStatusNoWalletsCopyWith<$Res> {
-  factory _$$_WalletStatusNoWalletsCopyWith(_$_WalletStatusNoWallets value,
-          $Res Function(_$_WalletStatusNoWallets) then) =
-      __$$_WalletStatusNoWalletsCopyWithImpl<$Res>;
+abstract class _$$WalletStatusNoWalletsImplCopyWith<$Res> {
+  factory _$$WalletStatusNoWalletsImplCopyWith(
+          _$WalletStatusNoWalletsImpl value,
+          $Res Function(_$WalletStatusNoWalletsImpl) then) =
+      __$$WalletStatusNoWalletsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_WalletStatusNoWalletsCopyWithImpl<$Res>
-    extends _$WalletStatusCopyWithImpl<$Res, _$_WalletStatusNoWallets>
-    implements _$$_WalletStatusNoWalletsCopyWith<$Res> {
-  __$$_WalletStatusNoWalletsCopyWithImpl(_$_WalletStatusNoWallets _value,
-      $Res Function(_$_WalletStatusNoWallets) _then)
+class __$$WalletStatusNoWalletsImplCopyWithImpl<$Res>
+    extends _$WalletStatusCopyWithImpl<$Res, _$WalletStatusNoWalletsImpl>
+    implements _$$WalletStatusNoWalletsImplCopyWith<$Res> {
+  __$$WalletStatusNoWalletsImplCopyWithImpl(_$WalletStatusNoWalletsImpl _value,
+      $Res Function(_$WalletStatusNoWalletsImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of WalletStatus
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$_WalletStatusNoWallets implements _WalletStatusNoWallets {
-  const _$_WalletStatusNoWallets();
+class _$WalletStatusNoWalletsImpl implements _WalletStatusNoWallets {
+  const _$WalletStatusNoWalletsImpl();
 
   @override
   String toString() {
@@ -107,9 +114,10 @@ class _$_WalletStatusNoWallets implements _WalletStatusNoWallets {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_WalletStatusNoWallets);
+        (other.runtimeType == runtimeType &&
+            other is _$WalletStatusNoWalletsImpl);
   }
 
   @override
@@ -185,32 +193,36 @@ class _$_WalletStatusNoWallets implements _WalletStatusNoWallets {
 }
 
 abstract class _WalletStatusNoWallets implements WalletStatus {
-  const factory _WalletStatusNoWallets() = _$_WalletStatusNoWallets;
+  const factory _WalletStatusNoWallets() = _$WalletStatusNoWalletsImpl;
 }
 
 /// @nodoc
-abstract class _$$_WalletStatusNoSelectionCopyWith<$Res> {
-  factory _$$_WalletStatusNoSelectionCopyWith(_$_WalletStatusNoSelection value,
-          $Res Function(_$_WalletStatusNoSelection) then) =
-      __$$_WalletStatusNoSelectionCopyWithImpl<$Res>;
+abstract class _$$WalletStatusNoSelectionImplCopyWith<$Res> {
+  factory _$$WalletStatusNoSelectionImplCopyWith(
+          _$WalletStatusNoSelectionImpl value,
+          $Res Function(_$WalletStatusNoSelectionImpl) then) =
+      __$$WalletStatusNoSelectionImplCopyWithImpl<$Res>;
   @useResult
   $Res call({IList<WalletInfo> wallets});
 }
 
 /// @nodoc
-class __$$_WalletStatusNoSelectionCopyWithImpl<$Res>
-    extends _$WalletStatusCopyWithImpl<$Res, _$_WalletStatusNoSelection>
-    implements _$$_WalletStatusNoSelectionCopyWith<$Res> {
-  __$$_WalletStatusNoSelectionCopyWithImpl(_$_WalletStatusNoSelection _value,
-      $Res Function(_$_WalletStatusNoSelection) _then)
+class __$$WalletStatusNoSelectionImplCopyWithImpl<$Res>
+    extends _$WalletStatusCopyWithImpl<$Res, _$WalletStatusNoSelectionImpl>
+    implements _$$WalletStatusNoSelectionImplCopyWith<$Res> {
+  __$$WalletStatusNoSelectionImplCopyWithImpl(
+      _$WalletStatusNoSelectionImpl _value,
+      $Res Function(_$WalletStatusNoSelectionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of WalletStatus
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? wallets = null,
   }) {
-    return _then(_$_WalletStatusNoSelection(
+    return _then(_$WalletStatusNoSelectionImpl(
       wallets: null == wallets
           ? _value.wallets
           : wallets // ignore: cast_nullable_to_non_nullable
@@ -221,8 +233,8 @@ class __$$_WalletStatusNoSelectionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WalletStatusNoSelection implements _WalletStatusNoSelection {
-  const _$_WalletStatusNoSelection({required this.wallets});
+class _$WalletStatusNoSelectionImpl implements _WalletStatusNoSelection {
+  const _$WalletStatusNoSelectionImpl({required this.wallets});
 
   @override
   final IList<WalletInfo> wallets;
@@ -233,10 +245,10 @@ class _$_WalletStatusNoSelection implements _WalletStatusNoSelection {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WalletStatusNoSelection &&
+            other is _$WalletStatusNoSelectionImpl &&
             const DeepCollectionEquality().equals(other.wallets, wallets));
   }
 
@@ -244,13 +256,14 @@ class _$_WalletStatusNoSelection implements _WalletStatusNoSelection {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(wallets));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of WalletStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WalletStatusNoSelectionCopyWith<_$_WalletStatusNoSelection>
-      get copyWith =>
-          __$$_WalletStatusNoSelectionCopyWithImpl<_$_WalletStatusNoSelection>(
-              this, _$identity);
+  _$$WalletStatusNoSelectionImplCopyWith<_$WalletStatusNoSelectionImpl>
+      get copyWith => __$$WalletStatusNoSelectionImplCopyWithImpl<
+          _$WalletStatusNoSelectionImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -323,19 +336,23 @@ class _$_WalletStatusNoSelection implements _WalletStatusNoSelection {
 
 abstract class _WalletStatusNoSelection implements WalletStatus {
   const factory _WalletStatusNoSelection(
-      {required final IList<WalletInfo> wallets}) = _$_WalletStatusNoSelection;
+          {required final IList<WalletInfo> wallets}) =
+      _$WalletStatusNoSelectionImpl;
 
   IList<WalletInfo> get wallets;
-  @JsonKey(ignore: true)
-  _$$_WalletStatusNoSelectionCopyWith<_$_WalletStatusNoSelection>
+
+  /// Create a copy of WalletStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$WalletStatusNoSelectionImplCopyWith<_$WalletStatusNoSelectionImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_WalletStatusSelectedCopyWith<$Res> {
-  factory _$$_WalletStatusSelectedCopyWith(_$_WalletStatusSelected value,
-          $Res Function(_$_WalletStatusSelected) then) =
-      __$$_WalletStatusSelectedCopyWithImpl<$Res>;
+abstract class _$$WalletStatusSelectedImplCopyWith<$Res> {
+  factory _$$WalletStatusSelectedImplCopyWith(_$WalletStatusSelectedImpl value,
+          $Res Function(_$WalletStatusSelectedImpl) then) =
+      __$$WalletStatusSelectedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({WalletInfo wallet});
 
@@ -343,19 +360,21 @@ abstract class _$$_WalletStatusSelectedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_WalletStatusSelectedCopyWithImpl<$Res>
-    extends _$WalletStatusCopyWithImpl<$Res, _$_WalletStatusSelected>
-    implements _$$_WalletStatusSelectedCopyWith<$Res> {
-  __$$_WalletStatusSelectedCopyWithImpl(_$_WalletStatusSelected _value,
-      $Res Function(_$_WalletStatusSelected) _then)
+class __$$WalletStatusSelectedImplCopyWithImpl<$Res>
+    extends _$WalletStatusCopyWithImpl<$Res, _$WalletStatusSelectedImpl>
+    implements _$$WalletStatusSelectedImplCopyWith<$Res> {
+  __$$WalletStatusSelectedImplCopyWithImpl(_$WalletStatusSelectedImpl _value,
+      $Res Function(_$WalletStatusSelectedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of WalletStatus
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? wallet = null,
   }) {
-    return _then(_$_WalletStatusSelected(
+    return _then(_$WalletStatusSelectedImpl(
       wallet: null == wallet
           ? _value.wallet
           : wallet // ignore: cast_nullable_to_non_nullable
@@ -363,6 +382,8 @@ class __$$_WalletStatusSelectedCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of WalletStatus
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $WalletInfoCopyWith<$Res> get wallet {
@@ -374,8 +395,8 @@ class __$$_WalletStatusSelectedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WalletStatusSelected implements _WalletStatusSelected {
-  const _$_WalletStatusSelected({required this.wallet});
+class _$WalletStatusSelectedImpl implements _WalletStatusSelected {
+  const _$WalletStatusSelectedImpl({required this.wallet});
 
   @override
   final WalletInfo wallet;
@@ -386,22 +407,25 @@ class _$_WalletStatusSelected implements _WalletStatusSelected {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WalletStatusSelected &&
+            other is _$WalletStatusSelectedImpl &&
             (identical(other.wallet, wallet) || other.wallet == wallet));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, wallet);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of WalletStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WalletStatusSelectedCopyWith<_$_WalletStatusSelected> get copyWith =>
-      __$$_WalletStatusSelectedCopyWithImpl<_$_WalletStatusSelected>(
-          this, _$identity);
+  _$$WalletStatusSelectedImplCopyWith<_$WalletStatusSelectedImpl>
+      get copyWith =>
+          __$$WalletStatusSelectedImplCopyWithImpl<_$WalletStatusSelectedImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -474,12 +498,15 @@ class _$_WalletStatusSelected implements _WalletStatusSelected {
 
 abstract class _WalletStatusSelected implements WalletStatus {
   const factory _WalletStatusSelected({required final WalletInfo wallet}) =
-      _$_WalletStatusSelected;
+      _$WalletStatusSelectedImpl;
 
   WalletInfo get wallet;
-  @JsonKey(ignore: true)
-  _$$_WalletStatusSelectedCopyWith<_$_WalletStatusSelected> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of WalletStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$WalletStatusSelectedImplCopyWith<_$WalletStatusSelectedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -490,7 +517,9 @@ mixin _$WalletAuth {
   bool get isEncrypted => throw _privateConstructorUsedError;
   bool get hasMnemonic => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of WalletAuth
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $WalletAuthCopyWith<WalletAuth> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -521,6 +550,8 @@ class _$WalletAuthCopyWithImpl<$Res, $Val extends WalletAuth>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of WalletAuth
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -554,6 +585,8 @@ class _$WalletAuthCopyWithImpl<$Res, $Val extends WalletAuth>
     ) as $Val);
   }
 
+  /// Create a copy of WalletAuth
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $WalletInfoCopyWith<$Res> get wallet {
@@ -564,11 +597,11 @@ class _$WalletAuthCopyWithImpl<$Res, $Val extends WalletAuth>
 }
 
 /// @nodoc
-abstract class _$$_WalletAuthCopyWith<$Res>
+abstract class _$$WalletAuthImplCopyWith<$Res>
     implements $WalletAuthCopyWith<$Res> {
-  factory _$$_WalletAuthCopyWith(
-          _$_WalletAuth value, $Res Function(_$_WalletAuth) then) =
-      __$$_WalletAuthCopyWithImpl<$Res>;
+  factory _$$WalletAuthImplCopyWith(
+          _$WalletAuthImpl value, $Res Function(_$WalletAuthImpl) then) =
+      __$$WalletAuthImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -583,13 +616,15 @@ abstract class _$$_WalletAuthCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_WalletAuthCopyWithImpl<$Res>
-    extends _$WalletAuthCopyWithImpl<$Res, _$_WalletAuth>
-    implements _$$_WalletAuthCopyWith<$Res> {
-  __$$_WalletAuthCopyWithImpl(
-      _$_WalletAuth _value, $Res Function(_$_WalletAuth) _then)
+class __$$WalletAuthImplCopyWithImpl<$Res>
+    extends _$WalletAuthCopyWithImpl<$Res, _$WalletAuthImpl>
+    implements _$$WalletAuthImplCopyWith<$Res> {
+  __$$WalletAuthImplCopyWithImpl(
+      _$WalletAuthImpl _value, $Res Function(_$WalletAuthImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of WalletAuth
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -599,7 +634,7 @@ class __$$_WalletAuthCopyWithImpl<$Res>
     Object? isEncrypted = null,
     Object? hasMnemonic = null,
   }) {
-    return _then(_$_WalletAuth(
+    return _then(_$WalletAuthImpl(
       wallet: null == wallet
           ? _value.wallet
           : wallet // ignore: cast_nullable_to_non_nullable
@@ -626,8 +661,8 @@ class __$$_WalletAuthCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WalletAuth implements _WalletAuth {
-  const _$_WalletAuth(
+class _$WalletAuthImpl implements _WalletAuth {
+  const _$WalletAuthImpl(
       {required this.wallet,
       this.encryptedSecret,
       this.isLocked = true,
@@ -654,10 +689,10 @@ class _$_WalletAuth implements _WalletAuth {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WalletAuth &&
+            other is _$WalletAuthImpl &&
             (identical(other.wallet, wallet) || other.wallet == wallet) &&
             (identical(other.encryptedSecret, encryptedSecret) ||
                 other.encryptedSecret == encryptedSecret) &&
@@ -673,11 +708,13 @@ class _$_WalletAuth implements _WalletAuth {
   int get hashCode => Object.hash(
       runtimeType, wallet, encryptedSecret, isLocked, isEncrypted, hasMnemonic);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of WalletAuth
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WalletAuthCopyWith<_$_WalletAuth> get copyWith =>
-      __$$_WalletAuthCopyWithImpl<_$_WalletAuth>(this, _$identity);
+  _$$WalletAuthImplCopyWith<_$WalletAuthImpl> get copyWith =>
+      __$$WalletAuthImplCopyWithImpl<_$WalletAuthImpl>(this, _$identity);
 }
 
 abstract class _WalletAuth implements WalletAuth {
@@ -686,7 +723,7 @@ abstract class _WalletAuth implements WalletAuth {
       final String? encryptedSecret,
       final bool isLocked,
       final bool isEncrypted,
-      final bool hasMnemonic}) = _$_WalletAuth;
+      final bool hasMnemonic}) = _$WalletAuthImpl;
 
   @override
   WalletInfo get wallet;
@@ -698,8 +735,11 @@ abstract class _WalletAuth implements WalletAuth {
   bool get isEncrypted;
   @override
   bool get hasMnemonic;
+
+  /// Create a copy of WalletAuth
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_WalletAuthCopyWith<_$_WalletAuth> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$WalletAuthImplCopyWith<_$WalletAuthImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

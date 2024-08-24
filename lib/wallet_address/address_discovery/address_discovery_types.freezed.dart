@@ -12,7 +12,7 @@ part of 'address_discovery_types.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ScanIndexes {
@@ -20,7 +20,9 @@ mixin _$ScanIndexes {
   int? get scanned => throw _privateConstructorUsedError;
   int? get last => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ScanIndexes
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ScanIndexesCopyWith<ScanIndexes> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -44,6 +46,8 @@ class _$ScanIndexesCopyWithImpl<$Res, $Val extends ScanIndexes>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ScanIndexes
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -69,24 +73,26 @@ class _$ScanIndexesCopyWithImpl<$Res, $Val extends ScanIndexes>
 }
 
 /// @nodoc
-abstract class _$$_ScanIndexesCopyWith<$Res>
+abstract class _$$ScanIndexesImplCopyWith<$Res>
     implements $ScanIndexesCopyWith<$Res> {
-  factory _$$_ScanIndexesCopyWith(
-          _$_ScanIndexes value, $Res Function(_$_ScanIndexes) then) =
-      __$$_ScanIndexesCopyWithImpl<$Res>;
+  factory _$$ScanIndexesImplCopyWith(
+          _$ScanIndexesImpl value, $Res Function(_$ScanIndexesImpl) then) =
+      __$$ScanIndexesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? start, int? scanned, int? last});
 }
 
 /// @nodoc
-class __$$_ScanIndexesCopyWithImpl<$Res>
-    extends _$ScanIndexesCopyWithImpl<$Res, _$_ScanIndexes>
-    implements _$$_ScanIndexesCopyWith<$Res> {
-  __$$_ScanIndexesCopyWithImpl(
-      _$_ScanIndexes _value, $Res Function(_$_ScanIndexes) _then)
+class __$$ScanIndexesImplCopyWithImpl<$Res>
+    extends _$ScanIndexesCopyWithImpl<$Res, _$ScanIndexesImpl>
+    implements _$$ScanIndexesImplCopyWith<$Res> {
+  __$$ScanIndexesImplCopyWithImpl(
+      _$ScanIndexesImpl _value, $Res Function(_$ScanIndexesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ScanIndexes
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -94,7 +100,7 @@ class __$$_ScanIndexesCopyWithImpl<$Res>
     Object? scanned = freezed,
     Object? last = freezed,
   }) {
-    return _then(_$_ScanIndexes(
+    return _then(_$ScanIndexesImpl(
       start: freezed == start
           ? _value.start
           : start // ignore: cast_nullable_to_non_nullable
@@ -113,8 +119,8 @@ class __$$_ScanIndexesCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ScanIndexes extends _ScanIndexes {
-  const _$_ScanIndexes({this.start, this.scanned, this.last}) : super._();
+class _$ScanIndexesImpl extends _ScanIndexes {
+  const _$ScanIndexesImpl({this.start, this.scanned, this.last}) : super._();
 
   @override
   final int? start;
@@ -129,10 +135,10 @@ class _$_ScanIndexes extends _ScanIndexes {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ScanIndexes &&
+            other is _$ScanIndexesImpl &&
             (identical(other.start, start) || other.start == start) &&
             (identical(other.scanned, scanned) || other.scanned == scanned) &&
             (identical(other.last, last) || other.last == last));
@@ -141,16 +147,20 @@ class _$_ScanIndexes extends _ScanIndexes {
   @override
   int get hashCode => Object.hash(runtimeType, start, scanned, last);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ScanIndexes
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ScanIndexesCopyWith<_$_ScanIndexes> get copyWith =>
-      __$$_ScanIndexesCopyWithImpl<_$_ScanIndexes>(this, _$identity);
+  _$$ScanIndexesImplCopyWith<_$ScanIndexesImpl> get copyWith =>
+      __$$ScanIndexesImplCopyWithImpl<_$ScanIndexesImpl>(this, _$identity);
 }
 
 abstract class _ScanIndexes extends ScanIndexes {
   const factory _ScanIndexes(
-      {final int? start, final int? scanned, final int? last}) = _$_ScanIndexes;
+      {final int? start,
+      final int? scanned,
+      final int? last}) = _$ScanIndexesImpl;
   const _ScanIndexes._() : super._();
 
   @override
@@ -159,8 +169,11 @@ abstract class _ScanIndexes extends ScanIndexes {
   int? get scanned;
   @override
   int? get last;
+
+  /// Create a copy of ScanIndexes
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_ScanIndexesCopyWith<_$_ScanIndexes> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ScanIndexesImplCopyWith<_$ScanIndexesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

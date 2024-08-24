@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_portal/flutter_portal.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:flutter_portal/flutter_portal.dart';
 
 import 'app_constants.dart';
 import 'app_providers.dart';
@@ -42,7 +42,7 @@ class App extends HookConsumerWidget {
           try {
             FlutterDisplayMode.setHighRefreshRate();
           } catch (e) {
-            log.e('Failed to set high refresh rate', e);
+            log.e('Failed to set high refresh rate', error: e);
           }
         });
       }
@@ -51,7 +51,7 @@ class App extends HookConsumerWidget {
 
     useEffect(() {
       final appLinks = AppLinks();
-      final sub = appLinks.allStringLinkStream.listen((appLink) {
+      final sub = appLinks.stringLinkStream.listen((appLink) {
         ref.read(appLinkProvider.notifier).state = appLink;
       });
       return sub.cancel;
@@ -75,6 +75,7 @@ class App extends HookConsumerWidget {
                 debugShowCheckedModeBanner: false,
                 title: kWalletTitle,
                 theme: ThemeData(
+                  useMaterial3: false,
                   dialogBackgroundColor: theme.backgroundDark,
                   primaryColor: theme.primary,
                   fontFamily: kDefaultFontFamily,
@@ -98,7 +99,7 @@ class App extends HookConsumerWidget {
                         brightness: Brightness.dark,
                         secondary: theme.primary10,
                       )
-                      .copyWith(background: theme.backgroundDark),
+                      .copyWith(surface: theme.backgroundDark),
                 ),
                 localizationsDelegates: AppLocalizations.localizationsDelegates,
                 supportedLocales: AppLocalizations.supportedLocales,

@@ -12,7 +12,7 @@ part of 'intro_types.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$IntroState {
@@ -78,28 +78,34 @@ class _$IntroStateCopyWithImpl<$Res, $Val extends IntroState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of IntroState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$_IntroStateInitCopyWith<$Res> {
-  factory _$$_IntroStateInitCopyWith(
-          _$_IntroStateInit value, $Res Function(_$_IntroStateInit) then) =
-      __$$_IntroStateInitCopyWithImpl<$Res>;
+abstract class _$$IntroStateInitImplCopyWith<$Res> {
+  factory _$$IntroStateInitImplCopyWith(_$IntroStateInitImpl value,
+          $Res Function(_$IntroStateInitImpl) then) =
+      __$$IntroStateInitImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_IntroStateInitCopyWithImpl<$Res>
-    extends _$IntroStateCopyWithImpl<$Res, _$_IntroStateInit>
-    implements _$$_IntroStateInitCopyWith<$Res> {
-  __$$_IntroStateInitCopyWithImpl(
-      _$_IntroStateInit _value, $Res Function(_$_IntroStateInit) _then)
+class __$$IntroStateInitImplCopyWithImpl<$Res>
+    extends _$IntroStateCopyWithImpl<$Res, _$IntroStateInitImpl>
+    implements _$$IntroStateInitImplCopyWith<$Res> {
+  __$$IntroStateInitImplCopyWithImpl(
+      _$IntroStateInitImpl _value, $Res Function(_$IntroStateInitImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of IntroState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$_IntroStateInit implements _IntroStateInit {
-  const _$_IntroStateInit();
+class _$IntroStateInitImpl implements _IntroStateInit {
+  const _$IntroStateInitImpl();
 
   @override
   String toString() {
@@ -107,9 +113,9 @@ class _$_IntroStateInit implements _IntroStateInit {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_IntroStateInit);
+        (other.runtimeType == runtimeType && other is _$IntroStateInitImpl);
   }
 
   @override
@@ -185,32 +191,34 @@ class _$_IntroStateInit implements _IntroStateInit {
 }
 
 abstract class _IntroStateInit implements IntroState {
-  const factory _IntroStateInit() = _$_IntroStateInit;
+  const factory _IntroStateInit() = _$IntroStateInitImpl;
 }
 
 /// @nodoc
-abstract class _$$_IntroStatePushCopyWith<$Res> {
-  factory _$$_IntroStatePushCopyWith(
-          _$_IntroStatePush value, $Res Function(_$_IntroStatePush) then) =
-      __$$_IntroStatePushCopyWithImpl<$Res>;
+abstract class _$$IntroStatePushImplCopyWith<$Res> {
+  factory _$$IntroStatePushImplCopyWith(_$IntroStatePushImpl value,
+          $Res Function(_$IntroStatePushImpl) then) =
+      __$$IntroStatePushImplCopyWithImpl<$Res>;
   @useResult
   $Res call({IntroPage page});
 }
 
 /// @nodoc
-class __$$_IntroStatePushCopyWithImpl<$Res>
-    extends _$IntroStateCopyWithImpl<$Res, _$_IntroStatePush>
-    implements _$$_IntroStatePushCopyWith<$Res> {
-  __$$_IntroStatePushCopyWithImpl(
-      _$_IntroStatePush _value, $Res Function(_$_IntroStatePush) _then)
+class __$$IntroStatePushImplCopyWithImpl<$Res>
+    extends _$IntroStateCopyWithImpl<$Res, _$IntroStatePushImpl>
+    implements _$$IntroStatePushImplCopyWith<$Res> {
+  __$$IntroStatePushImplCopyWithImpl(
+      _$IntroStatePushImpl _value, $Res Function(_$IntroStatePushImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of IntroState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? page = null,
   }) {
-    return _then(_$_IntroStatePush(
+    return _then(_$IntroStatePushImpl(
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -221,8 +229,8 @@ class __$$_IntroStatePushCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_IntroStatePush implements _IntroStatePush {
-  const _$_IntroStatePush({required this.page});
+class _$IntroStatePushImpl implements _IntroStatePush {
+  const _$IntroStatePushImpl({required this.page});
 
   @override
   final IntroPage page;
@@ -233,21 +241,24 @@ class _$_IntroStatePush implements _IntroStatePush {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IntroStatePush &&
+            other is _$IntroStatePushImpl &&
             (identical(other.page, page) || other.page == page));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, page);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of IntroState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IntroStatePushCopyWith<_$_IntroStatePush> get copyWith =>
-      __$$_IntroStatePushCopyWithImpl<_$_IntroStatePush>(this, _$identity);
+  _$$IntroStatePushImplCopyWith<_$IntroStatePushImpl> get copyWith =>
+      __$$IntroStatePushImplCopyWithImpl<_$IntroStatePushImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -320,34 +331,40 @@ class _$_IntroStatePush implements _IntroStatePush {
 
 abstract class _IntroStatePush implements IntroState {
   const factory _IntroStatePush({required final IntroPage page}) =
-      _$_IntroStatePush;
+      _$IntroStatePushImpl;
 
   IntroPage get page;
-  @JsonKey(ignore: true)
-  _$$_IntroStatePushCopyWith<_$_IntroStatePush> get copyWith =>
+
+  /// Create a copy of IntroState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$IntroStatePushImplCopyWith<_$IntroStatePushImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_IntroStatePopCopyWith<$Res> {
-  factory _$$_IntroStatePopCopyWith(
-          _$_IntroStatePop value, $Res Function(_$_IntroStatePop) then) =
-      __$$_IntroStatePopCopyWithImpl<$Res>;
+abstract class _$$IntroStatePopImplCopyWith<$Res> {
+  factory _$$IntroStatePopImplCopyWith(
+          _$IntroStatePopImpl value, $Res Function(_$IntroStatePopImpl) then) =
+      __$$IntroStatePopImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_IntroStatePopCopyWithImpl<$Res>
-    extends _$IntroStateCopyWithImpl<$Res, _$_IntroStatePop>
-    implements _$$_IntroStatePopCopyWith<$Res> {
-  __$$_IntroStatePopCopyWithImpl(
-      _$_IntroStatePop _value, $Res Function(_$_IntroStatePop) _then)
+class __$$IntroStatePopImplCopyWithImpl<$Res>
+    extends _$IntroStateCopyWithImpl<$Res, _$IntroStatePopImpl>
+    implements _$$IntroStatePopImplCopyWith<$Res> {
+  __$$IntroStatePopImplCopyWithImpl(
+      _$IntroStatePopImpl _value, $Res Function(_$IntroStatePopImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of IntroState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$_IntroStatePop implements _IntroStatePop {
-  const _$_IntroStatePop();
+class _$IntroStatePopImpl implements _IntroStatePop {
+  const _$IntroStatePopImpl();
 
   @override
   String toString() {
@@ -355,9 +372,9 @@ class _$_IntroStatePop implements _IntroStatePop {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_IntroStatePop);
+        (other.runtimeType == runtimeType && other is _$IntroStatePopImpl);
   }
 
   @override
@@ -433,7 +450,7 @@ class _$_IntroStatePop implements _IntroStatePop {
 }
 
 abstract class _IntroStatePop implements IntroState {
-  const factory _IntroStatePop() = _$_IntroStatePop;
+  const factory _IntroStatePop() = _$IntroStatePopImpl;
 }
 
 /// @nodoc
@@ -448,7 +465,9 @@ mixin _$IntroData {
   bool get generated => throw _privateConstructorUsedError;
   bool get completed => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of IntroData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $IntroDataCopyWith<IntroData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -480,6 +499,8 @@ class _$IntroDataCopyWithImpl<$Res, $Val extends IntroData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of IntroData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -535,10 +556,11 @@ class _$IntroDataCopyWithImpl<$Res, $Val extends IntroData>
 }
 
 /// @nodoc
-abstract class _$$_IntroDataCopyWith<$Res> implements $IntroDataCopyWith<$Res> {
-  factory _$$_IntroDataCopyWith(
-          _$_IntroData value, $Res Function(_$_IntroData) then) =
-      __$$_IntroDataCopyWithImpl<$Res>;
+abstract class _$$IntroDataImplCopyWith<$Res>
+    implements $IntroDataCopyWith<$Res> {
+  factory _$$IntroDataImplCopyWith(
+          _$IntroDataImpl value, $Res Function(_$IntroDataImpl) then) =
+      __$$IntroDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -554,13 +576,15 @@ abstract class _$$_IntroDataCopyWith<$Res> implements $IntroDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_IntroDataCopyWithImpl<$Res>
-    extends _$IntroDataCopyWithImpl<$Res, _$_IntroData>
-    implements _$$_IntroDataCopyWith<$Res> {
-  __$$_IntroDataCopyWithImpl(
-      _$_IntroData _value, $Res Function(_$_IntroData) _then)
+class __$$IntroDataImplCopyWithImpl<$Res>
+    extends _$IntroDataCopyWithImpl<$Res, _$IntroDataImpl>
+    implements _$$IntroDataImplCopyWith<$Res> {
+  __$$IntroDataImplCopyWithImpl(
+      _$IntroDataImpl _value, $Res Function(_$IntroDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of IntroData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -574,7 +598,7 @@ class __$$_IntroDataCopyWithImpl<$Res>
     Object? generated = null,
     Object? completed = null,
   }) {
-    return _then(_$_IntroData(
+    return _then(_$IntroDataImpl(
       mnemonic: freezed == mnemonic
           ? _value.mnemonic
           : mnemonic // ignore: cast_nullable_to_non_nullable
@@ -617,8 +641,8 @@ class __$$_IntroDataCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_IntroData implements _IntroData {
-  const _$_IntroData(
+class _$IntroDataImpl implements _IntroData {
+  const _$IntroDataImpl(
       {this.mnemonic,
       this.kpub,
       this.seed,
@@ -657,10 +681,10 @@ class _$_IntroData implements _IntroData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IntroData &&
+            other is _$IntroDataImpl &&
             (identical(other.mnemonic, mnemonic) ||
                 other.mnemonic == mnemonic) &&
             (identical(other.kpub, kpub) || other.kpub == kpub) &&
@@ -680,11 +704,13 @@ class _$_IntroData implements _IntroData {
   int get hashCode => Object.hash(runtimeType, mnemonic, kpub, seed, name, pin,
       password, legacy, generated, completed);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of IntroData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IntroDataCopyWith<_$_IntroData> get copyWith =>
-      __$$_IntroDataCopyWithImpl<_$_IntroData>(this, _$identity);
+  _$$IntroDataImplCopyWith<_$IntroDataImpl> get copyWith =>
+      __$$IntroDataImplCopyWithImpl<_$IntroDataImpl>(this, _$identity);
 }
 
 abstract class _IntroData implements IntroData {
@@ -697,7 +723,7 @@ abstract class _IntroData implements IntroData {
       final String? password,
       final bool legacy,
       final bool generated,
-      final bool completed}) = _$_IntroData;
+      final bool completed}) = _$IntroDataImpl;
 
   @override
   String? get mnemonic;
@@ -717,8 +743,11 @@ abstract class _IntroData implements IntroData {
   bool get generated;
   @override
   bool get completed;
+
+  /// Create a copy of IntroData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_IntroDataCopyWith<_$_IntroData> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$IntroDataImplCopyWith<_$IntroDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

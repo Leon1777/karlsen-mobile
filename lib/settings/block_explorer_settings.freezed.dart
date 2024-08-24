@@ -12,7 +12,7 @@ part of 'block_explorer_settings.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 BlockExplorerSettings _$BlockExplorerSettingsFromJson(
     Map<String, dynamic> json) {
@@ -24,8 +24,12 @@ mixin _$BlockExplorerSettings {
   Map<KarlsenNetwork, BlockExplorer> get selection =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this BlockExplorerSettings to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BlockExplorerSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $BlockExplorerSettingsCopyWith<BlockExplorerSettings> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$BlockExplorerSettingsCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of BlockExplorerSettings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -65,30 +71,34 @@ class _$BlockExplorerSettingsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_BlockExplorerSettingsCopyWith<$Res>
+abstract class _$$BlockExplorerSettingsImplCopyWith<$Res>
     implements $BlockExplorerSettingsCopyWith<$Res> {
-  factory _$$_BlockExplorerSettingsCopyWith(_$_BlockExplorerSettings value,
-          $Res Function(_$_BlockExplorerSettings) then) =
-      __$$_BlockExplorerSettingsCopyWithImpl<$Res>;
+  factory _$$BlockExplorerSettingsImplCopyWith(
+          _$BlockExplorerSettingsImpl value,
+          $Res Function(_$BlockExplorerSettingsImpl) then) =
+      __$$BlockExplorerSettingsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Map<KarlsenNetwork, BlockExplorer> selection});
 }
 
 /// @nodoc
-class __$$_BlockExplorerSettingsCopyWithImpl<$Res>
-    extends _$BlockExplorerSettingsCopyWithImpl<$Res, _$_BlockExplorerSettings>
-    implements _$$_BlockExplorerSettingsCopyWith<$Res> {
-  __$$_BlockExplorerSettingsCopyWithImpl(_$_BlockExplorerSettings _value,
-      $Res Function(_$_BlockExplorerSettings) _then)
+class __$$BlockExplorerSettingsImplCopyWithImpl<$Res>
+    extends _$BlockExplorerSettingsCopyWithImpl<$Res,
+        _$BlockExplorerSettingsImpl>
+    implements _$$BlockExplorerSettingsImplCopyWith<$Res> {
+  __$$BlockExplorerSettingsImplCopyWithImpl(_$BlockExplorerSettingsImpl _value,
+      $Res Function(_$BlockExplorerSettingsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BlockExplorerSettings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? selection = null,
   }) {
-    return _then(_$_BlockExplorerSettings(
+    return _then(_$BlockExplorerSettingsImpl(
       selection: null == selection
           ? _value._selection
           : selection // ignore: cast_nullable_to_non_nullable
@@ -99,8 +109,8 @@ class __$$_BlockExplorerSettingsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BlockExplorerSettings extends _BlockExplorerSettings {
-  const _$_BlockExplorerSettings(
+class _$BlockExplorerSettingsImpl extends _BlockExplorerSettings {
+  const _$BlockExplorerSettingsImpl(
       {final Map<KarlsenNetwork, BlockExplorer> selection = const {
         KarlsenNetwork.mainnet: kKarlsenExplorerMainnet,
         KarlsenNetwork.testnet: kKarlsenExplorerMainnet,
@@ -110,8 +120,8 @@ class _$_BlockExplorerSettings extends _BlockExplorerSettings {
       : _selection = selection,
         super._();
 
-  factory _$_BlockExplorerSettings.fromJson(Map<String, dynamic> json) =>
-      _$$_BlockExplorerSettingsFromJson(json);
+  factory _$BlockExplorerSettingsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BlockExplorerSettingsImplFromJson(json);
 
   final Map<KarlsenNetwork, BlockExplorer> _selection;
   @override
@@ -128,29 +138,31 @@ class _$_BlockExplorerSettings extends _BlockExplorerSettings {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BlockExplorerSettings &&
+            other is _$BlockExplorerSettingsImpl &&
             const DeepCollectionEquality()
                 .equals(other._selection, _selection));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_selection));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BlockExplorerSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BlockExplorerSettingsCopyWith<_$_BlockExplorerSettings> get copyWith =>
-      __$$_BlockExplorerSettingsCopyWithImpl<_$_BlockExplorerSettings>(
-          this, _$identity);
+  _$$BlockExplorerSettingsImplCopyWith<_$BlockExplorerSettingsImpl>
+      get copyWith => __$$BlockExplorerSettingsImplCopyWithImpl<
+          _$BlockExplorerSettingsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BlockExplorerSettingsToJson(
+    return _$$BlockExplorerSettingsImplToJson(
       this,
     );
   }
@@ -159,16 +171,19 @@ class _$_BlockExplorerSettings extends _BlockExplorerSettings {
 abstract class _BlockExplorerSettings extends BlockExplorerSettings {
   const factory _BlockExplorerSettings(
           {final Map<KarlsenNetwork, BlockExplorer> selection}) =
-      _$_BlockExplorerSettings;
+      _$BlockExplorerSettingsImpl;
   const _BlockExplorerSettings._() : super._();
 
   factory _BlockExplorerSettings.fromJson(Map<String, dynamic> json) =
-      _$_BlockExplorerSettings.fromJson;
+      _$BlockExplorerSettingsImpl.fromJson;
 
   @override
   Map<KarlsenNetwork, BlockExplorer> get selection;
+
+  /// Create a copy of BlockExplorerSettings
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_BlockExplorerSettingsCopyWith<_$_BlockExplorerSettings> get copyWith =>
-      throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$BlockExplorerSettingsImplCopyWith<_$BlockExplorerSettingsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
