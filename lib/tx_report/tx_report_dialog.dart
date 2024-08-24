@@ -112,7 +112,8 @@ class DownloadTxsDialog extends HookConsumerWidget {
     Future<void> downloadCsv() async {
       final exportTime = DateTime.now();
       final format = DateFormat('yyyyMMdd_HHmmss');
-      final fileName = "karlsen_mobile_transactions_${format.format(exportTime)}.csv";
+      final fileName =
+          "karlsen_mobile_transactions_${format.format(exportTime)}.csv";
       final baseDiractory = await getTemporaryDirectory();
       final txFile = File('${baseDiractory.path}/$fileName');
       await txFile.writeAsString(csv.value);

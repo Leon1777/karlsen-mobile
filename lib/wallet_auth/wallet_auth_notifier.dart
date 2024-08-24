@@ -53,7 +53,8 @@ class WalletAuthNotifier extends StateNotifier<WalletAuth> {
     final walletKind = state.wallet.kind;
 
     final seed = await _getSeed();
-    final wallet = HdWallet.forSeedHex(seed, legacy: state.wallet.legacy, type: walletKind.type);
+    final wallet = HdWallet.forSeedHex(seed,
+        legacy: state.wallet.legacy, type: walletKind.type);
     final keyPair = wallet.deriveKeyPair(typeIndex: typeIndex, index: index);
     final signature =
         await KarlsenUtil.computeSignDataSchnorr(data, keyPair.privateKey);
@@ -146,7 +147,8 @@ class WalletAuthNotifier extends StateNotifier<WalletAuth> {
     required int index,
   }) async {
     final seed = await _getSeed();
-    final wallet = HdWallet.forSeedHex(seed, legacy: false, type: HdWalletType.legacy);
+    final wallet =
+        HdWallet.forSeedHex(seed, legacy: false, type: HdWalletType.legacy);
     final keyPair = wallet.deriveKeyPair(
       typeIndex: typeIndex,
       index: index,

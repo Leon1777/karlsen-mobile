@@ -7,7 +7,8 @@ import '../core/core_providers.dart';
 import '../l10n/l10n.dart';
 import '../util/util.dart';
 
-const kPrivacyUrl = 'https://mobile.karlsencoin.com/assets/wallet/privacy-policy.html';
+const kPrivacyUrl =
+    'https://mobile.karlsencoin.com/assets/wallet/privacy-policy.html';
 const kEulaUrl = 'https://mobile.karlsencoin.com/assets/wallet/eula.html';
 
 class VersionWidget extends HookConsumerWidget {

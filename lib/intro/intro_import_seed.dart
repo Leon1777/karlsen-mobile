@@ -41,7 +41,9 @@ final _showInvalidChecksumProvider =
 class IntroImportSeed extends HookConsumerWidget {
   final bool isLegacy;
   final bool isLegacyDerivation;
-  const IntroImportSeed({Key? key, this.isLegacy = false, this.isLegacyDerivation = false}) : super(key: key);
+  const IntroImportSeed(
+      {Key? key, this.isLegacy = false, this.isLegacyDerivation = false})
+      : super(key: key);
 
   int get mnemonicLength => isLegacy ? 12 : 24;
 

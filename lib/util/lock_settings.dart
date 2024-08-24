@@ -20,8 +20,8 @@ class LockSettings {
       vault.set(_karlsen_mobile_lock_timeout, setting.getId());
 
   Future<LockTimeoutSetting> getLockTimeout() async {
-    final lockTimeout =
-        await vault.get(_karlsen_mobile_lock_timeout) ?? LockTimeoutOption.ONE.name;
+    final lockTimeout = await vault.get(_karlsen_mobile_lock_timeout) ??
+        LockTimeoutOption.ONE.name;
     return LockTimeoutSetting(LockTimeoutOption.values.byName(lockTimeout));
   }
 }

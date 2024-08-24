@@ -17,7 +17,7 @@ class BlockExplorerSettings with _$BlockExplorerSettings {
       KarlsenNetwork.devnet: kKarlsenExplorerMainnet,
       KarlsenNetwork.simnet: kKarlsenExplorerMainnet,
     })
-        Map<KarlsenNetwork, BlockExplorer> selection,
+    Map<KarlsenNetwork, BlockExplorer> selection,
   }) = _BlockExplorerSettings;
 
   BlockExplorer explorerForNetwork(KarlsenNetwork network) {

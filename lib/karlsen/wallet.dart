@@ -146,7 +146,8 @@ abstract class HdWallet implements HdWalletView {
     required NetworkType networkType,
   }) {
     final bip32 = BIP32.fromSeed(seed, networkType);
-    final child = bip32.derivePath(legacy ? kKaspaDerivationPath : kKarlsenDerivationPath);
+    final child = bip32
+        .derivePath(legacy ? kKaspaDerivationPath : kKarlsenDerivationPath);
     return child.neutered().toBase58();
   }
 }
@@ -158,7 +159,9 @@ class HdWalletEcdsa extends HdWallet {
     Uint8List seed, {
     required bool legacy,
   }) : super._() {
-    _bip32 = BIP32.fromSeed(seed).derivePath(legacy ? kKaspaDerivationPath : kKarlsenDerivationPath);
+    _bip32 = BIP32
+        .fromSeed(seed)
+        .derivePath(legacy ? kKaspaDerivationPath : kKarlsenDerivationPath);
   }
 
   @override

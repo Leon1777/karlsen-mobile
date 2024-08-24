@@ -100,7 +100,8 @@ class UtxoCard extends ConsumerWidget {
                                         style: styles.textStyleCurrencyAlt,
                                       ),
                                       TextSpan(
-                                        text: ' ${TokenInfo.karlsen.symbolLabel}',
+                                        text:
+                                            ' ${TokenInfo.karlsen.symbolLabel}',
                                         style: styles.textStyleCurrencyAlt,
                                       ),
                                     ],

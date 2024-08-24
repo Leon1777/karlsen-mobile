@@ -190,7 +190,7 @@ class KarlsenClient {
 
   // Submit Transaction
 
-    Future<String> submitTransaction(
+  Future<String> submitTransaction(
     RpcTransaction transaction, {
     bool allowOrphan = false,
   }) async {

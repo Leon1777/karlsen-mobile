@@ -73,7 +73,8 @@ class IntroScreen extends HookConsumerWidget {
         IntroPage.passwordOnLaunch => const IntroPasswordOnLaunch(),
         IntroPage.password => const IntroPassword(),
         IntroPage.importSelect => const IntroImportSelect(),
-        IntroPage.importSeedLegacyDerivation => const IntroImportSeed(isLegacyDerivation: true),
+        IntroPage.importSeedLegacyDerivation =>
+          const IntroImportSeed(isLegacyDerivation: true),
         IntroPage.importSeed => const IntroImportSeed(),
         IntroPage.importLegacySeed => const IntroImportSeed(isLegacy: true),
         IntroPage.importKpub => const IntroImportKpub(),
