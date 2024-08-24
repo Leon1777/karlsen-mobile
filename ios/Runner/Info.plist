@@ -85,7 +85,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>io.karlsen.mobilewallet</string>
+			<string>karlsen.mobilewallet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>karlsen</string>
@@ -95,7 +95,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>io.karlsen.mobilewallet</string>
+			<string>karlsen.mobilewallet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>karlsentest</string>
@@ -105,7 +105,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>io.karlsen.mobilewallet</string>
+			<string>karlsen.mobilewallet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>karlsendev</string>
@@ -115,7 +115,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>io.karlsen.mobilewallet</string>
+			<string>karlsen.mobilewallet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>karlsensim</string>

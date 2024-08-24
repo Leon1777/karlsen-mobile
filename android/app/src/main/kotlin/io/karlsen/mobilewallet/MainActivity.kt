@@ -1,4 +1,4 @@
-package io.karlsen.mobilewallet
+package karlsen.mobilewallet
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 
