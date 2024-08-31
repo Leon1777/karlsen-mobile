@@ -26,12 +26,8 @@ mixin _$BlockExplorer {
   String get addressUrl => throw _privateConstructorUsedError;
   String get txUrl => throw _privateConstructorUsedError;
 
-  /// Serializes this BlockExplorer to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of BlockExplorer
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $BlockExplorerCopyWith<BlockExplorer> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -60,8 +56,6 @@ class _$BlockExplorerCopyWithImpl<$Res, $Val extends BlockExplorer>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of BlockExplorer
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -120,8 +114,6 @@ class __$$BlockExplorerImplCopyWithImpl<$Res>
       _$BlockExplorerImpl _value, $Res Function(_$BlockExplorerImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of BlockExplorer
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -199,14 +191,12 @@ class _$BlockExplorerImpl extends _BlockExplorer {
             (identical(other.txUrl, txUrl) || other.txUrl == txUrl));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, network, name, url, addressUrl, txUrl);
 
-  /// Create a copy of BlockExplorer
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$BlockExplorerImplCopyWith<_$BlockExplorerImpl> get copyWith =>
@@ -242,11 +232,8 @@ abstract class _BlockExplorer extends BlockExplorer {
   String get addressUrl;
   @override
   String get txUrl;
-
-  /// Create a copy of BlockExplorer
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$BlockExplorerImplCopyWith<_$BlockExplorerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

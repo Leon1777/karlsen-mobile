@@ -78,9 +78,6 @@ class _$IntroStateCopyWithImpl<$Res, $Val extends IntroState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of IntroState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -97,9 +94,6 @@ class __$$IntroStateInitImplCopyWithImpl<$Res>
   __$$IntroStateInitImplCopyWithImpl(
       _$IntroStateInitImpl _value, $Res Function(_$IntroStateInitImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of IntroState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -211,8 +205,6 @@ class __$$IntroStatePushImplCopyWithImpl<$Res>
       _$IntroStatePushImpl _value, $Res Function(_$IntroStatePushImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of IntroState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -251,9 +243,7 @@ class _$IntroStatePushImpl implements _IntroStatePush {
   @override
   int get hashCode => Object.hash(runtimeType, page);
 
-  /// Create a copy of IntroState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$IntroStatePushImplCopyWith<_$IntroStatePushImpl> get copyWith =>
@@ -334,10 +324,7 @@ abstract class _IntroStatePush implements IntroState {
       _$IntroStatePushImpl;
 
   IntroPage get page;
-
-  /// Create a copy of IntroState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$IntroStatePushImplCopyWith<_$IntroStatePushImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -356,9 +343,6 @@ class __$$IntroStatePopImplCopyWithImpl<$Res>
   __$$IntroStatePopImplCopyWithImpl(
       _$IntroStatePopImpl _value, $Res Function(_$IntroStatePopImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of IntroState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -465,9 +449,7 @@ mixin _$IntroData {
   bool get generated => throw _privateConstructorUsedError;
   bool get completed => throw _privateConstructorUsedError;
 
-  /// Create a copy of IntroData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $IntroDataCopyWith<IntroData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -499,8 +481,6 @@ class _$IntroDataCopyWithImpl<$Res, $Val extends IntroData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of IntroData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -583,8 +563,6 @@ class __$$IntroDataImplCopyWithImpl<$Res>
       _$IntroDataImpl _value, $Res Function(_$IntroDataImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of IntroData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -704,9 +682,7 @@ class _$IntroDataImpl implements _IntroData {
   int get hashCode => Object.hash(runtimeType, mnemonic, kpub, seed, name, pin,
       password, legacy, generated, completed);
 
-  /// Create a copy of IntroData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$IntroDataImplCopyWith<_$IntroDataImpl> get copyWith =>
@@ -743,11 +719,8 @@ abstract class _IntroData implements IntroData {
   bool get generated;
   @override
   bool get completed;
-
-  /// Create a copy of IntroData
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$IntroDataImplCopyWith<_$IntroDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

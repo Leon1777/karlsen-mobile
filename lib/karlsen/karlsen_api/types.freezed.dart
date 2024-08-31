@@ -23,12 +23,8 @@ mixin _$ApiAddressBalance {
   String get address => throw _privateConstructorUsedError;
   int get balance => throw _privateConstructorUsedError;
 
-  /// Serializes this ApiAddressBalance to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ApiAddressBalance
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ApiAddressBalanceCopyWith<ApiAddressBalance> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,8 +48,6 @@ class _$ApiAddressBalanceCopyWithImpl<$Res, $Val extends ApiAddressBalance>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ApiAddressBalance
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,8 +86,6 @@ class __$$ApiAddressBalanceImplCopyWithImpl<$Res>
       $Res Function(_$ApiAddressBalanceImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ApiAddressBalance
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -140,13 +132,11 @@ class _$ApiAddressBalanceImpl implements _ApiAddressBalance {
             (identical(other.balance, balance) || other.balance == balance));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, address, balance);
 
-  /// Create a copy of ApiAddressBalance
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ApiAddressBalanceImplCopyWith<_$ApiAddressBalanceImpl> get copyWith =>
@@ -173,11 +163,8 @@ abstract class _ApiAddressBalance implements ApiAddressBalance {
   String get address;
   @override
   int get balance;
-
-  /// Create a copy of ApiAddressBalance
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ApiAddressBalanceImplCopyWith<_$ApiAddressBalanceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -192,12 +179,8 @@ mixin _$ApiUtxo {
   ApiOutpoint get outpoint => throw _privateConstructorUsedError;
   ApiUtxoEntry get utxoEntry => throw _privateConstructorUsedError;
 
-  /// Serializes this ApiUtxo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ApiUtxo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ApiUtxoCopyWith<ApiUtxo> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -222,8 +205,6 @@ class _$ApiUtxoCopyWithImpl<$Res, $Val extends ApiUtxo>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ApiUtxo
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -247,8 +228,6 @@ class _$ApiUtxoCopyWithImpl<$Res, $Val extends ApiUtxo>
     ) as $Val);
   }
 
-  /// Create a copy of ApiUtxo
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ApiOutpointCopyWith<$Res> get outpoint {
@@ -257,8 +236,6 @@ class _$ApiUtxoCopyWithImpl<$Res, $Val extends ApiUtxo>
     });
   }
 
-  /// Create a copy of ApiUtxo
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ApiUtxoEntryCopyWith<$Res> get utxoEntry {
@@ -291,8 +268,6 @@ class __$$ApiUtxoImplCopyWithImpl<$Res>
       _$ApiUtxoImpl _value, $Res Function(_$ApiUtxoImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ApiUtxo
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -350,13 +325,11 @@ class _$ApiUtxoImpl implements _ApiUtxo {
                 other.utxoEntry == utxoEntry));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, address, outpoint, utxoEntry);
 
-  /// Create a copy of ApiUtxo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ApiUtxoImplCopyWith<_$ApiUtxoImpl> get copyWith =>
@@ -384,11 +357,8 @@ abstract class _ApiUtxo implements ApiUtxo {
   ApiOutpoint get outpoint;
   @override
   ApiUtxoEntry get utxoEntry;
-
-  /// Create a copy of ApiUtxo
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ApiUtxoImplCopyWith<_$ApiUtxoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -402,12 +372,8 @@ mixin _$ApiOutpoint {
   String get transactionId => throw _privateConstructorUsedError;
   int get index => throw _privateConstructorUsedError;
 
-  /// Serializes this ApiOutpoint to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ApiOutpoint
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ApiOutpointCopyWith<ApiOutpoint> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -431,8 +397,6 @@ class _$ApiOutpointCopyWithImpl<$Res, $Val extends ApiOutpoint>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ApiOutpoint
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -471,8 +435,6 @@ class __$$OutpointImplCopyWithImpl<$Res>
       _$OutpointImpl _value, $Res Function(_$OutpointImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ApiOutpoint
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -520,13 +482,11 @@ class _$OutpointImpl implements _Outpoint {
             (identical(other.index, index) || other.index == index));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, transactionId, index);
 
-  /// Create a copy of ApiOutpoint
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$OutpointImplCopyWith<_$OutpointImpl> get copyWith =>
@@ -552,11 +512,8 @@ abstract class _Outpoint implements ApiOutpoint {
   String get transactionId;
   @override
   int get index;
-
-  /// Create a copy of ApiOutpoint
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$OutpointImplCopyWith<_$OutpointImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -572,12 +529,8 @@ mixin _$ApiUtxoEntry {
   BigInt get blockDaaScore => throw _privateConstructorUsedError;
   bool get isCoinbase => throw _privateConstructorUsedError;
 
-  /// Serializes this ApiUtxoEntry to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ApiUtxoEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ApiUtxoEntryCopyWith<ApiUtxoEntry> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -607,8 +560,6 @@ class _$ApiUtxoEntryCopyWithImpl<$Res, $Val extends ApiUtxoEntry>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ApiUtxoEntry
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -637,8 +588,6 @@ class _$ApiUtxoEntryCopyWithImpl<$Res, $Val extends ApiUtxoEntry>
     ) as $Val);
   }
 
-  /// Create a copy of ApiUtxoEntry
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ApiScriptPublicKeyCopyWith<$Res> get scriptPublicKey {
@@ -674,8 +623,6 @@ class __$$ApiUtxoEntryImplCopyWithImpl<$Res>
       _$ApiUtxoEntryImpl _value, $Res Function(_$ApiUtxoEntryImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ApiUtxoEntry
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -746,14 +693,12 @@ class _$ApiUtxoEntryImpl implements _ApiUtxoEntry {
                 other.isCoinbase == isCoinbase));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, amount, scriptPublicKey, blockDaaScore, isCoinbase);
 
-  /// Create a copy of ApiUtxoEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ApiUtxoEntryImplCopyWith<_$ApiUtxoEntryImpl> get copyWith =>
@@ -785,11 +730,8 @@ abstract class _ApiUtxoEntry implements ApiUtxoEntry {
   BigInt get blockDaaScore;
   @override
   bool get isCoinbase;
-
-  /// Create a copy of ApiUtxoEntry
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ApiUtxoEntryImplCopyWith<_$ApiUtxoEntryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -803,12 +745,8 @@ mixin _$ApiScriptPublicKey {
   String get scriptPublicKey => throw _privateConstructorUsedError;
   int get version => throw _privateConstructorUsedError;
 
-  /// Serializes this ApiScriptPublicKey to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ApiScriptPublicKey
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ApiScriptPublicKeyCopyWith<ApiScriptPublicKey> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -832,8 +770,6 @@ class _$ApiScriptPublicKeyCopyWithImpl<$Res, $Val extends ApiScriptPublicKey>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ApiScriptPublicKey
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -872,8 +808,6 @@ class __$$ApiScriptPublicKeyImplCopyWithImpl<$Res>
       $Res Function(_$ApiScriptPublicKeyImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ApiScriptPublicKey
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -923,13 +857,11 @@ class _$ApiScriptPublicKeyImpl implements _ApiScriptPublicKey {
             (identical(other.version, version) || other.version == version));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, scriptPublicKey, version);
 
-  /// Create a copy of ApiScriptPublicKey
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ApiScriptPublicKeyImplCopyWith<_$ApiScriptPublicKeyImpl> get copyWith =>
@@ -956,11 +888,8 @@ abstract class _ApiScriptPublicKey implements ApiScriptPublicKey {
   String get scriptPublicKey;
   @override
   int get version;
-
-  /// Create a copy of ApiScriptPublicKey
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ApiScriptPublicKeyImplCopyWith<_$ApiScriptPublicKeyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -974,12 +903,8 @@ mixin _$ApiTxLink {
   String? get txReceived => throw _privateConstructorUsedError;
   String? get txSpent => throw _privateConstructorUsedError;
 
-  /// Serializes this ApiTxLink to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ApiTxLink
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ApiTxLinkCopyWith<ApiTxLink> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1002,8 +927,6 @@ class _$ApiTxLinkCopyWithImpl<$Res, $Val extends ApiTxLink>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ApiTxLink
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1042,8 +965,6 @@ class __$$ApiTxLinkImplCopyWithImpl<$Res>
       _$ApiTxLinkImpl _value, $Res Function(_$ApiTxLinkImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ApiTxLink
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1092,13 +1013,11 @@ class _$ApiTxLinkImpl implements _ApiTxLink {
             (identical(other.txSpent, txSpent) || other.txSpent == txSpent));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, txReceived, txSpent);
 
-  /// Create a copy of ApiTxLink
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ApiTxLinkImplCopyWith<_$ApiTxLinkImpl> get copyWith =>
@@ -1123,11 +1042,8 @@ abstract class _ApiTxLink implements ApiTxLink {
   String? get txReceived;
   @override
   String? get txSpent;
-
-  /// Create a copy of ApiTxLink
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ApiTxLinkImplCopyWith<_$ApiTxLinkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1141,12 +1057,8 @@ mixin _$ApiTxId {
   String get transactionId => throw _privateConstructorUsedError;
   int? get blockTime => throw _privateConstructorUsedError;
 
-  /// Serializes this ApiTxId to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ApiTxId
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ApiTxIdCopyWith<ApiTxId> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1168,8 +1080,6 @@ class _$ApiTxIdCopyWithImpl<$Res, $Val extends ApiTxId>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ApiTxId
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1207,8 +1117,6 @@ class __$$ApiTxIdImplCopyWithImpl<$Res>
       _$ApiTxIdImpl _value, $Res Function(_$ApiTxIdImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ApiTxId
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1258,13 +1166,11 @@ class _$ApiTxIdImpl implements _ApiTxId {
                 other.blockTime == blockTime));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, transactionId, blockTime);
 
-  /// Create a copy of ApiTxId
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ApiTxIdImplCopyWith<_$ApiTxIdImpl> get copyWith =>
@@ -1289,11 +1195,8 @@ abstract class _ApiTxId implements ApiTxId {
   String get transactionId;
   @override
   int? get blockTime;
-
-  /// Create a copy of ApiTxId
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ApiTxIdImplCopyWith<_$ApiTxIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1313,12 +1216,8 @@ mixin _$ApiTxInput {
   String? get previousOutpointAddress => throw _privateConstructorUsedError;
   int? get previousOutpointAmount => throw _privateConstructorUsedError;
 
-  /// Serializes this ApiTxInput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ApiTxInput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ApiTxInputCopyWith<ApiTxInput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1350,8 +1249,6 @@ class _$ApiTxInputCopyWithImpl<$Res, $Val extends ApiTxInput>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ApiTxInput
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1428,8 +1325,6 @@ class __$$ApiTxInputImplCopyWithImpl<$Res>
       _$ApiTxInputImpl _value, $Res Function(_$ApiTxInputImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ApiTxInput
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1542,7 +1437,7 @@ class _$ApiTxInputImpl implements _ApiTxInput {
                 other.previousOutpointAmount == previousOutpointAmount));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -1555,9 +1450,7 @@ class _$ApiTxInputImpl implements _ApiTxInput {
       previousOutpointAddress,
       previousOutpointAmount);
 
-  /// Create a copy of ApiTxInput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ApiTxInputImplCopyWith<_$ApiTxInputImpl> get copyWith =>
@@ -1596,16 +1489,13 @@ abstract class _ApiTxInput implements ApiTxInput {
   @override
   String get signatureScript;
   @override
-  BigInt get sigOpCount; // new fields
-  @override
+  BigInt get sigOpCount;
+  @override // new fields
   String? get previousOutpointAddress;
   @override
   int? get previousOutpointAmount;
-
-  /// Create a copy of ApiTxInput
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ApiTxInputImplCopyWith<_$ApiTxInputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1623,12 +1513,8 @@ mixin _$ApiTxOutput {
   String get scriptPublicKeyAddress => throw _privateConstructorUsedError;
   String get scriptPublicKeyType => throw _privateConstructorUsedError;
 
-  /// Serializes this ApiTxOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ApiTxOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ApiTxOutputCopyWith<ApiTxOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1658,8 +1544,6 @@ class _$ApiTxOutputCopyWithImpl<$Res, $Val extends ApiTxOutput>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ApiTxOutput
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1724,8 +1608,6 @@ class __$$ApiTxOutputImplCopyWithImpl<$Res>
       _$ApiTxOutputImpl _value, $Res Function(_$ApiTxOutputImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ApiTxOutput
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1815,14 +1697,12 @@ class _$ApiTxOutputImpl implements _ApiTxOutput {
                 other.scriptPublicKeyType == scriptPublicKeyType));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, transactionId, index, amount,
       scriptPublicKey, scriptPublicKeyAddress, scriptPublicKeyType);
 
-  /// Create a copy of ApiTxOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ApiTxOutputImplCopyWith<_$ApiTxOutputImpl> get copyWith =>
@@ -1860,11 +1740,8 @@ abstract class _ApiTxOutput implements ApiTxOutput {
   String get scriptPublicKeyAddress;
   @override
   String get scriptPublicKeyType;
-
-  /// Create a copy of ApiTxOutput
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ApiTxOutputImplCopyWith<_$ApiTxOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1885,12 +1762,8 @@ mixin _$ApiTransaction {
   List<ApiTxInput> get inputs => throw _privateConstructorUsedError;
   List<ApiTxOutput> get outputs => throw _privateConstructorUsedError;
 
-  /// Serializes this ApiTransaction to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ApiTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ApiTransactionCopyWith<ApiTransaction> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1923,8 +1796,6 @@ class _$ApiTransactionCopyWithImpl<$Res, $Val extends ApiTransaction>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ApiTransaction
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2007,8 +1878,6 @@ class __$$TransactionImplCopyWithImpl<$Res>
       _$TransactionImpl _value, $Res Function(_$TransactionImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ApiTransaction
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2153,7 +2022,7 @@ class _$TransactionImpl extends _Transaction {
             const DeepCollectionEquality().equals(other._outputs, _outputs));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -2167,9 +2036,7 @@ class _$TransactionImpl extends _Transaction {
       const DeepCollectionEquality().hash(_inputs),
       const DeepCollectionEquality().hash(_outputs));
 
-  /// Create a copy of ApiTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TransactionImplCopyWith<_$TransactionImpl> get copyWith =>
@@ -2217,11 +2084,8 @@ abstract class _Transaction extends ApiTransaction {
   List<ApiTxInput> get inputs;
   @override
   List<ApiTxOutput> get outputs;
-
-  /// Create a copy of ApiTransaction
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$TransactionImplCopyWith<_$TransactionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

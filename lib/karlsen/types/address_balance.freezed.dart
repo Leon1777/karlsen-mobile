@@ -23,12 +23,8 @@ mixin _$AddressBalance {
   String get address => throw _privateConstructorUsedError;
   BigInt get balance => throw _privateConstructorUsedError;
 
-  /// Serializes this AddressBalance to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of AddressBalance
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $AddressBalanceCopyWith<AddressBalance> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,8 +48,6 @@ class _$AddressBalanceCopyWithImpl<$Res, $Val extends AddressBalance>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of AddressBalance
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,8 +86,6 @@ class __$$AddressBalanceImplCopyWithImpl<$Res>
       _$AddressBalanceImpl _value, $Res Function(_$AddressBalanceImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AddressBalance
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -141,13 +133,11 @@ class _$AddressBalanceImpl extends _AddressBalance {
             (identical(other.balance, balance) || other.balance == balance));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, address, balance);
 
-  /// Create a copy of AddressBalance
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AddressBalanceImplCopyWith<_$AddressBalanceImpl> get copyWith =>
@@ -175,11 +165,8 @@ abstract class _AddressBalance extends AddressBalance {
   String get address;
   @override
   BigInt get balance;
-
-  /// Create a copy of AddressBalance
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$AddressBalanceImplCopyWith<_$AddressBalanceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

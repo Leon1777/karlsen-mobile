@@ -23,12 +23,8 @@ mixin _$NodeConfigSettings {
   IList<NodeConfig> get options => throw _privateConstructorUsedError;
   NodeConfig get selected => throw _privateConstructorUsedError;
 
-  /// Serializes this NodeConfigSettings to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of NodeConfigSettings
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $NodeConfigSettingsCopyWith<NodeConfigSettings> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,8 +50,6 @@ class _$NodeConfigSettingsCopyWithImpl<$Res, $Val extends NodeConfigSettings>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of NodeConfigSettings
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -74,8 +68,6 @@ class _$NodeConfigSettingsCopyWithImpl<$Res, $Val extends NodeConfigSettings>
     ) as $Val);
   }
 
-  /// Create a copy of NodeConfigSettings
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $NodeConfigCopyWith<$Res> get selected {
@@ -107,8 +99,6 @@ class __$$NodeConfigSettingsImplCopyWithImpl<$Res>
       $Res Function(_$NodeConfigSettingsImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of NodeConfigSettings
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -160,14 +150,12 @@ class _$NodeConfigSettingsImpl implements _NodeConfigSettings {
                 other.selected == selected));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(options), selected);
 
-  /// Create a copy of NodeConfigSettings
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$NodeConfigSettingsImplCopyWith<_$NodeConfigSettingsImpl> get copyWith =>
@@ -194,11 +182,8 @@ abstract class _NodeConfigSettings implements NodeConfigSettings {
   IList<NodeConfig> get options;
   @override
   NodeConfig get selected;
-
-  /// Create a copy of NodeConfigSettings
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$NodeConfigSettingsImplCopyWith<_$NodeConfigSettingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -216,12 +201,8 @@ mixin _$NodeConfig {
   List<String> get urls => throw _privateConstructorUsedError;
   KarlsenNetwork get network => throw _privateConstructorUsedError;
 
-  /// Serializes this NodeConfig to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of NodeConfig
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $NodeConfigCopyWith<NodeConfig> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -251,8 +232,6 @@ class _$NodeConfigCopyWithImpl<$Res, $Val extends NodeConfig>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of NodeConfig
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -317,8 +296,6 @@ class __$$NodeConfigImplCopyWithImpl<$Res>
       _$NodeConfigImpl _value, $Res Function(_$NodeConfigImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of NodeConfig
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -414,14 +391,12 @@ class _$NodeConfigImpl extends _NodeConfig {
             (identical(other.network, network) || other.network == network));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, isDns, isSecure,
       const DeepCollectionEquality().hash(_urls), network);
 
-  /// Create a copy of NodeConfig
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$NodeConfigImplCopyWith<_$NodeConfigImpl> get copyWith =>
@@ -460,11 +435,8 @@ abstract class _NodeConfig extends NodeConfig {
   List<String> get urls;
   @override
   KarlsenNetwork get network;
-
-  /// Create a copy of NodeConfig
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$NodeConfigImplCopyWith<_$NodeConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -473,9 +445,7 @@ abstract class _NodeConfig extends NodeConfig {
 mixin _$ActiveNodeConfig {
   NodeConfig get config => throw _privateConstructorUsedError;
 
-  /// Create a copy of ActiveNodeConfig
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ActiveNodeConfigCopyWith<ActiveNodeConfig> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -501,8 +471,6 @@ class _$ActiveNodeConfigCopyWithImpl<$Res, $Val extends ActiveNodeConfig>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ActiveNodeConfig
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -516,8 +484,6 @@ class _$ActiveNodeConfigCopyWithImpl<$Res, $Val extends ActiveNodeConfig>
     ) as $Val);
   }
 
-  /// Create a copy of ActiveNodeConfig
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $NodeConfigCopyWith<$Res> get config {
@@ -549,8 +515,6 @@ class __$$ActiveNodeConfigImplCopyWithImpl<$Res>
       $Res Function(_$ActiveNodeConfigImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ActiveNodeConfig
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -589,9 +553,7 @@ class _$ActiveNodeConfigImpl extends _ActiveNodeConfig {
   @override
   int get hashCode => Object.hash(runtimeType, config);
 
-  /// Create a copy of ActiveNodeConfig
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ActiveNodeConfigImplCopyWith<_$ActiveNodeConfigImpl> get copyWith =>
@@ -606,11 +568,8 @@ abstract class _ActiveNodeConfig extends ActiveNodeConfig {
 
   @override
   NodeConfig get config;
-
-  /// Create a copy of ActiveNodeConfig
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ActiveNodeConfigImplCopyWith<_$ActiveNodeConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -622,9 +581,7 @@ mixin _$AddNodeSheetState {
   String get nameValidationText => throw _privateConstructorUsedError;
   String get urlValidationText => throw _privateConstructorUsedError;
 
-  /// Create a copy of AddNodeSheetState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $AddNodeSheetStateCopyWith<AddNodeSheetState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -652,8 +609,6 @@ class _$AddNodeSheetStateCopyWithImpl<$Res, $Val extends AddNodeSheetState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of AddNodeSheetState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -706,8 +661,6 @@ class __$$AddNodeSheetStateImplCopyWithImpl<$Res>
       $Res Function(_$AddNodeSheetStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AddNodeSheetState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -783,9 +736,7 @@ class _$AddNodeSheetStateImpl implements _AddNodeSheetState {
   int get hashCode => Object.hash(runtimeType, showNameHint, showUrlHint,
       nameValidationText, urlValidationText);
 
-  /// Create a copy of AddNodeSheetState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AddNodeSheetStateImplCopyWith<_$AddNodeSheetStateImpl> get copyWith =>
@@ -808,11 +759,8 @@ abstract class _AddNodeSheetState implements AddNodeSheetState {
   String get nameValidationText;
   @override
   String get urlValidationText;
-
-  /// Create a copy of AddNodeSheetState
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$AddNodeSheetStateImplCopyWith<_$AddNodeSheetStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

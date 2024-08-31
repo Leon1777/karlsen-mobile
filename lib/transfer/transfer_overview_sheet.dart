@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:typed_data';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +9,6 @@ import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../util/ui_util.dart';
 import '../util/user_data_util.dart';
-import '../utils.dart';
 import '../widgets/buttons.dart';
 import '../widgets/dialog.dart';
 import '../widgets/sheet_handle.dart';

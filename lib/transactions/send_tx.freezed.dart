@@ -23,9 +23,7 @@ mixin _$SendTx {
   BigInt? get fee => throw _privateConstructorUsedError;
   String? get note => throw _privateConstructorUsedError;
 
-  /// Create a copy of SendTx
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $SendTxCopyWith<SendTx> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -56,8 +54,6 @@ class _$SendTxCopyWithImpl<$Res, $Val extends SendTx>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of SendTx
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -96,8 +92,6 @@ class _$SendTxCopyWithImpl<$Res, $Val extends SendTx>
     ) as $Val);
   }
 
-  /// Create a copy of SendTx
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $KarlsenUriCopyWith<$Res> get uri {
@@ -106,8 +100,6 @@ class _$SendTxCopyWithImpl<$Res, $Val extends SendTx>
     });
   }
 
-  /// Create a copy of SendTx
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res>? get changeAddress {
@@ -150,8 +142,6 @@ class __$$SendTxImplCopyWithImpl<$Res>
       _$SendTxImpl _value, $Res Function(_$SendTxImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of SendTx
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -248,9 +238,7 @@ class _$SendTxImpl extends _SendTx {
   int get hashCode => Object.hash(runtimeType, uri, changeAddress, amountRaw,
       const DeepCollectionEquality().hash(_utxos), fee, note);
 
-  /// Create a copy of SendTx
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SendTxImplCopyWith<_$SendTxImpl> get copyWith =>
@@ -279,11 +267,8 @@ abstract class _SendTx extends SendTx {
   BigInt? get fee;
   @override
   String? get note;
-
-  /// Create a copy of SendTx
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$SendTxImplCopyWith<_$SendTxImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

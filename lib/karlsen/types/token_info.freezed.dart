@@ -23,12 +23,8 @@ mixin _$TokenInfo {
   String get tokenId => throw _privateConstructorUsedError;
   int get decimals => throw _privateConstructorUsedError;
 
-  /// Serializes this TokenInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of TokenInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $TokenInfoCopyWith<TokenInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,8 +47,6 @@ class _$TokenInfoCopyWithImpl<$Res, $Val extends TokenInfo>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of TokenInfo
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,8 +85,6 @@ class __$$TokenInfoImplCopyWithImpl<$Res>
       _$TokenInfoImpl _value, $Res Function(_$TokenInfoImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of TokenInfo
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -141,13 +133,11 @@ class _$TokenInfoImpl extends _TokenInfo {
                 other.decimals == decimals));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, tokenId, decimals);
 
-  /// Create a copy of TokenInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TokenInfoImplCopyWith<_$TokenInfoImpl> get copyWith =>
@@ -174,11 +164,8 @@ abstract class _TokenInfo extends TokenInfo {
   String get tokenId;
   @override
   int get decimals;
-
-  /// Create a copy of TokenInfo
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$TokenInfoImplCopyWith<_$TokenInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

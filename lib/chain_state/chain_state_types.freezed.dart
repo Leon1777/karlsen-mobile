@@ -24,12 +24,8 @@ mixin _$ChainState {
   BigInt get virtualSelectedParentBlueScore =>
       throw _privateConstructorUsedError;
 
-  /// Serializes this ChainState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ChainState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ChainStateCopyWith<ChainState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,8 +49,6 @@ class _$ChainStateCopyWithImpl<$Res, $Val extends ChainState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ChainState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -93,8 +87,6 @@ class __$$ChainStateImplCopyWithImpl<$Res>
       _$ChainStateImpl _value, $Res Function(_$ChainStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ChainState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -147,14 +139,12 @@ class _$ChainStateImpl implements _ChainState {
                     virtualSelectedParentBlueScore));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, virtualDaaScore, virtualSelectedParentBlueScore);
 
-  /// Create a copy of ChainState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ChainStateImplCopyWith<_$ChainStateImpl> get copyWith =>
@@ -180,11 +170,8 @@ abstract class _ChainState implements ChainState {
   BigInt get virtualDaaScore;
   @override
   BigInt get virtualSelectedParentBlueScore;
-
-  /// Create a copy of ChainState
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ChainStateImplCopyWith<_$ChainStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

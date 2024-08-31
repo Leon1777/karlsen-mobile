@@ -23,12 +23,8 @@ mixin _$Amount {
   BigInt get raw => throw _privateConstructorUsedError;
   TokenInfo get tokenInfo => throw _privateConstructorUsedError;
 
-  /// Serializes this Amount to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of Amount
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $AmountCopyWith<Amount> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -52,8 +48,6 @@ class _$AmountCopyWithImpl<$Res, $Val extends Amount>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Amount
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -72,8 +66,6 @@ class _$AmountCopyWithImpl<$Res, $Val extends Amount>
     ) as $Val);
   }
 
-  /// Create a copy of Amount
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TokenInfoCopyWith<$Res> get tokenInfo {
@@ -104,8 +96,6 @@ class __$$AmountImplCopyWithImpl<$Res>
       _$AmountImpl _value, $Res Function(_$AmountImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Amount
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -148,13 +138,11 @@ class _$AmountImpl extends _Amount {
                 other.tokenInfo == tokenInfo));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, raw, tokenInfo);
 
-  /// Create a copy of Amount
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AmountImplCopyWith<_$AmountImpl> get copyWith =>
@@ -180,11 +168,8 @@ abstract class _Amount extends Amount {
   BigInt get raw;
   @override
   TokenInfo get tokenInfo;
-
-  /// Create a copy of Amount
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$AmountImplCopyWith<_$AmountImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

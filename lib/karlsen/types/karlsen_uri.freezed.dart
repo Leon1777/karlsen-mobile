@@ -19,9 +19,7 @@ mixin _$KarlsenUriParam {
   String get key => throw _privateConstructorUsedError;
   String get value => throw _privateConstructorUsedError;
 
-  /// Create a copy of KarlsenUriParam
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $KarlsenUriParamCopyWith<KarlsenUriParam> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -45,8 +43,6 @@ class _$KarlsenUriParamCopyWithImpl<$Res, $Val extends KarlsenUriParam>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of KarlsenUriParam
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -85,8 +81,6 @@ class __$$KarlsenUriParamImplCopyWithImpl<$Res>
       _$KarlsenUriParamImpl _value, $Res Function(_$KarlsenUriParamImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of KarlsenUriParam
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -134,9 +128,7 @@ class _$KarlsenUriParamImpl extends _KarlsenUriParam {
   @override
   int get hashCode => Object.hash(runtimeType, key, value);
 
-  /// Create a copy of KarlsenUriParam
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$KarlsenUriParamImplCopyWith<_$KarlsenUriParamImpl> get copyWith =>
@@ -154,11 +146,8 @@ abstract class _KarlsenUriParam extends KarlsenUriParam {
   String get key;
   @override
   String get value;
-
-  /// Create a copy of KarlsenUriParam
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$KarlsenUriParamImplCopyWith<_$KarlsenUriParamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -171,9 +160,7 @@ mixin _$KarlsenUri {
   String? get message => throw _privateConstructorUsedError;
   IList<KarlsenUriParam> get others => throw _privateConstructorUsedError;
 
-  /// Create a copy of KarlsenUri
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $KarlsenUriCopyWith<KarlsenUri> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -205,8 +192,6 @@ class _$KarlsenUriCopyWithImpl<$Res, $Val extends KarlsenUri>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of KarlsenUri
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -240,8 +225,6 @@ class _$KarlsenUriCopyWithImpl<$Res, $Val extends KarlsenUri>
     ) as $Val);
   }
 
-  /// Create a copy of KarlsenUri
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get address {
@@ -250,8 +233,6 @@ class _$KarlsenUriCopyWithImpl<$Res, $Val extends KarlsenUri>
     });
   }
 
-  /// Create a copy of KarlsenUri
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AmountCopyWith<$Res>? get amount {
@@ -294,8 +275,6 @@ class __$$KarlsenUriImplCopyWithImpl<$Res>
       _$KarlsenUriImpl _value, $Res Function(_$KarlsenUriImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of KarlsenUri
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -369,9 +348,7 @@ class _$KarlsenUriImpl extends _KarlsenUri {
   int get hashCode => Object.hash(runtimeType, address, amount, label, message,
       const DeepCollectionEquality().hash(others));
 
-  /// Create a copy of KarlsenUri
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$KarlsenUriImplCopyWith<_$KarlsenUriImpl> get copyWith =>
@@ -397,11 +374,8 @@ abstract class _KarlsenUri extends KarlsenUri {
   String? get message;
   @override
   IList<KarlsenUriParam> get others;
-
-  /// Create a copy of KarlsenUri
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$KarlsenUriImplCopyWith<_$KarlsenUriImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

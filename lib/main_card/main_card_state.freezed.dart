@@ -78,9 +78,6 @@ class _$MainCardStateCopyWithImpl<$Res, $Val extends MainCardState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of MainCardState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -97,9 +94,6 @@ class __$$ShowBalanceImplCopyWithImpl<$Res>
   __$$ShowBalanceImplCopyWithImpl(
       _$ShowBalanceImpl _value, $Res Function(_$ShowBalanceImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of MainCardState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -209,9 +203,6 @@ class __$$HideBalanceImplCopyWithImpl<$Res>
   __$$HideBalanceImplCopyWithImpl(
       _$HideBalanceImpl _value, $Res Function(_$HideBalanceImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of MainCardState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -321,9 +312,6 @@ class __$$HideAllImplCopyWithImpl<$Res>
   __$$HideAllImplCopyWithImpl(
       _$HideAllImpl _value, $Res Function(_$HideAllImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of MainCardState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc

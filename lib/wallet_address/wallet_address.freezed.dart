@@ -26,12 +26,8 @@ mixin _$WalletAddress {
   Address get address => throw _privateConstructorUsedError;
   bool get used => throw _privateConstructorUsedError;
 
-  /// Serializes this WalletAddress to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of WalletAddress
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $WalletAddressCopyWith<WalletAddress> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,8 +54,6 @@ class _$WalletAddressCopyWithImpl<$Res, $Val extends WalletAddress>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of WalletAddress
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -93,8 +87,6 @@ class _$WalletAddressCopyWithImpl<$Res, $Val extends WalletAddress>
     ) as $Val);
   }
 
-  /// Create a copy of WalletAddress
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get address {
@@ -127,8 +119,6 @@ class __$$WalletAddressImplCopyWithImpl<$Res>
       _$WalletAddressImpl _value, $Res Function(_$WalletAddressImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of WalletAddress
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -206,14 +196,12 @@ class _$WalletAddressImpl extends _WalletAddress {
             (identical(other.used, used) || other.used == used));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, index, type, name, address, used);
 
-  /// Create a copy of WalletAddress
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$WalletAddressImplCopyWith<_$WalletAddressImpl> get copyWith =>
@@ -249,11 +237,8 @@ abstract class _WalletAddress extends WalletAddress {
   Address get address;
   @override
   bool get used;
-
-  /// Create a copy of WalletAddress
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$WalletAddressImplCopyWith<_$WalletAddressImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

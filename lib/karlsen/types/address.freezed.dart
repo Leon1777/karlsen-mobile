@@ -64,9 +64,7 @@ mixin _$Address {
   }) =>
       throw _privateConstructorUsedError;
 
-  /// Create a copy of Address
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $AddressCopyWith<Address> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -88,8 +86,6 @@ class _$AddressCopyWithImpl<$Res, $Val extends Address>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Address
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -123,8 +119,6 @@ class __$$AddressPublicKeyImplCopyWithImpl<$Res>
       $Res Function(_$AddressPublicKeyImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Address
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -169,9 +163,7 @@ class _$AddressPublicKeyImpl extends _AddressPublicKey {
   int get hashCode => Object.hash(
       runtimeType, prefix, const DeepCollectionEquality().hash(publicKey));
 
-  /// Create a copy of Address
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AddressPublicKeyImplCopyWith<_$AddressPublicKeyImpl> get copyWith =>
@@ -258,11 +250,8 @@ abstract class _AddressPublicKey extends Address {
   @override
   AddressPrefix get prefix;
   Uint8List get publicKey;
-
-  /// Create a copy of Address
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$AddressPublicKeyImplCopyWith<_$AddressPublicKeyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -286,8 +275,6 @@ class __$$AddressPubKeyECDSAImplCopyWithImpl<$Res>
       $Res Function(_$AddressPubKeyECDSAImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Address
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -332,9 +319,7 @@ class _$AddressPubKeyECDSAImpl extends _AddressPubKeyECDSA {
   int get hashCode => Object.hash(
       runtimeType, prefix, const DeepCollectionEquality().hash(publicKey));
 
-  /// Create a copy of Address
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AddressPubKeyECDSAImplCopyWith<_$AddressPubKeyECDSAImpl> get copyWith =>
@@ -421,11 +406,8 @@ abstract class _AddressPubKeyECDSA extends Address {
   @override
   AddressPrefix get prefix;
   Uint8List get publicKey;
-
-  /// Create a copy of Address
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$AddressPubKeyECDSAImplCopyWith<_$AddressPubKeyECDSAImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -449,8 +431,6 @@ class __$$AddressScriptHashImplCopyWithImpl<$Res>
       $Res Function(_$AddressScriptHashImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Address
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -494,9 +474,7 @@ class _$AddressScriptHashImpl extends _AddressScriptHash {
   int get hashCode => Object.hash(
       runtimeType, prefix, const DeepCollectionEquality().hash(hash));
 
-  /// Create a copy of Address
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AddressScriptHashImplCopyWith<_$AddressScriptHashImpl> get copyWith =>
@@ -583,11 +561,8 @@ abstract class _AddressScriptHash extends Address {
   @override
   AddressPrefix get prefix;
   Uint8List get hash;
-
-  /// Create a copy of Address
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$AddressScriptHashImplCopyWith<_$AddressScriptHashImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

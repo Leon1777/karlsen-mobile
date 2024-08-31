@@ -23,12 +23,8 @@ mixin _$TxNote {
   String get txId => throw _privateConstructorUsedError;
   String get note => throw _privateConstructorUsedError;
 
-  /// Serializes this TxNote to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of TxNote
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $TxNoteCopyWith<TxNote> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -50,8 +46,6 @@ class _$TxNoteCopyWithImpl<$Res, $Val extends TxNote>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of TxNote
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -89,8 +83,6 @@ class __$$TxNoteImplCopyWithImpl<$Res>
       _$TxNoteImpl _value, $Res Function(_$TxNoteImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of TxNote
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -137,13 +129,11 @@ class _$TxNoteImpl implements _TxNote {
             (identical(other.note, note) || other.note == note));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, txId, note);
 
-  /// Create a copy of TxNote
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TxNoteImplCopyWith<_$TxNoteImpl> get copyWith =>
@@ -167,11 +157,8 @@ abstract class _TxNote implements TxNote {
   String get txId;
   @override
   String get note;
-
-  /// Create a copy of TxNote
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$TxNoteImplCopyWith<_$TxNoteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

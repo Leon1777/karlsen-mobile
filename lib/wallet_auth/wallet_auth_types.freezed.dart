@@ -78,9 +78,6 @@ class _$WalletStatusCopyWithImpl<$Res, $Val extends WalletStatus>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of WalletStatus
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -98,9 +95,6 @@ class __$$WalletStatusNoWalletsImplCopyWithImpl<$Res>
   __$$WalletStatusNoWalletsImplCopyWithImpl(_$WalletStatusNoWalletsImpl _value,
       $Res Function(_$WalletStatusNoWalletsImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of WalletStatus
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -215,8 +209,6 @@ class __$$WalletStatusNoSelectionImplCopyWithImpl<$Res>
       $Res Function(_$WalletStatusNoSelectionImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of WalletStatus
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -256,9 +248,7 @@ class _$WalletStatusNoSelectionImpl implements _WalletStatusNoSelection {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(wallets));
 
-  /// Create a copy of WalletStatus
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$WalletStatusNoSelectionImplCopyWith<_$WalletStatusNoSelectionImpl>
@@ -340,10 +330,7 @@ abstract class _WalletStatusNoSelection implements WalletStatus {
       _$WalletStatusNoSelectionImpl;
 
   IList<WalletInfo> get wallets;
-
-  /// Create a copy of WalletStatus
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$WalletStatusNoSelectionImplCopyWith<_$WalletStatusNoSelectionImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -367,8 +354,6 @@ class __$$WalletStatusSelectedImplCopyWithImpl<$Res>
       $Res Function(_$WalletStatusSelectedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of WalletStatus
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -382,8 +367,6 @@ class __$$WalletStatusSelectedImplCopyWithImpl<$Res>
     ));
   }
 
-  /// Create a copy of WalletStatus
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $WalletInfoCopyWith<$Res> get wallet {
@@ -417,9 +400,7 @@ class _$WalletStatusSelectedImpl implements _WalletStatusSelected {
   @override
   int get hashCode => Object.hash(runtimeType, wallet);
 
-  /// Create a copy of WalletStatus
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$WalletStatusSelectedImplCopyWith<_$WalletStatusSelectedImpl>
@@ -501,10 +482,7 @@ abstract class _WalletStatusSelected implements WalletStatus {
       _$WalletStatusSelectedImpl;
 
   WalletInfo get wallet;
-
-  /// Create a copy of WalletStatus
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$WalletStatusSelectedImplCopyWith<_$WalletStatusSelectedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -517,9 +495,7 @@ mixin _$WalletAuth {
   bool get isEncrypted => throw _privateConstructorUsedError;
   bool get hasMnemonic => throw _privateConstructorUsedError;
 
-  /// Create a copy of WalletAuth
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $WalletAuthCopyWith<WalletAuth> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -550,8 +526,6 @@ class _$WalletAuthCopyWithImpl<$Res, $Val extends WalletAuth>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of WalletAuth
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -585,8 +559,6 @@ class _$WalletAuthCopyWithImpl<$Res, $Val extends WalletAuth>
     ) as $Val);
   }
 
-  /// Create a copy of WalletAuth
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $WalletInfoCopyWith<$Res> get wallet {
@@ -623,8 +595,6 @@ class __$$WalletAuthImplCopyWithImpl<$Res>
       _$WalletAuthImpl _value, $Res Function(_$WalletAuthImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of WalletAuth
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -708,9 +678,7 @@ class _$WalletAuthImpl implements _WalletAuth {
   int get hashCode => Object.hash(
       runtimeType, wallet, encryptedSecret, isLocked, isEncrypted, hasMnemonic);
 
-  /// Create a copy of WalletAuth
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$WalletAuthImplCopyWith<_$WalletAuthImpl> get copyWith =>
@@ -735,11 +703,8 @@ abstract class _WalletAuth implements WalletAuth {
   bool get isEncrypted;
   @override
   bool get hasMnemonic;
-
-  /// Create a copy of WalletAuth
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$WalletAuthImplCopyWith<_$WalletAuthImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

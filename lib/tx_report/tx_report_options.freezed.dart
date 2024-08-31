@@ -20,9 +20,7 @@ mixin _$TxReportOptions {
   bool get ignoreInternalTxs => throw _privateConstructorUsedError;
   bool get refreshTxs => throw _privateConstructorUsedError;
 
-  /// Create a copy of TxReportOptions
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $TxReportOptionsCopyWith<TxReportOptions> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -46,8 +44,6 @@ class _$TxReportOptionsCopyWithImpl<$Res, $Val extends TxReportOptions>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of TxReportOptions
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,8 +87,6 @@ class __$$TxReportOptionsImplCopyWithImpl<$Res>
       _$TxReportOptionsImpl _value, $Res Function(_$TxReportOptionsImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of TxReportOptions
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -157,9 +151,7 @@ class _$TxReportOptionsImpl implements _TxReportOptions {
   int get hashCode => Object.hash(
       runtimeType, ignoreCompoundTxs, ignoreInternalTxs, refreshTxs);
 
-  /// Create a copy of TxReportOptions
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TxReportOptionsImplCopyWith<_$TxReportOptionsImpl> get copyWith =>
@@ -179,11 +171,8 @@ abstract class _TxReportOptions implements TxReportOptions {
   bool get ignoreInternalTxs;
   @override
   bool get refreshTxs;
-
-  /// Create a copy of TxReportOptions
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$TxReportOptionsImplCopyWith<_$TxReportOptionsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -202,9 +191,7 @@ mixin _$TxReportItem {
   String get toAddress => throw _privateConstructorUsedError;
   String get note => throw _privateConstructorUsedError;
 
-  /// Create a copy of TxReportItem
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $TxReportItemCopyWith<TxReportItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -239,8 +226,6 @@ class _$TxReportItemCopyWithImpl<$Res, $Val extends TxReportItem>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of TxReportItem
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -335,8 +320,6 @@ class __$$TxReportItemImplCopyWithImpl<$Res>
       _$TxReportItemImpl _value, $Res Function(_$TxReportItemImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of TxReportItem
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -488,9 +471,7 @@ class _$TxReportItemImpl implements _TxReportItem {
       toAddress,
       note);
 
-  /// Create a copy of TxReportItem
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TxReportItemImplCopyWith<_$TxReportItemImpl> get copyWith =>
@@ -533,11 +514,8 @@ abstract class _TxReportItem implements TxReportItem {
   String get toAddress;
   @override
   String get note;
-
-  /// Create a copy of TxReportItem
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$TxReportItemImplCopyWith<_$TxReportItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

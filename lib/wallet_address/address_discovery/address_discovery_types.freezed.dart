@@ -20,9 +20,7 @@ mixin _$ScanIndexes {
   int? get scanned => throw _privateConstructorUsedError;
   int? get last => throw _privateConstructorUsedError;
 
-  /// Create a copy of ScanIndexes
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ScanIndexesCopyWith<ScanIndexes> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -46,8 +44,6 @@ class _$ScanIndexesCopyWithImpl<$Res, $Val extends ScanIndexes>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ScanIndexes
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,8 +87,6 @@ class __$$ScanIndexesImplCopyWithImpl<$Res>
       _$ScanIndexesImpl _value, $Res Function(_$ScanIndexesImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ScanIndexes
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -147,9 +141,7 @@ class _$ScanIndexesImpl extends _ScanIndexes {
   @override
   int get hashCode => Object.hash(runtimeType, start, scanned, last);
 
-  /// Create a copy of ScanIndexes
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ScanIndexesImplCopyWith<_$ScanIndexesImpl> get copyWith =>
@@ -169,11 +161,8 @@ abstract class _ScanIndexes extends ScanIndexes {
   int? get scanned;
   @override
   int? get last;
-
-  /// Create a copy of ScanIndexes
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ScanIndexesImplCopyWith<_$ScanIndexesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

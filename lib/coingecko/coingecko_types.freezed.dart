@@ -24,12 +24,8 @@ mixin _$CoinGeckoPrice {
   Decimal get price => throw _privateConstructorUsedError;
   int get timestamp => throw _privateConstructorUsedError;
 
-  /// Serializes this CoinGeckoPrice to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of CoinGeckoPrice
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $CoinGeckoPriceCopyWith<CoinGeckoPrice> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,8 +49,6 @@ class _$CoinGeckoPriceCopyWithImpl<$Res, $Val extends CoinGeckoPrice>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CoinGeckoPrice
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -98,8 +92,6 @@ class __$$CoinGeckoPriceImplCopyWithImpl<$Res>
       _$CoinGeckoPriceImpl _value, $Res Function(_$CoinGeckoPriceImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CoinGeckoPrice
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -159,13 +151,11 @@ class _$CoinGeckoPriceImpl extends _CoinGeckoPrice {
                 other.timestamp == timestamp));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, currency, price, timestamp);
 
-  /// Create a copy of CoinGeckoPrice
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CoinGeckoPriceImplCopyWith<_$CoinGeckoPriceImpl> get copyWith =>
@@ -196,11 +186,8 @@ abstract class _CoinGeckoPrice extends CoinGeckoPrice {
   Decimal get price;
   @override
   int get timestamp;
-
-  /// Create a copy of CoinGeckoPrice
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$CoinGeckoPriceImplCopyWith<_$CoinGeckoPriceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

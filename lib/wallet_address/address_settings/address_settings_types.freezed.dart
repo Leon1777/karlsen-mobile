@@ -22,12 +22,8 @@ AddressSettings _$AddressSettingsFromJson(Map<String, dynamic> json) {
 mixin _$AddressSettings {
   AddressFilter get addressFilter => throw _privateConstructorUsedError;
 
-  /// Serializes this AddressSettings to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of AddressSettings
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $AddressSettingsCopyWith<AddressSettings> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,8 +47,6 @@ class _$AddressSettingsCopyWithImpl<$Res, $Val extends AddressSettings>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of AddressSettings
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,8 +80,6 @@ class __$$AddressSettingsImplCopyWithImpl<$Res>
       _$AddressSettingsImpl _value, $Res Function(_$AddressSettingsImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AddressSettings
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -128,13 +120,11 @@ class _$AddressSettingsImpl implements _AddressSettings {
                 other.addressFilter == addressFilter));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, addressFilter);
 
-  /// Create a copy of AddressSettings
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AddressSettingsImplCopyWith<_$AddressSettingsImpl> get copyWith =>
@@ -158,11 +148,8 @@ abstract class _AddressSettings implements AddressSettings {
 
   @override
   AddressFilter get addressFilter;
-
-  /// Create a copy of AddressSettings
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$AddressSettingsImplCopyWith<_$AddressSettingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

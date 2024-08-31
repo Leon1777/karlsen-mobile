@@ -23,12 +23,8 @@ mixin _$TxIndex {
   String get txId => throw _privateConstructorUsedError;
   int get blockTime => throw _privateConstructorUsedError;
 
-  /// Serializes this TxIndex to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of TxIndex
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $TxIndexCopyWith<TxIndex> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -50,8 +46,6 @@ class _$TxIndexCopyWithImpl<$Res, $Val extends TxIndex>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of TxIndex
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -89,8 +83,6 @@ class __$$TxIndexImplCopyWithImpl<$Res>
       _$TxIndexImpl _value, $Res Function(_$TxIndexImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of TxIndex
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -139,13 +131,11 @@ class _$TxIndexImpl implements _TxIndex {
                 other.blockTime == blockTime));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, txId, blockTime);
 
-  /// Create a copy of TxIndex
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TxIndexImplCopyWith<_$TxIndexImpl> get copyWith =>
@@ -169,11 +159,8 @@ abstract class _TxIndex implements TxIndex {
   String get txId;
   @override
   int get blockTime;
-
-  /// Create a copy of TxIndex
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$TxIndexImplCopyWith<_$TxIndexImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -187,12 +174,8 @@ mixin _$TxInputData {
   String get address => throw _privateConstructorUsedError;
   int get amount => throw _privateConstructorUsedError;
 
-  /// Serializes this TxInputData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of TxInputData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $TxInputDataCopyWith<TxInputData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -216,8 +199,6 @@ class _$TxInputDataCopyWithImpl<$Res, $Val extends TxInputData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of TxInputData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -256,8 +237,6 @@ class __$$TxInputDataImplCopyWithImpl<$Res>
       _$TxInputDataImpl _value, $Res Function(_$TxInputDataImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of TxInputData
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -304,13 +283,11 @@ class _$TxInputDataImpl implements _TxInputData {
             (identical(other.amount, amount) || other.amount == amount));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, address, amount);
 
-  /// Create a copy of TxInputData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TxInputDataImplCopyWith<_$TxInputDataImpl> get copyWith =>
@@ -336,11 +313,8 @@ abstract class _TxInputData implements TxInputData {
   String get address;
   @override
   int get amount;
-
-  /// Create a copy of TxInputData
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$TxInputDataImplCopyWith<_$TxInputDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -355,12 +329,8 @@ mixin _$Tx {
   List<TxInputData?> get inputData => throw _privateConstructorUsedError;
   int get lastUpdate => throw _privateConstructorUsedError;
 
-  /// Serializes this Tx to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of Tx
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $TxCopyWith<Tx> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -384,8 +354,6 @@ class _$TxCopyWithImpl<$Res, $Val extends Tx> implements $TxCopyWith<$Res> {
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Tx
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -409,8 +377,6 @@ class _$TxCopyWithImpl<$Res, $Val extends Tx> implements $TxCopyWith<$Res> {
     ) as $Val);
   }
 
-  /// Create a copy of Tx
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ApiTransactionCopyWith<$Res> get apiTx {
@@ -439,8 +405,6 @@ class __$$TxImplCopyWithImpl<$Res> extends _$TxCopyWithImpl<$Res, _$TxImpl>
   __$$TxImplCopyWithImpl(_$TxImpl _value, $Res Function(_$TxImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Tx
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -509,14 +473,12 @@ class _$TxImpl extends _Tx {
                 other.lastUpdate == lastUpdate));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, apiTx,
       const DeepCollectionEquality().hash(_inputData), lastUpdate);
 
-  /// Create a copy of Tx
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TxImplCopyWith<_$TxImpl> get copyWith =>
@@ -545,11 +507,8 @@ abstract class _Tx extends Tx {
   List<TxInputData?> get inputData;
   @override
   int get lastUpdate;
-
-  /// Create a copy of Tx
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$TxImplCopyWith<_$TxImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -560,9 +519,7 @@ mixin _$TxItem {
   int get outputIndex => throw _privateConstructorUsedError;
   TxItemType get type => throw _privateConstructorUsedError;
 
-  /// Create a copy of TxItem
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $TxItemCopyWith<TxItem> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -586,8 +543,6 @@ class _$TxItemCopyWithImpl<$Res, $Val extends TxItem>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of TxItem
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -611,8 +566,6 @@ class _$TxItemCopyWithImpl<$Res, $Val extends TxItem>
     ) as $Val);
   }
 
-  /// Create a copy of TxItem
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TxCopyWith<$Res> get tx {
@@ -643,8 +596,6 @@ class __$$TxItemImplCopyWithImpl<$Res>
       _$TxItemImpl _value, $Res Function(_$TxItemImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of TxItem
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -688,9 +639,7 @@ class _$TxItemImpl extends _TxItem {
     return 'TxItem(tx: $tx, outputIndex: $outputIndex, type: $type)';
   }
 
-  /// Create a copy of TxItem
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TxItemImplCopyWith<_$TxItemImpl> get copyWith =>
@@ -710,11 +659,8 @@ abstract class _TxItem extends TxItem {
   int get outputIndex;
   @override
   TxItemType get type;
-
-  /// Create a copy of TxItem
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$TxItemImplCopyWith<_$TxItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -777,9 +723,6 @@ class _$TxListItemCopyWithImpl<$Res, $Val extends TxListItem>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of TxListItem
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -801,8 +744,6 @@ class __$$TxListItemTxItemImplCopyWithImpl<$Res>
       $Res Function(_$TxListItemTxItemImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of TxListItem
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -816,8 +757,6 @@ class __$$TxListItemTxItemImplCopyWithImpl<$Res>
     ));
   }
 
-  /// Create a copy of TxListItem
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TxItemCopyWith<$Res> get tx {
@@ -851,9 +790,7 @@ class _$TxListItemTxItemImpl extends _TxListItemTxItem {
   @override
   int get hashCode => Object.hash(runtimeType, tx);
 
-  /// Create a copy of TxListItem
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TxListItemTxItemImplCopyWith<_$TxListItemTxItemImpl> get copyWith =>
@@ -928,10 +865,7 @@ abstract class _TxListItemTxItem extends TxListItem {
   _TxListItemTxItem._() : super._();
 
   TxItem get tx;
-
-  /// Create a copy of TxListItem
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$TxListItemTxItemImplCopyWith<_$TxListItemTxItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -953,8 +887,6 @@ class __$$TxListItemLoaderImplCopyWithImpl<$Res>
       $Res Function(_$TxListItemLoaderImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of TxListItem
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -993,9 +925,7 @@ class _$TxListItemLoaderImpl extends _TxListItemLoader {
   @override
   int get hashCode => Object.hash(runtimeType, hasMore);
 
-  /// Create a copy of TxListItem
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TxListItemLoaderImplCopyWith<_$TxListItemLoaderImpl> get copyWith =>
@@ -1070,10 +1000,7 @@ abstract class _TxListItemLoader extends TxListItem {
   _TxListItemLoader._() : super._();
 
   bool get hasMore;
-
-  /// Create a copy of TxListItem
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$TxListItemLoaderImplCopyWith<_$TxListItemLoaderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1147,9 +1074,6 @@ class _$TxStateCopyWithImpl<$Res, $Val extends TxState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of TxState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1166,9 +1090,6 @@ class __$$TxStateUnknownImplCopyWithImpl<$Res>
   __$$TxStateUnknownImplCopyWithImpl(
       _$TxStateUnknownImpl _value, $Res Function(_$TxStateUnknownImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of TxState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1283,9 +1204,6 @@ class __$$TxStateUnconfirmedImplCopyWithImpl<$Res>
   __$$TxStateUnconfirmedImplCopyWithImpl(_$TxStateUnconfirmedImpl _value,
       $Res Function(_$TxStateUnconfirmedImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of TxState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1403,8 +1321,6 @@ class __$$TxStateConfirmingImplCopyWithImpl<$Res>
       $Res Function(_$TxStateConfirmingImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of TxState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1444,9 +1360,7 @@ class _$TxStateConfirmingImpl implements _TxStateConfirming {
   @override
   int get hashCode => Object.hash(runtimeType, confirmations);
 
-  /// Create a copy of TxState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TxStateConfirmingImplCopyWith<_$TxStateConfirmingImpl> get copyWith =>
@@ -1533,10 +1447,7 @@ abstract class _TxStateConfirming implements TxState {
       _$TxStateConfirmingImpl;
 
   BigInt get confirmations;
-
-  /// Create a copy of TxState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$TxStateConfirmingImplCopyWith<_$TxStateConfirmingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1555,9 +1466,6 @@ class __$$TxStateConfirmedImplCopyWithImpl<$Res>
   __$$TxStateConfirmedImplCopyWithImpl(_$TxStateConfirmedImpl _value,
       $Res Function(_$TxStateConfirmedImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of TxState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
