@@ -10,7 +10,7 @@ import '../l10n/l10n.dart';
 import '../util/numberutil.dart';
 import '../widgets/app_text_field.dart';
 import '../widgets/fiat_value_container.dart';
-import '../widgets/kls_icon_widget.dart';
+import '../widgets/karlsen_icon_widget.dart';
 
 final amountProvider = StateProvider.autoDispose<Amount?>((ref) => null);
 
@@ -111,7 +111,7 @@ class ReceiveAmountField extends HookConsumerWidget {
                     .update((state) => !state),
               )
             : TextFieldButton(
-                widget: Image.asset(kKlsIconPath, width: 40, height: 40),
+                widget: Image.asset(kKarlsenIconPath, width: 40, height: 40),
               ),
         suffixButton: TextFieldButton(
           icon: Icons.clear,
