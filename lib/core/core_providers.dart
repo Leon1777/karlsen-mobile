@@ -93,7 +93,7 @@ final addressPrefixProvider = Provider((ref) {
 final _karlsenApiProvider = Provider<KarlsenApi>((ref) {
   final network = ref.watch(networkProvider);
   if (network == KarlsenNetwork.mainnet) {
-    return KarlsenApiMainnet('https://api.karlsen.org');
+    return KarlsenApiMainnet('https://api.karlsencoin.com');
   }
   return KarlsenApiEmpty();
 });
