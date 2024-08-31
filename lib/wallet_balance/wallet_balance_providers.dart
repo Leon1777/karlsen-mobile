@@ -149,7 +149,7 @@ final formatedKarlsenPriceProvider = Provider.autoDispose((ref) {
   final decimalFormatter = DecimalFormatter(formatter);
   final priceStr = decimalFormatter.format(price);
 
-  return '$priceStr /                                       ';
+  return '$priceStr / KLS';
 });
 
 final fiatValueForAddressProvider =
