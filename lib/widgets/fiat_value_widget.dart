@@ -39,7 +39,7 @@ class FiatValueWidget extends ConsumerWidget {
             ),
       child: Container(
         child: Text(
-          showAmount ? '≈ $amountValue KAS' : '≈ $fiatValue',
+          showAmount ? '≈ $amountValue KLS' : '≈ $fiatValue',
           style: styles.textStyleTransactionAmount,
         ),
       ),

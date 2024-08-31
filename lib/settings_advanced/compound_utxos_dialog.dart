@@ -129,13 +129,13 @@ class CompoundUtxosDialog extends ConsumerWidget {
                       Container(
                         padding: EdgeInsets.symmetric(vertical: 8),
                         child: Text(
-                          '$balance KAS',
+                          '$balance KLS',
                           style: styles.textStyleSettingItemHeader,
                         ),
                       ),
                       Container(
                         child: Text(
-                          '${maxSend} KAS',
+                          '${maxSend} KLS',
                           style: styles.textStyleSettingItemHeader,
                         ),
                       ),

@@ -95,7 +95,7 @@ class TransactionsWidget extends ConsumerWidget {
 
   const TransactionsWidget({
     Key? key,
-    this.tokenSymbol = 'KAS',
+    this.tokenSymbol = 'KLS',
   }) : super(key: key);
 
   @override
