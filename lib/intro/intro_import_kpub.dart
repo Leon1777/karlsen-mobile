@@ -49,11 +49,10 @@ class IntroImportKpub extends HookConsumerWidget {
         return;
       }
       final result = await UserDataUtil.scanQrCode(context);
-      final code = result?.code;
-      if (code == null) {
+      if (result == null || result.isEmpty) {
         return;
       }
-      final kpub = code.trim();
+      final kpub = result.trim();
       if (isValidKpub(kpub)) {
         kpubController.text = kpub;
         return;

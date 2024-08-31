@@ -164,7 +164,7 @@ class NodeAddSheet extends HookConsumerWidget {
     Future<void> scanUrl() async {
       FocusManager.instance.primaryFocus?.unfocus();
       final scanResult = await UserDataUtil.scanQrCode(context);
-      final url = scanResult?.code;
+      final url = scanResult;
       if (url == null) {
         return;
       }

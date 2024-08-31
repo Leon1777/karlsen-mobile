@@ -153,7 +153,7 @@ class _ContactAddSheetState extends ConsumerState<ContactAddSheet> {
                 icon: AppIcons.scan,
                 onPressed: () async {
                   final scanResult = await UserDataUtil.scanQrCode(context);
-                  final data = scanResult?.code;
+                  final data = scanResult;
                   if (data == null) {
                     UIUtil.showSnackbar(l10n.qrInvalidAddress, context);
                   } else {

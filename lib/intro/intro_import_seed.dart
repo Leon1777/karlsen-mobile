@@ -120,10 +120,10 @@ class IntroImportSeed extends HookConsumerWidget {
       }
       // Scan QR for mnemonic
       final result = await UserDataUtil.scanQrCode(context);
-      if (result?.code == null) {
+      if (result == null) {
         return;
       }
-      final data = result!.code!.trim();
+      final data = result.trim();
       final mData = data.toLowerCase();
       if (isValidMnemonic(mData, verifyChecksum: false) &&
           mData.split(' ').length == mnemonicLength) {

@@ -1,8 +1,7 @@
-import 'package:barcode_finder/barcode_finder.dart' as bf;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
 
 import '../app_providers.dart';
 import '../l10n/l10n.dart';
@@ -19,20 +18,19 @@ class QrScannerWidget extends ConsumerStatefulWidget {
 
 class _QrScannerWidgetState extends ConsumerState<QrScannerWidget> {
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-  Barcode? result;
-  QRViewController? controller;
+  String? result;
+  MobileScannerController controller = MobileScannerController();
   bool _shouldScan = true;
   bool _flashOn = false;
-  bool _flashToggled = false;
 
   @override
   void reassemble() {
     super.reassemble();
 
     if (kPlatformIsAndroid) {
-      controller?.pauseCamera();
+      controller.stop();
     } else if (kPlatformIsIOS) {
-      controller?.resumeCamera();
+      controller.start();
     }
   }
 
@@ -65,12 +63,11 @@ class _QrScannerWidgetState extends ConsumerState<QrScannerWidget> {
         return;
       }
       try {
-        final code = await bf.BarcodeFinder.scanFile(
-          path: file.path,
-          formats: const [bf.BarcodeFormat.QR_CODE],
-        );
-        if (code == null) throw Exception(l10n.emptyResult);
-        result = Barcode(code, BarcodeFormat.qrcode, null);
+        final barcode = await controller.analyzeImage(file.path);
+        if (barcode == null || barcode.barcodes.isEmpty) {
+          throw Exception(l10n.emptyResult);
+        }
+        result = barcode.barcodes.first.rawValue;
         Navigator.of(context).pop(result);
       } catch (e) {
         UIUtil.showSnackbar(l10n.noQrCodeFound, context);
@@ -79,35 +76,32 @@ class _QrScannerWidgetState extends ConsumerState<QrScannerWidget> {
     }
 
     Future<void> toggleFlash() async {
-      if (_flashToggled) return;
-      var flashState = _flashOn;
       try {
-        controller?.toggleFlash();
-        flashState = await controller?.getFlashStatus() ?? false;
+        _flashOn = !_flashOn;
+        controller.toggleTorch();
+        setState(() {});
       } catch (e) {
-        flashState = false;
+        UIUtil.showSnackbar('Failed to toggle flash', context);
       }
-      if (_flashOn != flashState) {
-        setState(() {
-          _flashOn = flashState;
-        });
-      }
-      _flashToggled = false;
     }
 
     return Scaffold(
       body: Stack(children: [
-        QRView(
+        MobileScanner(
           key: qrKey,
-          onQRViewCreated: _onQRViewCreated,
-          onPermissionSet: _onPermissionSet,
-          formatsAllowed: [BarcodeFormat.qrcode],
-          overlay: QrScannerOverlayShape(
-            borderColor: Colors.white,
-            borderRadius: 10,
-            borderLength: 30,
-            borderWidth: 10,
-            cutOutSize: scanArea,
+          controller: controller,
+          onDetect: (barcodeCapture) {
+            final barcodes = barcodeCapture.barcodes;
+            if (barcodes.isNotEmpty && _shouldScan) {
+              _shouldScan = false;
+              result = barcodes.first.rawValue;
+              Navigator.of(context).pop(result);
+            }
+          },
+          scanWindow: Rect.fromCenter(
+            center: Offset(scanArea, scanArea),
+            width: scanArea,
+            height: scanArea,
           ),
         ),
         SafeArea(
@@ -163,29 +157,9 @@ class _QrScannerWidgetState extends ConsumerState<QrScannerWidget> {
     );
   }
 
-  void _onPermissionSet(QRViewController ctrl, bool p) {
-    if (!p) {
-      final l10n = l10nOf(context);
-      UIUtil.showSnackbar(l10n.checkCameraPermission, context);
-    }
-  }
-
-  void _onQRViewCreated(QRViewController _controller) async {
-    controller = _controller;
-    if (kPlatformIsAndroid) {
-      await _controller.resumeCamera();
-    }
-    _controller.scannedDataStream.listen((event) {
-      if (result == null && _shouldScan) {
-        result = event;
-        Navigator.of(context).pop(result);
-      }
-    });
-  }
-
   @override
   void dispose() {
-    controller?.dispose();
+    controller.dispose();
     super.dispose();
   }
 }

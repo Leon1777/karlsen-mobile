@@ -131,10 +131,11 @@ class _TransferOverviewSheetState extends ConsumerState<TransferOverviewSheet> {
                     // UIUtil.cancelLockEvent();
                     final result = await UserDataUtil.scanQrCode(context);
 
-                    if (result?.rawBytes != null) {
-                      final data = Uint8List.fromList(result!.rawBytes!);
-                      final seed = bytesToHex(data);
+                    if (result != null && result.isNotEmpty) {
+                      final seed = result;
                       startTransfer(seed);
+                    } else {
+                      UIUtil.showSnackbar('Invalid QR code data', context);
                     }
                   },
                 ),

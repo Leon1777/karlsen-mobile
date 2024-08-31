@@ -32,7 +32,7 @@ class MainCard extends ConsumerWidget {
 
     Future<void> scanQrCode() async {
       final qrCode = await UserDataUtil.scanQrCode(context);
-      final data = qrCode?.code;
+      final data = qrCode;
       if (data == null) {
         return;
       }

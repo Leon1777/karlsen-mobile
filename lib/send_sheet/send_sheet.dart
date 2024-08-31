@@ -210,7 +210,7 @@ class _SendSheetState extends ConsumerState<SendSheet> {
       FocusManager.instance.primaryFocus?.unfocus();
 
       final qrCode = await UserDataUtil.scanQrCode(context);
-      final qrData = qrCode?.code;
+      final qrData = qrCode;
       if (qrData == null) {
         return;
       }
@@ -970,7 +970,7 @@ class _SendSheetState extends ConsumerState<SendSheet> {
                 FocusManager.instance.primaryFocus?.unfocus();
 
                 final qr = await UserDataUtil.scanQrCode(context);
-                final data = qr?.code;
+                final data = qr;
                 if (data == null) {
                   return;
                 }
