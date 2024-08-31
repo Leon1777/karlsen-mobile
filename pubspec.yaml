@@ -2,7 +2,7 @@ name: karlsen_mobile
 description: The Ultimate Self-Custodial Wallet for the Karlsen Network.
 publish_to: "none"
 
-version: 1.0.0
+version: 2.0.0
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
