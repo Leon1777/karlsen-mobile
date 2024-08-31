@@ -23,7 +23,7 @@ class VoidKarlsenClient extends KarlsenClient {
       : super(
           channel: ClientChannel(
             'localhost',
-            port: 42210,
+            port: 42110,
             options: ChannelOptions(
               credentials: ChannelCredentials.insecure(),
             ),
