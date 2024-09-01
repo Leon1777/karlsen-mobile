@@ -153,7 +153,7 @@ class _ContactAddSheetState extends ConsumerState<ContactAddSheet> {
                 icon: AppIcons.scan,
                 onPressed: () async {
                   final scanResult = await UserDataUtil.scanQrCode(context);
-                  final data = scanResult?.code;
+                  final data = scanResult;
                   if (data == null) {
                     UIUtil.showSnackbar(l10n.qrInvalidAddress, context);
                   } else {
@@ -299,7 +299,7 @@ class _ContactAddSheetState extends ConsumerState<ContactAddSheet> {
       if (_addressController.text.isEmpty) {
         isValid = false;
         setState(() {
-          _addressValidationText = l10n.addressMising;
+          _addressValidationText = l10n.addressMissing;
         });
       } else if (Address.tryParse(_addressController.text,
               expectedPrefix: prefix) ==

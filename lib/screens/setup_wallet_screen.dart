@@ -31,10 +31,11 @@ class SetupWalletScreen extends HookConsumerWidget {
       try {
         setupFailed.value = false;
         final introData = ref.read(introDataProvider);
+        ref.read(introDataProvider.notifier).clear();
 
         final seed = await introData.seed;
 
-        final walletData;
+        final WalletData walletData;
         if (introData.kpub case final kpub?) {
           final walletKind = WalletKind.localHdSchnorr(viewOnly: true);
           walletData = WalletData.kpub(
@@ -48,7 +49,8 @@ class SetupWalletScreen extends HookConsumerWidget {
           }
           WalletKind walletKind;
           if (introData.mnemonic?.split(' ').length == 12) {
-            final wallet = HdWallet.forSeedHex(seed, legacy: false, type: HdWalletType.legacy);
+            final wallet = HdWallet.forSeedHex(seed,
+                legacy: false, type: HdWalletType.legacy);
             final pubKey = wallet.derivePublicKey(typeIndex: 0, index: 0);
             walletKind = WalletKind.localHdLegacy(mainPubKey: pubKey.hex);
           } else {
@@ -67,7 +69,8 @@ class SetupWalletScreen extends HookConsumerWidget {
         // setup wallet
         final network = ref.read(networkProvider);
         final notifier = ref.read(walletBundleProvider.notifier);
-        final wallet = await notifier.setupWallet(walletData, legacy: introData.legacy);
+        final wallet =
+            await notifier.setupWallet(walletData, legacy: introData.legacy);
         await notifier.selectWallet(wallet, network);
 
         final auth = ref.read(walletAuthNotifierProvider);
@@ -142,7 +145,7 @@ class SetupWalletScreen extends HookConsumerWidget {
         Navigator.of(context).pushNamedAndRemoveUntil('/', (_) => false);
       } catch (e, st) {
         final log = ref.read(loggerProvider);
-        log.e('Failed to create wallet', e, st);
+        log.e('Failed to send transaction', error: e, stackTrace: st);
 
         setupFailed.value = true;
         setupError.value = e;

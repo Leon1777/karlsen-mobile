@@ -1,9 +1,7 @@
 import 'dart:typed_data';
 
-import 'package:coinslib/coinslib.dart';
-
 import '../utils.dart';
-import 'bip32_desktop.dart';
+import 'bip32/bip32.dart';
 import 'network.dart';
 import 'types/address_prefix.dart';
 
@@ -12,6 +10,17 @@ const kSeedSize = 64;
 const kKaspaDerivationPath = "m/44'/111111'/0'";
 const kKarlsenDerivationPath = "m/44'/121337'/0'";
 const kLegacyDerivationPath = "m/44'/972/0'";
+
+String convertIfXpub(String hdPubKey) {
+  if (hdPubKey.startsWith('xpub')) {
+    try {
+      final bip32 = BIP32.fromBase58(hdPubKey);
+      bip32.network = networkTypeForNetwork(KarlsenNetwork.mainnet);
+      return bip32.toBase58();
+    } catch (_) {}
+  }
+  return hdPubKey;
+}
 
 String convertHdPublicKey(String hdPubKey, KarlsenNetwork toNetwork) {
   final network = networkForKpub(hdPubKey);
@@ -137,7 +146,8 @@ abstract class HdWallet implements HdWalletView {
     required NetworkType networkType,
   }) {
     final bip32 = BIP32.fromSeed(seed, networkType);
-    final child = bip32.derivePath(legacy ? kKaspaDerivationPath : kKarlsenDerivationPath);
+    final child = bip32
+        .derivePath(legacy ? kKaspaDerivationPath : kKarlsenDerivationPath);
     return child.neutered().toBase58();
   }
 }
@@ -149,7 +159,9 @@ class HdWalletEcdsa extends HdWallet {
     Uint8List seed, {
     required bool legacy,
   }) : super._() {
-    _bip32 = BIP32.fromSeed(seed).derivePath(legacy ? kKaspaDerivationPath : kKarlsenDerivationPath);
+    _bip32 = BIP32
+        .fromSeed(seed)
+        .derivePath(legacy ? kKaspaDerivationPath : kKarlsenDerivationPath);
   }
 
   @override

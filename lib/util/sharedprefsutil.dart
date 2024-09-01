@@ -22,7 +22,8 @@ class SharedPrefsUtil {
   static const String cur_currency = 'fkarlsen_mobile_currency_pref';
   static const String cur_language = 'fkarlsen_mobile_language_pref';
   static const String cur_theme = 'fkarlsen_mobile_theme_pref';
-  static const String firstcontact_added = 'fkarlsen_mobile_first_contact_added';
+  static const String firstcontact_added =
+      'fkarlsen_mobile_first_contact_added';
   // If user has seen the root/jailbreak warning yet
   static const String has_shown_root_warning = 'fkarlsen_mobile_root_warn';
   static const String notice_shown = 'fkarlsen_mobile_notice_shown';

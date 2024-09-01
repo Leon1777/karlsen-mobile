@@ -45,7 +45,7 @@ class IntroScreen extends HookConsumerWidget {
           return true;
         } catch (e, st) {
           final log = ref.read(loggerProvider);
-          log.e('Failed to save pin to vault', e, st);
+          log.e('Failed to save pin to vault', error: e, stackTrace: st);
           return false;
         }
       }
@@ -73,7 +73,8 @@ class IntroScreen extends HookConsumerWidget {
         IntroPage.passwordOnLaunch => const IntroPasswordOnLaunch(),
         IntroPage.password => const IntroPassword(),
         IntroPage.importSelect => const IntroImportSelect(),
-        IntroPage.importSeedLegacyDerivation => const IntroImportSeed(isLegacyDerivation: true),
+        IntroPage.importSeedLegacyDerivation =>
+          const IntroImportSeed(isLegacyDerivation: true),
         IntroPage.importSeed => const IntroImportSeed(),
         IntroPage.importLegacySeed => const IntroImportSeed(isLegacy: true),
         IntroPage.importKpub => const IntroImportKpub(),

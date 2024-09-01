@@ -23,7 +23,7 @@ class VoidKarlsenClient extends KarlsenClient {
       : super(
           channel: ClientChannel(
             'localhost',
-            port: 42210,
+            port: 42110,
             options: ChannelOptions(
               credentials: ChannelCredentials.insecure(),
             ),
@@ -190,10 +190,14 @@ class KarlsenClient {
 
   // Submit Transaction
 
-  Future<String> submitTransaction(RpcTransaction transaction) async {
+  Future<String> submitTransaction(
+    RpcTransaction transaction, {
+    bool allowOrphan = false,
+  }) async {
     final message = KarlsendMessage(
       submitTransactionRequest: SubmitTransactionRequestMessage(
         transaction: transaction,
+        allowOrphan: allowOrphan,
       ),
     );
 

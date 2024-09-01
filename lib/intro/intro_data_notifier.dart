@@ -28,7 +28,8 @@ class IntroDataNotifier extends StateNotifier<IntroData> {
     setMnemonic(mnemonic, generated: true, legacy: false);
   }
 
-  void setMnemonic(String mnemonic, {bool generated = false, bool legacy = false}) {
+  void setMnemonic(String mnemonic,
+      {bool generated = false, bool legacy = false}) {
     final seed = compute(_computeSeed, mnemonic, debugLabel: 'ComputeSeed');
     state = state.copyWith(
       mnemonic: mnemonic,

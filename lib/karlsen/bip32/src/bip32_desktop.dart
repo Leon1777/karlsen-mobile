@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:bs58check/bs58check.dart' as bs58check;
-import 'package:coinslib/coinslib.dart';
-import 'package:coinslib/src/models/networks.dart' as networks;
-import 'package:coinslib/src/utils/crypto.dart';
-import 'package:coinslib/src/utils/ecurve.dart' as ecc;
+import '../../bs58check/bs58check.dart' as bs58check;
+import 'bip32_base.dart';
+import 'models/networks.dart' as networks;
+import 'models/networks.dart';
+import 'utils/crypto.dart';
+import 'utils/ecurve.dart' as ecc;
 
 class BIP32Desktop extends BIP32 {
   BIP32Desktop(super._d, super._Q, super.chainCode, super.network);
@@ -134,7 +135,7 @@ class BIP32Desktop extends BIP32 {
       throw ArgumentError("Seed should be at most 512 bits");
     }
     NetworkType network = nw ?? networks.bitcoin;
-    final i = hmacSHA512(utf8.encode("Bitcoin seed") as Uint8List, seed);
+    final i = hmacSHA512(utf8.encode("Bitcoin seed"), seed);
     final il = i.sublist(0, 32);
     final ir = i.sublist(32);
     return BIP32Desktop.fromPrivateKey(il, ir, network);

@@ -87,6 +87,12 @@ class WalletKind with _$WalletKind {
         localHdEcdsa: (viewOnly) => viewOnly,
         localHdLegacy: (_) => false,
       );
+
+  bool get isLegacy => when(
+        localHdSchnorr: (_) => false,
+        localHdEcdsa: (_) => false,
+        localHdLegacy: (_) => true,
+      );
 }
 
 @freezed
@@ -106,6 +112,10 @@ class WalletInfo with _$WalletInfo {
       _$WalletInfoFromJson(json);
 
   bool get isViewOnly => kind.isViewOnly;
+
+  bool get isLegacy => kind.isLegacy;
+
+  bool get hasValidKpub => !kind.isLegacy;
 
   BoxInfo getBoxInfo(KarlsenNetwork network) => boxInfo.getBoxInfo(network);
 

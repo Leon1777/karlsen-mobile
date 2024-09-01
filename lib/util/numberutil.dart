@@ -28,9 +28,8 @@ class NumberUtil {
       return '0';
     }
 
-
     final valueScale = max(value.scale - value.precision + 9, 2);
-    final scale = min(min(valueScale, strScale), 8);
+    final scale = min(min(valueScale, strScale), amount.decimals);
     value = value.truncate(scale: scale);
 
     final formatter = NumberFormat.currency(
@@ -38,7 +37,8 @@ class NumberUtil {
       symbol: '',
       decimalDigits: scale,
     );
-    final formated = formatter.format(DecimalIntl(value)).trim();
+    final decimalFormatter = DecimalFormatter(formatter);
+    final formated = decimalFormatter.format(value).trim();
 
     return formated;
   }

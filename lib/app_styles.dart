@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'themes/themes.dart';
 
 const kDefaultFontFamily = 'NunitoSans';
+const kMonospaceFontFamily = 'RobotoMono';
 
 class AppFontSizes {
   static const smallest = 12.0;
@@ -183,7 +184,7 @@ class AppStyles {
       fontSize: AppFontSizes.small,
       height: 1.5,
       fontWeight: FontWeight.w100,
-      fontFamily: 'OverpassMono',
+      fontFamily: kMonospaceFontFamily,
     );
   }
 
@@ -193,7 +194,7 @@ class AppStyles {
       fontSize: AppFontSizes.small,
       height: 1.5,
       fontWeight: FontWeight.w100,
-      fontFamily: 'OverpassMono',
+      fontFamily: kMonospaceFontFamily,
     );
   }
 
@@ -203,7 +204,7 @@ class AppStyles {
       fontSize: AppFontSizes.small,
       height: 1.5,
       fontWeight: FontWeight.w100,
-      fontFamily: 'OverpassMono',
+      fontFamily: kMonospaceFontFamily,
     );
   }
 
@@ -213,7 +214,7 @@ class AppStyles {
       fontSize: AppFontSizes.small,
       height: 1.5,
       fontWeight: FontWeight.w100,
-      fontFamily: 'OverpassMono',
+      fontFamily: kMonospaceFontFamily,
     );
   }
 
@@ -223,7 +224,7 @@ class AppStyles {
       fontSize: AppFontSizes.small,
       height: 1.5,
       fontWeight: FontWeight.w100,
-      fontFamily: 'OverpassMono',
+      fontFamily: kMonospaceFontFamily,
     );
   }
 
@@ -385,7 +386,7 @@ class AppStyles {
   TextStyle get textStyleTransactionAddress {
     return TextStyle(
       fontSize: AppFontSizes.smallest,
-      fontFamily: 'OverpassMono',
+      fontFamily: kMonospaceFontFamily,
       fontWeight: FontWeight.w100,
       color: theme.text60,
     );
@@ -493,22 +494,31 @@ class AppStyles {
   );
 
   // Text style for seed text
-  TextStyle get textStyleSeed {
+  TextStyle get textStyleSeedPrimary {
     return TextStyle(
       fontSize: AppFontSizes.small,
       fontWeight: FontWeight.w100,
-      fontFamily: 'OverpassMono',
+      fontFamily: kMonospaceFontFamily,
       color: theme.primary,
       height: 1.5,
       letterSpacing: 1,
     );
   }
 
+  late final textStyleSeed = TextStyle(
+    fontSize: AppFontSizes.small,
+    fontWeight: FontWeight.w100,
+    fontFamily: kMonospaceFontFamily,
+    color: theme.text,
+    height: 1.5,
+    letterSpacing: 1,
+  );
+
   TextStyle get textStyleSeedGray {
     return TextStyle(
       fontSize: AppFontSizes.small,
       fontWeight: FontWeight.w100,
-      fontFamily: 'OverpassMono',
+      fontFamily: kMonospaceFontFamily,
       color: theme.text60,
       height: 1.5,
       letterSpacing: 1,
@@ -520,7 +530,7 @@ class AppStyles {
     return TextStyle(
       fontSize: AppFontSizes.small,
       fontWeight: FontWeight.w100,
-      fontFamily: 'OverpassMono',
+      fontFamily: kMonospaceFontFamily,
       color: theme.primary,
       height: 1,
       letterSpacing: 1,
@@ -531,7 +541,7 @@ class AppStyles {
     return TextStyle(
       fontSize: AppFontSizes.small,
       fontWeight: FontWeight.w100,
-      fontFamily: 'OverpassMono',
+      fontFamily: kMonospaceFontFamily,
       color: theme.text60,
       height: 1,
       letterSpacing: 1,
@@ -542,7 +552,7 @@ class AppStyles {
     return TextStyle(
       fontSize: AppFontSizes.small,
       fontWeight: FontWeight.w100,
-      fontFamily: 'OverpassMono',
+      fontFamily: kMonospaceFontFamily,
       color: theme.success,
       height: 1.5,
       letterSpacing: 1,
@@ -694,7 +704,7 @@ class AppStyles {
     return TextStyle(
       fontSize: AppFontSizes.small,
       color: theme.primary,
-      fontFamily: 'OverpassMono',
+      fontFamily: kMonospaceFontFamily,
       fontWeight: FontWeight.w100,
     );
   }
@@ -704,7 +714,7 @@ class AppStyles {
     return TextStyle(
       fontSize: AppFontSizes.small,
       color: theme.success,
-      fontFamily: 'OverpassMono',
+      fontFamily: kMonospaceFontFamily,
       fontWeight: FontWeight.w100,
     );
   }
@@ -714,7 +724,7 @@ class AppStyles {
     return TextStyle(
       fontSize: AppFontSizes.small,
       color: theme.text30,
-      fontFamily: 'OverpassMono',
+      fontFamily: kMonospaceFontFamily,
       fontWeight: FontWeight.w100,
     );
   }
@@ -862,11 +872,11 @@ class AppStyles {
         borderRadius: BorderRadius.circular(10),
       ),
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.text15;
-        if (states.contains(MaterialState.hovered)) return theme.text05;
-        if (states.contains(MaterialState.pressed)) return theme.text15;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.text15;
+        if (states.contains(WidgetState.hovered)) return theme.text05;
+        if (states.contains(WidgetState.pressed)) return theme.text15;
         return null;
       }),
     );
@@ -880,11 +890,29 @@ class AppStyles {
         borderRadius: BorderRadius.circular(10),
       ),
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.text15;
-        if (states.contains(MaterialState.hovered)) return theme.text05;
-        if (states.contains(MaterialState.pressed)) return theme.text15;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.text15;
+        if (states.contains(WidgetState.hovered)) return theme.text05;
+        if (states.contains(WidgetState.pressed)) return theme.text15;
+        return null;
+      }),
+    );
+  }
+
+  ButtonStyle get fieldCardButtonStyle {
+    return TextButton.styleFrom(
+      backgroundColor: theme.backgroundDarkest,
+      padding: EdgeInsets.zero,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(25),
+      ),
+    ).copyWith(
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.text15;
+        if (states.contains(WidgetState.hovered)) return theme.text05;
+        if (states.contains(WidgetState.pressed)) return theme.text15;
         return null;
       }),
     );
@@ -894,11 +922,11 @@ class AppStyles {
     return TextButton.styleFrom(
       padding: EdgeInsets.zero,
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.text15;
-        if (states.contains(MaterialState.hovered)) return theme.text05;
-        if (states.contains(MaterialState.pressed)) return theme.text15;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.text15;
+        if (states.contains(WidgetState.hovered)) return theme.text05;
+        if (states.contains(WidgetState.pressed)) return theme.text15;
         return null;
       }),
     );
@@ -911,11 +939,11 @@ class AppStyles {
       ),
       padding: EdgeInsets.zero,
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.text15;
-        if (states.contains(MaterialState.hovered)) return theme.text05;
-        if (states.contains(MaterialState.pressed)) return theme.text15;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.text15;
+        if (states.contains(WidgetState.hovered)) return theme.text05;
+        if (states.contains(WidgetState.pressed)) return theme.text15;
         return null; // Defer to the widget's default.
       }),
     );
@@ -928,11 +956,11 @@ class AppStyles {
       ),
       padding: const EdgeInsets.all(12),
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.text15;
-        if (states.contains(MaterialState.hovered)) return theme.text05;
-        if (states.contains(MaterialState.pressed)) return theme.text15;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.text15;
+        if (states.contains(WidgetState.hovered)) return theme.text05;
+        if (states.contains(WidgetState.pressed)) return theme.text15;
         return null;
       }),
     );
@@ -945,11 +973,11 @@ class AppStyles {
       ),
       padding: const EdgeInsets.all(12),
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.text15;
-        if (states.contains(MaterialState.hovered)) return theme.text05;
-        if (states.contains(MaterialState.pressed)) return theme.text15;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.text15;
+        if (states.contains(WidgetState.hovered)) return theme.text05;
+        if (states.contains(WidgetState.pressed)) return theme.text15;
         return null;
       }),
     );
@@ -962,11 +990,11 @@ class AppStyles {
       ),
       padding: const EdgeInsets.symmetric(horizontal: 12),
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.text15;
-        if (states.contains(MaterialState.hovered)) return theme.text05;
-        if (states.contains(MaterialState.pressed)) return theme.text15;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.text15;
+        if (states.contains(WidgetState.hovered)) return theme.text05;
+        if (states.contains(WidgetState.pressed)) return theme.text15;
         return null;
       }),
     );
@@ -976,13 +1004,13 @@ class AppStyles {
     return TextButton.styleFrom(
       padding: EdgeInsets.zero,
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused))
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused))
           return theme.backgroundDark.withOpacity(0.45);
-        if (states.contains(MaterialState.hovered))
+        if (states.contains(WidgetState.hovered))
           return theme.backgroundDark.withOpacity(0.45);
-        if (states.contains(MaterialState.pressed))
+        if (states.contains(WidgetState.pressed))
           return theme.backgroundDark.withOpacity(0.75);
         return null;
       }),
@@ -995,11 +1023,11 @@ class AppStyles {
       padding: EdgeInsets.zero,
       tapTargetSize: MaterialTapTargetSize.padded,
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.text15;
-        if (states.contains(MaterialState.hovered)) return theme.text05;
-        if (states.contains(MaterialState.pressed)) return theme.text15;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.text15;
+        if (states.contains(WidgetState.hovered)) return theme.text05;
+        if (states.contains(WidgetState.pressed)) return theme.text15;
         return null; // Defer to the widget's default.
       }),
     );
@@ -1013,11 +1041,11 @@ class AppStyles {
       padding: EdgeInsets.zero,
       tapTargetSize: MaterialTapTargetSize.padded,
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.text15;
-        if (states.contains(MaterialState.hovered)) return theme.text05;
-        if (states.contains(MaterialState.pressed)) return theme.text15;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.text15;
+        if (states.contains(WidgetState.hovered)) return theme.text05;
+        if (states.contains(WidgetState.pressed)) return theme.text15;
         return null; // Defer to the widget's default.
       }),
     );
@@ -1031,11 +1059,11 @@ class AppStyles {
       padding: const EdgeInsets.all(13),
       tapTargetSize: MaterialTapTargetSize.padded,
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.text15;
-        if (states.contains(MaterialState.hovered)) return theme.text05;
-        if (states.contains(MaterialState.pressed)) return theme.text15;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.text15;
+        if (states.contains(WidgetState.hovered)) return theme.text05;
+        if (states.contains(WidgetState.pressed)) return theme.text15;
         return null; // Defer to the widget's default.
       }),
     );
@@ -1048,11 +1076,11 @@ class AppStyles {
       ),
       backgroundColor: theme.primary,
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.background40;
-        if (states.contains(MaterialState.hovered)) return theme.background40;
-        if (states.contains(MaterialState.pressed)) return theme.background40;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.background40;
+        if (states.contains(WidgetState.hovered)) return theme.background40;
+        if (states.contains(WidgetState.pressed)) return theme.background40;
         return null; // Defer to the widget's default.
       }),
     );
@@ -1065,11 +1093,11 @@ class AppStyles {
       ),
       backgroundColor: theme.primary60,
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return Colors.transparent;
-        if (states.contains(MaterialState.hovered)) return Colors.transparent;
-        if (states.contains(MaterialState.pressed)) return Colors.transparent;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return Colors.transparent;
+        if (states.contains(WidgetState.hovered)) return Colors.transparent;
+        if (states.contains(WidgetState.pressed)) return Colors.transparent;
         return null; // Defer to the widget's default.
       }),
     );
@@ -1082,11 +1110,11 @@ class AppStyles {
       ),
       backgroundColor: theme.success,
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.success30;
-        if (states.contains(MaterialState.hovered)) return theme.success30;
-        if (states.contains(MaterialState.pressed)) return Colors.transparent;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.success30;
+        if (states.contains(WidgetState.hovered)) return theme.success30;
+        if (states.contains(WidgetState.pressed)) return Colors.transparent;
         return null; // Defer to the widget's default.
       }),
     );
@@ -1101,11 +1129,11 @@ class AppStyles {
       backgroundColor: theme.backgroundDark,
       foregroundColor: theme.success,
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.success15;
-        if (states.contains(MaterialState.hovered)) return theme.success15;
-        if (states.contains(MaterialState.pressed)) return theme.success30;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.success15;
+        if (states.contains(WidgetState.hovered)) return theme.success15;
+        if (states.contains(WidgetState.pressed)) return theme.success30;
         return null;
       }),
       // side: MaterialStateProperty.resolveWith<BorderSide?>(
@@ -1129,11 +1157,11 @@ class AppStyles {
         borderRadius: BorderRadius.circular(100),
       ),
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.primary15;
-        if (states.contains(MaterialState.hovered)) return theme.primary15;
-        if (states.contains(MaterialState.pressed)) return theme.primary30;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.primary15;
+        if (states.contains(WidgetState.hovered)) return theme.primary15;
+        if (states.contains(WidgetState.pressed)) return theme.primary30;
         return null;
       }),
     );
@@ -1148,11 +1176,11 @@ class AppStyles {
         borderRadius: BorderRadius.circular(100),
       ),
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-        (Set<MaterialState> states) {
-          if (states.contains(MaterialState.focused)) return theme.primary15;
-          if (states.contains(MaterialState.hovered)) return theme.primary15;
-          if (states.contains(MaterialState.pressed)) return theme.primary30;
+      overlayColor: WidgetStateProperty.resolveWith<Color?>(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.focused)) return theme.primary15;
+          if (states.contains(WidgetState.hovered)) return theme.primary15;
+          if (states.contains(WidgetState.pressed)) return theme.primary30;
           return null; // Defer to the widget's default.
         },
       ),
@@ -1168,11 +1196,11 @@ class AppStyles {
         borderRadius: BorderRadius.circular(100),
       ),
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-        (Set<MaterialState> states) {
-          if (states.contains(MaterialState.focused)) return theme.primary15;
-          if (states.contains(MaterialState.hovered)) return theme.primary15;
-          if (states.contains(MaterialState.pressed)) return theme.primary30;
+      overlayColor: WidgetStateProperty.resolveWith<Color?>(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.focused)) return theme.primary15;
+          if (states.contains(WidgetState.hovered)) return theme.primary15;
+          if (states.contains(WidgetState.pressed)) return theme.primary30;
           return null; // Defer to the widget's default.
         },
       ),
@@ -1188,11 +1216,11 @@ class AppStyles {
         borderRadius: BorderRadius.circular(100),
       ),
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-        (Set<MaterialState> states) {
-          if (states.contains(MaterialState.focused)) return theme.primary15;
-          if (states.contains(MaterialState.hovered)) return theme.primary15;
-          if (states.contains(MaterialState.pressed)) return theme.primary30;
+      overlayColor: WidgetStateProperty.resolveWith<Color?>(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.focused)) return theme.primary15;
+          if (states.contains(WidgetState.hovered)) return theme.primary15;
+          if (states.contains(WidgetState.pressed)) return theme.primary30;
           return null; // Defer to the widget's default.
         },
       ),
@@ -1208,11 +1236,11 @@ class AppStyles {
         borderRadius: BorderRadius.circular(100),
       ),
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.primary15;
-        if (states.contains(MaterialState.hovered)) return theme.primary15;
-        if (states.contains(MaterialState.pressed)) return theme.primary30;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.primary15;
+        if (states.contains(WidgetState.hovered)) return theme.primary15;
+        if (states.contains(WidgetState.pressed)) return theme.primary30;
         return null; // Defer to the widget's default.
       }),
     );
@@ -1227,11 +1255,11 @@ class AppStyles {
         borderRadius: BorderRadius.circular(100),
       ),
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.primary15;
-        if (states.contains(MaterialState.hovered)) return theme.primary15;
-        if (states.contains(MaterialState.pressed)) return theme.primary30;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.primary15;
+        if (states.contains(WidgetState.hovered)) return theme.primary15;
+        if (states.contains(WidgetState.pressed)) return theme.primary30;
         return null; // Defer to the widget's default.
       }),
     );
@@ -1244,11 +1272,11 @@ class AppStyles {
       ),
       padding: const EdgeInsets.all(10),
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return Colors.transparent;
-        if (states.contains(MaterialState.hovered)) return Colors.transparent;
-        if (states.contains(MaterialState.pressed)) return Colors.transparent;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return Colors.transparent;
+        if (states.contains(WidgetState.hovered)) return Colors.transparent;
+        if (states.contains(WidgetState.pressed)) return Colors.transparent;
         return null; // Defer to the widget's default.
       }),
     );
@@ -1262,11 +1290,11 @@ class AppStyles {
       padding: const EdgeInsets.all(14),
       tapTargetSize: MaterialTapTargetSize.padded,
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.text15;
-        if (states.contains(MaterialState.hovered)) return theme.text05;
-        if (states.contains(MaterialState.pressed)) return theme.text15;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.text15;
+        if (states.contains(WidgetState.hovered)) return theme.text05;
+        if (states.contains(WidgetState.pressed)) return theme.text15;
         return null; // Defer to the widget's default.
       }),
     );
@@ -1282,11 +1310,11 @@ class AppStyles {
       enabledMouseCursor: SystemMouseCursors.click,
       disabledMouseCursor: SystemMouseCursors.basic,
     ).copyWith(
-      overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-        if (states.contains(MaterialState.focused)) return theme.text15;
-        if (states.contains(MaterialState.hovered)) return theme.text05;
-        if (states.contains(MaterialState.pressed)) return theme.text15;
+      overlayColor:
+          WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.focused)) return theme.text15;
+        if (states.contains(WidgetState.hovered)) return theme.text05;
+        if (states.contains(WidgetState.pressed)) return theme.text15;
         return null; // Defer to the widget's default.
       }),
     );

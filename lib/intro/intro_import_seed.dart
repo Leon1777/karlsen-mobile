@@ -14,6 +14,7 @@ import '../widgets/app_text_field.dart';
 import '../widgets/keyboard_widget.dart';
 import 'intro_back_button.dart';
 import 'intro_providers.dart';
+import 'invalid_checksum_dialog.dart';
 
 final _mnemonicProvider = StateProvider.autoDispose((ref) => '');
 
@@ -40,7 +41,9 @@ final _showInvalidChecksumProvider =
 class IntroImportSeed extends HookConsumerWidget {
   final bool isLegacy;
   final bool isLegacyDerivation;
-  const IntroImportSeed({Key? key, this.isLegacy = false, this.isLegacyDerivation = false}) : super(key: key);
+  const IntroImportSeed(
+      {Key? key, this.isLegacy = false, this.isLegacyDerivation = false})
+      : super(key: key);
 
   int get mnemonicLength => isLegacy ? 12 : 24;
 
@@ -117,12 +120,13 @@ class IntroImportSeed extends HookConsumerWidget {
       }
       // Scan QR for mnemonic
       final result = await UserDataUtil.scanQrCode(context);
-      if (result?.code == null) {
+      if (result == null) {
         return;
       }
-      final data = result!.code!.trim();
+      final data = result.trim();
       final mData = data.toLowerCase();
-      if (isValidMnemonic(mData) && mData.split(' ').length == mnemonicLength) {
+      if (isValidMnemonic(mData, verifyChecksum: false) &&
+          mData.split(' ').length == mnemonicLength) {
         ref.read(_mnemonicProvider.notifier).state = mData + ' ';
         updateFocus(mData.length + 1);
         ref.read(wordPrefixProvider.notifier).update((state) => '');
@@ -143,7 +147,8 @@ class IntroImportSeed extends HookConsumerWidget {
         return;
       }
       final text = data.text!.trim().toLowerCase();
-      if (isValidMnemonic(text) && text.split(' ').length == mnemonicLength) {
+      if (isValidMnemonic(text, verifyChecksum: false) &&
+          text.split(' ').length == mnemonicLength) {
         final mnemonic = ref.read(_mnemonicProvider.notifier);
         mnemonic.state = text + ' ';
         updateFocus(text.length + 1);
@@ -156,9 +161,24 @@ class IntroImportSeed extends HookConsumerWidget {
       );
     }
 
-    void submitMnemonic() {
+    Future<void> submitMnemonic() async {
       final mnemonic = ref.read(_mnemonicProvider).trim();
       final intro = ref.read(introStateProvider.notifier);
+
+      final validChecksum = isValidMnemonic(mnemonic, verifyChecksum: true);
+
+      if (!validChecksum) {
+        final confirmed = await showDialog<bool>(
+          barrierColor: ref.read(themeProvider).barrier,
+          barrierDismissible: false,
+          context: context,
+          builder: (_) => InvalidChecksumDialog(),
+        );
+
+        if (confirmed != true) {
+          return;
+        }
+      }
 
       if (isValidMnemonic(mnemonic, verifyChecksum: false)) {
         intro.setMnemonic(mnemonic, legacy: isLegacyDerivation);
@@ -212,7 +232,7 @@ class IntroImportSeed extends HookConsumerWidget {
                   ),
                   Column(children: [
                     Focus(
-                      onKey: (node, event) => KeyEventResult.handled,
+                      onKeyEvent: (node, event) => KeyEventResult.handled,
                       child: AppTextField(
                         leftMargin: 40,
                         rightMargin: 40,

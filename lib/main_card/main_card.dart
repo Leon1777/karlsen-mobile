@@ -32,19 +32,20 @@ class MainCard extends ConsumerWidget {
 
     Future<void> scanQrCode() async {
       final qrCode = await UserDataUtil.scanQrCode(context);
-      final data = qrCode?.code;
+      final data = qrCode;
       if (data == null) {
         return;
       }
 
       final prefix = ref.read(addressPrefixProvider);
       final uri = KarlsenUri.tryParse(data, prefix: prefix);
-      UIUtil.showSendFlow(
-        context,
-        ifNullMessage: l10n.scanQrCodeError,
-        theme: theme,
-        uri: uri,
-      );
+
+      if (uri == null) {
+        UIUtil.showSnackbar(l10n.scanQrCodeError, context);
+        return;
+      }
+
+      UIUtil.showSendFlow(context, ref: ref, uri: uri);
     }
 
     return GestureDetector(

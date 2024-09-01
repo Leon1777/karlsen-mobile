@@ -152,7 +152,7 @@ class NodeAddSheet extends HookConsumerWidget {
           Navigator.of(context).pop();
         }
         final log = ref.read(loggerProvider);
-        log.e('Failed to add node', e, st);
+        log.e('Failed to add node', error: e, stackTrace: st);
 
         final message = l10n.addNodeFailedMessage('$e');
         UIUtil.showSnackbar(message, context);
@@ -164,7 +164,7 @@ class NodeAddSheet extends HookConsumerWidget {
     Future<void> scanUrl() async {
       FocusManager.instance.primaryFocus?.unfocus();
       final scanResult = await UserDataUtil.scanQrCode(context);
-      final url = scanResult?.code;
+      final url = scanResult;
       if (url == null) {
         return;
       }

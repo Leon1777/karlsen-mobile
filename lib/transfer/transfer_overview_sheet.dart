@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:typed_data';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +9,6 @@ import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
 import '../util/ui_util.dart';
 import '../util/user_data_util.dart';
-import '../utils.dart';
 import '../widgets/buttons.dart';
 import '../widgets/dialog.dart';
 import '../widgets/sheet_handle.dart';
@@ -131,10 +129,11 @@ class _TransferOverviewSheetState extends ConsumerState<TransferOverviewSheet> {
                     // UIUtil.cancelLockEvent();
                     final result = await UserDataUtil.scanQrCode(context);
 
-                    if (result?.rawBytes != null) {
-                      final data = Uint8List.fromList(result!.rawBytes!);
-                      final seed = bytesToHex(data);
+                    if (result != null && result.isNotEmpty) {
+                      final seed = result;
                       startTransfer(seed);
+                    } else {
+                      UIUtil.showSnackbar('Invalid QR code data', context);
                     }
                   },
                 ),
@@ -213,7 +212,7 @@ class _TransferOverviewSheetState extends ConsumerState<TransferOverviewSheet> {
       //     .fire(TransferConfirmEvent(balMap: privKeyBalanceMap));
       Navigator.of(context).pop();
     } catch (e) {
-      ref.read(loggerProvider).e("error", e);
+      ref.read(loggerProvider).e("error", error: e);
       if (_animationOpen) {
         Navigator.of(context).pop();
       }

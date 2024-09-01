@@ -12,7 +12,7 @@ part of 'karlsen_uri.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$KarlsenUriParam {
@@ -63,22 +63,22 @@ class _$KarlsenUriParamCopyWithImpl<$Res, $Val extends KarlsenUriParam>
 }
 
 /// @nodoc
-abstract class _$$_KarlsenUriParamCopyWith<$Res>
+abstract class _$$KarlsenUriParamImplCopyWith<$Res>
     implements $KarlsenUriParamCopyWith<$Res> {
-  factory _$$_KarlsenUriParamCopyWith(
-          _$_KarlsenUriParam value, $Res Function(_$_KarlsenUriParam) then) =
-      __$$_KarlsenUriParamCopyWithImpl<$Res>;
+  factory _$$KarlsenUriParamImplCopyWith(_$KarlsenUriParamImpl value,
+          $Res Function(_$KarlsenUriParamImpl) then) =
+      __$$KarlsenUriParamImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String key, String value});
 }
 
 /// @nodoc
-class __$$_KarlsenUriParamCopyWithImpl<$Res>
-    extends _$KarlsenUriParamCopyWithImpl<$Res, _$_KarlsenUriParam>
-    implements _$$_KarlsenUriParamCopyWith<$Res> {
-  __$$_KarlsenUriParamCopyWithImpl(
-      _$_KarlsenUriParam _value, $Res Function(_$_KarlsenUriParam) _then)
+class __$$KarlsenUriParamImplCopyWithImpl<$Res>
+    extends _$KarlsenUriParamCopyWithImpl<$Res, _$KarlsenUriParamImpl>
+    implements _$$KarlsenUriParamImplCopyWith<$Res> {
+  __$$KarlsenUriParamImplCopyWithImpl(
+      _$KarlsenUriParamImpl _value, $Res Function(_$KarlsenUriParamImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$_KarlsenUriParamCopyWithImpl<$Res>
     Object? key = null,
     Object? value = null,
   }) {
-    return _then(_$_KarlsenUriParam(
+    return _then(_$KarlsenUriParamImpl(
       key: null == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
@@ -102,8 +102,8 @@ class __$$_KarlsenUriParamCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_KarlsenUriParam extends _KarlsenUriParam {
-  const _$_KarlsenUriParam({required this.key, required this.value})
+class _$KarlsenUriParamImpl extends _KarlsenUriParam {
+  const _$KarlsenUriParamImpl({required this.key, required this.value})
       : super._();
 
   @override
@@ -117,10 +117,10 @@ class _$_KarlsenUriParam extends _KarlsenUriParam {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_KarlsenUriParam &&
+            other is _$KarlsenUriParamImpl &&
             (identical(other.key, key) || other.key == key) &&
             (identical(other.value, value) || other.value == value));
   }
@@ -131,14 +131,15 @@ class _$_KarlsenUriParam extends _KarlsenUriParam {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_KarlsenUriParamCopyWith<_$_KarlsenUriParam> get copyWith =>
-      __$$_KarlsenUriParamCopyWithImpl<_$_KarlsenUriParam>(this, _$identity);
+  _$$KarlsenUriParamImplCopyWith<_$KarlsenUriParamImpl> get copyWith =>
+      __$$KarlsenUriParamImplCopyWithImpl<_$KarlsenUriParamImpl>(
+          this, _$identity);
 }
 
 abstract class _KarlsenUriParam extends KarlsenUriParam {
   const factory _KarlsenUriParam(
       {required final String key,
-      required final String value}) = _$_KarlsenUriParam;
+      required final String value}) = _$KarlsenUriParamImpl;
   const _KarlsenUriParam._() : super._();
 
   @override
@@ -147,7 +148,7 @@ abstract class _KarlsenUriParam extends KarlsenUriParam {
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_KarlsenUriParamCopyWith<_$_KarlsenUriParam> get copyWith =>
+  _$$KarlsenUriParamImplCopyWith<_$KarlsenUriParamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -246,11 +247,11 @@ class _$KarlsenUriCopyWithImpl<$Res, $Val extends KarlsenUri>
 }
 
 /// @nodoc
-abstract class _$$_KarlsenUriCopyWith<$Res>
+abstract class _$$KarlsenUriImplCopyWith<$Res>
     implements $KarlsenUriCopyWith<$Res> {
-  factory _$$_KarlsenUriCopyWith(
-          _$_KarlsenUri value, $Res Function(_$_KarlsenUri) then) =
-      __$$_KarlsenUriCopyWithImpl<$Res>;
+  factory _$$KarlsenUriImplCopyWith(
+          _$KarlsenUriImpl value, $Res Function(_$KarlsenUriImpl) then) =
+      __$$KarlsenUriImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -267,11 +268,11 @@ abstract class _$$_KarlsenUriCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_KarlsenUriCopyWithImpl<$Res>
-    extends _$KarlsenUriCopyWithImpl<$Res, _$_KarlsenUri>
-    implements _$$_KarlsenUriCopyWith<$Res> {
-  __$$_KarlsenUriCopyWithImpl(
-      _$_KarlsenUri _value, $Res Function(_$_KarlsenUri) _then)
+class __$$KarlsenUriImplCopyWithImpl<$Res>
+    extends _$KarlsenUriCopyWithImpl<$Res, _$KarlsenUriImpl>
+    implements _$$KarlsenUriImplCopyWith<$Res> {
+  __$$KarlsenUriImplCopyWithImpl(
+      _$KarlsenUriImpl _value, $Res Function(_$KarlsenUriImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -283,7 +284,7 @@ class __$$_KarlsenUriCopyWithImpl<$Res>
     Object? message = freezed,
     Object? others = null,
   }) {
-    return _then(_$_KarlsenUri(
+    return _then(_$KarlsenUriImpl(
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -310,8 +311,8 @@ class __$$_KarlsenUriCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_KarlsenUri extends _KarlsenUri {
-  const _$_KarlsenUri(
+class _$KarlsenUriImpl extends _KarlsenUri {
+  const _$KarlsenUriImpl(
       {required this.address,
       this.amount,
       this.label,
@@ -332,10 +333,10 @@ class _$_KarlsenUri extends _KarlsenUri {
   final IList<KarlsenUriParam> others;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_KarlsenUri &&
+            other is _$KarlsenUriImpl &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.label, label) || other.label == label) &&
@@ -350,8 +351,8 @@ class _$_KarlsenUri extends _KarlsenUri {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_KarlsenUriCopyWith<_$_KarlsenUri> get copyWith =>
-      __$$_KarlsenUriCopyWithImpl<_$_KarlsenUri>(this, _$identity);
+  _$$KarlsenUriImplCopyWith<_$KarlsenUriImpl> get copyWith =>
+      __$$KarlsenUriImplCopyWithImpl<_$KarlsenUriImpl>(this, _$identity);
 }
 
 abstract class _KarlsenUri extends KarlsenUri {
@@ -360,7 +361,7 @@ abstract class _KarlsenUri extends KarlsenUri {
       final Amount? amount,
       final String? label,
       final String? message,
-      final IList<KarlsenUriParam> others}) = _$_KarlsenUri;
+      final IList<KarlsenUriParam> others}) = _$KarlsenUriImpl;
   const _KarlsenUri._() : super._();
 
   @override
@@ -375,6 +376,6 @@ abstract class _KarlsenUri extends KarlsenUri {
   IList<KarlsenUriParam> get others;
   @override
   @JsonKey(ignore: true)
-  _$$_KarlsenUriCopyWith<_$_KarlsenUri> get copyWith =>
+  _$$KarlsenUriImplCopyWith<_$KarlsenUriImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

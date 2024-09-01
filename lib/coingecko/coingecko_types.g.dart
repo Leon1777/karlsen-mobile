@@ -6,23 +6,29 @@ part of 'coingecko_types.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CoinGeckoPrice _$$_CoinGeckoPriceFromJson(Map json) => _$_CoinGeckoPrice(
+_$CoinGeckoPriceImpl _$$CoinGeckoPriceImplFromJson(Map json) =>
+    _$CoinGeckoPriceImpl(
       currency: $enumDecode(_$AvailableCurrenciesEnumMap, json['currency']),
       price: Decimal.fromJson(json['price'] as String),
-      priceBtc: Decimal.fromJson(json['priceBtc'] as String),
+      timestamp: (json['timestamp'] as num?)?.toInt() ?? 0,
     );
 
-Map<String, dynamic> _$$_CoinGeckoPriceToJson(_$_CoinGeckoPrice instance) =>
+Map<String, dynamic> _$$CoinGeckoPriceImplToJson(
+        _$CoinGeckoPriceImpl instance) =>
     <String, dynamic>{
       'currency': _$AvailableCurrenciesEnumMap[instance.currency]!,
       'price': instance.price.toJson(),
-      'priceBtc': instance.priceBtc.toJson(),
+      'timestamp': instance.timestamp,
     };
 
 const _$AvailableCurrenciesEnumMap = {
   AvailableCurrencies.USD: 'USD',
+  AvailableCurrencies.BTC: 'BTC',
   AvailableCurrencies.ARS: 'ARS',
   AvailableCurrencies.AUD: 'AUD',
+  AvailableCurrencies.BDT: 'BDT',
+  AvailableCurrencies.BHD: 'BHD',
+  AvailableCurrencies.BMD: 'BMD',
   AvailableCurrencies.BRL: 'BRL',
   AvailableCurrencies.CAD: 'CAD',
   AvailableCurrencies.CHF: 'CHF',
@@ -32,7 +38,6 @@ const _$AvailableCurrenciesEnumMap = {
   AvailableCurrencies.DKK: 'DKK',
   AvailableCurrencies.EUR: 'EUR',
   AvailableCurrencies.GBP: 'GBP',
-  AvailableCurrencies.UAH: 'UAH',
   AvailableCurrencies.HKD: 'HKD',
   AvailableCurrencies.HUF: 'HUF',
   AvailableCurrencies.IDR: 'IDR',
@@ -41,8 +46,11 @@ const _$AvailableCurrenciesEnumMap = {
   AvailableCurrencies.JPY: 'JPY',
   AvailableCurrencies.KRW: 'KRW',
   AvailableCurrencies.KWD: 'KWD',
+  AvailableCurrencies.LKR: 'LKR',
+  AvailableCurrencies.MMK: 'MMK',
   AvailableCurrencies.MXN: 'MXN',
   AvailableCurrencies.MYR: 'MYR',
+  AvailableCurrencies.NGN: 'NGN',
   AvailableCurrencies.NOK: 'NOK',
   AvailableCurrencies.NZD: 'NZD',
   AvailableCurrencies.PHP: 'PHP',
@@ -56,6 +64,8 @@ const _$AvailableCurrenciesEnumMap = {
   AvailableCurrencies.TRY: 'TRY',
   AvailableCurrencies.TWD: 'TWD',
   AvailableCurrencies.AED: 'AED',
-  AvailableCurrencies.ZAR: 'ZAR',
+  AvailableCurrencies.UAH: 'UAH',
+  AvailableCurrencies.VEF: 'VEF',
   AvailableCurrencies.VND: 'VND',
+  AvailableCurrencies.ZAR: 'ZAR',
 };
