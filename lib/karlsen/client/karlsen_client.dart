@@ -31,13 +31,13 @@ class VoidKarlsenClient extends KarlsenClient {
         );
 
   @override
-  Future<KarlsendMessage> _singleRequest(KarlsendMessage message) async {
-    return KarlsendMessage();
+  Future<KarlsendResponse> _singleRequest(KarlsendRequest message) async {
+    return KarlsendResponse();
   }
 
   @override
-  Stream<KarlsendMessage> _streamRequest(KarlsendMessage message) {
-    return StreamController<KarlsendMessage>().stream;
+  Stream<KarlsendResponse> _streamRequest(KarlsendRequest message) {
+    return StreamController<KarlsendResponse>().stream;
   }
 
   @override
@@ -75,8 +75,8 @@ class KarlsenClient {
 
   Future<void> terminate() => channel.terminate();
 
-  Future<KarlsendMessage> _singleRequest(KarlsendMessage message) async {
-    final request = StreamController<KarlsendMessage>();
+  Future<KarlsendResponse> _singleRequest(KarlsendRequest message) async {
+    final request = StreamController<KarlsendRequest>();
     final response = rpcClient.messageStream(request.stream);
 
     request.sink.add(message);
@@ -88,8 +88,8 @@ class KarlsenClient {
     return result;
   }
 
-  Stream<KarlsendMessage> _streamRequest(KarlsendMessage message) {
-    final request = StreamController<KarlsendMessage>();
+  Stream<KarlsendResponse> _streamRequest(KarlsendRequest message) {
+    final request = StreamController<KarlsendRequest>();
     final response = rpcClient.messageStream(request.stream);
 
     request.sink.add(message);
@@ -97,10 +97,10 @@ class KarlsenClient {
     return response;
   }
 
-  Future<List<BalancesByAddressEntry>> getBalancesByAddresses(
+  Future<List<RpcBalancesByAddressesEntry>> getBalancesByAddresses(
     Iterable<String> addresses,
   ) async {
-    final message = KarlsendMessage(
+    final message = KarlsendRequest(
       getBalancesByAddressesRequest: GetBalancesByAddressesRequestMessage(
         addresses: addresses,
       ),
@@ -114,10 +114,10 @@ class KarlsenClient {
     return response.getBalancesByAddressesResponse.entries;
   }
 
-  Future<List<UtxosByAddressesEntry>> getUtxosByAddresses(
+  Future<List<RpcUtxosByAddressesEntry>> getUtxosByAddresses(
     Iterable<String> addresses,
   ) async {
-    final message = KarlsendMessage(
+    final message = KarlsendRequest(
       getUtxosByAddressesRequest: GetUtxosByAddressesRequestMessage(
         addresses: addresses,
       ),
@@ -135,7 +135,7 @@ class KarlsenClient {
   Stream<UtxosChangedNotificationMessage> notifyUtxosChanged(
     Iterable<String> addresses,
   ) {
-    final message = KarlsendMessage(
+    final message = KarlsendRequest(
       notifyUtxosChangedRequest: NotifyUtxosChangedRequestMessage(
         addresses: addresses,
       ),
@@ -155,7 +155,7 @@ class KarlsenClient {
   }
 
   Future<void> stopNotifyingUtxosChanged(List<String> addresses) async {
-    final message = KarlsendMessage(
+    final message = KarlsendRequest(
       stopNotifyingUtxosChangedRequest: StopNotifyingUtxosChangedRequestMessage(
         addresses: addresses,
       ),
@@ -171,7 +171,7 @@ class KarlsenClient {
   // Block Notifications
 
   Stream<BlockAddedNotificationMessage> notifyBlockAdded() {
-    final message = KarlsendMessage(
+    final message = KarlsendRequest(
       notifyBlockAddedRequest: NotifyBlockAddedRequestMessage(),
     );
 
@@ -194,7 +194,7 @@ class KarlsenClient {
     RpcTransaction transaction, {
     bool allowOrphan = false,
   }) async {
-    final message = KarlsendMessage(
+    final message = KarlsendRequest(
       submitTransactionRequest: SubmitTransactionRequestMessage(
         transaction: transaction,
         allowOrphan: allowOrphan,
@@ -210,14 +210,53 @@ class KarlsenClient {
     return result.submitTransactionResponse.transactionId;
   }
 
+  Future<({String transactionId, RpcTransaction replacedTransaction})>
+      submitTransactionReplacement(RpcTransaction transaction) async {
+    final message = KarlsendRequest(
+      submitTransactionReplacementRequest:
+          SubmitTransactionReplacementRequestMessage(
+        transaction: transaction,
+      ),
+    );
+
+    final result = await _singleRequest(message);
+    final response = result.submitTransactionReplacementResponse;
+
+    final error = response.error;
+    if (error.message.isNotEmpty) {
+      throw RpcException(error);
+    }
+
+    return (
+      transactionId: response.transactionId,
+      replacedTransaction: response.replacedTransaction,
+    );
+  }
+
+  // Fee Estimate
+
+  Future<RpcFeeEstimate> getFeeEstimate() async {
+    final message = KarlsendRequest(
+      getFeeEstimateRequest: GetFeeEstimateRequestMessage(),
+    );
+
+    final result = await _singleRequest(message);
+    final error = result.getFeeEstimateResponse.error;
+    if (error.message.isNotEmpty) {
+      throw RpcException(error);
+    }
+
+    return result.getFeeEstimateResponse.estimate;
+  }
+
   // Mempool
 
-  Future<MempoolEntry> getMempoolEntry({
+  Future<RpcMempoolEntry> getMempoolEntry({
     required String txId,
     bool includeOrphanPool = true,
     bool filterTransactionPool = true,
   }) async {
-    final message = KarlsendMessage(
+    final message = KarlsendRequest(
       getMempoolEntryRequest: GetMempoolEntryRequestMessage(
         txId: txId,
         includeOrphanPool: includeOrphanPool,
@@ -234,11 +273,11 @@ class KarlsenClient {
     return result.getMempoolEntryResponse.entry;
   }
 
-  Future<List<MempoolEntry>> getMempoolEntries({
+  Future<List<RpcMempoolEntry>> getMempoolEntries({
     bool includeOrphanPool = true,
     bool filterTransactionPool = true,
   }) async {
-    final message = KarlsendMessage(
+    final message = KarlsendRequest(
       getMempoolEntriesRequest: GetMempoolEntriesRequestMessage(
         includeOrphanPool: includeOrphanPool,
         filterTransactionPool: filterTransactionPool,
@@ -254,12 +293,12 @@ class KarlsenClient {
     return result.getMempoolEntriesResponse.entries;
   }
 
-  Future<List<MempoolEntryByAddress>> getMempoolEntriesByAddresses(
+  Future<List<RpcMempoolEntryByAddress>> getMempoolEntriesByAddresses(
     Iterable<String> addresses, {
     bool filterTransactionPool = true,
     bool includeOrphanPool = true,
   }) async {
-    final message = KarlsendMessage(
+    final message = KarlsendRequest(
       getMempoolEntriesByAddressesRequest:
           GetMempoolEntriesByAddressesRequestMessage(
         addresses: addresses,
@@ -279,8 +318,8 @@ class KarlsenClient {
 
   // Network info
 
-  Future<String> getNetworkName() async {
-    final message = KarlsendMessage(
+  Future<String> getCurrentNetwork() async {
+    final message = KarlsendRequest(
       getCurrentNetworkRequest: GetCurrentNetworkRequestMessage(),
     );
 
@@ -293,10 +332,24 @@ class KarlsenClient {
     return result.getCurrentNetworkResponse.currentNetwork;
   }
 
+  Future<GetBlockDagInfoResponseMessage> getBlockDagInfo() async {
+    final message = KarlsendRequest(
+      getBlockDagInfoRequest: GetBlockDagInfoRequestMessage(),
+    );
+
+    final result = await _singleRequest(message);
+    final error = result.getBlockDagInfoResponse.error;
+    if (error.message.isNotEmpty) {
+      throw RpcException(error);
+    }
+
+    return result.getBlockDagInfoResponse;
+  }
+
   // Get Info
 
   Future<GetInfoResponseMessage> getInfo() async {
-    final message = KarlsendMessage(
+    final message = KarlsendRequest(
       getInfoRequest: GetInfoRequestMessage(),
     );
 
@@ -311,13 +364,12 @@ class KarlsenClient {
 
   // Virtual Selected Parent Chain Changed
 
-  Stream<VirtualSelectedParentChainChangedNotificationMessage>
+  Stream<VirtualChainChangedNotificationMessage>
       notifyVirtualSelectedParentChainChanged({
     required includeAcceptedTransactionIds,
   }) {
-    final message = KarlsendMessage(
-      notifyVirtualSelectedParentChainChangedRequest:
-          NotifyVirtualSelectedParentChainChangedRequestMessage(
+    final message = KarlsendRequest(
+      notifyVirtualChainChangedRequest: NotifyVirtualChainChangedRequestMessage(
         includeAcceptedTransactionIds: includeAcceptedTransactionIds,
       ),
     );
@@ -325,11 +377,11 @@ class KarlsenClient {
     final response = _streamRequest(message);
 
     final result = response.map((event) {
-      final error = event.notifyVirtualSelectedParentChainChangedResponse.error;
+      final error = event.notifyVirtualChainChangedResponse.error;
       if (error.message.isNotEmpty) {
         throw RpcException(error);
       }
-      return event.virtualSelectedParentChainChangedNotification;
+      return event.virtualChainChangedNotification;
     }).skip(1);
 
     return result;
@@ -338,36 +390,33 @@ class KarlsenClient {
   // Virtual Selected Parent Blue Score
 
   Future<Int64> getVirtualSelectedParentBlueScore() async {
-    final message = KarlsendMessage(
-      getVirtualSelectedParentBlueScoreRequest:
-          GetVirtualSelectedParentBlueScoreRequestMessage(),
+    final message = KarlsendRequest(
+      getSinkBlueScoreRequest: GetSinkBlueScoreRequestMessage(),
     );
 
     final result = await _singleRequest(message);
-    final error = result.getVirtualSelectedParentBlueScoreResponse.error;
+    final error = result.getSinkBlueScoreResponse.error;
     if (error.message.isNotEmpty) {
       throw RpcException(error);
     }
 
-    return result.getVirtualSelectedParentBlueScoreResponse.blueScore;
+    return result.getSinkBlueScoreResponse.blueScore;
   }
 
   Stream<Int64> notifyVirtualSelectedParentBlueScoreChanged() {
-    final message = KarlsendMessage(
-      notifyVirtualSelectedParentBlueScoreChangedRequest:
-          NotifyVirtualSelectedParentBlueScoreChangedRequestMessage(),
+    final message = KarlsendRequest(
+      notifySinkBlueScoreChangedRequest:
+          NotifySinkBlueScoreChangedRequestMessage(),
     );
 
     final response = _streamRequest(message);
 
     final result = response.map((event) {
-      final error =
-          event.notifyVirtualSelectedParentBlueScoreChangedResponse.error;
+      final error = event.notifySinkBlueScoreChangedResponse.error;
       if (error.message.isNotEmpty) {
         throw RpcException(error);
       }
-      return event.virtualSelectedParentBlueScoreChangedNotification
-          .virtualSelectedParentBlueScore;
+      return event.sinkBlueScoreChangedNotification.sinkBlueScore;
     }).skip(1);
 
     return result;
@@ -376,7 +425,7 @@ class KarlsenClient {
   // Virtual DAA Score
 
   Stream<Int64> notifyVirtualDaaScoreChanged() {
-    final message = KarlsendMessage(
+    final message = KarlsendRequest(
       notifyVirtualDaaScoreChangedRequest:
           NotifyVirtualDaaScoreChangedRequestMessage(),
     );
@@ -398,7 +447,7 @@ class KarlsenClient {
     String hash, {
     bool includeTransactions = true,
   }) async {
-    final message = KarlsendMessage(
+    final message = KarlsendRequest(
       getBlockRequest: GetBlockRequestMessage(
         hash: hash,
         includeTransactions: includeTransactions,

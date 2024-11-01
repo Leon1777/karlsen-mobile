@@ -10,6 +10,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../app_providers.dart';
+import '../app_router.dart';
 import '../l10n/l10n.dart';
 import '../util/ui_util.dart';
 import '../widgets/app_simpledialog.dart';
@@ -42,6 +43,7 @@ class DownloadTxsDialog extends HookConsumerWidget {
         final txNotifier = ref.read(txNotifierProvider);
         final txNotes = ref.read(txNotesProvider);
         final addresses = ref.read(addressNotifierProvider);
+        final klsSymbol = ref.read(klsSymbolProvider);
 
         try {
           if (options.refreshTxs) {
@@ -93,7 +95,7 @@ class DownloadTxsDialog extends HookConsumerWidget {
                   return null;
                 }
 
-                return getCsvForItem(item);
+                return getCsvForItem(item, klsSymbol);
               })
               .whereNotNull()
               .toIList();
@@ -112,8 +114,7 @@ class DownloadTxsDialog extends HookConsumerWidget {
     Future<void> downloadCsv() async {
       final exportTime = DateTime.now();
       final format = DateFormat('yyyyMMdd_HHmmss');
-      final fileName =
-          "karlsen_mobile_transactions_${format.format(exportTime)}.csv";
+      final fileName = "karlsium_transactions_${format.format(exportTime)}.csv";
       final baseDiractory = await getTemporaryDirectory();
       final txFile = File('${baseDiractory.path}/$fileName');
       await txFile.writeAsString(csv.value);
@@ -157,7 +158,7 @@ class DownloadTxsDialog extends HookConsumerWidget {
           ),
         TextButton(
           style: styles.dialogButtonStyle,
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => appRouter.pop(context),
           child: Text(
             l10n.cancel.toUpperCase(),
             style: styles.textStyleDialogOptions,

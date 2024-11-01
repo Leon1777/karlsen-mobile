@@ -1136,15 +1136,6 @@ class AppStyles {
         if (states.contains(WidgetState.pressed)) return theme.success30;
         return null;
       }),
-      // side: MaterialStateProperty.resolveWith<BorderSide?>(
-      //     (Set<MaterialState> states) {
-      //   if (states.contains(MaterialState.pressed))
-      //     return BorderSide(
-      //       color: theme.primary,
-      //       width: 2,
-      //     );
-      //   return null;
-      // }),
     );
   }
 

@@ -5,9 +5,10 @@ import '../app_providers.dart';
 import '../karlsen/karlsen.dart';
 
 final _networkBannerProvider = Provider<String?>((ref) {
-  final network = ref.watch(networkProvider);
-  if (network != KarlsenNetwork.mainnet) {
-    return network.name.toUpperCase();
+  final nodeConfig = ref.watch(karlsenNodeConfigProvider);
+
+  if (nodeConfig.network != KarlsenNetwork.mainnet) {
+    return nodeConfig.networkId.toUpperCase();
   }
   return null;
 });

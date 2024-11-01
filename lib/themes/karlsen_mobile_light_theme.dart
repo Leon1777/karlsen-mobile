@@ -6,9 +6,9 @@ import 'base_theme.dart';
 class KarlsenMobileLightTheme extends BaseTheme {
   static const deepBlue = Color(0xFF4c5157);
 
-  static const green = Color(0xFF4c5157);
+  static const steelBlueGrey = Color(0xFF4c5157);
 
-  static const greenLight = Color(0xFF4c5157);
+  static const greyLight = Color(0xFF4c5157);
 
   static const white = Color(0xFFFFFFFF);
 
@@ -30,13 +30,13 @@ class KarlsenMobileLightTheme extends BaseTheme {
   Color primary15 = deepBlue.withOpacity(0.3);
   Color primary10 = deepBlue.withOpacity(0.2);
 
-  Color success = green;
-  Color success60 = green.withOpacity(0.6);
-  Color success30 = green.withOpacity(0.3);
-  Color success15 = green.withOpacity(0.15);
+  Color success = steelBlueGrey;
+  Color success60 = steelBlueGrey.withOpacity(0.6);
+  Color success30 = steelBlueGrey.withOpacity(0.3);
+  Color success15 = steelBlueGrey.withOpacity(0.15);
 
-  Color successDark = greenLight;
-  Color successDark30 = greenLight.withOpacity(0.3);
+  Color successDark = greyLight;
+  Color successDark30 = greyLight.withOpacity(0.3);
 
   Color background = white;
   Color background40 = white.withOpacity(0.4);

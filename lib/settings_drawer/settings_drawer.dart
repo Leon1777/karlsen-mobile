@@ -6,23 +6,23 @@ import 'package:share_plus/share_plus.dart';
 
 import '../app_icons.dart';
 import '../app_providers.dart';
-import '../contacts/contact_labels.dart';
+import '../app_router.dart';
 import '../contacts/contacts_widget.dart';
 import '../karlsen/karlsen.dart';
 import '../l10n/l10n.dart';
-import '../send_sheet/send_sheet.dart';
 import '../settings/available_currency.dart';
 import '../settings/available_language.dart';
 import '../settings/available_themes.dart';
-import '../settings/setting_item.dart';
 import '../settings_advanced/advanced_menu.dart';
 import '../util/platform.dart';
+import '../util/ui_util.dart';
 import '../widgets/app_simpledialog.dart';
 import '../widgets/dialog.dart';
 import '../widgets/gradient_widgets.dart';
 import '../widgets/sheet_util.dart';
 import 'accounts_area.dart';
 import 'currency_dialog.dart';
+import 'donate_menu.dart';
 import 'double_line_item.dart';
 import 'language_dialog.dart';
 import 'network_menu.dart';
@@ -52,10 +52,14 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
   late final AnimationController _advancedController;
   late final Animation<Offset> _advancedOffsetFloat;
 
+  late final AnimationController _donateController;
+  late final Animation<Offset> _donateOffsetFloat;
+
   bool _securityOpen = false;
   bool _contactsOpen = false;
   bool _networkOpen = false;
   bool _advancedOpen = false;
+  bool _donateOpen = false;
 
   @override
   void initState() {
@@ -82,6 +86,11 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
       vsync: this,
       duration: const Duration(milliseconds: 220),
     );
+    // For donate menu
+    _donateController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 220),
+    );
 
     final beginOffset = const Offset(1.1, 0);
     final endOffset = const Offset(0, 0);
@@ -101,6 +110,10 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
       begin: beginOffset,
       end: endOffset,
     ).animate(_advancedController);
+    _donateOffsetFloat = Tween<Offset>(
+      begin: beginOffset,
+      end: endOffset,
+    ).animate(_donateController);
   }
 
   @override
@@ -109,6 +122,7 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
     _securityController.dispose();
     _networkController.dispose();
     _advancedController.dispose();
+    _donateController.dispose();
 
     super.dispose();
   }
@@ -159,6 +173,11 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
     } else if (_advancedOpen) {
       setState(() => _advancedOpen = false);
       _advancedController.reverse();
+    } else if (_donateOpen) {
+      setState(() => _donateOpen = false);
+      _donateController.reverse();
+    } else if (!didPop) {
+      appRouter.pop(context);
     }
   }
 
@@ -207,6 +226,13 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
               _advancedController.reverse();
             }),
           ),
+          SlideTransition(
+            position: _donateOffsetFloat,
+            child: DonateMenu(onBackAction: () {
+              setState(() => _donateOpen = false);
+              _donateController.reverse();
+            }),
+          ),
         ]),
       ),
     );
@@ -221,6 +247,46 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
       final network = ref.watch(networkProvider);
       final wallet = ref.watch(walletProvider);
       final hasMnemonic = ref.watch(walletHasMnemonic);
+
+      final canDonate = !kPlatformIsIOS &&
+          network == KarlsenNetwork.mainnet &&
+          !wallet.isViewOnly;
+
+      Future<void> backupSecretPhrase() async {
+        final authUtil = ref.read(authUtilProvider);
+
+        final mnemonic = await authUtil.getMnemonic(context);
+        if (mnemonic == null) {
+          return;
+        }
+        if (mnemonic.isEmpty) {
+          UIUtil.showSnackbar(l10n.missingSecretPhrase, context);
+          return;
+        }
+
+        Sheets.showAppHeightNineSheet(
+          context: context,
+          theme: theme,
+          widget: SeedBackupSheet(mnemonic: mnemonic),
+        );
+      }
+
+      void share() {
+        Share.share(
+          l10n.shareKarlsenMobileText,
+          subject: l10n.shareKarlsenMobileSubject,
+        );
+      }
+
+      void logout() {
+        AppDialogs.showConfirmDialog(
+          context,
+          l10n.areYouSure,
+          l10n.logoutDialogContent,
+          l10n.yesUppercase,
+          () => appRouter.logout(context),
+        );
+      }
 
       return Container(
         decoration: BoxDecoration(color: theme.backgroundDark),
@@ -261,7 +327,7 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
                         return DoubleLineItem(
                           heading: l10n.language,
                           defaultMethod: ref.watch(languageProvider),
-                          icon: AppIcons.language,
+                          icon: Icons.translate,
                           onPressed: _showLanguageDialog,
                         );
                       }),
@@ -330,99 +396,46 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
                         SingleLineItem(
                           heading: l10n.backupSecretPhrase,
                           settingIcon: AppIcons.backupseed,
-                          onPressed: () async {
-                            final authUtil = ref.read(authUtilProvider);
-                            final walletAuth = ref.read(walletAuthProvider);
-                            final notifier =
-                                ref.read(walletAuthProvider.notifier);
-                            var auth = false;
-                            List<String>? mnemonic = null;
-                            if (walletAuth.isEncrypted) {
-                              final notifier =
-                                  ref.read(walletAuthProvider.notifier);
-                              auth = await authUtil.authenticateWithPassword(
-                                  context, (password) async {
-                                try {
-                                  mnemonic = await notifier.getMnemonic(
-                                      password: password);
-                                  return true;
-                                } catch (e) {
-                                  return false;
-                                }
-                              });
-                            } else {
-                              auth = await authUtil.authenticate(
-                                context,
-                                l10n.pinSeedBackup,
-                                l10n.fingerprintSeedBackup,
-                              );
-                            }
-                            if (auth) {
-                              if (mnemonic == null) {
-                                mnemonic = await notifier.getMnemonic();
-                              }
-                              Sheets.showAppHeightNineSheet(
-                                context: context,
-                                theme: theme,
-                                widget: SeedBackupSheet(mnemonic: mnemonic!),
-                              );
-                            }
-                          },
+                          onPressed: backupSecretPhrase,
                         ),
                       ],
-                      if (!kPlatformIsIOS &&
-                          network == KarlsenNetwork.mainnet &&
-                          !wallet.isViewOnly) ...[
+                      // if (network == KarlsenNetwork.mainnet) ...[
+                      //   Divider(height: 2, color: theme.text15),
+                      //   DoubleLineItem(
+                      //     heading: l10n.buyKarlsenTitle,
+                      //     defaultMethod: BuySettingItem(),
+                      //     icon: Icons.currency_exchange,
+                      //     onPressed: () {
+                      //       Sheets.showAppHeightNineSheet(
+                      //         context: context,
+                      //         theme: theme,
+                      //         widget: const BuySheet(),
+                      //       );
+                      //     },
+                      //   ),
+                      // ],
+                      if (canDonate) ...[
                         Divider(height: 2, color: theme.text15),
-                        DoubleLineItem(
+                        SingleLineItem(
                           heading: l10n.donate,
-                          defaultMethod: DonateSettingItem(),
-                          icon: Icons.handshake_rounded,
+                          settingIcon: Icons.handshake_rounded,
                           onPressed: () {
-                            final uri = KarlsenUri(
-                              address:
-                                  Address.decodeAddress(kKarlsenDevFundAddress),
-                            );
-                            Sheets.showAppHeightNineSheet(
-                              context: context,
-                              theme: theme,
-                              widget: SendSheet(
-                                title: l10n.donate.toUpperCase(),
-                                uri: uri,
-                              ),
-                            );
+                            setState(() => _donateOpen = true);
+                            _donateController.forward();
                           },
                         ),
                       ],
                       Divider(height: 2, color: theme.text15),
                       SingleLineItem(
-                        heading: l10n.shareMobile,
+                        heading: l10n.shareKarlsenMobile,
                         settingIcon: AppIcons.share,
-                        onPressed: () {
-                          Share.share(
-                            l10n.shareMobileText,
-                            subject: l10n.shareMobileSubject,
-                          );
-                        },
+                        onPressed: share,
                       ),
                       Divider(height: 2, color: theme.text15),
                       SingleLineItem(
                         heading: l10n.logoutOrSwitchWallet,
                         settingIcon: AppIcons.logout,
-                        onPressed: () {
-                          AppDialogs.showConfirmDialog(
-                            context,
-                            l10n.areYouSure,
-                            l10n.logoutDialogContent,
-                            l10n.yesUppercase,
-                            () {
-                              Navigator.of(context).pushNamedAndRemoveUntil(
-                                '/logout',
-                                (_) => false,
-                              );
-                            },
-                          );
-                        },
+                        onPressed: logout,
                       ),
                       Divider(height: 2, color: theme.text15),
                       const VersionWidget(),

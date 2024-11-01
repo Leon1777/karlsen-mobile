@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import 'karlsen_api.dart';
+import 'karlsen_api_base.dart';
 import 'types.dart';
 
 class KarlsenApiMainnet implements KarlsenApi {

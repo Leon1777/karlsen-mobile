@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:decimal/decimal.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../app_providers.dart';
 import '../app_styles.dart';
 import '../chain_state/chain_state.dart';
 import '../database/database.dart';
@@ -12,14 +14,11 @@ import '../karlsen/grpc/rpc.pb.dart';
 import '../karlsen/karlsen.dart';
 import '../main_card/main_card_notifier.dart';
 import '../main_card/main_card_state.dart';
-import '../node_settings/node_providers.dart';
-import '../settings/settings_providers.dart';
 import '../util/auth_util.dart';
 import '../util/biometrics.dart';
 import '../util/hapticutil.dart';
 import '../util/sharedprefsutil.dart';
 import '../util/vault.dart';
-import '../utxos/utxos_providers.dart';
 
 final timeProvider = StreamProvider.autoDispose<DateTime>((ref) {
   return Stream.periodic(
@@ -54,8 +53,8 @@ final stylesProvider = Provider((ref) {
 
 final blockExplorerProvider = Provider((ref) {
   final settings = ref.watch(blockExplorerSettingsProvider);
-  final network = ref.watch(networkProvider);
-  return settings.explorerForNetwork(network);
+  final networkId = ref.watch(networkIdProvider);
+  return settings.explorerForNetwork(networkId);
 });
 
 final sharedPrefsProvider =
@@ -63,9 +62,7 @@ final sharedPrefsProvider =
 
 final hapticUtilProvider = Provider((ref) => const HapticUtil());
 final authUtilProvider = Provider((ref) => AuthUtil(ref));
-final biometricUtilProvider = Provider(
-  (ref) => BiometricUtil(ref.watch(loggerProvider)),
-);
+final biometricUtilProvider = Provider((ref) => BiometricUtil());
 final vaultProvider = Provider((ref) => Vault());
 final sharedPrefsUtilProvider = Provider((ref) {
   final sharedPrefs = ref.watch(sharedPrefsProvider);
@@ -83,6 +80,11 @@ final networkProvider = Provider((ref) {
   return config.network;
 });
 
+final networkIdProvider = Provider((ref) {
+  final config = ref.watch(karlsenNodeConfigProvider);
+  return config.networkId;
+});
+
 final addressPrefixProvider = Provider((ref) {
   final network = ref.watch(networkProvider);
   final prefix = addressPrefixForNetwork(network);
@@ -91,11 +93,17 @@ final addressPrefixProvider = Provider((ref) {
 });
 
 final _karlsenApiProvider = Provider<KarlsenApi>((ref) {
-  final network = ref.watch(networkProvider);
-  if (network == KarlsenNetwork.mainnet) {
-    return KarlsenApiMainnet('https://api.karlsencoin.com');
-  }
-  return KarlsenApiEmpty();
+  final networkId = ref.watch(networkIdProvider);
+
+  return switch (networkId) {
+    kKarlsenNetworkIdMainnet =>
+      KarlsenApiMainnet('https://api.karlsencoin.com'),
+    kKarlsenNetworkIdTestnet10 =>
+      KarlsenApiMainnet('https://api.testnet-1.karlsencoin.com'),
+    kKarlsenNetworkIdTestnet11 =>
+      KarlsenApiMainnet('https://api.testnet-11.karlsencoin.com'),
+    _ => KarlsenApiEmpty(),
+  };
 });
 
 final karlsenApiServiceProvider = Provider<KarlsenApiService>((ref) {
@@ -119,7 +127,7 @@ final karlsenClientProvider = Provider((ref) {
 });
 
 final balancesForAddressesProvider = FutureProvider.family
-    .autoDispose<Iterable<BalancesByAddressEntry>, List<String>>(
+    .autoDispose<Iterable<RpcBalancesByAddressesEntry>, List<String>>(
         (ref, addresses) async {
   final client = ref.watch(karlsenClientProvider);
   final balance = await client.getBalancesByAddresses(addresses);
@@ -178,6 +186,7 @@ final virtualSelectedParentBlueScoreStreamProvider = StreamProvider((ref) {
 final remoteRefreshProvider = StateProvider((ref) => 0);
 
 final lockDisabledProvider = StateProvider((ref) => false);
+final privacyOverlayDisabledProvider = StateProvider((ref) => false);
 
 final maxSendProvider = Provider.autoDispose((ref) {
   final utxos = ref.watch(spendableUtxosProvider);
@@ -201,3 +210,98 @@ final appLinkProvider = StateProvider<String?>((ref) {
 });
 
 final fiatModeProvider = StateProvider<bool>((ref) => false);
+
+final pendingTxsProvider = FutureProvider.autoDispose((ref) async {
+  final client = ref.watch(karlsenClientProvider);
+  final addresses = ref.watch(activeAddressesProvider);
+  // refresh when utxos change
+  ref.watch(utxosChangedProvider);
+
+  final pendingTxs = await client.getMempoolEntriesByAddresses(
+    addresses,
+    filterTransactionPool: false,
+    includeOrphanPool: false,
+  );
+
+  return pendingTxs
+      .expand(
+        (entries) => entries.sending.map(
+          (e) => ApiTransaction.fromRpc(e.transaction),
+        ),
+      )
+      .toSet()
+      .toList();
+});
+
+final rpcFeeEstimateProvider = FutureProvider.autoDispose((ref) async {
+  // refresh once every 10 seconds
+  ref.watch(timeProvider);
+  final client = ref.watch(karlsenClientProvider);
+
+  try {
+    final feeEstimate = await client.getFeeEstimate();
+    return feeEstimate;
+  } catch (e) {
+    return null;
+  }
+});
+
+extension BigIntExt on BigInt {
+  BigInt min(BigInt min) => this < min ? min : this;
+}
+
+final feeEstimateProvider = Provider.family
+    .autoDispose<List<(Amount, int?)>, (BigInt, Amount)>((ref, massAndFee) {
+  final mass = massAndFee.$1;
+  final baseFee = massAndFee.$2;
+
+  final feeEstimate = ref.watch(rpcFeeEstimateProvider).valueOrNull;
+  if (feeEstimate == null) {
+    return [
+      (Amount.value(Decimal.parse('0.001')), null),
+      (Amount.value(Decimal.parse('0.01')), null),
+      (Amount.value(Decimal.parse('0.1')), null),
+    ];
+  }
+
+  Amount feeFor(double feeRate, BigInt mass, Amount baseFee) {
+    final estimate = feeRate * mass.toDouble();
+    return Amount.raw((BigInt.from(estimate) - baseFee.raw).min(BigInt.zero));
+  }
+
+  final fees = [
+    if (feeEstimate.lowBuckets.isNotEmpty)
+      (
+        feeFor(feeEstimate.lowBuckets.first.feerate, mass, baseFee),
+        feeEstimate.lowBuckets.first.estimatedSeconds.toInt(),
+      ),
+    if (feeEstimate.normalBuckets.isNotEmpty)
+      (
+        feeFor(feeEstimate.normalBuckets.first.feerate, mass, baseFee),
+        feeEstimate.normalBuckets.first.estimatedSeconds.toInt(),
+      ),
+    (
+      feeFor(feeEstimate.priorityBucket.feerate, mass, baseFee),
+      feeEstimate.priorityBucket.estimatedSeconds.toInt(),
+    ),
+  ].where((fee) => fee.$1.raw > BigInt.zero).toList();
+  return fees;
+});
+
+final klsSymbolProvider = Provider((ref) {
+  final network = ref.watch(networkProvider);
+
+  return switch (network) {
+    KarlsenNetwork.mainnet => 'KLS',
+    _ => 'TKLS',
+  };
+});
+
+final symbolProvider = Provider.family<String, Amount>((ref, amount) {
+  final klsSymbol = ref.watch(klsSymbolProvider);
+  if (amount.tokenInfo.tokenId != TokenInfo.karlsen.tokenId) {
+    return amount.symbolLabel;
+  }
+
+  return klsSymbol;
+});
