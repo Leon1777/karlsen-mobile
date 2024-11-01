@@ -1,9 +1,8 @@
-import '../settings/device_lock_timeout.dart';
 import 'vault.dart';
 
 class LockSettings {
   static const _karlsen_mobile_lock = 'fkarlsen_mobile_lock_dev';
-  static const _karlsen_mobile_lock_timeout = 'fkarlsen_mobile_lock_timeout';
+  static const _karlsen_mobile_autolock = 'fkarlsen_mobile_autolock_dev';
 
   static const _true = 'true';
   static const _false = 'false';
@@ -13,15 +12,13 @@ class LockSettings {
 
   Future<void> setLock(bool value) =>
       vault.set(_karlsen_mobile_lock, value ? _true : _false);
+
   Future<bool> getLock() async =>
-      (await vault.get(_karlsen_mobile_lock) ?? _false) == _true;
+      (await vault.get(_karlsen_mobile_lock) ?? _true) == _true;
 
-  Future<void> setLockTimeout(LockTimeoutSetting setting) =>
-      vault.set(_karlsen_mobile_lock_timeout, setting.getId());
+  Future<void> setAutoLock(bool value) =>
+      vault.set(_karlsen_mobile_autolock, value ? _true : _false);
 
-  Future<LockTimeoutSetting> getLockTimeout() async {
-    final lockTimeout = await vault.get(_karlsen_mobile_lock_timeout) ??
-        LockTimeoutOption.ONE.name;
-    return LockTimeoutSetting(LockTimeoutOption.values.byName(lockTimeout));
-  }
+  Future<bool> getAutoLock() async =>
+      (await vault.get(_karlsen_mobile_autolock) ?? _true) == _true;
 }

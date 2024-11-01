@@ -35,11 +35,34 @@ const kKarlsenExplorerMainnet = BlockExplorer(
   txUrl: 'https://explorer.karlsencoin.com/txs/$kParamPattern',
 );
 
-const kBlockExplorerOptions = {
-  KarlsenNetwork.mainnet: [
+const kKarlsenExplorerTestnet10 = BlockExplorer(
+  network: KarlsenNetwork.testnet,
+  name: 'Karlsen Explorer',
+  url: 'explorer.testnet-1.karlsencoin.com',
+  addressUrl:
+      'https://explorer.testnet-1.karlsencoin.com/addresses/$kParamPattern',
+  txUrl: 'https://explorer.testnet-1.karlsencoin.com/txs/$kParamPattern',
+);
+
+const kKarlsenExplorerTestnet11 = BlockExplorer(
+  network: KarlsenNetwork.testnet,
+  name: 'Karlsen Explorer',
+  url: 'explorer.testnet-11.karlsencoin.com',
+  addressUrl:
+      'hhttps://explorer.testnet-11.karlsencoin.com/addresses/$kParamPattern',
+  txUrl: 'https://explorer.testnet-11.karlsencoin.com/txs/$kParamPattern',
+);
+
+const kBlockExplorersOptions = <String, List<BlockExplorer>>{
+  kKarlsenNetworkIdMainnet: [
     kKarlsenExplorerMainnet,
   ],
-  KarlsenNetwork.testnet: [],
-  KarlsenNetwork.devnet: [],
-  KarlsenNetwork.simnet: [],
+  kKarlsenNetworkIdTestnet10: [
+    kKarlsenExplorerTestnet10,
+  ],
+  kKarlsenNetworkIdTestnet11: [
+    kKarlsenExplorerTestnet11,
+  ],
+  kKarlsenNetworkIdDevnet: [],
+  kKarlsenNetworkIdSimnet: [],
 };

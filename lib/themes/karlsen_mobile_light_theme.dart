@@ -4,39 +4,32 @@ import 'package:flutter/services.dart';
 import 'base_theme.dart';
 
 class KarlsenMobileLightTheme extends BaseTheme {
-  static const deepBlue = Color(0xFF4c5157);
-
-  static const green = Color(0xFF4c5157);
-
-  static const greenLight = Color(0xFF4c5157);
+  static const blue = Color(0xff3C6490);
+  static const blueDark = Color(0xff325578);
 
   static const white = Color(0xFFFFFFFF);
-
   static const whiteishDark = Color(0xFFecebf0);
-
   static const grey = Color(0xFF454868);
-
   static const black = Color(0xFF000000);
-
   static const darkDeepBlue = Color(0xFF2a2b38);
 
   bool isLightTheme = true;
 
-  Color primary = deepBlue;
-  Color primary60 = deepBlue.withOpacity(0.9);
-  Color primary45 = deepBlue.withOpacity(0.8);
-  Color primary30 = deepBlue.withOpacity(0.6);
-  Color primary20 = deepBlue.withOpacity(0.45);
-  Color primary15 = deepBlue.withOpacity(0.3);
-  Color primary10 = deepBlue.withOpacity(0.2);
+  Color primary = blueDark;
+  Color primary60 = blueDark.withOpacity(0.6);
+  Color primary45 = blueDark.withOpacity(0.45);
+  Color primary30 = blueDark.withOpacity(0.3);
+  Color primary20 = blueDark.withOpacity(0.2);
+  Color primary15 = blueDark.withOpacity(0.15);
+  Color primary10 = blueDark.withOpacity(0.1);
 
-  Color success = green;
-  Color success60 = green.withOpacity(0.6);
-  Color success30 = green.withOpacity(0.3);
-  Color success15 = green.withOpacity(0.15);
+  Color success = blue;
+  Color success60 = blue.withOpacity(0.6);
+  Color success30 = blue.withOpacity(0.3);
+  Color success15 = blue.withOpacity(0.15);
 
-  Color successDark = greenLight;
-  Color successDark30 = greenLight.withOpacity(0.3);
+  Color successDark = blueDark;
+  Color successDark30 = blueDark.withOpacity(0.3);
 
   Color background = white;
   Color background40 = white.withOpacity(0.4);

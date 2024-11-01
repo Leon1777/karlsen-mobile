@@ -1,12 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../util/karlsen_util.dart';
-import '../utils.dart';
+import '../karlsen/utils.dart';
 import 'intro_types.dart';
 
-String _computeSeed(String mnemonic) {
-  return KarlsenUtil.seedFromMnemonic(mnemonic);
+String _computeSeed(({String mnemonic, String passphrase}) data) {
+  final mnemonic = data.mnemonic;
+  final passphrase = data.passphrase;
+
+  return mnemonicToSeedHex(mnemonic, passphrase: passphrase);
 }
 
 class IntroDataNotifier extends StateNotifier<IntroData> {
@@ -25,16 +27,31 @@ class IntroDataNotifier extends StateNotifier<IntroData> {
 
   void generateNewMnemonic({int strength = 256}) {
     final mnemonic = generateMnemonic(strength: strength);
-    setMnemonic(mnemonic, generated: true, legacy: false);
+    setMnemonic(mnemonic, generated: true);
   }
 
-  void setMnemonic(String mnemonic,
-      {bool generated = false, bool legacy = false}) {
-    final seed = compute(_computeSeed, mnemonic, debugLabel: 'ComputeSeed');
+  void setMnemonic(String mnemonic, {bool generated = false}) {
+    if (mnemonic.isEmpty) {
+      throw Exception('Mnemonic can\'t be empty');
+    }
+
+    if (!isValidMnemonic(mnemonic, verifyChecksum: false)) {
+      throw Exception('Invalid mnemonic');
+    }
+
+    final passphrase = state.bip39Passphrase;
+    if (generated && passphrase.isNotEmpty) {
+      throw Exception('Can\'t use passphrase with generated mnemonic');
+    }
+
+    final seed = compute(
+      _computeSeed,
+      (mnemonic: mnemonic, passphrase: passphrase),
+      debugLabel: 'ComputeSeed',
+    );
     state = state.copyWith(
       mnemonic: mnemonic,
       generated: generated,
-      legacy: legacy,
       seed: seed,
       kpub: null,
     );
@@ -62,11 +79,17 @@ class IntroDataNotifier extends StateNotifier<IntroData> {
     state = state.copyWith(pin: pin);
   }
 
-  void clear() {
-    state = const IntroData();
+  void setLegacyWallet() {
+    state = state.copyWith(isLegacyWallet: true);
   }
 
-  void restore(IntroData introData) {
-    state = introData;
+  void setBip39Passphrase(String bip39Passphrase) {
+    state = state.copyWith(
+      bip39Passphrase: bip39Passphrase,
+    );
+  }
+
+  void clear() {
+    state = const IntroData();
   }
 }

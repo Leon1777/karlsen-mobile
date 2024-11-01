@@ -26,7 +26,7 @@ class NanoCrypt {
 
   /// Encrypts a value using AES/CBC/PKCS7
   /// KDF is Sha256KDF if not specified
-  static Uint8List encrypt(dynamic value, String password, {KDF? kdf}) {
+  static Uint8List encrypt(Uint8List value, String password, {KDF? kdf}) {
     kdf = kdf ?? Sha256KDF();
     Uint8List valBytes = Uint8List.fromList(value);
 

@@ -1,13 +1,5 @@
 import 'types.dart';
 
-export 'karlsen_api_mainnet.dart';
-
-enum ResolvePreviousOutpoints {
-  no,
-  light,
-  full,
-}
-
 abstract class KarlsenApi {
   Future<ApiAddressBalance> getBalance({
     required String address,

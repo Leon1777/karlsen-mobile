@@ -12,16 +12,15 @@ class BlockExplorerSettings with _$BlockExplorerSettings {
 
   const factory BlockExplorerSettings({
     @Default(const {
-      KarlsenNetwork.mainnet: kKarlsenExplorerMainnet,
-      KarlsenNetwork.testnet: kKarlsenExplorerMainnet,
-      KarlsenNetwork.devnet: kKarlsenExplorerMainnet,
-      KarlsenNetwork.simnet: kKarlsenExplorerMainnet,
+      kKarlsenNetworkIdMainnet: kKarlsenExplorerMainnet,
+      kKarlsenNetworkIdTestnet10: kKarlsenExplorerTestnet10,
+      kKarlsenNetworkIdTestnet11: kKarlsenExplorerTestnet11,
     })
-    Map<KarlsenNetwork, BlockExplorer> selection,
+    Map<String, BlockExplorer> selection,
   }) = _BlockExplorerSettings;
 
-  BlockExplorer explorerForNetwork(KarlsenNetwork network) {
-    return selection[network] ?? kKarlsenExplorerMainnet;
+  BlockExplorer explorerForNetwork(String networkId) {
+    return selection[networkId] ?? kKarlsenExplorerMainnet;
   }
 
   factory BlockExplorerSettings.fromJson(Map<String, dynamic> json) =>

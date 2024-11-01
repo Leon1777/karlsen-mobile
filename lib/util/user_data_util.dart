@@ -2,13 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:validators/validators.dart';
 
+import '../app_router.dart';
 import '../karlsen/karlsen.dart';
 import '../widgets/qr_scanner_widget.dart';
-import 'karlsen_util.dart';
 
-enum DataType { RAW, URL, ADDRESS, SEED }
+enum DataType { RAW, URL, ADDRESS }
 
 String sanitizeUri(String uri, String scheme) {
   if (isIP(uri)) {
@@ -39,11 +40,6 @@ class UserDataUtil {
       if (address != null) {
         return address.encoded;
       }
-    } else if (type == DataType.SEED) {
-      // Check if valid seed
-      if (KarlsenUtil.isValidSeed(data)) {
-        return data;
-      }
     }
     return null;
   }
@@ -57,11 +53,10 @@ class UserDataUtil {
     return _parseData(text, type);
   }
 
-  static Future<String?> scanQrCode(BuildContext context) async {
-    final result = await Navigator.of(context).push<String>(
-      MaterialPageRoute(builder: (BuildContext context) {
-        return const QrScannerWidget();
-      }),
+  static Future<Barcode?> scanQrCode(BuildContext context) async {
+    final result = await appRouter.push(
+      context,
+      MaterialPageRoute<Barcode>(builder: (context) => const QrScannerWidget()),
     );
     return result;
   }

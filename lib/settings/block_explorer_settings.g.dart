@@ -9,27 +9,18 @@ part of 'block_explorer_settings.dart';
 _$BlockExplorerSettingsImpl _$$BlockExplorerSettingsImplFromJson(Map json) =>
     _$BlockExplorerSettingsImpl(
       selection: (json['selection'] as Map?)?.map(
-            (k, e) => MapEntry($enumDecode(_$KarlsenNetworkEnumMap, k),
+            (k, e) => MapEntry(k as String,
                 BlockExplorer.fromJson(Map<String, dynamic>.from(e as Map))),
           ) ??
           const {
-            KarlsenNetwork.mainnet: kKarlsenExplorerMainnet,
-            KarlsenNetwork.testnet: kKarlsenExplorerMainnet,
-            KarlsenNetwork.devnet: kKarlsenExplorerMainnet,
-            KarlsenNetwork.simnet: kKarlsenExplorerMainnet
+            kKarlsenNetworkIdMainnet: kKarlsenExplorerMainnet,
+            kKarlsenNetworkIdTestnet10: kKarlsenExplorerTestnet10,
+            kKarlsenNetworkIdTestnet11: kKarlsenExplorerTestnet11
           },
     );
 
 Map<String, dynamic> _$$BlockExplorerSettingsImplToJson(
         _$BlockExplorerSettingsImpl instance) =>
     <String, dynamic>{
-      'selection': instance.selection
-          .map((k, e) => MapEntry(_$KarlsenNetworkEnumMap[k]!, e.toJson())),
+      'selection': instance.selection.map((k, e) => MapEntry(k, e.toJson())),
     };
-
-const _$KarlsenNetworkEnumMap = {
-  KarlsenNetwork.mainnet: 'mainnet',
-  KarlsenNetwork.testnet: 'testnet',
-  KarlsenNetwork.devnet: 'devnet',
-  KarlsenNetwork.simnet: 'simnet',
-};

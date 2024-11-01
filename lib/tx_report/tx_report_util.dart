@@ -27,7 +27,7 @@ String getCsvHeader(AppLocalizations l10n) {
   return header;
 }
 
-String getCsvForItem(TxReportItem item) {
+String getCsvForItem(TxReportItem item, String klsSymbol) {
   final txDate = DateTime.fromMillisecondsSinceEpoch(item.timestamp);
   final formater = DateFormat('yyyy-MM-dd HH:mm:ss');
   final date = formater.format(txDate);
@@ -35,11 +35,11 @@ String getCsvForItem(TxReportItem item) {
   final line = [
     date,
     item.sendAmount,
-    'KLS',
+    klsSymbol,
     item.receiveAmount,
-    'KLS',
+    klsSymbol,
     item.fee,
-    'KLS',
+    klsSymbol,
     item.label,
     item.description,
     item.txHash,

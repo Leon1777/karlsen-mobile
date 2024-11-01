@@ -1,9 +1,11 @@
+import 'package:barcode_finder/barcode_finder.dart' as bf;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 import '../app_providers.dart';
+import '../app_router.dart';
 import '../l10n/l10n.dart';
 import '../util/platform.dart';
 import '../util/ui_util.dart';
@@ -18,19 +20,21 @@ class QrScannerWidget extends ConsumerStatefulWidget {
 
 class _QrScannerWidgetState extends ConsumerState<QrScannerWidget> {
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-  String? result;
-  MobileScannerController controller = MobileScannerController();
+  Barcode? result;
+  QRViewController? controller;
   bool _shouldScan = true;
   bool _flashOn = false;
+  bool _flashToggled = false;
+  bool _checkedPermission = false;
 
   @override
   void reassemble() {
     super.reassemble();
 
     if (kPlatformIsAndroid) {
-      controller.stop();
+      controller?.pauseCamera();
     } else if (kPlatformIsIOS) {
-      controller.start();
+      controller?.resumeCamera();
     }
   }
 
@@ -63,12 +67,11 @@ class _QrScannerWidgetState extends ConsumerState<QrScannerWidget> {
         return;
       }
       try {
-        final barcode = await controller.analyzeImage(file.path);
-        if (barcode == null || barcode.barcodes.isEmpty) {
-          throw Exception(l10n.emptyResult);
-        }
-        result = barcode.barcodes.first.rawValue;
-        Navigator.of(context).pop(result);
+        // removed 'formats' parameter
+        final code = await bf.BarcodeFinder.scanFile(path: file.path);
+        if (code == null) throw Exception(l10n.emptyResult);
+        result = Barcode(code, BarcodeFormat.qrcode, null);
+        appRouter.pop(context, withResult: result);
       } catch (e) {
         UIUtil.showSnackbar(l10n.noQrCodeFound, context);
       }
@@ -76,32 +79,35 @@ class _QrScannerWidgetState extends ConsumerState<QrScannerWidget> {
     }
 
     Future<void> toggleFlash() async {
+      if (_flashToggled) return;
+      var flashState = _flashOn;
       try {
-        _flashOn = !_flashOn;
-        controller.toggleTorch();
-        setState(() {});
+        controller?.toggleFlash();
+        flashState = await controller?.getFlashStatus() ?? false;
       } catch (e) {
-        UIUtil.showSnackbar('Failed to toggle flash', context);
+        flashState = false;
       }
+      if (_flashOn != flashState) {
+        setState(() {
+          _flashOn = flashState;
+        });
+      }
+      _flashToggled = false;
     }
 
     return Scaffold(
       body: Stack(children: [
-        MobileScanner(
+        QRView(
           key: qrKey,
-          controller: controller,
-          onDetect: (barcodeCapture) {
-            final barcodes = barcodeCapture.barcodes;
-            if (barcodes.isNotEmpty && _shouldScan) {
-              _shouldScan = false;
-              result = barcodes.first.rawValue;
-              Navigator.of(context).pop(result);
-            }
-          },
-          scanWindow: Rect.fromCenter(
-            center: Offset(scanArea, scanArea),
-            width: scanArea,
-            height: scanArea,
+          onQRViewCreated: _onQRViewCreated,
+          onPermissionSet: _onPermissionSet,
+          formatsAllowed: [BarcodeFormat.qrcode],
+          overlay: QrScannerOverlayShape(
+            borderColor: Colors.white,
+            borderRadius: 10,
+            borderLength: 30,
+            borderWidth: 10,
+            cutOutSize: scanArea,
           ),
         ),
         SafeArea(
@@ -116,7 +122,7 @@ class _QrScannerWidgetState extends ConsumerState<QrScannerWidget> {
                     AppIconButton(
                       icon: Icons.arrow_back,
                       color: Colors.white,
-                      onPressed: () => Navigator.of(context).pop(),
+                      onPressed: () => appRouter.pop(context),
                     ),
                     Text(
                       l10n.scanQrCode,
@@ -157,9 +163,34 @@ class _QrScannerWidgetState extends ConsumerState<QrScannerWidget> {
     );
   }
 
+  void _onPermissionSet(QRViewController ctrl, bool p) {
+    if (!p && !_checkedPermission && context.mounted) {
+      _checkedPermission = true;
+      if (kPlatformIsAndroid) {
+        appRouter.pop(context);
+      }
+
+      final l10n = l10nOf(context);
+      UIUtil.showSnackbar(l10n.checkCameraPermission, context);
+    }
+  }
+
+  void _onQRViewCreated(QRViewController _controller) async {
+    controller = _controller;
+    if (kPlatformIsAndroid) {
+      await _controller.resumeCamera();
+    }
+    _controller.scannedDataStream.listen((event) {
+      if (result == null && _shouldScan) {
+        result = event;
+        appRouter.pop(context, withResult: result);
+      }
+    });
+  }
+
   @override
   void dispose() {
-    controller.dispose();
+    controller?.dispose();
     super.dispose();
   }
 }

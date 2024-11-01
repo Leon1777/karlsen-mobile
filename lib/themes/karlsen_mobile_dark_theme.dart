@@ -4,17 +4,10 @@ import 'package:flutter/services.dart';
 import 'base_theme.dart';
 
 class KarlsenMobileDarkTheme extends BaseTheme {
-  static const brightBlue = Color(0xff93939a);
+  static const blue = Color(0xff3C6490);
+  static const blueDark = Color(0xff325578);
 
-  static const green = Color(0xff777782);
-
-  static const greenDark = Color(0xff93939a);
-
-  static const blueishGreyDark = Color(0xff232323);
-
-  static const blueishGreyLight = Color(0xff323232);
-
-  static const blueishGreyDarkest = Color(0xff232323);
+  static const graphiteNight = Color.fromARGB(255, 28, 28, 30);
 
   static const white = Color(0xffffffff);
 
@@ -22,30 +15,30 @@ class KarlsenMobileDarkTheme extends BaseTheme {
 
   bool isLightTheme = false;
 
-  Color primary = brightBlue;
-  Color primary60 = brightBlue.withOpacity(0.6);
-  Color primary45 = brightBlue.withOpacity(0.45);
-  Color primary30 = brightBlue.withOpacity(0.3);
-  Color primary20 = brightBlue.withOpacity(0.2);
-  Color primary15 = brightBlue.withOpacity(0.15);
-  Color primary10 = brightBlue.withOpacity(0.1);
+  Color primary = blueDark;
+  Color primary60 = blueDark.withOpacity(0.6);
+  Color primary45 = blueDark.withOpacity(0.45);
+  Color primary30 = blueDark.withOpacity(0.3);
+  Color primary20 = blueDark.withOpacity(0.2);
+  Color primary15 = blueDark.withOpacity(0.15);
+  Color primary10 = blueDark.withOpacity(0.1);
 
-  Color success = green;
-  Color success60 = green.withOpacity(0.6);
-  Color success30 = green.withOpacity(0.3);
-  Color success15 = green.withOpacity(0.15);
+  Color success = blue;
+  Color success60 = blue.withOpacity(0.6);
+  Color success30 = blue.withOpacity(0.3);
+  Color success15 = blue.withOpacity(0.15);
 
-  Color successDark = greenDark;
-  Color successDark30 = greenDark.withOpacity(0.3);
+  Color successDark = blueDark;
+  Color successDark30 = blueDark.withOpacity(0.3);
 
-  Color background = blueishGreyDark;
-  Color background40 = blueishGreyDark.withOpacity(0.4);
-  Color background00 = blueishGreyDark.withOpacity(0.0);
+  Color background = graphiteNight;
+  Color background40 = graphiteNight.withOpacity(0.4);
+  Color background00 = graphiteNight.withOpacity(0.0);
 
-  Color backgroundDark = blueishGreyLight;
-  Color backgroundDark00 = blueishGreyLight.withOpacity(0.0);
+  Color backgroundDark = graphiteNight;
+  Color backgroundDark00 = graphiteNight.withOpacity(0.0);
 
-  Color backgroundDarkest = blueishGreyDarkest;
+  Color backgroundDarkest = graphiteNight;
 
   Color text = white.withOpacity(0.9);
   Color text60 = white.withOpacity(0.6);
