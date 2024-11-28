@@ -32,6 +32,17 @@ class BoxInfo with _$BoxInfo {
 }
 
 @freezed
+class BoxInfoBundle with _$BoxInfoBundle {
+  const factory BoxInfoBundle({
+    @Default({}) Map<String, BoxInfo> byNetworkId,
+    @Default(false) bool wasMigrated,
+  }) = _BoxInfoBundle;
+
+  factory BoxInfoBundle.fromJson(Map<String, dynamic> json) =>
+      _$BoxInfoBundleFromJson(json);
+}
+
+@freezed
 class BoxInfoByNetwork with _$BoxInfoByNetwork {
   const BoxInfoByNetwork._();
   const factory BoxInfoByNetwork({
@@ -70,8 +81,9 @@ class WalletKind with _$WalletKind {
     @Default(false) bool viewOnly,
   }) = _WalletKindLocalHdEcdsa;
 
-  const factory WalletKind.localHdLegacy({required String mainPubKey}) =
-      _WalletKindLocalHdLegacy;
+  const factory WalletKind.localHdLegacy({
+    required String mainPubKey,
+  }) = _WalletKindLocalHdLegacy;
 
   factory WalletKind.fromJson(Map<String, dynamic> json) =>
       _$WalletKindFromJson(json);
@@ -97,15 +109,14 @@ class WalletKind with _$WalletKind {
 
 @freezed
 class WalletInfo with _$WalletInfo {
-  const WalletInfo._();
-  const factory WalletInfo({
+  WalletInfo._();
+  factory WalletInfo({
     required String name,
     @Default(WalletKind.localHdSchnorr()) WalletKind kind,
     required String wid,
-    required bool legacy,
-    required BoxInfoByNetwork boxInfo,
-    // HDPublic key base58 encoded
-    required String mainnetPublicKey,
+    @deprecated BoxInfoByNetwork? boxInfo,
+    required String mainnetPublicKey, // HDPublic key base58 encoded
+    @Default(false) bool usesBip39Passphrase,
   }) = _WalletInfo;
 
   factory WalletInfo.fromJson(Map<String, dynamic> json) =>
@@ -117,7 +128,9 @@ class WalletInfo with _$WalletInfo {
 
   bool get hasValidKpub => !kind.isLegacy;
 
-  BoxInfo getBoxInfo(KarlsenNetwork network) => boxInfo.getBoxInfo(network);
+  bool get canSetPassword => !kind.isViewOnly;
+
+  late final String settingsKey = hash('walletSettingsKey#${wid}');
 
   String hdPublicKey(KarlsenNetwork network) {
     if (network == KarlsenNetwork.mainnet) {
@@ -162,9 +175,10 @@ class WalletData with _$WalletData {
     required String name,
     required WalletKind kind,
     required String seed,
+    required bool usesBip39Passphrase,
     String? mnemonic,
     String? password,
-  }) = _WalletDataMnemonic;
+  }) = _WalletDataSeed;
 
   const factory WalletData.kpub({
     required String name,

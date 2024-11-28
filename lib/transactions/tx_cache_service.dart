@@ -18,7 +18,7 @@ class TxCacheService {
   // A cache of transactions that are currently loaded in memory
   final memCache = <String, ApiTransaction>{};
 
-  late final KarlsenApiService api;
+  late KarlsenApiService api;
   final Logger log;
 
   int get txCount => _txIndex.length;
@@ -99,7 +99,7 @@ class TxCacheService {
     return tx;
   }
 
-  Future<Iterable<Tx>> _txsForApiTxs(Iterable<ApiTransaction> apiTxs) async {
+  Future<Iterable<Tx>> txsForApiTxs(Iterable<ApiTransaction> apiTxs) async {
     await _cacheInputsFor(apiTxs);
 
     final txs = apiTxs.map(_txForApiTx);
@@ -110,7 +110,7 @@ class TxCacheService {
   Future<List<Tx>> cacheWalletTxs(Iterable<ApiTransaction> apiTxs) async {
     memCache.addEntries(apiTxs.map((e) => MapEntry(e.transactionId, e)));
 
-    final txs = (await _txsForApiTxs(apiTxs)).toList();
+    final txs = (await txsForApiTxs(apiTxs)).toList();
 
     final txIndexes = txs.map(
       (tx) => TxIndex(
@@ -163,9 +163,8 @@ class TxCacheService {
   int get _refreshTimestamp => DateTime.now().toUtc().millisecondsSinceEpoch;
 
   bool _needsRefresh(Tx tx) {
-    final isCoinbase = tx.apiTx.inputs.isEmpty;
-    final delta = Duration(seconds: isCoinbase ? 100 : 10).inMilliseconds;
-    final notFresh = _refreshTimestamp > tx.lastUpdate + 2000;
+    final delta = Duration(seconds: 100).inMilliseconds;
+    final notFresh = _refreshTimestamp > tx.lastUpdate + 3000;
     final needsRefresh = tx.lastUpdate < tx.apiTx.blockTime + delta;
     return notFresh && needsRefresh;
   }

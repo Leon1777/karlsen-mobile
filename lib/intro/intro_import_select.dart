@@ -68,11 +68,6 @@ class IntroImportSelect extends ConsumerWidget {
     final styles = ref.watch(stylesProvider);
     final l10n = l10nOf(context);
 
-    void importWalletLegacyDerivation() {
-      final notifier = ref.read(introStateProvider.notifier);
-      notifier.importWalletLegacyDerivation();
-    }
-
     void importWallet() {
       final notifier = ref.read(introStateProvider.notifier);
       notifier.importWallet();
@@ -134,18 +129,13 @@ class IntroImportSelect extends ConsumerWidget {
               ),
             ),
             ImportWalletTypeCard(
-              title: l10n.importOption24WordsTitle,
-              description: l10n.importOption24WordsDescription,
+              title: l10n.importOptionStandardWalletTitle,
+              description: l10n.importOptionStandardWalletDescription,
               onPressed: importWallet,
             ),
             ImportWalletTypeCard(
-              title: l10n.importOption24WordsLegacyTitle,
-              description: l10n.importOption24WordsLegacyDescription,
-              onPressed: importWalletLegacyDerivation,
-            ),
-            ImportWalletTypeCard(
-              title: l10n.importOption12WordsTitle,
-              description: l10n.importOption12WordsDescription,
+              title: l10n.importOptionLegacyWalletTitle,
+              description: l10n.importOptionLegacyWalletDescription,
               onPressed: importLegacyWallet,
             ),
             ImportWalletTypeCard(

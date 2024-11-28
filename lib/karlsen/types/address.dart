@@ -3,7 +3,8 @@ import 'dart:typed_data';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../bech32/bech32.dart' as bech32;
-import '../karlsen.dart';
+import '../utils.dart';
+import 'address_prefix.dart';
 
 part 'address.freezed.dart';
 
@@ -103,9 +104,9 @@ class Address with _$Address {
 
   Uint8List scriptAddress() {
     return when(
-      publicKey: (_, publicKey) => publicKey.asUnmodifiableView(),
-      pubKeyECDSA: (_, publicKey) => publicKey.asUnmodifiableView(),
-      scriptHash: (_, hash) => hash.asUnmodifiableView(),
+      publicKey: (_, publicKey) => Uint8List.fromList(publicKey),
+      pubKeyECDSA: (_, publicKey) => Uint8List.fromList(publicKey),
+      scriptHash: (_, hash) => Uint8List.fromList(hash),
     );
   }
 

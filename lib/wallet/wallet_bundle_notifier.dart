@@ -1,10 +1,8 @@
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../database/database.dart';
 import '../karlsen/karlsen.dart';
 import '../util/random_util.dart';
-import '../utils.dart';
 import 'wallet_repository.dart';
 import 'wallet_types.dart';
 import 'wallet_vault.dart';
@@ -24,24 +22,24 @@ class WalletBundleNotifier extends StateNotifier<WalletBundle> {
     state = state.copyWith(wallets: wallets);
   }
 
-  Future<void> selectWallet(WalletInfo wallet, KarlsenNetwork network) =>
-      switchWallet(wallet, network);
+  Future<void> selectWallet(WalletInfo wallet, String networkId) =>
+      switchWallet(wallet, networkId);
 
-  Future<void> logout(KarlsenNetwork network) async {
+  Future<void> logout(String networkId) async {
     final wallet = state.selected;
     if (wallet == null) {
       return;
     }
 
     await _updateSelectedWallet(null);
-    await repository.closeWalletBoxes(wallet, network: network);
+    await repository.closeWalletBoxes(wallet, networkId: networkId);
   }
 
-  Future<void> switchWallet(WalletInfo wallet, KarlsenNetwork network) async {
+  Future<void> switchWallet(WalletInfo wallet, String networkId) async {
     final oldWallet = state.selected;
     await _updateSelectedWallet(wallet);
     if (oldWallet != null) {
-      await repository.closeWalletBoxes(oldWallet, network: network);
+      await repository.closeWalletBoxes(oldWallet, networkId: networkId);
     }
   }
 
@@ -54,64 +52,14 @@ class WalletBundleNotifier extends StateNotifier<WalletBundle> {
     await _updateWallets(wallets.add(wallet));
   }
 
-  static WalletInfo generateWalletInfo(
-    WalletData walletData, {
-    required bool legacy,
-  }) {
+  static WalletInfo generateWalletInfo(WalletData walletData) {
     final wid = RandomUtil.generateKey();
-
-    BoxInfo genBoxInfo({
-      required String wid,
-      required KarlsenNetwork network,
-    }) {
-      final addressBoxKey =
-          digest(data: stringToBytesUtf8('addressBoxKey#$network#$wid')).hex;
-      final balanceBoxKey =
-          digest(data: stringToBytesUtf8('balanceBoxKey#$network#$wid')).hex;
-      final utxoBoxKey =
-          digest(data: stringToBytesUtf8('utxoBoxKey#$network#$wid')).hex;
-      final txIndexBoxKey =
-          digest(data: stringToBytesUtf8('txIndexBoxKey#$network#$wid')).hex;
-      final txBoxKey =
-          digest(data: stringToBytesUtf8('txBoxKey#$network#$wid')).hex;
-
-      return BoxInfo(
-        address: BoxKeys(
-          boxKey: addressBoxKey,
-          encryptionKey: Database.generateSecureKey(),
-        ),
-        balance: BoxKeys(
-          boxKey: balanceBoxKey,
-          encryptionKey: Database.generateSecureKey(),
-        ),
-        utxo: BoxKeys(
-          boxKey: utxoBoxKey,
-          encryptionKey: Database.generateSecureKey(),
-        ),
-        txIndex: BoxKeys(
-          boxKey: txIndexBoxKey,
-          encryptionKey: Database.generateSecureKey(),
-        ),
-        tx: BoxKeys(
-          boxKey: txBoxKey,
-          encryptionKey: Database.generateSecureKey(),
-        ),
-      );
-    }
-
-    final boxInfo = BoxInfoByNetwork(
-      mainnet: genBoxInfo(wid: wid, network: KarlsenNetwork.mainnet),
-      testnet: genBoxInfo(wid: wid, network: KarlsenNetwork.testnet),
-      devnet: genBoxInfo(wid: wid, network: KarlsenNetwork.devnet),
-      simnet: genBoxInfo(wid: wid, network: KarlsenNetwork.simnet),
-    );
 
     final mainnetPublicKey = walletData.map(
       seed: (data) {
         final seed = hexToBytes(data.seed);
         return HdWallet.hdPublicKeyFromSeed(
           seed,
-          legacy: legacy,
           networkType: karlsenMainnet,
         );
       },
@@ -123,21 +71,22 @@ class WalletBundleNotifier extends StateNotifier<WalletBundle> {
       },
     );
 
+    final usesBip39Passphrase = walletData.map(
+      seed: (data) => data.usesBip39Passphrase,
+      kpub: (data) => false,
+    );
+
     return WalletInfo(
       name: walletData.name,
       kind: walletData.kind,
       wid: wid,
-      legacy: legacy,
-      boxInfo: boxInfo,
       mainnetPublicKey: mainnetPublicKey,
+      usesBip39Passphrase: usesBip39Passphrase,
     );
   }
 
-  Future<WalletInfo> setupWallet(
-    WalletData walletData, {
-    required bool legacy,
-  }) async {
-    final wallet = generateWalletInfo(walletData, legacy: legacy);
+  Future<WalletInfo> setupWallet(WalletData walletData) async {
+    final wallet = generateWalletInfo(walletData);
 
     await walletData.mapOrNull(seed: (data) async {
       final walletVault = WalletVault(wallet.wid, repository.vault);
@@ -162,14 +111,7 @@ class WalletBundleNotifier extends StateNotifier<WalletBundle> {
     await walletVault.delete();
 
     // remove wallet boxes
-    for (final network in KarlsenNetwork.values) {
-      final boxInfo = wallet.getBoxInfo(network);
-      await Database.removeBox(boxInfo.address.boxKey);
-      await Database.removeBox(boxInfo.balance.boxKey);
-      await Database.removeBox(boxInfo.utxo.boxKey);
-      await Database.removeBox(boxInfo.txIndex.boxKey);
-      await Database.removeBox(boxInfo.tx.boxKey);
-    }
+    await repository.removeWalletBoxes(wallet);
 
     // remove wallet from bundle
     final wallets = state.wallets?.remove(wallet) ?? IList(const []);

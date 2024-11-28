@@ -4,16 +4,16 @@ Karlsen Mobile is a non-custodial wallet for the [Karlsen](https://www.karlsenco
 BlockDAG, available for Android and iOS. It is written in
 [Dart](https://dart.dev) using [Flutter](https://flutter.dev).
 
-| Link                                                     | Description              |
-|:---------------------------------------------------------|:-------------------------|
-| [karlsencoin.com](https://www.karlsencoin.com/)          | Karlsen Network Homepage |
+| Link                                            | Description              |
+| :---------------------------------------------- | :----------------------- |
+| [karlsencoin.com](https://www.karlsencoin.com/) | Karlsen Network Homepage |
 
 ## Contributing
 
-* Fork the repository and clone it to your local machine.
-* Follow the instructions [here](https://flutter.io/docs/get-started/install)
+- Fork the repository and clone it to your local machine.
+- Follow the instructions [here](https://flutter.io/docs/get-started/install)
   to install the Flutter SDK
-* Setup [Android Studio](https://flutter.io/docs/development/tools/android-studio)
+- Setup [Android Studio](https://flutter.io/docs/development/tools/android-studio)
   or [Visual Studio Code](https://flutter.io/docs/development/tools/vs-code)
 
 ## Building
@@ -22,6 +22,11 @@ Android:
 
 ```bash
 flutter build apk
+```
+
+To generate split APKs for different target architectures:
+```bash
+flutter build apk --split-per-abi
 ```
 
 iOS:
@@ -37,7 +42,7 @@ Debug mode:
 
 ```bash
 flutter run
-``` 
+```
 
 Release mode:
 
@@ -79,5 +84,5 @@ You’re also welcome to join our Discord server for additional support and comm
 ## Screenshots
 
 | ![](assets/images/android-1.png) | ![](assets/images/android-2.png) | ![](assets/images/android-3.png) |
-|----------------------------------|----------------------------------|----------------------------------|
+| -------------------------------- | -------------------------------- | -------------------------------- |
 | ![](assets/images/android-4.png) | ![](assets/images/android-5.png) | ![](assets/images/android-6.png) |

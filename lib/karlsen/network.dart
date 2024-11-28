@@ -1,5 +1,16 @@
 import 'bip32/bip32.dart';
 
+const String kKarlsenNetworkMainnet = 'mainnet';
+const String kKarlsenNetworkTestnet = 'testnet';
+const String kKarlsenNetworkSimnet = 'simnet';
+const String kKarlsenNetworkDevnet = 'devnet';
+
+const String kKarlsenNetworkIdMainnet = '$kKarlsenNetworkMainnet';
+const String kKarlsenNetworkIdTestnet10 = '$kKarlsenNetworkTestnet-10';
+const String kKarlsenNetworkIdTestnet11 = '$kKarlsenNetworkTestnet-11';
+const String kKarlsenNetworkIdSimnet = '$kKarlsenNetworkSimnet';
+const String kKarlsenNetworkIdDevnet = '$kKarlsenNetworkDevnet';
+
 const int kMainnetRpcPort = 42110;
 const int kTestnetPpcPort = 42210;
 const int kSimnetRpcPort = 42510;
@@ -9,20 +20,31 @@ enum KarlsenNetwork {
   mainnet,
   testnet,
   devnet,
-  simnet,
-}
+  simnet;
 
-int portForNetwork(KarlsenNetwork network) {
-  switch (network) {
-    case KarlsenNetwork.mainnet:
-      return kMainnetRpcPort;
-    case KarlsenNetwork.testnet:
-      return kTestnetPpcPort;
-    case KarlsenNetwork.simnet:
-      return kSimnetRpcPort;
-    case KarlsenNetwork.devnet:
-      return kDevnetRpcPort;
+  static KarlsenNetwork? tryParse(String network) {
+    return switch (network) {
+      kKarlsenNetworkMainnet => KarlsenNetwork.mainnet,
+      kKarlsenNetworkTestnet => KarlsenNetwork.testnet,
+      kKarlsenNetworkSimnet => KarlsenNetwork.simnet,
+      kKarlsenNetworkDevnet => KarlsenNetwork.devnet,
+      _ => null,
+    };
   }
+
+  String idWithSuffix([String suffix = '']) {
+    if (suffix.isNotEmpty) {
+      return name + '-$suffix';
+    }
+    return name;
+  }
+
+  int get defaultRpcPort => switch (this) {
+        KarlsenNetwork.mainnet => kMainnetRpcPort,
+        KarlsenNetwork.testnet => kTestnetPpcPort,
+        KarlsenNetwork.simnet => kSimnetRpcPort,
+        KarlsenNetwork.devnet => kDevnetRpcPort
+      };
 }
 
 KarlsenNetwork networkForPort(int port) {

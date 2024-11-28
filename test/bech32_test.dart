@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:karlsen_mobile/karlsen/bech32/bech32.dart';
 import 'package:karlsen_mobile/karlsen/karlsen.dart';
-import 'package:karlsen_mobile/utils.dart';
 
 const checkEncodingStringTests = [
   ["a", "0", "", "a:qqeq69uvrh"],
